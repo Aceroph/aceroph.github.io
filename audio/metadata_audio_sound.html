@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="An {AUDIO_SOUND} file format that can contain metadatas"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>metadata_audio_sound Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="metadata_audio_sound_chart.html">Chart</a>
+<a class="nav class" href="metadata_audio_sound_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="metadata_audio_sound"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;An </span><a class="eclass" href="../audio_3d/audio_sound.html">AUDIO_SOUND</a><span class="estring"> file format that can contain metadatas&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Wed, 22 Feb 2017 03:42:57 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;0.1&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../audio_3d/metadata_audio_sound.html">METADATA_AUDIO_SOUND</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../audio_3d/audio_sound.html">AUDIO_SOUND</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_title"></a><a class="efeature" href="../audio_3d/metadata_audio_sound.html#f_title">title</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The readable identifier of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'title' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_artist"></a><a class="efeature" href="../audio_3d/metadata_audio_sound.html#f_artist">artist</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the creator of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'artist' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_album"></a><a class="efeature" href="../audio_3d/metadata_audio_sound.html#f_album">album</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The media that </span><span class="equoted">Current</span><span class="ecomment"> is from</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'album' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_date"></a><a class="efeature" href="../audio_3d/metadata_audio_sound.html#f_date">date</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The creation's date of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'date' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_genre"></a><a class="efeature" href="../audio_3d/metadata_audio_sound.html#f_genre">genre</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The conventional category of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'genre' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_comment"></a><a class="efeature" href="../audio_3d/metadata_audio_sound.html#f_comment">comment</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> Anything that can be add to the definition of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'comment' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_track_number"></a><a class="efeature" href="../audio_3d/metadata_audio_sound.html#f_track_number">track_number</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of </span><span class="equoted">Current</span><span class="ecomment"> in the </span><a class="efeature" href="../audio_3d/metadata_audio_sound.html#f_album">album</a>
+			<span class="ecomment">--</span><span class="ecomment"> 0 if no 'track_number' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../audio_3d/metadata_audio_sound.html">METADATA_AUDIO_SOUND</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="metadata_audio_sound_chart.html">Chart</a>
+<a class="nav class" href="metadata_audio_sound_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="metadata_audio_sound"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

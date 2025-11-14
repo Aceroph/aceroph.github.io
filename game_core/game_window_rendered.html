@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A {GAME_WINDOW} that is rendered by a {GAME_RENDERER_DRIVER}."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_window_rendered Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_rendered_chart.html">Chart</a>
+<a class="nav class" href="game_window_rendered_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_window_rendered"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A </span><a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a><span class="estring"> that is rendered by a </span><span class="esymbol">{</span><a class="eclass" href="../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 26 Mar 2015 19:48:35 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_core/graphic/game_window_rendered.html">GAME_WINDOW_RENDERED</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_dispose">dispose</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../game_core/graphic/game_render_target.html">GAME_RENDER_TARGET</a>
+		<span class="ekeyword">undefine</span>
+			<a class="efeature" href="../elks/any.html#f_default_create">default_create</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/graphic/game_window.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_make_from_constraint">make_from_constraint</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_make_from_driver">make_from_driver</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make_from_constraint"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_make_from_constraint">make_from_constraint</a> <span class="esymbol">(</span><span class="elocal">a_title</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_display</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/graphic/game_display.html">GAME_DISPLAY</a><span class="esymbol">;</span> <span class="elocal">a_is_x_centered</span><span class="esymbol">,</span> <span class="elocal">a_is_y_centered</span><span class="esymbol">,</span> <span class="elocal">a_is_x_undefined</span><span class="esymbol">,</span> <span class="elocal">a_is_y_undefined</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">,</span> <span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_flags</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_must_renderer_support_target_texture</span><span class="esymbol">,</span> <span class="elocal">a_must_renderer_sync_update</span><span class="esymbol">,</span> <span class="elocal">a_must_renderer_be_software_rendering</span><span class="esymbol">,</span> <span class="elocal">a_must_be_hardware_accelerated</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization of a </span><span class="equoted">a_width</span><span class="ecomment">x</span><a class="efeature" href="../game_core/graphic/game_window.html#f_height">height</a><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> at position</span>
+			<span class="ecomment">--</span><span class="ecomment"> (</span><span class="equoted">a_x</span><span class="ecomment">,</span><span class="equoted">a_y</span><span class="ecomment">) using </span><span class="equoted">a_title</span><span class="ecomment"> as window caption, and</span>
+			<span class="ecomment">--</span><span class="ecomment"> using </span><span class="equoted">a_flags</span><span class="ecomment"> as internal attributes flags. If </span><span class="equoted">a_is_x_centered</span>
+			<span class="ecomment">--</span><span class="ecomment"> or </span><span class="equoted">a_is_y_centered</span><span class="ecomment"> are set, the position will be centered on</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_display</span><span class="ecomment">. If </span><span class="equoted">a_is_x_undefined</span><span class="ecomment"> or </span><span class="equoted">a_is_y_undefined</span><span class="ecomment"> are</span>
+			<span class="ecomment">--</span><span class="ecomment"> set, the position does not matter, but will be place on </span><span class="equoted">a_display</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_display</span><span class="ecomment"> is Void, the first found display will be used.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> will initially use </span><span class="equoted">a_renderer</span><span class="ecomment"> to draw image.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_must_support_target_texture</span><span class="ecomment"> is True, the rendering context</span>
+			<span class="ecomment">--</span><span class="ecomment"> must permit to target to a texture instead of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_must_sync_update</span><span class="ecomment"> is True, the </span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_update">update</a><span class="ecomment"> will wait for vsync before finishing.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_must_be_software_rendering</span><span class="ecomment"> is True, the renderer will always</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">game_screen_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+			<span class="etag">centered_or_undefine_x</span><span class="esymbol">:</span> <span class="elocal">a_is_x_centered</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_is_x_undefined</span>
+			<span class="etag">centered_or_undefine_y</span><span class="esymbol">:</span> <span class="elocal">a_is_y_centered</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_is_y_undefined</span>
+			<span class="etag">width_valid</span><span class="esymbol">:</span> <span class="elocal">a_width</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+			<span class="etag">height_valid</span><span class="esymbol">:</span> <span class="elocal">a_height</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/graphic/game_window.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_title</span><span class="esymbol">,</span> <span class="elocal">a_display</span><span class="esymbol">,</span> <span class="elocal">a_is_x_centered</span><span class="esymbol">,</span> <span class="elocal">a_is_y_centered</span><span class="esymbol">,</span> <span class="elocal">a_is_x_undefined</span><span class="esymbol">,</span> <span class="elocal">a_is_y_undefined</span><span class="esymbol">,</span> <span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">,</span> <span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">,</span> <span class="elocal">a_flags</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../game_core/graphic/game_window.html#f_exists">exists</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_create_renderer">create_renderer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_must_renderer_support_target_texture</span><span class="esymbol">,</span> <span class="elocal">a_must_renderer_sync_update</span><span class="esymbol">,</span> <span class="elocal">a_must_renderer_be_software_rendering</span><span class="esymbol">,</span> <span class="elocal">a_must_be_hardware_accelerated</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="ekeyword">as</span> la_renderer <span class="ekeyword">then</span>
+					<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="elocal">la_renderer</span><span class="edot">.</span><span class="nefeature">has_error</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">make_window_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window.html#f_exists">exists</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_driver"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_make_from_driver">make_from_driver</a> <span class="esymbol">(</span><span class="elocal">a_title</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_display</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/graphic/game_display.html">GAME_DISPLAY</a><span class="esymbol">;</span> <span class="elocal">a_is_x_centered</span><span class="esymbol">,</span> <span class="elocal">a_is_y_centered</span><span class="esymbol">,</span> <span class="elocal">a_is_x_undefined</span><span class="esymbol">,</span> <span class="elocal">a_is_y_undefined</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">,</span> <span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_flags</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_renderer_driver</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization of a </span><span class="equoted">a_width</span><span class="ecomment">x</span><a class="efeature" href="../game_core/graphic/game_window.html#f_height">height</a><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> at position</span>
+			<span class="ecomment">--</span><span class="ecomment"> (</span><span class="equoted">a_x</span><span class="ecomment">,</span><span class="equoted">a_y</span><span class="ecomment">) using </span><span class="equoted">a_title</span><span class="ecomment"> as window caption, and</span>
+			<span class="ecomment">--</span><span class="ecomment"> using </span><span class="equoted">a_flags</span><span class="ecomment"> as internal attributes flags. If </span><span class="equoted">a_is_x_centered</span>
+			<span class="ecomment">--</span><span class="ecomment"> or </span><span class="equoted">a_is_y_centered</span><span class="ecomment"> are set, the position will be centered on</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_display</span><span class="ecomment">. If </span><span class="equoted">a_is_x_undefined</span><span class="ecomment"> or </span><span class="equoted">a_is_y_undefined</span><span class="ecomment"> are</span>
+			<span class="ecomment">--</span><span class="ecomment"> set, the position does not matter, but will be place on </span><span class="equoted">a_display</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_display</span><span class="ecomment"> is Void, the first found display will be used.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> will initially use </span><span class="equoted">a_renderer</span><span class="ecomment"> to draw image.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">game_screen_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+			<span class="etag">centered_or_undefine_x</span><span class="esymbol">:</span> <span class="elocal">a_is_x_centered</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_is_x_undefined</span>
+			<span class="etag">centered_or_undefine_y</span><span class="esymbol">:</span> <span class="elocal">a_is_y_centered</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_is_y_undefined</span>
+			<span class="etag">width_valid</span><span class="esymbol">:</span> <span class="elocal">a_width</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+			<span class="etag">height_valid</span><span class="esymbol">:</span> <span class="elocal">a_height</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/graphic/game_window.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_title</span><span class="esymbol">,</span> <span class="elocal">a_display</span><span class="esymbol">,</span> <span class="elocal">a_is_x_centered</span><span class="esymbol">,</span> <span class="elocal">a_is_y_centered</span><span class="esymbol">,</span> <span class="elocal">a_is_x_undefined</span><span class="esymbol">,</span> <span class="elocal">a_is_y_undefined</span><span class="esymbol">,</span> <span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">,</span> <span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">,</span> <span class="elocal">a_flags</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../game_core/graphic/game_window.html#f_exists">exists</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_create_renderer_from_driver">create_renderer_from_driver</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_renderer_driver</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="ekeyword">as</span> la_renderer <span class="ekeyword">then</span>
+					<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="elocal">la_renderer</span><span class="edot">.</span><span class="nefeature">has_error</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">make_window_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window.html#f_exists">exists</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_renderer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer.html">GAME_RENDERER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The rendering context of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_core/graphic/game_window.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="ekeyword">as</span> la_renderer <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_renderer</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_create_default_renderer">create_default_renderer</a>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_renderer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_set_renderer">set_renderer</a> <span class="esymbol">(</span><span class="elocal">a_renderer</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer.html">GAME_RENDERER</a><span class="esymbol">)</span>
+		<span class="ekeyword">obsolete</span> &quot;Only one renderer valid for a {GAME_WINDOW} in the system.&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><span class="equoted">a_renderer</span><span class="ecomment"> to </span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_current_valid</span><span class="esymbol">:</span> <span class="elocal">a_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_original_target">original_target</a> <span class="esymbol">=</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="esymbol">:=</span> <span class="elocal">a_renderer</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a> <span class="esymbol">=</span> <span class="elocal">a_renderer</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_create_default_renderer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_create_default_renderer">create_default_renderer</a>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a><span class="ecomment"> with the first found </span><a class="eclass" href="../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_renderer</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer.html">GAME_RENDERER</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="ekeyword">as</span> la_renderer <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+					<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_destroyrenderer">sdl_destroyrenderer</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">la_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_dispose">dispose</a>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a> <span class="esymbol">:=</span> <span class="elocal">l_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_item">item</a>
+			<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="esymbol">:=</span> <span class="elocal">l_renderer</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_create_renderer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_create_renderer">create_renderer</a> <span class="esymbol">(</span><span class="elocal">a_must_support_target_texture</span><span class="esymbol">,</span> <span class="elocal">a_must_sync_update</span><span class="esymbol">,</span> <span class="elocal">a_must_be_software_rendering</span><span class="esymbol">,</span> <span class="elocal">a_must_be_hardware_accelerated</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a new rendering context for </span><span class="equoted">Current</span><span class="ecomment">. If </span><span class="equoted">a_must_support_target_texture</span><span class="ecomment"> is True,</span>
+			<span class="ecomment">--</span><span class="ecomment"> the rendering context must permit to target to a texture instead of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_must_sync_update</span><span class="ecomment"> is True, the </span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_update">update</a><span class="ecomment"> will wait for vsync before finishing.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_must_be_software_rendering</span><span class="ecomment"> is True, the renderer will always</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">software_not_hardware</span><span class="esymbol">:</span> <span class="elocal">a_must_be_software_rendering</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_must_be_hardware_accelerated</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_renderer</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer.html">GAME_RENDERER</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="ekeyword">as</span> la_renderer <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+					<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_destroyrenderer">sdl_destroyrenderer</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">la_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_dispose">dispose</a>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_make_with_flags">make_with_flags</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">a_must_support_target_texture</span><span class="esymbol">,</span> <span class="elocal">a_must_sync_update</span><span class="esymbol">,</span> <span class="elocal">a_must_be_software_rendering</span><span class="esymbol">,</span> <span class="elocal">a_must_be_hardware_accelerated</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a> <span class="esymbol">:=</span> <span class="elocal">l_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_item">item</a>
+			<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="esymbol">:=</span> <span class="elocal">l_renderer</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_create_renderer_from_driver"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_create_renderer_from_driver">create_renderer_from_driver</a> <span class="esymbol">(</span><span class="elocal">a_driver</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a new rendering context using </span><span class="equoted">a_driver</span><span class="ecomment"> as renderer driver.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_renderer</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer.html">GAME_RENDERER</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="ekeyword">as</span> la_renderer <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+					<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_destroyrenderer">sdl_destroyrenderer</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">la_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_dispose">dispose</a>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_make_with_renderer_driver">make_with_renderer_driver</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">a_driver</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a> <span class="esymbol">:=</span> <span class="elocal">l_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_item">item</a>
+			<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="esymbol">:=</span> <span class="elocal">l_renderer</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_update"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_update">update</a>
+			<span class="ecomment">--</span><span class="ecomment"> Print the visual buffer modification to the screen</span>
+		<span class="ekeyword">require else</span>
+			<span class="etag">renderer_exists</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_exists">exists</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_present">present</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_internal_renderer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/graphic/game_renderer.html">GAME_RENDERER</a>
+			<span class="ecomment">--</span><span class="ecomment"> If it has already been created. Contain the </span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a><span class="ecomment"> of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that </span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a><span class="ecomment"> is lazy assigned</span>
+
+	<a name="f_renderer_pointer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal pointer of the </span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer">renderer</a>
+
+	<a name="f_dispose"></a><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_dispose">dispose</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_destroyrenderer">sdl_destroyrenderer</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_renderer_pointer">renderer_pointer</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<a class="ekeyword" href="../game_core/graphic/game_window.html#f_dispose">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a><span class="esymbol">}</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">renderer_valid</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_rendered.html#f_internal_renderer">internal_renderer</a> <span class="ekeyword">as</span> la_renderer <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <span class="elocal">la_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer.html#f_item">item</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getrenderer">sdl_getrenderer</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_window.html#f_item">item</a><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/graphic/game_window_rendered.html">GAME_WINDOW_RENDERED</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_rendered_chart.html">Chart</a>
+<a class="nav class" href="game_window_rendered_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_window_rendered"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

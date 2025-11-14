@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A color palette to be used in 8 bits per pixel surface"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_color_palette Chart</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_color_palette_links.html">Relations</a>
+<a class="nav class" href="game_color_palette.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_color_palette"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../../game_core/graphic/game_color_palette_chart.html">GAME_COLOR_PALETTE</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../../game_core/graphic/index.html">graphic</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A color palette to be used in 8 bits per pixel surface&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_make_shared">make_shared</a><span class="esymbol">,</span> <a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_make">make</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../../elks/bilinear_chart.html">BILINEAR</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../../elks/disposable_chart.html">DISPOSABLE</a><span class="echar">*</span>
+	<a class="eclass" href="../../game_core/implementation/game_sdl_any_chart.html">GAME_SDL_ANY</a><span class="echar">*</span>
+	<a class="eclass" href="../../elks/memory_structure_chart.html">MEMORY_STRUCTURE</a><span class="echar">*</span>
+	<a class="eclass" href="../../elks/readable_indexable_chart.html">READABLE_INDEXABLE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`after' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_after">after</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`at' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_at">at</a> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><a class="esymbol" href="../../game_core/graphic/game_color_palette.html#f_at">[]</a><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a></span>
+	<span title="`before' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_before">before</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`changeable_comparison_criterion' was declared in CONTAINER"><a class="efeature" href="../../elks/container.html#f_changeable_comparison_criterion">changeable_comparison_criterion</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`count' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_count">count</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`exhausted' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_exhausted">exhausted</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`exists' was declared in MEMORY_STRUCTURE"><a class="efeature" href="../../elks/memory_structure.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`for_all' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_for_all">for_all</a> <span class="esymbol">(</span><span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/function_chart.html">FUNCTION</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_has">has</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_item">item</a><span class="esymbol">]</span> <a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_error' was declared in GAME_ERROR_MANAGER"><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`index' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_index">index</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`index_of' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_index_of">index_of</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_item">item</a><span class="esymbol">]</span> <a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`is_empty' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_is_empty">is_empty</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_equal' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">a_other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/graphic/game_color_palette_chart.html">GAME_COLOR_PALETTE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`item' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_item">item</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a></span>
+	<span title="`item_for_iteration' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_item_for_iteration">item_for_iteration</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a></span>
+	<span title="`last_error' was declared in GAME_SDL_ANY"><a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`linear_representation' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_linear_representation">linear_representation</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/linear_chart.html">LINEAR</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">]</span></span>
+	<span title="`lower' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_lower">lower</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`new_cursor' was declared in READABLE_INDEXABLE"><a class="efeature" href="../../elks/readable_indexable.html#f_new_cursor">new_cursor</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/indexable_iteration_cursor_chart.html">INDEXABLE_ITERATION_CURSOR</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">]</span></span>
+	<span title="`object_comparison' was declared in CONTAINER"><a class="efeature" href="../../elks/container.html#f_object_comparison">object_comparison</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`occurrences' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_occurrences">occurrences</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_item">item</a><span class="esymbol">]</span> <a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`off' was declared in BILINEAR"><a class="efeature" href="../../elks/bilinear.html#f_off">off</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`there_exists' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_there_exists">there_exists</a> <span class="esymbol">(</span><span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/function_chart.html">FUNCTION</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`upper' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_upper">upper</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`valid_index' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_valid_index">valid_index</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`back' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_back">back</a></span>
+	<span title="`compare_objects' was declared in CONTAINER"><a class="efeature" href="../../elks/container.html#f_compare_objects">compare_objects</a></span>
+	<span title="`compare_references' was declared in CONTAINER"><a class="efeature" href="../../elks/container.html#f_compare_references">compare_references</a></span>
+	<span title="`do_all' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_do_all">do_all</a> <span class="esymbol">(</span><span class="elocal">action</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/procedure_chart.html">PROCEDURE</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">]</span><span class="esymbol">)</span></span>
+	<span title="`do_if' was declared in LINEAR"><a class="efeature" href="../../elks/linear.html#f_do_if">do_if</a> <span class="esymbol">(</span><span class="elocal">action</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/procedure_chart.html">PROCEDURE</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/function_chart.html">FUNCTION</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span></span>
+	<span title="`finish' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_finish">finish</a></span>
+	<span title="`forth' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_forth">forth</a></span>
+	<span title="`put_i_th' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_put_i_th">put_i_th</a> <span class="esymbol">(</span><span class="elocal">a_color</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">;</span> <span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+	<span title="`search' was declared in BILINEAR"><a class="efeature" href="../../elks/bilinear.html#f_search">search</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_item">item</a><span class="esymbol">]</span> <a class="eclass" href="../../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">)</span></span>
+	<span title="`start' is declared in `Current'"><a class="efeature" href="../../game_core/graphic/game_color_palette.html#f_start">start</a></span>
+
+</pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_color_palette_links.html">Relations</a>
+<a class="nav class" href="game_color_palette.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_color_palette"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

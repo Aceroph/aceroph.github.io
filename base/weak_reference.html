@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Abstraction for weak references, i.e. references to object that can still be reclaimed by the GC. If the actual generic parameter is expanded, `put' cannot be used as it does not make sense from the user point of view."/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2012, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>weak_reference Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="weak_reference_chart.html">Chart</a>
+<a class="nav class" href="weak_reference_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="weak_reference"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Abstraction for weak references, i.e. references to object that can still be reclaimed by the GC.</span>
+		<span class="estring">If the actual generic parameter is expanded, </span><a class="efeature" href="../elks/weak_reference.html#f_put">put</a><span class="estring"> cannot be used as it does not make sense from the user</span>
+		<span class="estring">point of view.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Free implementation of ELKS library&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2013-05-20 23:15:17 +0000 (Mon, 20 May 2013) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 92557 $&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../elks/weak_reference.html">WEAK_REFERENCE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../elks/disposable.html">DISPOSABLE</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../elks/disposable.html#f_dispose">dispose</a> <span class="ekeyword">as</span> <a class="efeature" href="../elks/weak_reference.html#f_clear">clear</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../elks/any.html#f_default_create">default_create</a><span class="esymbol">,</span>
+	<a class="efeature" href="../elks/weak_reference.html#f_put">put</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_put"></a><a class="efeature" href="../elks/weak_reference.html#f_put">put</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> New weak reference to </span><span class="equoted">v</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">v_not_void</span><span class="esymbol">:</span> <span class="elocal">v</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">not_expanded</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="esymbol">(</span><span class="esymbol">{</span><span class="egeneric">G</span><span class="esymbol">}</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/type.html#f_is_expanded">is_expanded</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/weak_reference.html#f_clear">clear</a>
+			<a class="efeature" href="../elks/weak_reference.html#f_internal_item">internal_item</a> <span class="esymbol">:=</span> <a class="efeature" href="../elks/weak_reference.html#f_create_weak_reference">create_weak_reference</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><span class="elocal">v</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">item_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/weak_reference.html#f_item">item</a> <span class="esymbol">=</span> <span class="elocal">v</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Removal</span>
+
+	<a name="f_clear"></a><a class="efeature" href="../elks/weak_reference.html#f_clear">clear</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove existing weak reference.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../elks/weak_reference.html#f_internal_item">internal_item</a> <span class="esymbol">/=</span> <a class="efeature" href="../elks/any.html#f_default_pointer">default_pointer</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/weak_reference.html#f_free_weak_reference">free_weak_reference</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/weak_reference.html#f_internal_item">internal_item</a><span class="esymbol">)</span>
+				<a class="efeature" href="../elks/weak_reference.html#f_internal_item">internal_item</a> <span class="esymbol">:=</span> <a class="efeature" href="../elks/any.html#f_default_pointer">default_pointer</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">removed</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../elks/weak_reference.html#f_exists">exists</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_item"></a><a class="efeature" href="../elks/weak_reference.html#f_item">item</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="egeneric">G</span>
+			<span class="ecomment">--</span><span class="ecomment"> Current reference if still alive. Void otherwise</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_expanded</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="esymbol">(</span><span class="esymbol">{</span><span class="egeneric">G</span><span class="esymbol">}</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/type.html#f_is_expanded">is_expanded</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_ptr</span><span class="esymbol">,</span> <span class="elocal">l_null</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_ptr</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/weak_reference.html#f_internal_item">internal_item</a>
+			<span class="ekeyword">if</span> <span class="elocal">l_ptr</span> <span class="esymbol">/=</span> <span class="elocal">l_null</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="egeneric">G</span><span class="esymbol">}</span> <a class="efeature" href="../elks/weak_reference.html#f_access">access</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_ptr</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_result <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_result</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_exists"></a><a class="efeature" href="../elks/weak_reference.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is current reference still alive?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/weak_reference.html#f_item">item</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">not_present</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../elks/weak_reference.html#f_item">item</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation: Status Report</span>
+
+	<a name="f_internal_item"></a><a class="efeature" href="../elks/weak_reference.html#f_internal_item">internal_item</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Actual reference to the weak reference.</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> To move to ISE_RUNTIME</span>
+
+	<a name="f_create_weak_reference"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/weak_reference.html#f_create_weak_reference">create_weak_reference</a> <span class="esymbol">(</span><span class="elocal">a_object</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Given the Eiffel object </span><span class="equoted">a_object</span><span class="ecomment">, return its weak_reference value.</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_hector.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;return eif_create_weak_reference($a_object);&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_free_weak_reference"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/weak_reference.html#f_free_weak_reference">free_weak_reference</a> <span class="esymbol">(</span><span class="elocal">a_weak_reference</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Free the allocated entry for weak reference </span><span class="equoted">a_weak_reference</span><span class="ecomment">.</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_hector.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;eif_free_weak_reference($a_weak_reference);&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_access"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/weak_reference.html#f_access">access</a> <span class="esymbol">(</span><span class="elocal">a_weak_reference</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any.html">ANY</a>
+			<span class="ecomment">--</span><span class="ecomment"> Associated Eiffel object if any associated to weak reference </span><span class="equoted">a_weak_reference</span><span class="ecomment">.</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_hector.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;return eif_access($a_weak_reference);&quot;
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2012, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../elks/weak_reference.html">WEAK_REFERENCE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="weak_reference_chart.html">Chart</a>
+<a class="nav class" href="weak_reference_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="weak_reference"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

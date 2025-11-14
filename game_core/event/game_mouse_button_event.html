@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Encapsulates a mouse button event. Any instance represents one button only."/>
+<meta name="author" content="Louis Marchand and obnosim"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_mouse_button_event Text</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_mouse_button_event_chart.html">Chart</a>
+<a class="nav class" href="game_mouse_button_event_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_mouse_button_event"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Encapsulates a mouse button event.</span>
+		<span class="estring">Any instance represents one button only.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand and obnosim&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sun Feb 04, 2018&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../../game_core/event/game_mouse_button_event.html">GAME_MOUSE_BUTTON_EVENT</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../../game_core/event/game_mouse_event_common.html">GAME_MOUSE_EVENT_COMMON</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../../game_core/input/game_mouse_common.html#f_state">state</a> <span class="ekeyword">as</span> <a class="efeature" href="../../game_core/input/game_mouse_common.html#f_state">button_id</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_is_left_button"></a><a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_left_button">is_left_button</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the left button of the mouse the one represented by </span><span class="equoted">Current</span><span class="ecomment">?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/input/game_mouse_common.html#f_state">button_id</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_button_left">sdl_button_left</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_right_button"></a><a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_right_button">is_right_button</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the right button of the mouse the one represented by </span><span class="equoted">Current</span><span class="ecomment">?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/input/game_mouse_common.html#f_state">button_id</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_button_right">sdl_button_right</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_middle_button"></a><a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_middle_button">is_middle_button</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the middle button of the mouse the one represented by </span><span class="equoted">Current</span><span class="ecomment">?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/input/game_mouse_common.html#f_state">button_id</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_button_middle">sdl_button_middle</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_optional_button_1"></a><a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_optional_button_1">is_optional_button_1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the first optional button of the mouse the one represented by </span><span class="equoted">Current</span><span class="ecomment">?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/input/game_mouse_common.html#f_state">button_id</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_button_x1">sdl_button_x1</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_optional_button_2"></a><a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_optional_button_2">is_optional_button_2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the second optional button of the mouse the one represented by </span><span class="equoted">Current</span><span class="ecomment">?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/input/game_mouse_common.html#f_state">button_id</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_button_x2">sdl_button_x2</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">only_one_button</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_left_button">is_left_button</a><span class="edot">.</span><a class="efeature" href="../../elks/boolean_ref.html#f_to_integer">to_integer</a> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_right_button">is_right_button</a><span class="edot">.</span><a class="efeature" href="../../elks/boolean_ref.html#f_to_integer">to_integer</a> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_middle_button">is_middle_button</a><span class="edot">.</span><a class="efeature" href="../../elks/boolean_ref.html#f_to_integer">to_integer</a> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_optional_button_1">is_optional_button_1</a><span class="edot">.</span><a class="efeature" href="../../elks/boolean_ref.html#f_to_integer">to_integer</a> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <a class="efeature" href="../../game_core/event/game_mouse_button_event.html#f_is_optional_button_2">is_optional_button_2</a><span class="edot">.</span><a class="efeature" href="../../elks/boolean_ref.html#f_to_integer">to_integer</a> <span class="esymbol">=</span> <span class="enumber">1</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/event/game_mouse_button_event.html">GAME_MOUSE_BUTTON_EVENT</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_mouse_button_event_chart.html">Chart</a>
+<a class="nav class" href="game_mouse_button_event_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_mouse_button_event"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

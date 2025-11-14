@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Information about a renderer driver."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_renderer_driver Text</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_renderer_driver_chart.html">Chart</a>
+<a class="nav class" href="game_renderer_driver_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_renderer_driver"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Information about a renderer driver.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 02 Apr 2015 02:40:10 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../../elks/memory_structure.html">MEMORY_STRUCTURE</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../../elks/memory_structure.html#f_make">make</a> <span class="ekeyword">as</span> <a class="efeature" href="../../elks/memory_structure.html#f_make">make_structure</a>
+		<span class="ekeyword">export</span>
+			<span class="esymbol">{</span>NONE<span class="esymbol">}</span> <a class="efeature" href="../../elks/memory_structure.html#f_shared">shared</a><span class="esymbol">,</span> <a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">,</span> <a class="efeature" href="../../elks/memory_structure.html#f_make">make_structure</a><span class="esymbol">,</span> <a class="efeature" href="../../elks/memory_structure.html#f_make_by_pointer">make_by_pointer</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_out">out</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_out">out</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_make_from_renderer">make_from_renderer</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_index</span><span class="ecomment"> as internal </span><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_index">index</a><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error_code</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_index">index</a> <span class="esymbol">:=</span> <span class="elocal">a_index</span>
+			<a class="efeature" href="../../elks/memory_structure.html#f_make">make_structure</a>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error_code</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_getrenderdriverinfo">sdl_getrenderdriverinfo</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_index">index</a><span class="esymbol">,</span> <a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">)</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error_code</span><span class="esymbol">,</span> &quot;Cannot get renderer driver with the index &quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_index">index</a><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_renderer"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_make_from_renderer">make_from_renderer</a> <span class="esymbol">(</span><span class="elocal">a_renderer</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/graphic/game_renderer.html">GAME_RENDERER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization of </span><span class="equoted">Current</span><span class="ecomment"> using the internal driver used by </span><span class="equoted">a_renderer</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error_code</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_index">index</a> <span class="esymbol">:=</span> <span class="enumber">-1</span>
+			<a class="efeature" href="../../elks/memory_structure.html#f_make">make_structure</a>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error_code</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_getrendererinfo">sdl_getrendererinfo</a> <span class="esymbol">(</span><span class="elocal">a_renderer</span><span class="edot">.</span><a class="efeature" href="../../game_core/graphic/game_renderer.html#f_item">item</a><span class="esymbol">,</span> <a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">)</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error_code</span><span class="esymbol">,</span> &quot;Cannot get renderer driver&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_name"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_name">name</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> A text identifier of </span><span class="equoted">Current</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_name_c</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/c_string.html">C_STRING</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_name_c</span><span class="edot">.</span><a class="efeature" href="../../elks/c_string.html#f_make_by_pointer">make_by_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_get_sdl_renderer_info_name">get_sdl_renderer_info_name</a> <span class="esymbol">(</span><a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_name_c</span><span class="edot">.</span><a class="efeature" href="../../elks/c_string.html#f_string">string</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_texture_formats_count"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_texture_formats_count">texture_formats_count</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of </span><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_texture_formats">texture_formats</a><span class="ecomment"> usable in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_get_sdl_renderer_info_num_texture_formats">get_sdl_renderer_info_num_texture_formats</a> <span class="esymbol">(</span><a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32_ref.html#f_to_integer_32">to_integer_32</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_texture_formats"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_texture_formats">texture_formats</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/list.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_pixel_format_readable.html">GAME_PIXEL_FORMAT_READABLE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> All formats usable for texture using </span><span class="equoted">Current</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_index</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">l_pixel_format_flags</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/graphic/game_pixel_format_readable.html">GAME_PIXEL_FORMAT_READABLE</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_texture_formats_count">texture_formats_count</a><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_index</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">l_index</span> <a class="esymbol" href="../../elks/comparable.html#f_is_greater_equal">&gt;=</a> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_texture_formats_count">texture_formats_count</a>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">l_pixel_format_flags</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_get_sdl_renderer_info_texture_formats">get_sdl_renderer_info_texture_formats</a> <span class="esymbol">(</span><a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_index</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/bag.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../../game_core/graphic/game_pixel_format_readable.html">GAME_PIXEL_FORMAT_READABLE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/graphic/game_pixel_format_readable.html#f_make_from_flags">make_from_flags</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_pixel_format_flags</span><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="elocal">l_index</span> <span class="esymbol">:=</span> <span class="elocal">l_index</span> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_maximum_texture_width"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_maximum_texture_width">maximum_texture_width</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum number of pixel in a line of a single texture if using </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> (0 for unknown)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_get_sdl_renderer_info_max_texture_width">get_sdl_renderer_info_max_texture_width</a> <span class="esymbol">(</span><a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_maximum_texture_height"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_maximum_texture_height">maximum_texture_height</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum number of pixel in a row of a single texture if using </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> (0 for unknown)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_get_sdl_renderer_info_max_texture_height">get_sdl_renderer_info_max_texture_height</a> <span class="esymbol">(</span><a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_index"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_index">index</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal index of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> If negative, the index is unknown</span>
+
+	<a name="f_is_software_rendering_supported"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_is_software_rendering_supported">is_software_rendering_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> can do software rendering</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_flags">flags</a><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_renderer_software">sdl_renderer_software</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_hardware_rendering_supported"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_is_hardware_rendering_supported">is_hardware_rendering_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> can do hardware accelerated rendering</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_flags">flags</a><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_renderer_accelerated">sdl_renderer_accelerated</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_present_synchronized_supported"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_is_present_synchronized_supported">is_present_synchronized_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> have present that is synchronized with the refresh rate</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_flags">flags</a><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_renderer_presentvsync">sdl_renderer_presentvsync</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_rendering_on_texture_supported"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_is_rendering_on_texture_supported">is_rendering_on_texture_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> can use a texture as target of rendering (see: </span><a class="eclass" href="../../game_core/graphic/game_renderer.html">GAME_RENDERER</a><span class="ecomment">.</span><span class="equoted">set_render_target</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_flags">flags</a><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_renderer_presentvsync">sdl_renderer_presentvsync</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_out"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;Renderer driver: &quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_name">name</a><span class="edot">.</span><a class="efeature" href="../../elks/readable_string_general.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;%N&quot;
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Number: &quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_index">index</a><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;%N&quot;
+			<span class="ekeyword">if</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_maximum_texture_height">maximum_texture_height</a> <a class="esymbol" href="../../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span> <a class="ekeyword" href="../../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_maximum_texture_width">maximum_texture_width</a> <a class="esymbol" href="../../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Maximum texture dimension: (&quot;
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_maximum_texture_width">maximum_texture_width</a><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot; , &quot;
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_maximum_texture_height">maximum_texture_height</a><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;)%N&quot;
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_is_software_rendering_supported">is_software_rendering_supported</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Software rendering supported%N&quot;
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Software rendering not supported%N&quot;
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_is_hardware_rendering_supported">is_hardware_rendering_supported</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Hardware accelerated rendering supported%N&quot;
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Hardware accelerated rendering not supported%N&quot;
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_is_present_synchronized_supported">is_present_synchronized_supported</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Present synchronisation with refresh rate supported%N&quot;
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Present synchronisation with refresh rate not supported%N&quot;
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_is_rendering_on_texture_supported">is_rendering_on_texture_supported</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Rendering on texture supported%N&quot;
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Rendering on texture not supported%N&quot;
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;Supported format:%N&quot;
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_texture_formats">texture_formats</a> <span class="ekeyword">as</span> la_formats
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <span class="elocal">la_formats</span><span class="edot">.</span><a class="efeature" href="../../elks/iteration_cursor.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../../game_core/graphic/game_pixel_format_readable.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot; &quot;
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Measurement</span>
+
+	<a name="f_structure_size"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_structure_size">structure_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Size to allocate (in bytes)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_c_sizeof_sdl_renderer_info">c_sizeof_sdl_renderer_info</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_flags"></a><a class="efeature" href="../../game_core/graphic/game_renderer_driver.html#f_flags">flags</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Every supported flags supported by `Current.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_get_sdl_renderer_info_flags">get_sdl_renderer_info_flags</a> <span class="esymbol">(</span><a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_renderer_driver_chart.html">Chart</a>
+<a class="nav class" href="game_renderer_driver_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_renderer_driver"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

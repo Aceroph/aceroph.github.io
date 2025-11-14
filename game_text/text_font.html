@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A font that can be use to draw text with a {TEXT_IMAGE}."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>text_font Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="text_font_chart.html">Chart</a>
+<a class="nav class" href="text_font_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="text_font"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A font that can be use to draw text with a </span><span class="estring">{</span><span class="estring">TEXT_IMAGE</span><span class="estring">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Mon, 30 Mar 2015 01:06:37 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a>
+
+<span class="ekeyword">inherit</span>
+	<span class="neclass">GAME_RESSOURCE</span>
+		<span class="ekeyword">rename</span>
+			<span class="nefeature">has_error</span> <span class="ekeyword">as</span> <span class="nefeature">has_ressource_error</span>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../elks/disposable.html">DISPOSABLE</a>
+		<span class="ekeyword">undefine</span>
+			<span class="nefeature">default_create</span>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../game_text/text_library_shared.html">TEXT_LIBRARY_SHARED</a>
+		<span class="ekeyword">undefine</span>
+			<span class="nefeature">default_create</span>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a>
+		<span class="ekeyword">undefine</span>
+			<span class="nefeature">default_create</span>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_text/text_font.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_text/text_font.html#f_make_with_index">make_with_index</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../game_text/text_font.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_text_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_library_shared.html#f_text_library">Text_library</a><span class="edot">.</span><a class="efeature" href="../game_text/text_controller.html#f_is_text_enable">is_text_enable</a>
+			<span class="etag">filename_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_filename</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_empty">is_empty</a>
+			<span class="etag">size_stricly_positive</span><span class="esymbol">:</span> <span class="elocal">a_size</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_text/text_font.html#f_make_with_index">make_with_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">,</span> <span class="elocal">a_size</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_index"></a><a class="efeature" href="../game_text/text_font.html#f_make_with_index">make_with_index</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The index is use if there is more than one font in a ttf file.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_text_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_library_shared.html#f_text_library">Text_library</a><span class="edot">.</span><a class="efeature" href="../game_text/text_controller.html#f_is_text_enable">is_text_enable</a>
+			<span class="etag">filename_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_filename</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_empty">is_empty</a>
+			<span class="etag">size_stricly_positive</span><span class="esymbol">:</span> <span class="elocal">a_size</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+			<span class="etag">index_positive</span><span class="esymbol">:</span> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_filename_c</span><span class="esymbol">,</span> <span class="elocal">l_mode_c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">default_create</span>
+			<a class="efeature" href="../game_text/text_font.html#f_size">size</a> <span class="esymbol">:=</span> <span class="elocal">a_size</span>
+			<a class="efeature" href="../game_text/text_font.html#f_index">index</a> <span class="esymbol">:=</span> <span class="elocal">a_index</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_filename_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_mode_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;rb&quot;<span class="esymbol">)</span>
+			<a class="efeature" href="../game_text/text_font.html#f_rwop">rwop</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_rwfromfile">sdl_rwfromfile</a> <span class="esymbol">(</span><span class="elocal">l_filename_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_mode_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_size"></a><a class="efeature" href="../game_text/text_font.html#f_size">size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The font height.</span>
+
+	<a name="f_index"></a><a class="efeature" href="../game_text/text_font.html#f_index">index</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The index of the font in the file.</span>
+
+	<a name="f_is_openable"></a><a class="efeature" href="../game_text/text_font.html#f_is_openable">is_openable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can </span><span class="equoted">Current</span><span class="ecomment"> be </span><a class="efeature" href="../game_text/text_font.html#f_open">open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_rwop">rwop</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_open"></a><a class="efeature" href="../game_text/text_font.html#f_open">open</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<a class="efeature" href="../game_text/text_font.html#f_internal_pointer">internal_pointer</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_openfontindexrw">ttf_openfontindexrw</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_rwop">rwop</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <a class="efeature" href="../game_text/text_font.html#f_size">size</a><span class="esymbol">,</span> <a class="efeature" href="../game_text/text_font.html#f_index">index</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_pointer">manage_error_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_internal_pointer">internal_pointer</a><span class="esymbol">,</span> &quot;Cannot open the font&quot;<span class="esymbol">)</span>
+			<span class="nefeature">has_ressource_error</span> <span class="esymbol">:=</span> <span class="nefeature">has_error</span>
+			<span class="nefeature">is_open</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <span class="nefeature">is_open</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_exists"></a><a class="efeature" href="../game_text/text_font.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is allocated memory still allocated?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_style_modifier"></a><a class="efeature" href="../game_text/text_font.html#f_has_style_modifier">has_style_modifier</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has a style modifier (underline, bold, italic or strike through)</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_text/text_font.html#f_is_underline">is_underline</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_text/text_font.html#f_is_bold">is_bold</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_text/text_font.html#f_is_italic">is_italic</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_text/text_font.html#f_is_strike_through">is_strike_through</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_style_modifier"></a><a class="efeature" href="../game_text/text_font.html#f_disable_style_modifier">disable_style_modifier</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable all style modifier (underline, bold, italic and strike through)</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_normal">ttf_style_normal</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_underline"></a><a class="efeature" href="../game_text/text_font.html#f_is_underline">is_underline</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font.html#f_set_is_underline">set_is_underline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an underline style modifier</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_underline">ttf_style_underline</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_underline"></a><a class="efeature" href="../game_text/text_font.html#f_set_is_underline">set_is_underline</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font.html#f_is_underline">is_underline</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_text/text_font.html#f_enable_underline">enable_underline</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_text/text_font.html#f_disable_underline">disable_underline</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_underline">is_underline</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_underline"></a><a class="efeature" href="../game_text/text_font.html#f_enable_underline">enable_underline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add an underline style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_or">bit_or</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_underline">ttf_style_underline</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_underline">is_underline</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_underline"></a><a class="efeature" href="../game_text/text_font.html#f_disable_underline">disable_underline</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove an underline style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_underline">ttf_style_underline</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_not">bit_not</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_is_underline">is_underline</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_bold"></a><a class="efeature" href="../game_text/text_font.html#f_is_bold">is_bold</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font.html#f_set_is_bold">set_is_bold</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has a bold style modifier</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_bold">ttf_style_bold</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_bold"></a><a class="efeature" href="../game_text/text_font.html#f_set_is_bold">set_is_bold</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font.html#f_is_bold">is_bold</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_text/text_font.html#f_enable_bold">enable_bold</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_text/text_font.html#f_disable_bold">disable_bold</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_bold">is_bold</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_bold"></a><a class="efeature" href="../game_text/text_font.html#f_enable_bold">enable_bold</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add a bold style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_or">bit_or</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_bold">ttf_style_bold</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_bold">is_bold</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_bold"></a><a class="efeature" href="../game_text/text_font.html#f_disable_bold">disable_bold</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove a bold style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_bold">ttf_style_bold</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_not">bit_not</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_is_bold">is_bold</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_italic"></a><a class="efeature" href="../game_text/text_font.html#f_is_italic">is_italic</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font.html#f_set_is_italic">set_is_italic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an italic style modifier</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_italic">ttf_style_italic</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_italic"></a><a class="efeature" href="../game_text/text_font.html#f_set_is_italic">set_is_italic</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font.html#f_is_italic">is_italic</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_text/text_font.html#f_enable_italic">enable_italic</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_text/text_font.html#f_disable_italic">disable_italic</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_italic">is_italic</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_italic"></a><a class="efeature" href="../game_text/text_font.html#f_enable_italic">enable_italic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add an italic style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_or">bit_or</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_italic">ttf_style_italic</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_italic">is_italic</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_italic"></a><a class="efeature" href="../game_text/text_font.html#f_disable_italic">disable_italic</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove an italic style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_italic">ttf_style_italic</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_not">bit_not</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_is_italic">is_italic</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_strike_through"></a><a class="efeature" href="../game_text/text_font.html#f_is_strike_through">is_strike_through</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font.html#f_set_is_strike_through">set_is_strike_through</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has a strike through style modifier</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_strikethrough">ttf_style_strikethrough</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_strike_through"></a><a class="efeature" href="../game_text/text_font.html#f_set_is_strike_through">set_is_strike_through</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font.html#f_is_strike_through">is_strike_through</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_text/text_font.html#f_enable_strike_through">enable_strike_through</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_text/text_font.html#f_disable_strike_through">disable_strike_through</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_strike_through">is_strike_through</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_strike_through"></a><a class="efeature" href="../game_text/text_font.html#f_enable_strike_through">enable_strike_through</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add a strike through style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_or">bit_or</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_strikethrough">ttf_style_strikethrough</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_strike_through">is_strike_through</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_strike_through"></a><a class="efeature" href="../game_text/text_font.html#f_disable_strike_through">disable_strike_through</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove a strike through style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontstyle">ttf_setfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontstyle">ttf_getfontstyle</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_style_strikethrough">ttf_style_strikethrough</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32.html#f_bit_not">bit_not</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_is_strike_through">is_strike_through</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_outline"></a><a class="efeature" href="../game_text/text_font.html#f_has_outline">has_outline</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an outline size.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_text/text_font.html#f_outline_size">outline_size</a> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_outline_size"></a><a class="efeature" href="../game_text/text_font.html#f_outline_size">outline_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font.html#f_set_outline_size">set_outline_size</a>
+			<span class="ecomment">--</span><span class="ecomment"> The ouline width of </span><span class="equoted">Current</span><span class="ecomment"> (0 for disabled)</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontoutline">ttf_getfontoutline</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_outline_size"></a><a class="efeature" href="../game_text/text_font.html#f_set_outline_size">set_outline_size</a> <span class="esymbol">(</span><span class="elocal">a_outline_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_text/text_font.html#f_outline_size">outline_size</a><span class="ecomment"> with the value of </span><a class="efeature" href="../game_text/text_font.html#f_outline_size">outline_size</a>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+			<span class="etag">outline_size_valid</span><span class="esymbol">:</span> <span class="elocal">a_outline_size</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontoutline">ttf_setfontoutline</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_outline_size</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_outline_size">outline_size</a> <span class="esymbol">=</span> <span class="elocal">a_outline_size</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_outline"></a><a class="efeature" href="../game_text/text_font.html#f_disable_outline">disable_outline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the outline size in </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_text/text_font.html#f_set_outline_size">set_outline_size</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_has_outline">has_outline</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_hinting"></a><a class="efeature" href="../game_text/text_font.html#f_has_hinting">has_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has the library a hint about how to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfonthinting">ttf_getfonthinting</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_hinting_none">ttf_hinting_none</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_hinting"></a><a class="efeature" href="../game_text/text_font.html#f_disable_hinting">disable_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the draw hinting of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfonthinting">ttf_setfonthinting</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_hinting_none">ttf_hinting_none</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_normal_hinting"></a><a class="efeature" href="../game_text/text_font.html#f_has_normal_hinting">has_normal_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the normal hinting to draw `Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfonthinting">ttf_getfonthinting</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_hinting_normal">ttf_hinting_normal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_normal_hinting"></a><a class="efeature" href="../game_text/text_font.html#f_enable_normal_hinting">enable_normal_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the normal hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfonthinting">ttf_setfonthinting</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_hinting_normal">ttf_hinting_normal</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_has_normal_hinting">has_normal_hinting</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_light_hinting"></a><a class="efeature" href="../game_text/text_font.html#f_has_light_hinting">has_light_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the light hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfonthinting">ttf_getfonthinting</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_hinting_light">ttf_hinting_light</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_light_hinting"></a><a class="efeature" href="../game_text/text_font.html#f_enable_light_hinting">enable_light_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the light hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfonthinting">ttf_setfonthinting</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_hinting_light">ttf_hinting_light</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_has_light_hinting">has_light_hinting</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_monochrome_hinting"></a><a class="efeature" href="../game_text/text_font.html#f_has_monochrome_hinting">has_monochrome_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the monochrome hinting to draw </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfonthinting">ttf_getfonthinting</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_hinting_mono">ttf_hinting_mono</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_monochrome_hinting"></a><a class="efeature" href="../game_text/text_font.html#f_enable_monochrome_hinting">enable_monochrome_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the monochrome hinting to draw </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Must only be use with monochrome display</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfonthinting">ttf_setfonthinting</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_hinting_mono">ttf_hinting_mono</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_has_monochrome_hinting">has_monochrome_hinting</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_kerning_enabled"></a><a class="efeature" href="../game_text/text_font.html#f_is_kerning_enabled">is_kerning_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font.html#f_set_is_kerning_enabled">set_is_kerning_enabled</a>
+			<span class="ecomment">--</span><span class="ecomment"> If True, the library can use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_getfontkerning">ttf_getfontkerning</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_kerning_enabled"></a><a class="efeature" href="../game_text/text_font.html#f_set_is_kerning_enabled">set_is_kerning_enabled</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font.html#f_is_kerning_enabled">is_kerning_enabled</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_text/text_font.html#f_enable_kerning">enable_kerning</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_text/text_font.html#f_disable_kerning">disable_kerning</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_kerning_enabled">is_kerning_enabled</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_kerning"></a><a class="efeature" href="../game_text/text_font.html#f_enable_kerning">enable_kerning</a>
+			<span class="ecomment">--</span><span class="ecomment"> Allow the library to use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontkerning">ttf_setfontkerning</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_kerning_enabled">is_kerning_enabled</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_kerning"></a><a class="efeature" href="../game_text/text_font.html#f_disable_kerning">disable_kerning</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does not allow the library to use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_setfontkerning">ttf_setfontkerning</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_is_kerning_enabled">is_kerning_enabled</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_maximum_height"></a><a class="efeature" href="../game_text/text_font.html#f_maximum_height">maximum_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum height that a gliph can take in pixel using </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_fontheight">ttf_fontheight</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_ascent"></a><a class="efeature" href="../game_text/text_font.html#f_ascent">ascent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> distance from the top of the drawing area to the baseline in pixel.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_fontascent">ttf_fontascent</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_descent"></a><a class="efeature" href="../game_text/text_font.html#f_descent">descent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> distance from the baseline to the bottom of the drawing area in pixel.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_fontdescent">ttf_fontdescent</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_line_skip_height"></a><a class="efeature" href="../game_text/text_font.html#f_line_skip_height">line_skip_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> the recommended pixel height of a rendered line of text using </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_fontlineskip">ttf_fontlineskip</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_monospace"></a><a class="efeature" href="../game_text/text_font.html#f_is_monospace">is_monospace</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if every character that exists in </span><span class="equoted">Current</span><span class="ecomment"> is the same width</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_fontfaceisfixedwidth">ttf_fontfaceisfixedwidth</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_face_family_name"></a><a class="efeature" href="../game_text/text_font.html#f_face_family_name">face_family_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the face family of </span><span class="equoted">Curent</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_name_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="elocal">l_name_c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_name_ptr</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_fontfacefamilyname">ttf_fontfacefamilyname</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_name_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;&quot;
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_name_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make_by_pointer">make_by_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_name_ptr</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_name_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_face_style_name"></a><a class="efeature" href="../game_text/text_font.html#f_face_style_name">face_style_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the face style of </span><span class="equoted">Curent</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_name_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="elocal">l_name_c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_name_ptr</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_fontfacestylename">ttf_fontfacestylename</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_name_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;&quot;
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_name_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make_by_pointer">make_by_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_name_ptr</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_name_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_glyph_provided"></a><a class="efeature" href="../game_text/text_font.html#f_is_glyph_provided">is_glyph_provided</a> <span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32.html">CHARACTER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> can draw a glyph representing </span><span class="equoted">a_character</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_prototype</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_character</span><span class="edot">.</span><a class="efeature" href="../elks/character_32.html#f_natural_32_code">natural_32_code</a> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="elocal">l_prototype</span><span class="edot">.</span><a class="efeature" href="../elks/natural_32_ref.html#f_max_value">Max_value</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_glyphisprovided">ttf_glyphisprovided</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_character</span><span class="edot">.</span><a class="efeature" href="../elks/character_32.html#f_natural_32_code">natural_32_code</a><span class="edot">.</span><a class="efeature" href="../elks/natural_32.html#f_as_natural_16">as_natural_16</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_glyph_metrics"></a><a class="efeature" href="../game_text/text_font.html#f_glyph_metrics">glyph_metrics</a> <span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32.html">CHARACTER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">minimal_x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">maximal_x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">minimal_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">maximal_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">advance</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The informations about the glyph representing </span><span class="equoted">a_character</span><span class="ecomment"> generated with </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><span class="nefeature">has_error</span><span class="ecomment"> on error.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+			<span class="etag">is_character_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_is_glyph_provided">is_glyph_provided</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">,</span> <span class="elocal">l_minimal_x</span><span class="esymbol">,</span> <span class="elocal">l_maximal_x</span><span class="esymbol">,</span> <span class="elocal">l_minimal_y</span><span class="esymbol">,</span> <span class="elocal">l_maximal_y</span><span class="esymbol">,</span> <span class="elocal">l_advance</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_glyphmetrics">ttf_glyphmetrics</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_character</span><span class="edot">.</span><a class="efeature" href="../elks/character_32.html#f_natural_32_code">natural_32_code</a><span class="edot">.</span><a class="efeature" href="../elks/natural_32.html#f_as_natural_16">as_natural_16</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_minimal_x</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_maximal_x</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_minimal_y</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_maximal_y</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_advance</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot get the glyph information.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">[</span><span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">]</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">[</span><span class="elocal">l_minimal_x</span><span class="esymbol">,</span> <span class="elocal">l_maximal_x</span><span class="esymbol">,</span> <span class="elocal">l_minimal_y</span><span class="esymbol">,</span> <span class="elocal">l_maximal_y</span><span class="esymbol">,</span> <span class="elocal">l_advance</span><span class="esymbol">]</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_text_dimension"></a><a class="efeature" href="../game_text/text_font.html#f_text_dimension">text_dimension</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The dimension of the </span><span class="equoted">a_text</span><span class="ecomment"> drawed with </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">,</span> <span class="elocal">l_width</span><span class="esymbol">,</span> <span class="elocal">l_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">l_text_c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+			<span class="elocal">l_utf_converter</span><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter.html">UTF_CONVERTER</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="ekeyword">if</span> <span class="elocal">a_text</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_string_8">is_string_8</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_text_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">)</span>
+				<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_sizetext">ttf_sizetext</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_text_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_width</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_height</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_utf_converter</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_text_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_utf_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter.html#f_string_32_to_utf_8_string_8">string_32_to_utf_8_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_text</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_as_string_32">as_string_32</a><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_sizeutf8">ttf_sizeutf8</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_text_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_width</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="esymbol">$</span><span class="elocal">l_height</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_item">to_pointer</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot get the text size once drawed.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">[</span><span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">]</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">[</span><span class="elocal">l_width</span><span class="esymbol">,</span> <span class="elocal">l_height</span><span class="esymbol">]</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_item"></a><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Access to memory area.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_text/text_font.html#f_internal_pointer">internal_pointer</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_internal_pointer"></a><a class="efeature" href="../game_text/text_font.html#f_internal_pointer">internal_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The pointer to the C structure representing </span><span class="equoted">Current</span>
+
+	<a name="f_rwop"></a><a class="efeature" href="../game_text/text_font.html#f_rwop">rwop</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The pointer to the SDL Read/Write handle</span>
+
+	<a name="f_dispose"></a><a class="efeature" href="../game_text/text_font.html#f_dispose">dispose</a>
+			<span class="ecomment">--</span><span class="ecomment"> Action to be executed just before garbage collection</span>
+			<span class="ecomment">--</span><span class="ecomment"> reclaims an object.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect it in descendants to perform specific dispose</span>
+			<span class="ecomment">--</span><span class="ecomment"> actions. Those actions should only take care of freeing</span>
+			<span class="ecomment">--</span><span class="ecomment"> external resources; they should not perform remote calls</span>
+			<span class="ecomment">--</span><span class="ecomment"> on other objects since these may also be dead and reclaimed.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font.html#f_rwop">rwop</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_freerw">sdl_freerw</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_rwop">rwop</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../game_text/text_font.html#f_exists">exists</a> <span class="ekeyword">then</span>
+				<span class="esymbol">{</span><a class="eclass" href="../game_text/game_text_external.html">GAME_TEXT_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_text/game_text_external.html#f_ttf_closefont">ttf_closefont</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_item">item</a><span class="esymbol">)</span>
+				<span class="nefeature">is_open</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+				<span class="ekeyword">create</span> <a class="efeature" href="../game_text/text_font.html#f_internal_pointer">internal_pointer</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">is_open_exists</span><span class="esymbol">:</span> <span class="nefeature">is_open</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../game_text/text_font.html#f_exists">exists</a>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="text_font_chart.html">Chart</a>
+<a class="nav class" href="text_font_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="text_font"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

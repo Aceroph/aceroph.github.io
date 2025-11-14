@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Field record"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="library" content="EiffelBase: Library of reusable components for Eiffel."/>
+<meta name="copyright" content="Copyright (c) 1984-2013, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>rt_dbg_field_record Text</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_dbg_field_record_chart.html">Chart</a>
+<a class="nav class" href="rt_dbg_field_record_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="rt_dbg_field_record"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Field record&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2013-05-20 23:15:17 +0000 (Mon, 20 May 2013) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 92557 $&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">]</span>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record.html">RT_DBG_VALUE_RECORD</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">position</a> <span class="ekeyword">as</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">obj</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">t</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make field record with index </span><span class="equoted">i</span><span class="ecomment">, type </span><span class="equoted">t</span><span class="ecomment"> an value </span><span class="equoted">v</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">obj_attached</span><span class="esymbol">:</span> <span class="elocal">obj</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a> <span class="esymbol">:=</span> <span class="elocal">obj</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a> <span class="esymbol">:=</span> <span class="elocal">i</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_type">type</a> <span class="esymbol">:=</span> <span class="elocal">t</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a> <span class="esymbol">:=</span> <span class="elocal">v</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Properties</span>
+
+	<a name="f_object"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/any.html">ANY</a>
+			<span class="ecomment">--</span><span class="ecomment"> Associated object.</span>
+
+	<a name="f_value"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="egeneric">G</span>
+			<span class="ecomment">--</span><span class="ecomment"> Associated value.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_current_value_record"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_current_value_record">current_value_record</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record.html">RT_DBG_VALUE_RECORD</a>
+			<span class="ecomment">--</span><span class="ecomment"> Record for current value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_internal.html#f_object_record">object_record</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a><span class="esymbol">,</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_associated_object"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_associated_object">associated_object</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any.html">ANY</a>
+			<span class="ecomment">--</span><span class="ecomment"> Associated object, if any</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_local_record"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_is_local_record">Is_local_record</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">False</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is local record ?</span>
+
+	<a name="f_is_same_as"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_is_same_as">is_same_as</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record.html">RT_DBG_VALUE_RECORD</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current same as </span><span class="equoted">other</span><span class="ecomment"> ?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">}</span> <span class="elocal">other</span> <span class="ekeyword">as</span> l_field <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a> <span class="esymbol">=</span> <span class="elocal">l_field</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a> <span class="esymbol">=</span> <span class="elocal">l_field</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_to_string"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_to_string">to_string</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> String representation</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">v</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a>
+			<span class="ekeyword">inspect</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_type">type</a>
+			<span class="ekeyword">when</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/reflector_constants.html">REFLECTOR_CONSTANTS</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../elks/reflector_constants.html#f_reference_type">reference_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="elocal">v</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">$</span><span class="elocal">v</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/pointer_ref.html#f_out">out</a>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;Void&quot;
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/reflector_constants.html">REFLECTOR_CONSTANTS</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../elks/reflector_constants.html#f_expanded_type">expanded_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">check</span>
+					<span class="etag">value_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="elocal">v</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">$</span><span class="elocal">v</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/pointer_ref.html#f_out">out</a>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/readable_string_general.html#f_make_empty">make_empty</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">if</span> <span class="elocal">v</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_out_value">out_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">check</span>
+							<span class="ekeyword">False</span>
+					<span class="ekeyword">end</span>
+					<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/readable_string_general.html#f_make_empty">make_empty</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Change properties</span>
+
+	<a name="f_get_value"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_get_value">get_value</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get value on </span><span class="equoted">obj</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_reflected_object</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_internal.html#f_reflected_object">Reflected_object</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_reflected_object</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_internal.html#f_reflected_object">Reflected_object</a>
+			<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_reference_object.html#f_set_object">set_object</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">}</span> <span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_field">field</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a><span class="esymbol">)</span> <span class="ekeyword">as</span> v <span class="ekeyword">then</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a> <span class="esymbol">:=</span> <span class="elocal">v</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_default_value">default_value</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Runtime</span>
+
+	<a name="f_restore"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_restore">restore</a> <span class="esymbol">(</span><span class="elocal">val</span><span class="esymbol">:</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record.html">RT_DBG_VALUE_RECORD</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Restore </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="ecomment"> on </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="ecomment">, and associate </span><span class="equoted">val</span><span class="ecomment"> as </span><span class="equoted">backup</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;rt_dbg_replay&quot;<span class="esymbol">)</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_dbg_internal.html#f_reflected_object">Reflected_object</a><span class="edot">.</span><a class="efeature" href="../../elks/reflected_reference_object.html#f_set_object">set_object</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="esymbol">)</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../elks/any.html#f_generator">generator</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;.restore (&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="edot">.</span><a class="efeature" href="../../elks/any.html#f_generator">generator</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot; #&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;)%N&quot;<span class="esymbol">)</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot; -&gt; &quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_internal.html#f_reflected_object">Reflected_object</a><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_field_name">field_name</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a><span class="esymbol">)</span> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;: offset &quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_internal.html#f_reflected_object">Reflected_object</a><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_field_offset">field_offset</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_is_same_as">is_same_as</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">val</span><span class="esymbol">)</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;rt_dbg_replay&quot;<span class="esymbol">)</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot; -&gt; unchanged because same value [&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_to_string">to_string</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;].%N&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_set_object_field">set_object_field</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+				<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;rt_dbg_replay&quot;<span class="esymbol">)</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot; -&gt; restored: from [&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <span class="elocal">val</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_to_string">to_string</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;] to [&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_to_string">to_string</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;] %N&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_revert"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_revert">revert</a> <span class="esymbol">(</span><span class="elocal">bak</span><span class="esymbol">:</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record.html">RT_DBG_VALUE_RECORD</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Revert previous change due to Current to </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;rt_dbg_replay&quot;<span class="esymbol">)</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../elks/any.html#f_generator">generator</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;.revert (&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="edot">.</span><a class="efeature" href="../../elks/any.html#f_generator">generator</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot; #&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;)%N&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_set_object_field">set_object_field</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a><span class="esymbol">,</span> <span class="elocal">bak</span><span class="esymbol">)</span>
+			<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;rt_dbg_replay&quot;<span class="esymbol">)</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot; -&gt; reverted: from [&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_to_string">to_string</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;] to [&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <span class="elocal">bak</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_to_string">to_string</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;] %N&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Internal Implementation</span>
+
+	<a name="f_set_object_field"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_set_object_field">set_object_field</a> <span class="esymbol">(</span><span class="elocal">obj</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">;</span> <span class="elocal">r</span><span class="esymbol">:</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record.html">RT_DBG_VALUE_RECORD</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set object field defined by </span><span class="equoted">r</span><span class="ecomment"> on target </span><span class="equoted">obj</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">obj_attached</span><span class="esymbol">:</span> <span class="elocal">obj</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">r_attached</span><span class="esymbol">:</span> <span class="elocal">r</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a>
+			<span class="elocal">l_reflected_object</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_internal.html#f_reflected_object">Reflected_object</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">i</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_position">index</a>
+			<span class="elocal">l_reflected_object</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_internal.html#f_reflected_object">Reflected_object</a>
+			<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_reference_object.html#f_set_object">set_object</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">obj</span><span class="esymbol">)</span>
+			<span class="ekeyword">inspect</span> <span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_value_record.html#f_type">type</a>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_integer_8_type">Integer_8_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/integer_8.html">INTEGER_8</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_integer_8 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_integer_8_field">set_integer_8_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_integer_8</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_integer_16_type">Integer_16_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/integer_16.html">INTEGER_16</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_integer_16 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_integer_16_field">set_integer_16_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_integer_16</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_integer_32_type">Integer_32_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_integer_32 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_integer_32_field">set_integer_32_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_integer_32</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_integer_64_type">Integer_64_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/integer_64.html">INTEGER_64</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_integer_64 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_integer_64_field">set_integer_64_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_integer_64</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_natural_8_type">Natural_8_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_8.html">NATURAL_8</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_natural_8 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_natural_8_field">set_natural_8_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_natural_8</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_natural_16_type">Natural_16_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_16.html">NATURAL_16</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_natural_16 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_natural_16_field">set_natural_16_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_natural_16</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_natural_32_type">Natural_32_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_natural_32 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_natural_32_field">set_natural_32_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_natural_32</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_natural_64_type">Natural_64_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_64.html">NATURAL_64</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_natural_64 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_natural_64_field">set_natural_64_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_natural_64</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_pointer_type">Pointer_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/pointer.html">POINTER</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_pointer <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_pointer_field">set_pointer_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_pointer</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_reference_type">Reference_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_any <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">}</span> <span class="elocal">l_fr_any</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a> <span class="ekeyword">as</span> vr <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_reference_field">set_reference_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">vr</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_expanded_type">Expanded_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_eany <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">}</span> <span class="elocal">l_fr_eany</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a> <span class="ekeyword">as</span> ve <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_reference_field">set_reference_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">ve</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_boolean_type">Boolean_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/boolean.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_boolean <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_boolean_field">set_boolean_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_boolean</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_real_32_type">Real_32_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_real_32 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_real_32_field">set_real_32_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_real_32</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_real_64_type">Real_64_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/real_64.html">REAL_64</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_real_64 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_real_64_field">set_real_64_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_real_64</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_character_8_type">Character_8_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/character_8.html">CHARACTER_8</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_character_8 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_character_8_field">set_character_8_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_character_8</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">when</span> <a class="efeature" href="../../elks/reflector_constants.html#f_character_32_type">Character_32_type</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/character_32.html">CHARACTER_32</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">r</span> <span class="ekeyword">as</span> l_fr_character_32 <span class="ekeyword">then</span>
+					<span class="elocal">l_reflected_object</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_set_character_32_field">set_character_32_field</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">l_fr_character_32</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_value">value</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_out_value"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_out_value">out_value</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="egeneric">G</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Printable representation of </span><span class="equoted">v</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">v_attached</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="elocal">v</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">v</span><span class="edot">.</span><a class="efeature" href="../../elks/any.html#f_out">out</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_default_value"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_default_value">default_value</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="egeneric">G</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default value</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">object_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_field_record.html#f_object">object</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;EiffelBase: Library of reusable components for Eiffel.&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2013, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_field_record.html">RT_DBG_FIELD_RECORD</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_dbg_field_record_chart.html">Chart</a>
+<a class="nav class" href="rt_dbg_field_record_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="rt_dbg_field_record"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

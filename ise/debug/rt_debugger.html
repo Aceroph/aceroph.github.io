@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Set of features to access ISE debugger functionality from debuggee.T  Note: do not try to evaluate the following feature in watch tool!"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="library" content="EiffelBase: Library of reusable components for Eiffel."/>
+<meta name="copyright" content="Copyright (c) 1984-2014, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>rt_debugger Text</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_debugger_chart.html">Chart</a>
+<a class="nav class" href="rt_debugger_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="rt_debugger"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Set of features to access ISE debugger functionality from debuggee.	</span>
+		
+		<span class="estring">Note: do not try to evaluate the following feature in watch tool!</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2016-07-08 13:11:47 +0000 (Fri, 08 Jul 2016) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 99002 $&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../../ise/debug/rt_debugger.html">RT_DEBUGGER</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../elks/any.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Status settings</span>
+
+	<a name="f_enable_debug"></a><a class="efeature" href="../../ise/debug/rt_debugger.html#f_enable_debug">enable_debug</a>
+			<span class="ecomment">--</span><span class="ecomment"> Enable debugger (if workbench)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../ise/debug/rt_debugger.html#f_set_debug_state">set_debug_state</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">True</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_debug"></a><a class="efeature" href="../../ise/debug/rt_debugger.html#f_disable_debug">disable_debug</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable debugger	</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../ise/debug/rt_debugger.html#f_set_debug_state">set_debug_state</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">False</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_debug_state"></a><a class="efeature" href="../../ise/debug/rt_debugger.html#f_set_debug_state">set_debug_state</a> <span class="esymbol">(</span><span class="elocal">a_state</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug/rt_debugger.html#f_debug_state">debug_state</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set debugger state to </span><span class="equoted">a_state</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use%&quot;eif_main.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;[
+				#ifdef WORKBENCH
+					set_debug_mode ($a_state ? 1 : 0);
+				#endif
+			]<span class="estring">&quot;</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_debug_state"></a><a class="efeature" href="../../ise/debug/rt_debugger.html#f_debug_state">debug_state</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is debugger enabled?</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_main.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;[
+				#ifdef WORKBENCH
+					return EIF_TEST(is_debug_mode());
+				#else
+					return EIF_FALSE;
+				#endif
+			]<span class="estring">&quot;</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Debugger: interaction with run-time</span>
+
+	<a name="f_wait_for_debugger"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../ise/debug/rt_debugger.html#f_wait_for_debugger">wait_for_debugger</a> <span class="esymbol">(</span><span class="elocal">a_port_number</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize workbench debugging using socket connection</span>
+			<span class="ecomment">--</span><span class="ecomment"> used to launch the application, and then attach the debugger.</span>
+			<span class="ecomment">--</span><span class="ecomment"> if </span><span class="equoted">a_port_number</span><span class="ecomment"> &lt;= 0 then check for ISE_DBG_PORTNUM environment variable.</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_main.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;[
+				#ifdef WORKBENCH
+					if (!is_debug_mode()) {
+						wdbg_initialize($a_port_number);
+						return EIF_TEST(is_debug_mode());
+					} else {
+						return EIF_FALSE;
+					}
+				#else
+					return EIF_FALSE;
+				#endif
+			]<span class="estring">&quot;</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;EiffelBase: Library of reusable components for Eiffel.&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2014, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../ise/debug/rt_debugger.html">RT_DEBUGGER</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_debugger_chart.html">Chart</a>
+<a class="nav class" href="rt_debugger_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="rt_debugger"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

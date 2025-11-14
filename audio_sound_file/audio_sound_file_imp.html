@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A {GAME_SOUND} loaded from a sound file."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>audio_sound_file_imp Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_sound_file_imp_chart.html">Chart</a>
+<a class="nav class" href="audio_sound_file_imp_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="audio_sound_file_imp"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A </span><span class="estring">{</span><span class="estring">GAME_SOUND</span><span class="estring">}</span><span class="estring"> loaded from a sound file.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Tue, 21 Feb 2017 00:15:23 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.1&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../audio_sound_file/audio_sound_file_imp.html">AUDIO_SOUND_FILE_IMP</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../audio_3d/metadata_audio_sound.html">METADATA_AUDIO_SOUND</a>
+
+	<a class="eclass" href="../elks/disposable.html">DISPOSABLE</a>
+		<span class="ekeyword">undefine</span>
+			<span class="nefeature">default_create</span>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Will use 16 bits signed frames in the buffer.</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">default_create</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_bits_per_sample_internal">bits_per_sample_internal</a> <span class="esymbol">:=</span> <span class="enumber">16</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_is_signed_internal">is_signed_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_filename">filename</a> <span class="esymbol">:=</span> <span class="elocal">a_filename</span>
+			<a class="efeature" href="../audio_3d/audio_sound.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_source.html">AUDIO_SOURCE</a><span class="esymbol">}</span> 
+
+	<a name="f_fill_buffer"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_fill_buffer">fill_buffer</a> <span class="esymbol">(</span><span class="elocal">a_buffer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_max_length</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Fill the next data samples in </span><span class="equoted">a_buffer</span><span class="ecomment"> (no more than </span><span class="equoted">a_max_length</span><span class="ecomment"> byte)</span>
+			<span class="ecomment">--</span><span class="ecomment"> The actual number of byte placed in </span><span class="equoted">a_buffer</span><span class="ecomment"> will be available in </span><a class="efeature" href="../audio_3d/audio_sound.html#f_last_buffer_size">last_buffer_size</a>
+			<span class="ecomment">--</span><span class="ecomment"> Warning: side effect on </span><span class="equoted">a_buffer</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_items</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_items</span> <span class="esymbol">:=</span> <span class="elocal">a_max_length</span> <a class="esymbol" href="../elks/integer_32.html#f_integer_quotient">//</a> <span class="enumber">2</span>
+			<span class="ekeyword">until</span>
+				<span class="esymbol">(</span><span class="elocal">l_items</span> <a class="esymbol" href="../elks/integer_32.html#f_integer_remainder">\\</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_byte_per_buffer_sample">byte_per_buffer_sample</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">l_items</span> <span class="esymbol">:=</span> <span class="elocal">l_items</span> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../audio_3d/audio_sound.html#f_last_buffer_size">last_buffer_size</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_read_short">sf_read_short</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="elocal">a_buffer</span><span class="esymbol">,</span> <span class="elocal">l_items</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref.html#f_to_integer_64">to_integer_64</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_64_ref.html#f_to_integer">to_integer</a> <a class="esymbol" href="../elks/integer_32.html#f_product">*</a> <span class="enumber">2</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_3d/audio_sound.html#f_last_buffer_size">last_buffer_size</a> <span class="esymbol">=</span> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../audio_3d/audio_sound.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_byte_per_buffer_sample"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_byte_per_buffer_sample">byte_per_buffer_sample</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">2</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment">Access</span>
+
+	<a name="f_title"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_title">title</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The readable identifier of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'title' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_str_title">sf_str_title</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_artist"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_artist">artist</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the creator of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'artist' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_str_artist">sf_str_artist</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_album"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_album">album</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The media that </span><span class="equoted">Current</span><span class="ecomment"> is from</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'album' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_str_album">sf_str_album</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_date"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_date">date</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The creation's date of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'date' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_str_date">sf_str_date</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_genre"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_genre">genre</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The conventional category of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'genre' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_str_genre">sf_str_genre</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_comment"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_comment">comment</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> Anything that can be add to the definition of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'comment' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_str_comment">sf_str_comment</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_track_number"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_track_number">track_number</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of </span><span class="equoted">Current</span><span class="ecomment"> in the </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_album">album</a>
+			<span class="ecomment">--</span><span class="ecomment"> 0 if no 'track_number' available in </span><span class="equoted">Current</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_str_tracknumber">sf_str_tracknumber</a><span class="esymbol">)</span> <span class="ekeyword">as</span> la_string <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">la_string</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_integer_32">is_integer_32</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_string</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_integer_32">to_integer_32</a>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_open"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_open">open</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_open_from_file">open_from_file</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_filename">filename</a><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_sound.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="nefeature">is_open</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span>
+			<span class="nefeature">has_ressource_error</span> <span class="esymbol">:=</span> <span class="nefeature">has_error</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_close"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_close">close</a>
+			<span class="ecomment">--</span><span class="ecomment"> Stop the management of the stream</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_file_info">file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_memory_free">memory_free</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_close">sf_close</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_snd_file_ptr">snd_file_ptr</a>
+			<span class="ekeyword">create</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_file_info">file_info</a>
+			<span class="nefeature">is_open</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_openable"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_is_openable">is_openable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can </span><span class="equoted">Current</span><span class="ecomment"> be </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_open">open</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_file</span><span class="esymbol">:</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_file</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_filename">filename</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_file</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">l_file</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_readable">is_readable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_channel_count"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_channel_count">channel_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the channel number of the sound (1=mono, 2=stereo, etc.).</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_get_sf_info_struct_channels">get_sf_info_struct_channels</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_file_info">file_info</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_frequency"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_frequency">frequency</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the frequency (sample rate) of the sound.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_get_sf_info_struct_samplerate">get_sf_info_struct_samplerate</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_file_info">file_info</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_bits_per_sample"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_bits_per_sample">bits_per_sample</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the bit resolution of one frame of the sound.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_bits_per_sample_internal">bits_per_sample_internal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_signed"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_is_signed">is_signed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the frames in the buffer are signed.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_is_signed_internal">is_signed_internal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_seekable"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_is_seekable">is_seekable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the sound support the seek functionnality.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_get_sf_info_struct_seekable">get_sf_info_struct_seekable</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_file_info">file_info</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_restart"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_restart">restart</a>
+			<span class="ecomment">--</span><span class="ecomment"> Restart the sound to the beginning.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_is_seekable">is_seekable</a> <span class="ekeyword">then</span>
+				<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_seek">sf_seek</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_seek_set">seek_set</a><span class="esymbol">)</span>
+				<a class="efeature" href="../audio_3d/audio_sound.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_error</span> <span class="esymbol">=</span> <span class="enumber">-1</span> <span class="ekeyword">then</span>
+					<span class="nefeature">put_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Cannot seek in the audio file.&quot;<span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;The system tried to seek at the beginning of file &quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_filename">filename</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;but it failed.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_dispose">dispose</a>
+				<a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_open_from_file">open_from_file</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_filename">filename</a><span class="esymbol">)</span>
+				<a class="efeature" href="../audio_3d/audio_sound.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sample_seek"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_sample_seek">sample_seek</a> <span class="esymbol">(</span><span class="elocal">a_frame_number</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Seek at the frame </span><span class="equoted">a_frame_number</span><span class="ecomment"> from the beginning of </span><span class="equoted">Current</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_seek">sf_seek</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="elocal">a_frame_number</span> <a class="esymbol" href="../elks/integer_64.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_seek_set">seek_set</a><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_sound.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <span class="esymbol">=</span> <span class="enumber">-1</span> <span class="ekeyword">then</span>
+				<span class="nefeature">put_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Cannot seek in the audio file.&quot;<span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;The system tried to seek at the frame &quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="elocal">a_frame_number</span><span class="edot">.</span><a class="efeature" href="../elks/integer_64_ref.html#f_out">out</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot; of file &quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_filename">filename</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;but it failed.&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sample_position"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_sample_position">sample_position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of frames since the beginning of </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_seek">sf_seek</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_seek_cur">seek_cur</a><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_64.html#f_plus">+</a> <span class="enumber">1</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sample_count"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_sample_count">sample_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> The total number of frames in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_get_sf_info_struct_frames">get_sf_info_struct_frames</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_file_info">file_info</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation - Methodes</span>
+
+	<a name="f_get_metadata_value"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_get_metadata_value">get_metadata_value</a> <span class="esymbol">(</span><span class="elocal">a_flag</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the text of a Metadata in </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_flag</span><span class="ecomment"> to know which metadata to retrieve.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_pointer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="elocal">l_c_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+			<span class="elocal">l_utf_converter</span><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter.html">UTF_CONVERTER</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_pointer</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_sf_get_string">sf_get_string</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="elocal">a_flag</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_pointer</span><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_c_string</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make_shared_from_pointer">make_shared_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_pointer</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_utf_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter.html#f_utf_8_string_8_to_string_32">utf_8_string_8_to_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_c_string</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_open_from_file"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_open_from_file">open_from_file</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_open">open</a><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_filename</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_dispose"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_dispose">dispose</a>
+			<span class="ecomment">--</span><span class="ecomment"> Action to be executed just before garbage collection</span>
+			<span class="ecomment">--</span><span class="ecomment"> reclaims an object.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect it in descendants to perform specific dispose</span>
+			<span class="ecomment">--</span><span class="ecomment"> actions. Those actions should only take care of freeing</span>
+			<span class="ecomment">--</span><span class="ecomment"> external resources; they should not perform remote calls</span>
+			<span class="ecomment">--</span><span class="ecomment"> on other objects since these may also be dead and reclaimed.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="nefeature">is_open</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_close">close</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sf_info_size"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_sf_info_size">Sf_info_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of byte of a C sf_info structure</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp.html#f_c_sizeof_sf_info">c_sizeof_sf_info</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation - Variables</span>
+
+	<a name="f_snd_file_ptr"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> C pointer to the sound file handle</span>
+
+	<a name="f_file_info"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_file_info">file_info</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> C pointer to the sound file information</span>
+
+	<a name="f_bits_per_sample_internal"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_bits_per_sample_internal">bits_per_sample_internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The value of the </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_bits_per_sample">bits_per_sample</a><span class="ecomment"> attributes</span>
+
+	<a name="f_is_signed_internal"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_is_signed_internal">is_signed_internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The value of the </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_is_signed">is_signed</a><span class="ecomment"> attributes</span>
+
+	<a name="f_filename"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp.html#f_filename">filename</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the file containing the audio data</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp.html">AUDIO_SOUND_FILE_IMP</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_sound_file_imp_chart.html">Chart</a>
+<a class="nav class" href="audio_sound_file_imp_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="audio_sound_file_imp"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

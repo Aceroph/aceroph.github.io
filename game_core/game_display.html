@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Informations about a display (a display is generally a screen)"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_display Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_display_chart.html">Chart</a>
+<a class="nav class" href="game_display_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_display"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Informations about a display (a display is generally a screen)&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Tue, 24 Feb 2015 00:07:14 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_core/graphic/game_display.html">GAME_DISPLAY</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a>
+
+	<a class="eclass" href="../game_core/game_library_shared.html">GAME_LIBRARY_SHARED</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/graphic/game_display.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">index_valid</span><span class="esymbol">:</span> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_displays_count">displays_count</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a> <span class="esymbol">:=</span> <span class="elocal">a_index</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_index"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal index of </span><span class="equoted">Current</span>
+
+	<a name="f_name"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_name">name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of </span><span class="equoted">Current</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_name_pointer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_name_pointer</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getdisplayname">sdl_getdisplayname</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_name_pointer</span><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_pointer">manage_error_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_name_pointer</span><span class="esymbol">,</span> &quot;An error occured while retriving the display name.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;&quot;
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/c_string.html">C_STRING</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make_by_pointer">make_by_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_name_pointer</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_bound_x"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_bound_x">bound_x</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Y coordinate of the </span><a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="ecomment"> of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_bound_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="edot">.</span><span class="elocal">x</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_bound_y"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_bound_y">bound_y</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Y coordinate of the </span><a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="ecomment"> of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_bound_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="edot">.</span><span class="elocal">y</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_bound_width"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_bound_width">bound_width</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Width of the </span><a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="ecomment"> of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_bound_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="edot">.</span><span class="elocal">width</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_bound_height"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_bound_height">bound_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Height of the </span><a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="ecomment"> of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_bound_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="edot">.</span><span class="elocal">height</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_bound"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_bound">bound</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Desktop area represented by </span><span class="equoted">Current</span><span class="ecomment"> (with the primary display located at 0,0).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_bound_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">l_rect</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_rect</span> <span class="esymbol">:=</span> <span class="elocal">l_rect</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_memory_calloc">memory_calloc</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_c_sizeof_sdl_rect">c_sizeof_sdl_rect</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getdisplaybounds">sdl_getdisplaybounds</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a><span class="esymbol">,</span> <span class="elocal">l_rect</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;An error occured while retriving the display bound informations.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">[</span><span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">]</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">[</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_get_rect_struct_x">get_rect_struct_x</a> <span class="esymbol">(</span><span class="elocal">l_rect</span><span class="esymbol">)</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_get_rect_struct_y">get_rect_struct_y</a> <span class="esymbol">(</span><span class="elocal">l_rect</span><span class="esymbol">)</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_get_rect_struct_w">get_rect_struct_w</a> <span class="esymbol">(</span><span class="elocal">l_rect</span><span class="esymbol">)</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_get_rect_struct_h">get_rect_struct_h</a> <span class="esymbol">(</span><span class="elocal">l_rect</span><span class="esymbol">)</span><span class="esymbol">]</span>
+			<span class="ekeyword">end</span>
+			<span class="elocal">l_rect</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_memory_free">memory_free</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_current_mode"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_current_mode">current_mode</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_mode.html">GAME_DISPLAY_MODE</a>
+			<span class="ecomment">--</span><span class="ecomment"> A copy of the current display mode of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that modification to this object won't have any effect on the system.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_bound_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_mode</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_mode</span> <span class="esymbol">:=</span> <span class="elocal">l_mode</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_memory_calloc">memory_calloc</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_c_sizeof_sdl_display_mode">c_sizeof_sdl_display_mode</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getcurrentdisplaymode">sdl_getcurrentdisplaymode</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a><span class="esymbol">,</span> <span class="elocal">l_mode</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;An error occured while retriving the display mode informations.&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_display_mode.html#f_own_from_pointer">own_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_mode</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_native_mode"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_native_mode">native_mode</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_mode.html">GAME_DISPLAY_MODE</a>
+			<span class="ecomment">--</span><span class="ecomment"> A copy of the display mode that </span><span class="equoted">Current</span><span class="ecomment"> should have if the game is not in full screen</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that this is equivalent to </span><a class="efeature" href="../game_core/graphic/game_display.html#f_current_mode">current_mode</a><span class="ecomment"> in non full screen mode.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that modification to this object won't have any effect on the system.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_bound_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_mode</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_mode</span> <span class="esymbol">:=</span> <span class="elocal">l_mode</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_memory_calloc">memory_calloc</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_c_sizeof_sdl_display_mode">c_sizeof_sdl_display_mode</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getdesktopdisplaymode">sdl_getdesktopdisplaymode</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a><span class="esymbol">,</span> <span class="elocal">l_mode</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;An error occured while retriving the display mode informations.&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_display_mode.html#f_own_from_pointer">own_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_mode</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_closest_mode"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_closest_mode">closest_mode</a> <span class="esymbol">(</span><span class="elocal">a_mode</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_mode.html">GAME_DISPLAY_MODE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_mode.html">GAME_DISPLAY_MODE</a>
+			<span class="ecomment">--</span><span class="ecomment"> A copy of the display mode compatible with </span><span class="equoted">Current</span><span class="ecomment"> that is closest to </span><span class="equoted">a_mode</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that modification to this object won't have any effect on the system.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_bound_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_mode</span><span class="esymbol">,</span> <span class="elocal">l_result</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_mode</span> <span class="esymbol">:=</span> <span class="elocal">l_mode</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_memory_calloc">memory_calloc</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_c_sizeof_sdl_display_mode">c_sizeof_sdl_display_mode</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getclosestdisplaymode">sdl_getclosestdisplaymode</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a><span class="esymbol">,</span> <span class="elocal">a_mode</span><span class="edot">.</span><a class="efeature" href="../elks/memory_structure.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_mode</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_pointer">manage_error_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_result</span><span class="esymbol">,</span> &quot;An error occured while retriving the closest display mode.&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_display_mode.html#f_own_from_pointer">own_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_mode</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_modes"></a><a class="efeature" href="../game_core/graphic/game_display.html#f_modes">modes</a><span class="esymbol">:</span> <a class="eclass" href="../elks/chain.html">CHAIN</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_display_mode.html">GAME_DISPLAY_MODE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> All display mode compatible with </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that modification to this object won't have any effect on the system.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_count</span><span class="esymbol">,</span> <span class="elocal">l_i</span><span class="esymbol">,</span> <span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">l_mode</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_count</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getnumdisplaymodes">sdl_getnumdisplaymodes</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_count</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_count</span><span class="esymbol">,</span> &quot;An error occured while retriving the number of display modes.&quot;<span class="esymbol">)</span>
+				<span class="elocal">l_count</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_display_mode.html">GAME_DISPLAY_MODE</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_count</span><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_i</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">l_i</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="elocal">l_count</span> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <span class="nefeature">has_error</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">l_mode</span> <span class="esymbol">:=</span> <span class="elocal">l_mode</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_memory_calloc">memory_calloc</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_c_sizeof_sdl_display_mode">c_sizeof_sdl_display_mode</a><span class="esymbol">)</span>
+				<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getdisplaymode">sdl_getdisplaymode</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a><span class="esymbol">,</span> <span class="elocal">l_i</span><span class="esymbol">,</span> <span class="elocal">l_mode</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+					<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_count</span><span class="esymbol">,</span> &quot;An error occured while retriving the display mode with the index &quot; <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <span class="elocal">l_i</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;.&quot;<span class="esymbol">)</span>
+					<span class="elocal">l_mode</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref.html#f_memory_free">memory_free</a>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/bag.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../game_core/graphic/game_display_mode.html">GAME_DISPLAY_MODE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_display_mode.html#f_own_from_pointer">own_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_mode</span><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">l_i</span> <span class="esymbol">:=</span> <span class="elocal">l_i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">index_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <a class="efeature" href="../game_core/graphic/game_display.html#f_index">index</a> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller.html#f_displays_count">displays_count</a>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/graphic/game_display.html">GAME_DISPLAY</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_display_chart.html">Chart</a>
+<a class="nav class" href="game_display_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_display"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

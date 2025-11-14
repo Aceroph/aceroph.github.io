@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="JSON_SERIALIZATION_VISITOR Generates a compact JSON-String for a JSON_VALUE"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="2016-2016, Jocelyn Fiat and Eiffel Software"/>
+<meta name="license" content="Eiffel Forum License v2 (see https://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>json_serialization_visitor Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="json_serialization_visitor_chart.html">Chart</a>
+<a class="nav class" href="json_serialization_visitor_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="json_serialization_visitor"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;JSON_SERIALIZATION_VISITOR Generates a compact JSON-String for a JSON_VALUE&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2016-08-01 07:11:38 +0000 (Mon, 01 Aug 2016) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 99097 $&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../json_serialization/json_serialization_visitor.html">JSON_SERIALIZATION_VISITOR</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../json/json_utility/json_visitor.html">JSON_VISITOR</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_output</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a new instance</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a> <span class="esymbol">:=</span> <span class="elocal">a_output</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_output"></a><a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_general.html">STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> JSON representation</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Visitor Pattern</span>
+
+	<a name="f_visit_json_array"></a><a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_visit_json_array">visit_json_array</a> <span class="esymbol">(</span><span class="elocal">a_json_array</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_array.html">JSON_ARRAY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Visit </span><span class="equoted">a_json_array</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">value</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_value.html">JSON_VALUE</a>
+			<span class="elocal">l_json_array</span><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">]</span>
+			<span class="elocal">l_output</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_output</span> <span class="esymbol">:=</span> <a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a>
+			<span class="elocal">l_json_array</span> <span class="esymbol">:=</span> <span class="elocal">a_json_array</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_array.html#f_array_representation">array_representation</a>
+			<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">91</span><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_json_array</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_start">start</a>
+			<span class="ekeyword">until</span>
+				<span class="elocal">l_json_array</span><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_off">off</a>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">value</span> <span class="esymbol">:=</span> <span class="elocal">l_json_array</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+				<span class="elocal">value</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_value.html#f_accept">accept</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+				<span class="elocal">l_json_array</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_forth">forth</a>
+				<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_json_array</span><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_after">after</a> <span class="ekeyword">then</span>
+					<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">44</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">93</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_visit_json_boolean"></a><a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_visit_json_boolean">visit_json_boolean</a> <span class="esymbol">(</span><span class="elocal">a_json_boolean</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_boolean.html">JSON_BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Visit </span><span class="equoted">a_json_boolean</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_json_boolean</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_boolean.html#f_item">item</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;true&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;false&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_visit_json_null"></a><a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_visit_json_null">visit_json_null</a> <span class="esymbol">(</span><span class="elocal">a_json_null</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_null.html">JSON_NULL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Visit </span><span class="equoted">a_json_null</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;null&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_visit_json_number"></a><a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_visit_json_number">visit_json_number</a> <span class="esymbol">(</span><span class="elocal">a_json_number</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_number.html">JSON_NUMBER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Visit </span><span class="equoted">a_json_number</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_json_number</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_number.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_visit_json_object"></a><a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_visit_json_object">visit_json_object</a> <span class="esymbol">(</span><span class="elocal">a_json_object</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object.html">JSON_OBJECT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Visit </span><span class="equoted">a_json_object</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_pairs</span><span class="esymbol">:</span> <a class="eclass" href="../elks/hash_table.html">HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">,</span> <a class="eclass" href="../json/json_kernel/json_string.html">JSON_STRING</a><span class="esymbol">]</span>
+			<span class="elocal">l_output</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_output</span> <span class="esymbol">:=</span> <a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a>
+			<span class="elocal">l_pairs</span> <span class="esymbol">:=</span> <span class="elocal">a_json_object</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_object.html#f_map_representation">map_representation</a>
+			<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">123</span><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_pairs</span><span class="edot">.</span><a class="efeature" href="../elks/hash_table.html#f_start">start</a>
+			<span class="ekeyword">until</span>
+				<span class="elocal">l_pairs</span><span class="edot">.</span><a class="efeature" href="../elks/hash_table.html#f_off">off</a>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">l_pairs</span><span class="edot">.</span><a class="efeature" href="../elks/hash_table.html#f_key_for_iteration">key_for_iteration</a><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_string.html#f_accept">accept</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+				<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">58</span><span class="esymbol">)</span>
+				<span class="elocal">l_pairs</span><span class="edot">.</span><a class="efeature" href="../elks/hash_table.html#f_item_for_iteration">item_for_iteration</a><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_value.html#f_accept">accept</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+				<span class="elocal">l_pairs</span><span class="edot">.</span><a class="efeature" href="../elks/hash_table.html#f_forth">forth</a>
+				<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_pairs</span><span class="edot">.</span><a class="efeature" href="../elks/hash_table.html#f_after">after</a> <span class="ekeyword">then</span>
+					<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">44</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">125</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_visit_json_string"></a><a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_visit_json_string">visit_json_string</a> <span class="esymbol">(</span><span class="elocal">a_json_string</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Visit </span><span class="equoted">a_json_string</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_output</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_output</span> <span class="esymbol">:=</span> <a class="efeature" href="../json_serialization/json_serialization_visitor.html#f_output">output</a>
+			<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">34</span><span class="esymbol">)</span>
+			<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_json_string</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_string.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="elocal">l_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">34</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;2016-2016, Jocelyn Fiat and Eiffel Software&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="https://www.eiffel.com/licensing/forum.txt">https://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../json_serialization/json_serialization_visitor.html">JSON_SERIALIZATION_VISITOR</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="json_serialization_visitor_chart.html">Chart</a>
+<a class="nav class" href="json_serialization_visitor_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="json_serialization_visitor"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

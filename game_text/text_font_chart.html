@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A font that can be use to draw text with a {TEXT_IMAGE}."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>text_font Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="text_font_links.html">Relations</a>
+<a class="nav class" href="text_font.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="text_font"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../game_text/text_font_chart.html">TEXT_FONT</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../game_text/index.html">game_text</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A font that can be use to draw text with a </span><span class="estring">{</span><span class="estring">TEXT_IMAGE</span><span class="estring">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font.html#f_make">make</a><span class="esymbol">,</span> <a class="efeature" href="../game_text/text_font.html#f_make_with_index">make_with_index</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../elks/disposable_chart.html">DISPOSABLE</a><span class="echar">*</span>
+	<span class="neclass">GAME_RESSOURCE</span><span class="echar">*</span>
+	<a class="eclass" href="../game_core/implementation/game_sdl_any_chart.html">GAME_SDL_ANY</a><span class="echar">*</span>
+	<a class="eclass" href="../game_text/text_library_shared_chart.html">TEXT_LIBRARY_SHARED</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`ascent' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_ascent">ascent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`descent' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_descent">descent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`exists' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`face_family_name' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_face_family_name">face_family_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`face_style_name' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_face_style_name">face_style_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`glyph_metrics' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_glyph_metrics">glyph_metrics</a> <span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32_chart.html">CHARACTER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_chart.html">TUPLE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">]</span></span>
+	<span title="`has_error' was declared in GAME_ERROR_MANAGER"><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_hinting' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_has_hinting">has_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_light_hinting' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_has_light_hinting">has_light_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_monochrome_hinting' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_has_monochrome_hinting">has_monochrome_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_normal_hinting' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_has_normal_hinting">has_normal_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_outline' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_has_outline">has_outline</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_ressource_error' was declared in GAME_RESSOURCE as `has_error'"><span class="nefeature">has_ressource_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_style_modifier' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_has_style_modifier">has_style_modifier</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`index' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_index">index</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`is_bold' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_is_bold">is_bold</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_glyph_provided' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_is_glyph_provided">is_glyph_provided</a> <span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32_chart.html">CHARACTER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_italic' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_is_italic">is_italic</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_kerning_enabled' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_is_kerning_enabled">is_kerning_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_monospace' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_is_monospace">is_monospace</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_open' was declared in GAME_RESSOURCE"><span class="nefeature">is_open</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_openable' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_is_openable">is_openable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_strike_through' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_is_strike_through">is_strike_through</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_underline' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_is_underline">is_underline</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_error' was declared in GAME_SDL_ANY"><a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`line_skip_height' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_line_skip_height">line_skip_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`maximum_height' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_maximum_height">maximum_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`outline_size' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_outline_size">outline_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`size' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_size">size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`text_dimension' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_text_dimension">text_dimension</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_chart.html">TUPLE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">]</span></span>
+	<span title="`text_library' was declared in TEXT_LIBRARY_SHARED"><a class="efeature" href="../game_text/text_library_shared.html#f_text_library">Text_library</a><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_controller_chart.html">TEXT_CONTROLLER</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`disable_bold' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_disable_bold">disable_bold</a></span>
+	<span title="`disable_hinting' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_disable_hinting">disable_hinting</a></span>
+	<span title="`disable_italic' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_disable_italic">disable_italic</a></span>
+	<span title="`disable_kerning' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_disable_kerning">disable_kerning</a></span>
+	<span title="`disable_outline' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_disable_outline">disable_outline</a></span>
+	<span title="`disable_strike_through' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_disable_strike_through">disable_strike_through</a></span>
+	<span title="`disable_style_modifier' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_disable_style_modifier">disable_style_modifier</a></span>
+	<span title="`disable_underline' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_disable_underline">disable_underline</a></span>
+	<span title="`enable_bold' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_enable_bold">enable_bold</a></span>
+	<span title="`enable_italic' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_enable_italic">enable_italic</a></span>
+	<span title="`enable_kerning' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_enable_kerning">enable_kerning</a></span>
+	<span title="`enable_light_hinting' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_enable_light_hinting">enable_light_hinting</a></span>
+	<span title="`enable_monochrome_hinting' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_enable_monochrome_hinting">enable_monochrome_hinting</a></span>
+	<span title="`enable_normal_hinting' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_enable_normal_hinting">enable_normal_hinting</a></span>
+	<span title="`enable_strike_through' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_enable_strike_through">enable_strike_through</a></span>
+	<span title="`enable_underline' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_enable_underline">enable_underline</a></span>
+	<span title="`open' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_open">open</a></span>
+	<span title="`set_is_bold' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_set_is_bold">set_is_bold</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a><span class="esymbol">)</span></span>
+	<span title="`set_is_italic' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_set_is_italic">set_is_italic</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a><span class="esymbol">)</span></span>
+	<span title="`set_is_kerning_enabled' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_set_is_kerning_enabled">set_is_kerning_enabled</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a><span class="esymbol">)</span></span>
+	<span title="`set_is_strike_through' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_set_is_strike_through">set_is_strike_through</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a><span class="esymbol">)</span></span>
+	<span title="`set_is_underline' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_set_is_underline">set_is_underline</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a><span class="esymbol">)</span></span>
+	<span title="`set_outline_size' is declared in `Current'"><a class="efeature" href="../game_text/text_font.html#f_set_outline_size">set_outline_size</a> <span class="esymbol">(</span><span class="elocal">a_outline_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+
+<span class="ekeyword">Constraints</span>
+	<span class="etag">is open exists</span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="text_font_links.html">Relations</a>
+<a class="nav class" href="text_font.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="text_font"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

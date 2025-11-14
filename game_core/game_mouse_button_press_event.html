@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Encapsulates the press of a mouse button"/>
+<meta name="author" content="Louis Marchand and obnosim"/>
+<meta name="todo" content="Drop GAME_MOUSE_BUTTON_RELEASED_STATE entirely and inherit GAME_MOUSE_BUTTON_EVENT directly"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_mouse_button_press_event Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_mouse_button_press_event_chart.html">Chart</a>
+<a class="nav class" href="game_mouse_button_press_event_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_mouse_button_press_event"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Encapsulates the press of a mouse button</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand and obnosim&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sun Feb 04, 2018&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+	<span class="eitag">todo</span><span class="esymbol">:</span> <span class="estring">&quot;Drop GAME_MOUSE_BUTTON_RELEASED_STATE entirely and inherit GAME_MOUSE_BUTTON_EVENT directly&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_core/event/game_mouse_button_press_event.html">GAME_MOUSE_BUTTON_PRESS_EVENT</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../game_core/event/game_mouse_button_event.html">GAME_MOUSE_BUTTON_EVENT</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/event/game_mouse_event_common.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_is_left_button_pressed"></a><a class="efeature" href="../game_core/event/game_mouse_button_press_event.html#f_is_left_button_pressed">is_left_button_pressed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">obsolete</span> &quot;Use `is_left_button' instead [2018-01-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Is the left button of the mouse represented</span>
+			<span class="ecomment">--</span><span class="ecomment"> by </span><span class="equoted">Current</span><span class="ecomment"> is the one that has been pressed</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/event/game_mouse_button_event.html#f_is_left_button">is_left_button</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_right_button_pressed"></a><a class="efeature" href="../game_core/event/game_mouse_button_press_event.html#f_is_right_button_pressed">is_right_button_pressed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">obsolete</span> &quot;Use `is_right_button' instead [2018-01-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Is the right button of the mouse represented</span>
+			<span class="ecomment">--</span><span class="ecomment"> by </span><span class="equoted">Current</span><span class="ecomment"> is the one that has been pressed</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/event/game_mouse_button_event.html#f_is_right_button">is_right_button</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_middle_button_pressed"></a><a class="efeature" href="../game_core/event/game_mouse_button_press_event.html#f_is_middle_button_pressed">is_middle_button_pressed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">obsolete</span> &quot;Use `is_middle_button' instead [2018-01-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Is the middle button of the mouse represented</span>
+			<span class="ecomment">--</span><span class="ecomment"> by </span><span class="equoted">Current</span><span class="ecomment"> is the one that has been pressed</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/event/game_mouse_button_event.html#f_is_middle_button">is_middle_button</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_optionnal_button_1_pressed"></a><a class="efeature" href="../game_core/event/game_mouse_button_press_event.html#f_is_optionnal_button_1_pressed">is_optionnal_button_1_pressed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">obsolete</span> &quot;Use `is_optional_button_1' instead [2018-01-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Is the first optionnal button of the mouse represented</span>
+			<span class="ecomment">--</span><span class="ecomment"> by </span><span class="equoted">Current</span><span class="ecomment"> is the one that has been pressed</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/event/game_mouse_button_event.html#f_is_optional_button_1">is_optional_button_1</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_optionnal_button_2_pressed"></a><a class="efeature" href="../game_core/event/game_mouse_button_press_event.html#f_is_optionnal_button_2_pressed">is_optionnal_button_2_pressed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">obsolete</span> &quot;Use `is_optional_button_2' instead [2018-01-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Is the second optionnal button of the mouse represented</span>
+			<span class="ecomment">--</span><span class="ecomment"> by </span><span class="equoted">Current</span><span class="ecomment"> is the one that has been pressed</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/event/game_mouse_button_event.html#f_is_optional_button_2">is_optional_button_2</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/event/game_mouse_button_press_event.html">GAME_MOUSE_BUTTON_PRESS_EVENT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_mouse_button_press_event_chart.html">Chart</a>
+<a class="nav class" href="game_mouse_button_press_event_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_mouse_button_press_event"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

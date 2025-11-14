@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Every high level events that are not attached to a specific component of the library (window, joystick, etc.)"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_common_events Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_common_events_chart.html">Chart</a>
+<a class="nav class" href="game_common_events_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_common_events"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Every high level events that are not attached to a specific</span>
+		<span class="estring">component of the library (window, joystick, etc.)</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sat, 28 Feb 2015 19:01:23 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_core/event/game_common_events.html">GAME_COMMON_EVENTS</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../game_core/event/game_events.html">GAME_EVENTS</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_make">make</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialisation</span>
+
+	<a name="f_make"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization of </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_callback">file_dropped_actions_callback</a> <span class="esymbol">:=</span> <span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+				<span class="ekeyword">do</span>
+					<a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions">file_dropped_actions</a><span class="edot">.</span><a class="efeature" href="../ise/action_sequence.html#f_call">call</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">[</span><span class="elocal">a_timestamp</span><span class="esymbol">,</span> <span class="elocal">a_filename</span><span class="esymbol">]</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_founded_actions_callback">joystick_founded_actions_callback</a> <span class="esymbol">:=</span> <span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_joystick_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+				<span class="ekeyword">do</span>
+					<a class="efeature" href="../game_core/event/game_common_events.html#f_manage_joystick_founded_callback">manage_joystick_founded_callback</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">,</span> <span class="elocal">a_joystick_id</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_removed_actions_callback">joystick_removed_actions_callback</a> <span class="esymbol">:=</span> <span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_joystick_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+				<span class="ekeyword">do</span>
+					<a class="efeature" href="../game_core/event/game_common_events.html#f_manage_joystick_removed_callback">manage_joystick_removed_callback</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">,</span> <span class="elocal">a_joystick_id</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_callback">quit_signal_actions_callback</a> <span class="esymbol">:=</span> <span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+				<span class="ekeyword">do</span>
+					<a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions">quit_signal_actions</a><span class="edot">.</span><a class="efeature" href="../ise/action_sequence.html#f_call">call</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">[</span><span class="elocal">a_timestamp</span><span class="esymbol">]</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_callback">iteration_actions_callback</a> <span class="esymbol">:=</span> <span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+				<span class="ekeyword">do</span>
+					<a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions">iteration_actions</a><span class="edot">.</span><a class="efeature" href="../ise/action_sequence.html#f_call">call</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">[</span><span class="elocal">a_timestamp</span><span class="esymbol">]</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<a class="ekeyword" href="../game_core/event/game_events.html#f_make">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_core/event/game_events.html">GAME_EVENTS</a><span class="esymbol">}</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_stop"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_stop">stop</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">Current</span><span class="ecomment"> innactive.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_quit_signal_actions">quit_signal_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_prune_all">prune_all</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_callback">quit_signal_actions_callback</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_iteration_actions">iteration_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_prune_all">prune_all</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_callback">iteration_actions_callback</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_file_dropped_actions">file_dropped_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_prune_all">prune_all</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_callback">file_dropped_actions_callback</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_run"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_run">run</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">Current</span><span class="ecomment"> active.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_internal">quit_signal_actions_internal</a> <span class="ekeyword">as</span> la_on_quit_signal_internal <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_quit_signal_actions">quit_signal_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_callback">quit_signal_actions_callback</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_internal">iteration_actions_internal</a> <span class="ekeyword">as</span> la_on_iteration_internal <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_iteration_actions">iteration_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_callback">iteration_actions_callback</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_internal">file_dropped_actions_internal</a> <span class="ekeyword">as</span> la_on_file_drop_internal <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_file_dropped_actions">file_dropped_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_callback">file_dropped_actions_callback</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_clear"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_clear">clear</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove common library event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: does not clear other events like window events, joystick events, etc. To clear every events</span>
+			<span class="ecomment">--</span><span class="ecomment"> in the system, used </span><a class="eclass" href="../game_core/game_library_controller.html">GAME_LIBRARY_CONTROLLER</a><span class="ecomment">.</span><span class="equoted">clear_all_events</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_was_running</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_was_running</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a>
+			<span class="ekeyword">if</span> <a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_stop">stop</a>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_internal">quit_signal_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_internal">iteration_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_found_actions_internal">joystick_found_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_remove_actions_internal">joystick_remove_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_internal">file_dropped_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_was_running</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_run">run</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_quit_signal_actions"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions">quit_signal_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the application receive a quit signal.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">quit_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_is_quit_signal_event_enable">is_quit_signal_event_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_internal">quit_signal_actions_internal</a> <span class="ekeyword">as</span> la_on_quit_signal_internal <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_on_quit_signal_internal</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_quit_signal_actions">quit_signal_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_callback">quit_signal_actions_callback</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_internal">quit_signal_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_iteration_actions"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions">iteration_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called at each game loop</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_internal">iteration_actions_internal</a> <span class="ekeyword">as</span> la_on_iteration_internal <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_on_iteration_internal</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_iteration_actions">iteration_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_callback">iteration_actions_callback</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_internal">iteration_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_joystick_found_actions"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_found_actions">joystick_found_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called when a new </span><span class="equoted">joystick</span><span class="ecomment"> has been founded</span>
+			<span class="ecomment">--</span><span class="ecomment"> Automatically added to </span><a class="eclass" href="../game_core/game_library_controller.html">GAME_LIBRARY_CONTROLLER</a><span class="ecomment">.</span><span class="equoted">joysticks</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">joystick_found_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_found_actions_internal">joystick_found_actions_internal</a> <span class="ekeyword">as</span> la_on_joystick_added_internal <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_on_joystick_added_internal</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_joy_device_founded_actions">joy_device_founded_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_founded_actions_callback">joystick_founded_actions_callback</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_found_actions_internal">joystick_found_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_joystick_remove_actions"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_remove_actions">joystick_remove_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called when a new joystick has been removed</span>
+			<span class="ecomment">--</span><span class="ecomment"> The joystick will be removed from </span><a class="eclass" href="../game_core/game_library_controller.html">GAME_LIBRARY_CONTROLLER</a><span class="ecomment">.</span><span class="equoted">joysticks</span><span class="ecomment"> after the</span>
+			<span class="ecomment">--</span><span class="ecomment"> calls of this feature.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">joystick_remove_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_remove_actions_internal">joystick_remove_actions_internal</a> <span class="ekeyword">as</span> la_on_joystick_removed_internal <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_on_joystick_removed_internal</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_joy_device_removed_actions">joy_device_removed_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_removed_actions_callback">joystick_removed_actions_callback</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_remove_actions_internal">joystick_remove_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_dropped_actions"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions">file_dropped_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called when the file (or any other string) </span><span class="equoted">filename</span><span class="ecomment"> is drag and drop on a </span><a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The event is not enabled by default. Use </span><a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="ecomment">.</span><span class="equoted">enable_file_dropped_event</span><span class="ecomment"> to enable it.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">joystick_found_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_internal">file_dropped_actions_internal</a> <span class="ekeyword">as</span> la_on_file_drop_internal <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_on_file_drop_internal</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../game_core/event/game_events.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_file_dropped_actions">file_dropped_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_callback">file_dropped_actions_callback</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_internal">file_dropped_actions_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_manage_joystick_founded_callback"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_manage_joystick_founded_callback">manage_joystick_founded_callback</a> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_joystick_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Used to manage </span><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_founded_actions_callback">joystick_founded_actions_callback</a>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_manage_joystick_removed_callback"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_manage_joystick_removed_callback">manage_joystick_removed_callback</a> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_joystick_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Used to manage </span><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_removed_actions_callback">joystick_removed_actions_callback</a>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_quit_signal_actions_internal"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_internal">quit_signal_actions_internal</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal representation of the quit signal event</span>
+
+	<a name="f_quit_signal_actions_callback"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_quit_signal_actions_callback">quit_signal_actions_callback</a><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure.html">PROCEDURE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal callback of the quit signal event</span>
+
+	<a name="f_iteration_actions_internal"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_internal">iteration_actions_internal</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal representation of the iteration event</span>
+
+	<a name="f_iteration_actions_callback"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_iteration_actions_callback">iteration_actions_callback</a><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure.html">PROCEDURE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal callback of the iteration event</span>
+
+	<a name="f_joystick_found_actions_internal"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_found_actions_internal">joystick_found_actions_internal</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal representation of the joystick founded event</span>
+
+	<a name="f_joystick_founded_actions_callback"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_founded_actions_callback">joystick_founded_actions_callback</a><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure.html">PROCEDURE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal callback of the joystick founded event</span>
+
+	<a name="f_joystick_remove_actions_internal"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_remove_actions_internal">joystick_remove_actions_internal</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal representation of the joystick removed event</span>
+
+	<a name="f_joystick_removed_actions_callback"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_removed_actions_callback">joystick_removed_actions_callback</a><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure.html">PROCEDURE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal callback of the joystick removed event</span>
+
+	<a name="f_file_dropped_actions_internal"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_internal">file_dropped_actions_internal</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../ise/action_sequence.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal representation of the file drop event</span>
+
+	<a name="f_file_dropped_actions_callback"></a><a class="efeature" href="../game_core/event/game_common_events.html#f_file_dropped_actions_callback">file_dropped_actions_callback</a><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure.html">PROCEDURE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal callback of the file dropped event</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/event/game_common_events.html">GAME_COMMON_EVENTS</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_common_events_chart.html">Chart</a>
+<a class="nav class" href="game_common_events_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_common_events"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

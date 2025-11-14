@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Keyboard Events. To retreive the state of the keyboard. Must be return by an object of GAME_EVENT_CONTROLLER type."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_key_event Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_key_event_chart.html">Chart</a>
+<a class="nav class" href="game_key_event_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_key_event"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Keyboard Events. To retreive the state of the keyboard. Must be return by an object of GAME_EVENT_CONTROLLER type.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sun, 04 Feb 2018 16:14:25 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_core/event/game_key_event.html">GAME_KEY_EVENT</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../game_core/input/game_key.html">GAME_KEY</a>
+
+	<a class="eclass" href="../game_core/input/game_key_modifier.html">GAME_KEY_MODIFIER</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_none">has_none</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_none">has_no_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_left_shift">has_left_shift</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_left_shift">has_left_shift_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_right_shift">has_right_shift</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_right_shift">has_right_shift_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_left_ctrl">has_left_ctrl</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_left_ctrl">has_left_ctrl_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_right_ctrl">has_right_ctrl</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_right_ctrl">has_right_ctrl_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_left_alt">has_left_alt</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_left_alt">has_left_alt_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_right_alt">has_right_alt</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_right_alt">has_right_alt_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_left_gui">has_left_gui</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_left_gui">has_left_gui_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_right_gui">has_right_gui</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_right_gui">has_right_gui_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_num_lock">has_num_lock</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_num_lock">has_num_lock_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_caps_lock">has_caps_lock</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_caps_lock">has_caps_lock_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_alt_gr">has_alt_gr</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_alt_gr">has_alt_gr_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_ctrl">has_ctrl</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_ctrl">has_ctrl_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_shift">has_shift</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_shift">has_shift_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_alt">has_alt</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_alt">has_alt_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_gui">has_gui</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/input/game_key_modifier.html#f_has_gui">has_gui_modifier</a>
+		<span class="ekeyword">undefine</span>
+			<a class="efeature" href="../game_core/input/game_key.html#f_out">out</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a><span class="esymbol">}</span>
+	<a class="efeature" href="../game_core/event/game_key_event.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../game_core/event/game_key_event.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_physical_code</span><span class="esymbol">,</span> <span class="elocal">a_virtual_code</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_modifier</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_16.html">NATURAL_16</a><span class="esymbol">;</span> <span class="elocal">a_repeat</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/input/game_key.html#f_physical_code">physical_code</a> <span class="esymbol">:=</span> <span class="elocal">a_physical_code</span>
+			<a class="efeature" href="../game_core/input/game_key.html#f_virtual_code">virtual_code</a> <span class="esymbol">:=</span> <span class="elocal">a_virtual_code</span>
+			<a class="efeature" href="../game_core/event/game_key_event.html#f_repeat">repeat</a> <span class="esymbol">:=</span> <span class="elocal">a_repeat</span>
+			<a class="efeature" href="../game_core/event/game_key_event.html#f_modifier">modifier</a> <span class="esymbol">:=</span> <span class="elocal">a_modifier</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_is_repeat"></a><a class="efeature" href="../game_core/event/game_key_event.html#f_is_repeat">is_repeat</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The key is a repetition</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/event/game_key_event.html#f_repeat">repeat</a> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_repeat"></a><a class="efeature" href="../game_core/event/game_key_event.html#f_repeat">repeat</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Not 0 when the key event is an automatic repeted event</span>
+
+	<a name="f_modifier"></a><a class="efeature" href="../game_core/event/game_key_event.html#f_modifier">modifier</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_16.html">NATURAL_16</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal identificator of the modifiers pressed</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/event/game_key_event.html">GAME_KEY_EVENT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_key_event_chart.html">Chart</a>
+<a class="nav class" href="game_key_event_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_key_event"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

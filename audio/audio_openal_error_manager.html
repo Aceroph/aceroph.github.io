@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Error manager for the audio library.  All OpenAL Class inherit from it to access error in the C library.  TODO: get individual error by name."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>audio_openal_error_manager Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_openal_error_manager_chart.html">Chart</a>
+<a class="nav class" href="audio_openal_error_manager_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="audio_openal_error_manager"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Error manager for the audio library. </span>
+		<span class="estring">All OpenAL Class inherit from it to access error in the C library.</span>
+		
+		<span class="estring">TODO: get individual error by name.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Tue, 07 Apr 2015 01:15:20 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../audio_3d/audio_openal_error_manager.html">AUDIO_OPENAL_ERROR_MANAGER</a>
+
+<span class="ekeyword">inherit</span>
+	<span class="neclass">GAME_ERROR_MANAGER</span>
+		<span class="ekeyword">rename</span>
+			<span class="nefeature">message</span> <span class="ekeyword">as</span> <span class="nefeature">manual_error</span><span class="esymbol">,</span>
+			<span class="nefeature">put_error</span> <span class="ekeyword">as</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_put_manual_error">put_manual_error</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_clear_error">clear_error</a><span class="esymbol">,</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_error">last_error</a><span class="esymbol">,</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_put_manual_error">put_manual_error</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../audio_3d/audio_any.html">AUDIO_ANY</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> 
+
+	<a name="f_clear_error"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_clear_error">clear_error</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove error pending in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_get_error">alc_get_error</a> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">}</span><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_get_error">al_get_error</a>
+			<a class="ekeyword" href="file#f_feature">Precursor</a> <span class="esymbol">{</span><span class="neclass">GAME_ERROR_MANAGER</span><span class="esymbol">}</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_clear_alc_error"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_clear_alc_error">clear_alc_error</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_clear_error">clear_error</a>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_get_error">alc_get_error</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_read_al_error"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_read_al_error">read_al_error</a> <span class="esymbol">(</span><span class="elocal">a_message</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Read the next OpenAL error</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_no_error">alc_no_error</a>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_get_error">al_get_error</a>
+			<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_no_error">al_no_error</a>
+			<span class="ekeyword">if</span> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="nefeature">Print_on_error_internal</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_message</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_error">last_error</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_read_alc_error"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_read_alc_error">read_alc_error</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_message</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Read the next OpenAL error</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_no_error">al_no_error</a>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_get_error">alc_get_error</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">)</span>
+			<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_no_error">alc_no_error</a>
+			<span class="ekeyword">if</span> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="nefeature">Print_on_error_internal</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_message</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_error">last_error</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_manual_error"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_put_manual_error">put_manual_error</a> <span class="esymbol">(</span><span class="elocal">a_general_message</span><span class="esymbol">,</span> <span class="elocal">a_specific_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a manual error using </span><span class="equoted">a_general_error</span><span class="ecomment"> for the debug information</span>
+			<span class="ecomment">--</span><span class="ecomment"> and </span><span class="equoted">a_specific_error</span><span class="ecomment"> for the lasting information</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_no_error">al_no_error</a>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_is_manual_error">is_manual_error</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="file#f_feature">Precursor</a> <span class="esymbol">{</span><span class="neclass">GAME_ERROR_MANAGER</span><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_general_message</span><span class="esymbol">,</span> <span class="elocal">a_specific_error</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_error_managable"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_is_error_managable">is_error_managable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can the present error can be manage</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_out_of_memory">al_out_of_memory</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_no_error">al_no_error</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_manual_error"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_is_manual_error">is_manual_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the present error a manual error</span>
+
+	<a name="f_last_al_error_code"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The last error index return by the OpenAL library.</span>
+
+	<a name="f_last_alc_error_code"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The last error index return by the OpenAL context library.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_last_error"></a><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The last error generate by the library</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_is_manual_error">is_manual_error</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="file#f_feature">Precursor</a> <span class="esymbol">{</span><span class="neclass">GAME_ERROR_MANAGER</span><span class="esymbol">}</span>
+			<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_no_error">al_no_error</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_invalid_enum">al_invalid_enum</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;An invalid enum value was passed to an OpenAL function.&quot;
+				<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_invalid_value">al_invalid_value</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;An invalid value was passed to an OpenAL function.&quot;
+				<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_invalid_operation">al_invalid_operation</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;The requested operation is not valid.&quot;
+				<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_invalid_name">al_invalid_name</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;A bad name (ID) was passed to an OpenAL function.&quot;
+				<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_out_of_memory">al_out_of_memory</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;The requested operation resulted in OpenAL running out of memory.&quot;
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;Unmanaged OpenAL error.&quot;
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_no_error">alc_no_error</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_invalid_value">alc_invalid_value</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;An invalid value was passed to an OpenAL context function.&quot;
+				<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_invalid_device">alc_invalid_device</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;The device is not valid.&quot;
+				<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_invalid_context">alc_invalid_context</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;The context is not valid.&quot;
+				<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_invalid_enum">alc_invalid_enum</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;Invalid enum parameter passed to an ALC call.&quot;
+				<span class="ekeyword">elseif</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_out_of_memory">alc_out_of_memory</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;Out of memory.&quot;
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;Unmanaged OpenAL context error.&quot;
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;No error.&quot;
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../audio_3d/audio_openal_error_manager.html">AUDIO_OPENAL_ERROR_MANAGER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_openal_error_manager_chart.html">Chart</a>
+<a class="nav class" href="audio_openal_error_manager_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="audio_openal_error_manager"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

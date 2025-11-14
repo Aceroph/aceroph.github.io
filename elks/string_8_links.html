@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Sequences of 8-bit characters, accessible through integer indices in a contiguous range."/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2017, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>string_8 Relations</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="string_8_chart.html">Chart</a>
+<span class="nav class selected">Relations</span>
+<a class="nav class" href="string_8.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="string_8"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../elks/string_8_links.html">STRING_8</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../elks/indexable_links.html">INDEXABLE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <span class="egeneric">H</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/integer_32_links.html">INTEGER_32</a><span class="esymbol">]</span>
+	<a class="eclass" href="../elks/mismatch_corrector_links.html">MISMATCH_CORRECTOR</a>
+	<a class="eclass" href="../elks/readable_string_8_links.html">READABLE_STRING_8</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/resizable_links.html">RESIZABLE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../elks/string_general_links.html">STRING_GENERAL</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/to_special_links.html">TO_SPECIAL</a> <span class="esymbol">[</span><span class="egeneric">T</span><span class="esymbol">]</span>
+
+<span class="ekeyword">Descendants</span>
+	<a class="eclass" href="../elks/path_name_links.html">PATH_NAME</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/seq_string_links.html">SEQ_STRING</a>
+
+<span class="ekeyword">Clients</span>
+	<a class="eclass" href="../elks/abstract_special_links.html">ABSTRACT_SPECIAL</a><span class="echar">*</span>
+	<a class="eclass" href="../ise/action_sequence_links.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><span class="egeneric">EVENT_DATA</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/tuple_links.html">TUPLE</a> <span class="ekeyword">create</span> <a class="efeature" href="../elks/any.html#f_default_create">default_create</a> <span class="ekeyword">end</span><span class="esymbol">]</span>
+	<a class="eclass" href="../elks/any_links.html">ANY</a>
+	<a class="eclass" href="../elks/arguments_links.html">ARGUMENTS</a>
+	<a class="eclass" href="../audio_3d/audio_capture_controller_links.html">AUDIO_CAPTURE_CONTROLLER</a>
+	<a class="eclass" href="../audio_3d/audio_openal_error_manager_links.html">AUDIO_OPENAL_ERROR_MANAGER</a><span class="echar">*</span>
+	<a class="eclass" href="../audio_sound_file/audio_sound_file_links.html">AUDIO_SOUND_FILE</a>
+	<a class="eclass" href="../audio_sound_file/audio_sound_file_imp_links.html">AUDIO_SOUND_FILE_IMP</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/character_32_ref_links.html">CHARACTER_32_REF</a>
+	<a class="eclass" href="../elks/character_8_ref_links.html">CHARACTER_8_REF</a>
+	<a class="eclass" href="../elks/class_name_translations_links.html">CLASS_NAME_TRANSLATIONS</a>
+	<a class="eclass" href="../elks/com_failure_links.html">COM_FAILURE</a>
+	<a class="eclass" href="../elks/console_links.html">CONSOLE</a>
+	<a class="eclass" href="../elks/c_string_links.html">C_STRING</a>
+	<a class="eclass" href="../elks/directory_links.html">DIRECTORY</a>
+	<a class="eclass" href="../elks/exception_links.html">EXCEPTION</a>
+	<a class="eclass" href="../elks/execution_environment_links.html">EXECUTION_ENVIRONMENT</a>
+	<a class="eclass" href="../elks/file_links.html">FILE</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/file_name_links.html">FILE_NAME</a>
+	<a class="eclass" href="../elks/format_double_links.html">FORMAT_DOUBLE</a>
+	<a class="eclass" href="../elks/format_integer_links.html">FORMAT_INTEGER</a>
+	<span class="neclass">FPS_COUNTER</span>
+	<a class="eclass" href="../game_core/graphic/game_color_readable_links.html">GAME_COLOR_READABLE</a>
+	<a class="eclass" href="../game_core/graphic/game_display_links.html">GAME_DISPLAY</a>
+	<a class="eclass" href="../game_core/graphic/game_display_mode_links.html">GAME_DISPLAY_MODE</a>
+	<span class="neclass">GAME_ERROR_MANAGER</span><span class="echar">*</span>
+	<a class="eclass" href="../game_core/event/game_events_controller_links.html">GAME_EVENTS_CONTROLLER</a>
+	<a class="eclass" href="../game_core/graphic/game_renderer_driver_links.html">GAME_RENDERER_DRIVER</a>
+	<a class="eclass" href="../game_core/implementation/game_sdl_any_links.html">GAME_SDL_ANY</a><span class="echar">*</span>
+	<a class="eclass" href="../game_core/graphic/game_surface_links.html">GAME_SURFACE</a>
+	<a class="eclass" href="../elks/hexadecimal_string_to_integer_converter_links.html">HEXADECIMAL_STRING_TO_INTEGER_CONVERTER</a>
+	<a class="eclass" href="../game_image_file/img_image_file_links.html">IMG_IMAGE_FILE</a>
+	<a class="eclass" href="../elks/integer_16_ref_links.html">INTEGER_16_REF</a>
+	<a class="eclass" href="../elks/integer_32_ref_links.html">INTEGER_32_REF</a>
+	<a class="eclass" href="../elks/integer_64_ref_links.html">INTEGER_64_REF</a>
+	<a class="eclass" href="../elks/integer_8_ref_links.html">INTEGER_8_REF</a>
+	<a class="eclass" href="../ise/ise_exception_manager_links.html">ISE_EXCEPTION_MANAGER</a>
+	<a class="eclass" href="../json/json_kernel/json_array_links.html">JSON_ARRAY</a>
+	<a class="eclass" href="../json_serialization/json_core_deserializer_links.html">JSON_CORE_DESERIALIZER</a>
+	<a class="eclass" href="../json_serialization/json_core_serializer_links.html">JSON_CORE_SERIALIZER</a>
+	<a class="eclass" href="../json/json_utility/json_file_reader_links.html">JSON_FILE_READER</a>
+	<a class="eclass" href="../json/json_kernel/json_null_links.html">JSON_NULL</a>
+	<a class="eclass" href="../json/json_kernel/json_object_links.html">JSON_OBJECT</a>
+	<a class="eclass" href="../json/json_parser/json_parser_links.html">JSON_PARSER</a>
+	<a class="eclass" href="../json/json_utility/json_pretty_string_visitor_links.html">JSON_PRETTY_STRING_VISITOR</a>
+	<a class="eclass" href="../json/json_parser/json_reader_links.html">JSON_READER</a>
+	<a class="eclass" href="../json_serialization/json_reflector_serializer_links.html">JSON_REFLECTOR_SERIALIZER</a>
+	<a class="eclass" href="../json_serialization/json_serialization_links.html">JSON_SERIALIZATION</a>
+	<a class="eclass" href="../json_serialization/json_serializer_links.html">JSON_SERIALIZER</a><span class="echar">*</span>
+	<a class="eclass" href="../json/json_kernel/json_string_links.html">JSON_STRING</a>
+	<a class="eclass" href="../elks/mismatch_corrector_links.html">MISMATCH_CORRECTOR</a>
+	<a class="eclass" href="../elks/mismatch_information_links.html">MISMATCH_INFORMATION</a>
+	<a class="eclass" href="../elks/native_string_links.html">NATIVE_STRING</a>
+	<a class="eclass" href="../elks/natural_16_ref_links.html">NATURAL_16_REF</a>
+	<a class="eclass" href="../elks/natural_32_ref_links.html">NATURAL_32_REF</a>
+	<a class="eclass" href="../elks/natural_64_ref_links.html">NATURAL_64_REF</a>
+	<a class="eclass" href="../elks/natural_8_ref_links.html">NATURAL_8_REF</a>
+	<a class="eclass" href="../elks/path_links.html">PATH</a>
+	<a class="eclass" href="../elks/path_name_links.html">PATH_NAME</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/plain_text_file_links.html">PLAIN_TEXT_FILE</a>
+	<a class="eclass" href="../elks/raw_file_links.html">RAW_FILE</a>
+	<a class="eclass" href="../elks/readable_string_32_links.html">READABLE_STRING_32</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/readable_string_8_links.html">READABLE_STRING_8</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/readable_string_general_links.html">READABLE_STRING_GENERAL</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/reflected_object_links.html">REFLECTED_OBJECT</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/reflector_links.html">REFLECTOR</a>
+	<a class="eclass" href="../elks/reflector_helper_links.html">REFLECTOR_HELPER</a>
+	<a class="eclass" href="../ise/debug_implementation/rt_dbg_attribute_record_links.html">RT_DBG_ATTRIBUTE_RECORD</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_links.html">ANY</a><span class="esymbol">]</span>
+	<a class="eclass" href="../ise/debug_implementation/rt_dbg_call_record_links.html">RT_DBG_CALL_RECORD</a>
+	<a class="eclass" href="../ise/debug_implementation/rt_dbg_execution_recorder_links.html">RT_DBG_EXECUTION_RECORDER</a>
+	<a class="eclass" href="../ise/debug_implementation/rt_dbg_field_record_links.html">RT_DBG_FIELD_RECORD</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_links.html">ANY</a><span class="esymbol">]</span>
+	<a class="eclass" href="../ise/debug_implementation/rt_dbg_internal_links.html">RT_DBG_INTERNAL</a><span class="echar">*</span>
+	<a class="eclass" href="../ise/debug_implementation/rt_dbg_local_record_links.html">RT_DBG_LOCAL_RECORD</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_links.html">ANY</a><span class="esymbol">]</span>
+	<a class="eclass" href="../ise/debug_implementation/rt_extension_links.html">RT_EXTENSION</a>
+	<a class="eclass" href="../ise/debug_implementation/rt_extension_common_links.html">RT_EXTENSION_COMMON</a><span class="echar">*</span>
+	<a class="eclass" href="../ise/debug_implementation/rt_extension_general_links.html">RT_EXTENSION_GENERAL</a><span class="echar">*</span>
+	<a class="eclass" href="../ise/sed_error_factory_links.html">SED_ERROR_FACTORY</a>
+	<a class="eclass" href="../ise/sed_reader_writer_links.html">SED_READER_WRITER</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/seq_string_links.html">SEQ_STRING</a>
+	<a class="eclass" href="../elks/special_links.html">SPECIAL</a> <span class="esymbol">[</span><span class="egeneric">T</span><span class="esymbol">]</span>
+	<a class="eclass" href="../elks/stream_links.html">STREAM</a>
+	<a class="eclass" href="../elks/string_8_links.html">STRING_8</a>
+	<a class="eclass" href="../elks/string_to_integer_convertor_links.html">STRING_TO_INTEGER_CONVERTOR</a>
+	<a class="eclass" href="../elks/string_to_numeric_convertor_links.html">STRING_TO_NUMERIC_CONVERTOR</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/string_to_real_convertor_links.html">STRING_TO_REAL_CONVERTOR</a>
+	<span class="neclass">TILE</span>
+	<span class="neclass">TILE_REGISTRY</span>
+	<a class="eclass" href="../elks/tuple_links.html">TUPLE</a>
+	<a class="eclass" href="../elks/type_links.html">TYPE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../elks/unix_signals_links.html">UNIX_SIGNALS</a>
+	<a class="eclass" href="../elks/utf_converter_links.html">UTF_CONVERTER</a>
+	<span class="neclass">VECTOR2D</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="esymbol">{</span><a class="eclass" href="../elks/hashable_links.html">HASHABLE</a> <span class="ekeyword">rename</span> <a class="efeature" href="../elks/any.html#f_out">out</a> <span class="ekeyword">as</span> hash_out <span class="ekeyword">end</span>, <a class="eclass" href="../elks/numeric_links.html">NUMERIC</a><span class="esymbol">}</span><span class="esymbol">]</span>
+
+<span class="ekeyword">Suppliers</span>
+	<a class="eclass" href="../elks/arrayed_list_links.html">ARRAYED_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../elks/boolean_links.html">BOOLEAN</a>
+	<a class="eclass" href="../elks/character_8_links.html">CHARACTER_8</a>
+	<a class="eclass" href="../elks/c_string_links.html">C_STRING</a>
+	<a class="eclass" href="../elks/integer_16_links.html">INTEGER_16</a>
+	<a class="eclass" href="../elks/integer_32_links.html">INTEGER_32</a>
+	<a class="eclass" href="../elks/integer_64_links.html">INTEGER_64</a>
+	<a class="eclass" href="../elks/integer_8_links.html">INTEGER_8</a>
+	<a class="eclass" href="../elks/natural_16_links.html">NATURAL_16</a>
+	<a class="eclass" href="../elks/natural_32_links.html">NATURAL_32</a>
+	<a class="eclass" href="../elks/natural_64_links.html">NATURAL_64</a>
+	<a class="eclass" href="../elks/natural_8_links.html">NATURAL_8</a>
+	<a class="eclass" href="../elks/platform_links.html">PLATFORM</a>
+	<a class="eclass" href="../elks/pointer_links.html">POINTER</a>
+	<a class="eclass" href="../elks/readable_string_8_links.html">READABLE_STRING_8</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/readable_string_general_links.html">READABLE_STRING_GENERAL</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/real_32_links.html">REAL_32</a>
+	<a class="eclass" href="../elks/real_64_links.html">REAL_64</a>
+	<a class="eclass" href="../elks/special_links.html">SPECIAL</a> <span class="esymbol">[</span><span class="egeneric">T</span><span class="esymbol">]</span>
+	<a class="eclass" href="../elks/string_8_links.html">STRING_8</a>
+	<a class="eclass" href="../elks/string_8_searcher_links.html">STRING_8_SEARCHER</a>
+	<a class="eclass" href="../elks/system_string_links.html">SYSTEM_STRING</a>
+	<a class="eclass" href="../elks/system_string_factory_links.html">SYSTEM_STRING_FACTORY</a>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="string_8_chart.html">Chart</a>
+<span class="nav class selected">Relations</span>
+<a class="nav class" href="string_8.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="string_8"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

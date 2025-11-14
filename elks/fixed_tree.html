@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Trees where each node has a fixed number of children. The number of children is arbitrary but cannot be changed once the node has been created."/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="names" content="fixed_tree, tree, fixed_list"/>
+<meta name="representation" content="recursive, array"/>
+<meta name="access" content="cursor, membership"/>
+<meta name="contents" content="generic"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="ca_ignore" content="CA024, CA024: use an across loop instead of a regular one"/>
+<meta name="copyright" content="Copyright (c) 1984-2018, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>fixed_tree Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="fixed_tree_chart.html">Chart</a>
+<a class="nav class" href="fixed_tree_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="fixed_tree"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Trees where each node has a fixed number of children.</span>
+		<span class="estring">The number of children is arbitrary but cannot be</span>
+		<span class="estring">changed once the node has been created.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Free implementation of ELKS library&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">names</span><span class="esymbol">:</span> fixed_tree<span class="esymbol">,</span> tree<span class="esymbol">,</span> fixed_list
+	<span class="eitag">representation</span><span class="esymbol">:</span> recursive<span class="esymbol">,</span> array
+	<span class="eitag">access</span><span class="esymbol">:</span> cursor<span class="esymbol">,</span> membership
+	<span class="eitag">contents</span><span class="esymbol">:</span> generic
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2018-12-15 18:06:16 +0000 (Sat, 15 Dec 2018) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102608 $&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../elks/fixed_tree.html">FIXED_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../elks/cell.html">CELL</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+		<span class="ekeyword">undefine</span>
+			<a class="efeature" href="../elks/tree.html#f_copy">copy</a><span class="esymbol">,</span>
+			<a class="efeature" href="../elks/tree.html#f_is_equal">is_equal</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../elks/tree.html">TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../elks/container.html#f_empty">empty</a> <span class="ekeyword">as</span> <a class="efeature" href="../elks/container.html#f_empty">fl_empty</a>
+		<span class="ekeyword">export</span>
+			<span class="esymbol">{</span>NONE<span class="esymbol">}</span> <a class="efeature" href="../elks/container.html#f_empty">fl_empty</a>
+		<span class="ekeyword">undefine</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_child_off">child_off</a><span class="esymbol">,</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_child_after">child_after</a><span class="esymbol">,</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_child_before">child_before</a><span class="esymbol">,</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_child_item">child_item</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a><span class="esymbol">,</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_attach_to_parent">attach_to_parent</a><span class="esymbol">,</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_child_capacity">child_capacity</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../elks/fixed_tree.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../elks/fixed_tree.html#f_make_filled">make_filled</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../elks/fixed_tree.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create node with </span><span class="equoted">n</span><span class="ecomment"> void children and item </span><span class="equoted">v</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_number_of_children</span><span class="esymbol">:</span> <span class="elocal">n</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/fixed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+			<a class="efeature" href="../elks/cell.html#f_replace">replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">node_item</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cell.html#f_item">item</a> <span class="esymbol">=</span> <span class="elocal">v</span>
+			<span class="etag">node_arity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="esymbol">=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_filled"></a><a class="efeature" href="../elks/fixed_tree.html#f_make_filled">make_filled</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create node with </span><span class="equoted">n</span><span class="ecomment"> empty children and item </span><span class="equoted">v</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_number_of_children</span><span class="esymbol">:</span> <span class="elocal">n</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+			<span class="etag">has_default</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="esymbol">{</span><span class="egeneric">G</span><span class="esymbol">}</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/type.html#f_has_default">has_default</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="esymbol">:=</span> <span class="elocal">n</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/fixed_list.html#f_make_filled">make_filled</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+			<a class="efeature" href="../elks/cell.html#f_replace">replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_start">start</a>
+			<span class="ekeyword">until</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_after">after</a>
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_replace_child">replace_child</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="esymbol">{</span><span class="egeneric">G</span><span class="esymbol">}</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/type.html#f_default">default</a><span class="esymbol">)</span><span class="esymbol">)</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_forth">forth</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">node_item</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cell.html#f_item">item</a> <span class="esymbol">=</span> <span class="elocal">v</span>
+			<span class="etag">node_arity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="esymbol">=</span> <span class="elocal">n</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_parent"></a><a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Parent of current node.</span>
+
+	<a name="f_child_item"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_item">child_item</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/cell.html#f_item">item</a>
+			<span class="ecomment">--</span><span class="ecomment"> Item of active child.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">check</span>
+					<span class="ekeyword">attached</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a> <span class="ekeyword">as</span> c
+			<span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_left_sibling"></a><a class="efeature" href="../elks/fixed_tree.html#f_left_sibling">left_sibling</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ecomment">--</span><span class="ecomment"> Left neighbor, if any.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a> <span class="ekeyword">as</span> p <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_array_item">array_item</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_right_sibling"></a><a class="efeature" href="../elks/fixed_tree.html#f_right_sibling">right_sibling</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ecomment">--</span><span class="ecomment"> Right neighbor, if any.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a> <span class="ekeyword">as</span> p <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_array_item">array_item</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_child_contractable"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_contractable">child_contractable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> May items be removed?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../elks/fixed_tree.html#f_child_off">child_off</a>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../elks/fixed_tree.html#f_child_off">child_off</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_full"></a><a class="efeature" href="../elks/fixed_tree.html#f_full">Full</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is tree full?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_child_put"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_put">child_put</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/cell.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Replace current child item with </span><span class="equoted">v</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/fixed_tree.html">FIXED_TREE</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/fixed_tree.html#f_child_replace">child_replace</a><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">c</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">c</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a>
+			<span class="ekeyword">if</span> <span class="elocal">c</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../elks/container.html#f_object_comparison">object_comparison</a> <span class="ekeyword">then</span>
+					<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_compare_objects">compare_objects</a>
+				<span class="ekeyword">else</span>
+					<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_compare_references">compare_references</a>
+				<span class="ekeyword">end</span>
+				<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_replace">replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_replace"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_replace">child_replace</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/cell.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Replace current child item with </span><span class="equoted">v</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/fixed_tree.html">FIXED_TREE</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/fixed_tree.html#f_child_put">child_put</a><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">c</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">c</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a>
+			<span class="ekeyword">if</span> <span class="elocal">c</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <a class="efeature" href="../elks/container.html#f_object_comparison">object_comparison</a> <span class="ekeyword">then</span>
+					<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_compare_objects">compare_objects</a>
+				<span class="ekeyword">else</span>
+					<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_compare_references">compare_references</a>
+				<span class="ekeyword">end</span>
+				<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_replace">replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_left"></a><a class="efeature" href="../elks/fixed_tree.html#f_put_left">put_left</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/cell.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> to the left of current node.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_not_root</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../elks/tree.html#f_is_root">is_root</a>
+			<span class="etag">has_left_sibling</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_left_sibling">left_sibling</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">p</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">p</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ekeyword">if</span> <span class="elocal">p</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_replace">child_replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">item_put</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/fixed_tree.html#f_left_sibling">left_sibling</a> <span class="ekeyword">as</span> l <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">l</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a> <span class="esymbol">=</span> <span class="elocal">v</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_right"></a><a class="efeature" href="../elks/fixed_tree.html#f_put_right">put_right</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/cell.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> to the right of current node.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_not_root</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../elks/tree.html#f_is_root">is_root</a>
+			<span class="etag">has_right_sibling</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_right_sibling">right_sibling</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">p</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">p</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ekeyword">if</span> <span class="elocal">p</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_replace">child_replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">item_put</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/fixed_tree.html#f_right_sibling">right_sibling</a> <span class="ekeyword">as</span> r <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a> <span class="esymbol">=</span> <span class="elocal">v</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_child"></a><a class="efeature" href="../elks/fixed_tree.html#f_put_child">put_child</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_new_node">new_node</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">n</span><span class="ecomment"> the node's child.</span>
+		<span class="ekeyword">require else</span>
+			<span class="etag">not_full</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <a class="efeature" href="../elks/fixed_tree.html#f_capacity">capacity</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../elks/container.html#f_object_comparison">object_comparison</a> <span class="ekeyword">then</span>
+				<span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_compare_objects">compare_objects</a>
+			<span class="ekeyword">else</span>
+				<span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_compare_references">compare_references</a>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+			<span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_attach_to_parent">attach_to_parent</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">child_replaced</span><span class="esymbol">:</span> <span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a> <span class="esymbol">=</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_replace_child"></a><a class="efeature" href="../elks/fixed_tree.html#f_replace_child">replace_child</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_new_node">new_node</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">n</span><span class="ecomment"> the node's child.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../elks/container.html#f_object_comparison">object_comparison</a> <span class="ekeyword">then</span>
+				<span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_compare_objects">compare_objects</a>
+			<span class="ekeyword">else</span>
+				<span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_compare_references">compare_references</a>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fl_replace">fl_replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+			<span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_attach_to_parent">attach_to_parent</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">child_replaced</span><span class="esymbol">:</span> <span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a> <span class="esymbol">=</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_left_sibling"></a><a class="efeature" href="../elks/fixed_tree.html#f_put_left_sibling">put_left_sibling</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_new_node">new_node</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">other</span><span class="ecomment"> the left sibling of current node.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_not_root</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../elks/tree.html#f_is_root">is_root</a>
+			<span class="etag">has_left_sibling</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_left_sibling">left_sibling</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">p</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">p</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ekeyword">if</span> <span class="elocal">p</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_replace_child">replace_child</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">left_sibling_replaced</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_left_sibling">left_sibling</a> <span class="esymbol">=</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_right_sibling"></a><a class="efeature" href="../elks/fixed_tree.html#f_put_right_sibling">put_right_sibling</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_new_node">new_node</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">other</span><span class="ecomment"> the right sibling of current node.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_not_root</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../elks/tree.html#f_is_root">is_root</a>
+			<span class="etag">has_right_sibling</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_right_sibling">right_sibling</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">p</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">p</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ekeyword">if</span> <span class="elocal">p</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_replace_child">replace_child</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">right_sibling_replaced</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_right_sibling">right_sibling</a> <span class="esymbol">=</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Removal</span>
+
+	<a name="f_remove_child"></a><a class="efeature" href="../elks/fixed_tree.html#f_remove_child">remove_child</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove active child.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fl_replace">fl_replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Void</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">child_removed</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_forget_left"></a><a class="efeature" href="../elks/fixed_tree.html#f_forget_left">forget_left</a>
+			<span class="ecomment">--</span><span class="ecomment"> Forget all left siblings.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">old_idx</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">p</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">p</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ekeyword">if</span> <span class="elocal">p</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="ekeyword">then</span>
+				<span class="elocal">old_idx</span> <span class="esymbol">:=</span> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_index">child_index</a>
+				<span class="ekeyword">from</span>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+				<span class="ekeyword">until</span>
+					<span class="elocal">i</span> <span class="esymbol">=</span> <a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a>
+				<span class="ekeyword">loop</span>
+					<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+					<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_remove_child">remove_child</a>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">old_idx</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_forget_right"></a><a class="efeature" href="../elks/fixed_tree.html#f_forget_right">forget_right</a>
+			<span class="ecomment">--</span><span class="ecomment"> Forget all right siblings.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">old_idx</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">p</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">p</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ekeyword">if</span> <span class="elocal">p</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="ekeyword">then</span>
+				<span class="elocal">old_idx</span> <span class="esymbol">:=</span> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_index">child_index</a>
+				<span class="ekeyword">from</span>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+				<span class="ekeyword">until</span>
+					<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a>
+				<span class="ekeyword">loop</span>
+					<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+					<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_remove_child">remove_child</a>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">old_idx</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_duplicate"></a><a class="efeature" href="../elks/fixed_tree.html#f_duplicate">duplicate</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">obsolete</span> &quot;Create and initialize a new tree explicitly. [2018-11-30]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Copy of sub-tree beginning at cursor position and</span>
+			<span class="ecomment">--</span><span class="ecomment"> having min (</span><span class="equoted">n</span><span class="ecomment">, </span><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a><span class="ecomment"> - </span><a class="efeature" href="../elks/fixed_tree.html#f_child_index">child_index</a><span class="ecomment"> + 1)</span>
+			<span class="ecomment">--</span><span class="ecomment"> children.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">counter</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">pos</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor.html">CURSOR</a>
+			<span class="elocal">c</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_new_node">new_node</a>
+				<span class="elocal">pos</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_child_cursor">child_cursor</a>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_start">child_start</a>
+			<span class="ekeyword">until</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_child_after">child_after</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="elocal">counter</span> <span class="esymbol">=</span> <span class="elocal">n</span><span class="esymbol">)</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">c</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a>
+				<span class="ekeyword">if</span> <span class="elocal">c</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_replace_child">replace_child</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_duplicate_all">duplicate_all</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_forth">child_forth</a>
+				<a class="efeature" href="../elks/fixed_tree.html#f_child_forth">child_forth</a>
+				<span class="elocal">counter</span> <span class="esymbol">:=</span> <span class="elocal">counter</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_child_go_to">child_go_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pos</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_position_in_parent"></a><a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Position of current node in parent</span>
+
+	<a name="f_extendible"></a><a class="efeature" href="../elks/fixed_tree.html#f_extendible">Extendible</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">False</span>
+			<span class="ecomment">--</span><span class="ecomment"> May new items be added?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Redefinition</span>
+
+	<a name="f_child_capacity"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_capacity">child_capacity</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Maximal number of children</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_count">count</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../elks/fixed_tree.html">FIXED_TREE</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_new_node"></a><a class="efeature" href="../elks/fixed_tree.html#f_new_node">new_node</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">obsolete</span> &quot;Create and initialize a new tree explicitly. [2018-11-30]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Instance of class </span><span class="equoted">like Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> New allocated node of arity </span><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a>
+			<span class="ecomment">--</span><span class="ecomment"> and node value </span><a class="efeature" href="../elks/cell.html#f_item">item</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a><span class="esymbol">,</span> <a class="efeature" href="../elks/cell.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_duplicate_all"></a><a class="efeature" href="../elks/fixed_tree.html#f_duplicate_all">duplicate_all</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">obsolete</span> &quot;Create and initialize a new tree explicitly. [2018-11-30]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Copy of sub-tree including all children</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">pos</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor.html">CURSOR</a>
+			<span class="elocal">c</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_new_node">new_node</a>
+				<span class="elocal">pos</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_child_cursor">child_cursor</a>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_start">child_start</a>
+				<a class="efeature" href="../elks/fixed_tree.html#f_child_start">child_start</a>
+			<span class="ekeyword">until</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_child_off">child_off</a>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">c</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_child">child</a>
+				<span class="ekeyword">if</span> <span class="elocal">c</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_replace_child">replace_child</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_duplicate_all">duplicate_all</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_forth">child_forth</a>
+				<a class="efeature" href="../elks/fixed_tree.html#f_child_forth">child_forth</a>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_child_go_to">child_go_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">pos</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fill_subtree"></a><a class="efeature" href="../elks/fixed_tree.html#f_fill_subtree">fill_subtree</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tree.html">TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+		<span class="ekeyword">obsolete</span> &quot;Fill subtree explicitly. [2018-11-30]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Fill children with children of </span><span class="equoted">other</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">temp</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="elocal">c</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/tree.html">TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/tree.html#f_child_start">child_start</a>
+				<a class="efeature" href="../elks/fixed_tree.html#f_child_start">child_start</a>
+			<span class="ekeyword">until</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_child_after">child_after</a>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">c</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/tree.html#f_child">child</a>
+				<span class="ekeyword">if</span> <span class="elocal">c</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">create</span> <span class="elocal">temp</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/tree.html#f_arity">arity</a><span class="esymbol">,</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/tree.html#f_child_item">child_item</a><span class="esymbol">)</span>
+					<span class="elocal">temp</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_fill_subtree">fill_subtree</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">)</span>
+					<a class="efeature" href="../elks/fixed_tree.html#f_replace_child">replace_child</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">temp</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_child_forth">child_forth</a>
+				<span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/tree.html#f_child_forth">child_forth</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_attach_to_parent"></a><a class="efeature" href="../elks/fixed_tree.html#f_attach_to_parent">attach_to_parent</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">n</span><span class="ecomment"> parent of current node</span>
+			<span class="ecomment">--</span><span class="ecomment"> and set </span><a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a> <span class="esymbol">:=</span> <span class="elocal">n</span>
+			<span class="ekeyword">if</span> <span class="elocal">n</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <span class="esymbol">:=</span> <span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_child_index">child_index</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fixed_list"></a><a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="esymbol">:</span> <a class="eclass" href="../elks/fixed_list.html">FIXED_LIST</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span>
+
+	<a name="f_set_fixed_list"></a><a class="efeature" href="../elks/fixed_tree.html#f_set_fixed_list">set_fixed_list</a> <span class="esymbol">(</span><span class="elocal">a_list</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="ecomment"> with </span><span class="equoted">a_list</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">non_void_list</span><span class="esymbol">:</span> <span class="elocal">a_list</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a> <span class="esymbol">:=</span> <span class="elocal">a_list</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">fixed_list_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a> <span class="esymbol">=</span> <span class="elocal">a_list</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_clone_node"></a><a class="efeature" href="../elks/fixed_tree.html#f_clone_node">clone_node</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Clone node </span><span class="equoted">n</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a><span class="esymbol">,</span> <span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/fixed_tree.html#f_copy_node">copy_node</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_copy_node"></a><a class="efeature" href="../elks/fixed_tree.html#f_copy_node">copy_node</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy content of </span><span class="equoted">n</span><span class="ecomment"> except tree data into Current.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_list</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_list</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a>
+			<a class="efeature" href="../elks/any.html#f_standard_copy">standard_copy</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a> <span class="esymbol">:=</span> <span class="elocal">l_list</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_position_in_parent">position_in_parent</a> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access: chilldren</span>
+
+	<a name="f_child"></a><a class="efeature" href="../elks/fixed_tree.html#f_child">child</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ecomment">--</span><span class="ecomment"> Current child node</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_array_item"></a><a class="efeature" href="../elks/fixed_tree.html#f_array_item">array_item</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_i_th">i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_last_child"></a><a class="efeature" href="../elks/fixed_tree.html#f_last_child">last_child</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_first_child">first_child</a>
+			<span class="ecomment">--</span><span class="ecomment"> Right most child</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_last">last</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_first_child"></a><a class="efeature" href="../elks/fixed_tree.html#f_first_child">first_child</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_parent">parent</a>
+			<span class="ecomment">--</span><span class="ecomment"> Leftmost child</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_first">first</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_search_child"></a><a class="efeature" href="../elks/fixed_tree.html#f_search_child">search_child</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_search">search</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_arity"></a><a class="efeature" href="../elks/fixed_tree.html#f_arity">arity</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of children</span>
+
+	<a name="f_child_start"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_start">child_start</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to first child.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_start">start</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_finish"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_finish">child_finish</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to last child.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_finish">finish</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_forth"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_forth">child_forth</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to next child.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_forth">forth</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_back"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_back">child_back</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to previous child.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_back">back</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_go_i_th"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_go_i_th">child_go_i_th</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to </span><span class="equoted">i</span><span class="ecomment">-th child.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_go_i_th">go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_index"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_index">child_index</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Index of current child</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_index">index</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_off"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_off">child_off</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there no current child?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_off">off</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_after"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_after">child_after</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there no valid child position to the right of cursor?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_after">after</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_before"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_before">child_before</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there no valid child position to the left of cursor?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_before">before</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_cursor"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_cursor">child_cursor</a><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor.html">CURSOR</a>
+			<span class="ecomment">--</span><span class="ecomment"> Current cursor position</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_cursor">cursor</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_child_go_to"></a><a class="efeature" href="../elks/fixed_tree.html#f_child_go_to">child_go_to</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor.html">CURSOR</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to position </span><span class="equoted">p</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_go_to">go_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_index_of"></a><a class="efeature" href="../elks/fixed_tree.html#f_index_of">index_of</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_index_of">index_of</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_prune"></a><a class="efeature" href="../elks/fixed_tree.html#f_prune">prune</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/fixed_tree.html#f_new_node">new_node</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove </span><span class="equoted">n</span><span class="ecomment"> from the children.</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_wipe_out"></a><a class="efeature" href="../elks/fixed_tree.html#f_wipe_out">wipe_out</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove all children.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/fixed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_count">count</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_i_th"></a><a class="efeature" href="../elks/fixed_tree.html#f_put_i_th">put_i_th</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">;</span> <span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_put_i_th">put_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <span class="elocal">n</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_capacity"></a><a class="efeature" href="../elks/fixed_tree.html#f_capacity">capacity</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/fixed_list.html#f_capacity">capacity</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> private access fixed_list</span>
+
+	<a name="f_fl_make"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_make">fl_make</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/fixed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_make_filled"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_make_filled">fl_make_filled</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/fixed_list.html#f_make_filled">make_filled</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_extend"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_extend">fl_extend</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_duplicate"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_duplicate">fl_duplicate</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/fixed_list.html">FIXED_LIST</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span>
+		<span class="ekeyword">obsolete</span> &quot;[
+			Create a new container explicitly using `make_from_iterable` if available.
+			Otherwise, replace a call to the feature with code that creates and initializes container.
+			[2018-11-30]
+		]<span class="estring">&quot;</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_duplicate">duplicate</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_remove"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_remove">fl_remove</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_remove">remove</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_object_comparison"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_object_comparison">fl_object_comparison</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/container.html#f_object_comparison">object_comparison</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_full"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_full">fl_full</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/bounded.html#f_full">full</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_extendible"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_extendible">fl_extendible</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/fixed_list.html#f_extendible">extendible</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_put"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_put">fl_put</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_replace"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_replace">fl_replace</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_replace">replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_fill"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_fill">fl_fill</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/container.html">CONTAINER</a> <span class="esymbol">[</span><span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_lin_rep"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_lin_rep">fl_lin_rep</a><span class="esymbol">:</span> <a class="eclass" href="../elks/linear.html">LINEAR</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/linear.html#f_linear_representation">linear_representation</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fl_has"></a><a class="efeature" href="../elks/fixed_tree.html#f_fl_has">fl_has</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/fixed_tree.html#f_fixed_list">fixed_list</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">ca_ignore</span><span class="esymbol">:</span> <span class="estring">&quot;CA024&quot;</span><span class="esymbol">,</span> <span class="estring">&quot;CA024: use an across loop instead of a regular one&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2018, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../elks/fixed_tree.html">FIXED_TREE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="fixed_tree_chart.html">Chart</a>
+<a class="nav class" href="fixed_tree_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="fixed_tree"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

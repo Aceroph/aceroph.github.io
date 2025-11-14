@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A font contained inside a custom package file that can be use to draw text with a {TEXT_IMAGE}."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>text_font_cpf Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="text_font_cpf_chart.html">Chart</a>
+<a class="nav class" href="text_font_cpf_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="text_font_cpf"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">A font contained inside a custom package file</span>
+		<span class="estring">that can be use to draw text with a </span><span class="estring">{</span><span class="estring">TEXT_IMAGE</span><span class="estring">}</span><span class="estring">.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Mon, 30 Mar 2015 01:06:37 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_text/text_font_cpf.html">TEXT_FONT_CPF</a>
+
+<span class="ekeyword">inherit</span>
+	<span class="neclass">CPF_RESSOURCE_MANAGER</span>
+		<span class="ekeyword">rename</span>
+			<span class="nefeature">make</span> <span class="ekeyword">as</span> <span class="nefeature">make_cpf_ressource</span>
+		<span class="ekeyword">undefine</span>
+			<span class="nefeature">default_create</span>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../game_text/text_font.html#f_make">make</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_text/text_font.html#f_make">make_from_file</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font.html#f_make_with_index">make_with_index</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_text/text_font.html#f_make_with_index">make_with_index_from_file</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_open">open</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_disable_style_modifier">disable_style_modifier</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_is_underline">is_underline</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_enable_underline">enable_underline</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_disable_underline">disable_underline</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_is_bold">is_bold</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_enable_bold">enable_bold</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_disable_bold">disable_bold</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_is_italic">is_italic</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_enable_italic">enable_italic</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_disable_italic">disable_italic</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_is_strike_through">is_strike_through</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_enable_strike_through">enable_strike_through</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_disable_strike_through">disable_strike_through</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_has_outline">has_outline</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_outline_size">outline_size</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_set_outline_size">set_outline_size</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_disable_outline">disable_outline</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_has_hinting">has_hinting</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_disable_hinting">disable_hinting</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_has_normal_hinting">has_normal_hinting</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_enable_normal_hinting">enable_normal_hinting</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_has_light_hinting">has_light_hinting</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_has_monochrome_hinting">has_monochrome_hinting</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_enable_light_hinting">enable_light_hinting</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_enable_monochrome_hinting">enable_monochrome_hinting</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_is_kerning_enabled">is_kerning_enabled</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_enable_kerning">enable_kerning</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_disable_kerning">disable_kerning</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_maximum_height">maximum_height</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_ascent">ascent</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_descent">descent</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_line_skip_height">line_skip_height</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_is_monospace">is_monospace</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_face_family_name">face_family_name</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_face_style_name">face_style_name</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_is_glyph_provided">is_glyph_provided</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_glyph_metrics">glyph_metrics</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_text_dimension">text_dimension</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_item">item</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_text/text_font_cpf.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_text/text_font_cpf.html#f_make_with_index">make_with_index</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Initialisation</span>
+
+	<a name="f_make"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_cpf</span><span class="esymbol">:</span> <span class="neclass">CPF_PACKAGE_FILE</span><span class="esymbol">;</span> <span class="elocal">a_cpf_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment"> contained in </span><span class="equoted">a_cpf</span><span class="ecomment"> at index</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_cpf_index</span><span class="ecomment"> and using </span><span class="equoted">a_size</span><span class="ecomment"> as </span><span class="equoted">Current</span><span class="ecomment">s size.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">font_text_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_library_shared.html#f_text_library">Text_library</a><span class="edot">.</span><a class="efeature" href="../game_text/text_controller.html#f_is_text_enable">is_text_enable</a>
+			<span class="etag">cpf_index_valid</span><span class="esymbol">:</span> <span class="elocal">a_cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_readable">is_readable</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a_cpf_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a_cpf_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="elocal">a_cpf</span><span class="edot">.</span><span class="nefeature">sub_files_count</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_make_with_index">make_with_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_cpf</span><span class="esymbol">,</span> <span class="elocal">a_cpf_index</span><span class="esymbol">,</span> <span class="elocal">a_size</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_index"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_make_with_index">make_with_index</a> <span class="esymbol">(</span><span class="elocal">a_cpf</span><span class="esymbol">:</span> <span class="neclass">CPF_PACKAGE_FILE</span><span class="esymbol">;</span> <span class="elocal">a_cpf_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment"> contained in </span><span class="equoted">a_cpf</span><span class="ecomment"> at index</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_cpf_index</span><span class="ecomment"> and using </span><span class="equoted">a_size</span><span class="ecomment"> as </span><span class="equoted">Current</span><span class="ecomment">s size.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><span class="equoted">a_index</span><span class="ecomment"> is use if there is more than one font in a ttf file.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">font_text_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_library_shared.html#f_text_library">Text_library</a><span class="edot">.</span><a class="efeature" href="../game_text/text_controller.html#f_is_text_enable">is_text_enable</a>
+			<span class="etag">cpf_index_valid</span><span class="esymbol">:</span> <span class="elocal">a_cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_readable">is_readable</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a_cpf_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a_cpf_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="elocal">a_cpf</span><span class="edot">.</span><span class="nefeature">sub_files_count</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">default_create</span>
+			<span class="nefeature">make_cpf_ressource</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_cpf</span><span class="esymbol">,</span> <span class="elocal">a_cpf_index</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_text/text_font.html#f_rwop">rwop</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_allocrw">sdl_allocrw</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">select_sub_file</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="nefeature">cpf_index</span><span class="esymbol">)</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_setsdlrwops">setsdlrwops</a> <span class="esymbol">(</span><a class="efeature" href="../game_text/text_font.html#f_rwop">rwop</a><span class="esymbol">,</span> <span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">internal_pointer</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_open"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_open">open</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_open">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_style_modifier"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_disable_style_modifier">disable_style_modifier</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable all style modifier (underline, bold, italic and strike through)</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_disable_style_modifier">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_underline"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_is_underline">is_underline</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an underline style modifier</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_is_underline">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_underline"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_enable_underline">enable_underline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add an underline style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_enable_underline">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_underline"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_disable_underline">disable_underline</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove an underline style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_disable_underline">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_bold"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_is_bold">is_bold</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has a bold style modifier</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_is_bold">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_bold"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_enable_bold">enable_bold</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add a bold style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_enable_bold">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_bold"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_disable_bold">disable_bold</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove a bold style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_disable_bold">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_italic"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_is_italic">is_italic</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an italic style modifier</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_is_italic">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_italic"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_enable_italic">enable_italic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add an italic style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_enable_italic">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_italic"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_disable_italic">disable_italic</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove an italic style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_disable_italic">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_strike_through"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_is_strike_through">is_strike_through</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has a strike through style modifier</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_is_strike_through">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_strike_through"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_enable_strike_through">enable_strike_through</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add a strike through style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_enable_strike_through">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_strike_through"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_disable_strike_through">disable_strike_through</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove a strike through style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_disable_strike_through">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_outline"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_has_outline">has_outline</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an outline size.</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_has_outline">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_outline_size"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_outline_size">outline_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font_cpf.html#f_set_outline_size">set_outline_size</a>
+			<span class="ecomment">--</span><span class="ecomment"> The ouline width of </span><span class="equoted">Current</span><span class="ecomment"> (0 for disabled)</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_outline_size">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_outline_size"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_set_outline_size">set_outline_size</a> <span class="esymbol">(</span><span class="elocal">a_outline_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_text/text_font_cpf.html#f_outline_size">outline_size</a><span class="ecomment"> with the value of </span><a class="efeature" href="../game_text/text_font_cpf.html#f_outline_size">outline_size</a>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_set_outline_size">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_outline_size</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_outline"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_disable_outline">disable_outline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the outline size in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_disable_outline">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_hinting"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_has_hinting">has_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has the library a hint about how to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_has_hinting">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_hinting"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_disable_hinting">disable_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the draw hinting of </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_disable_hinting">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_normal_hinting"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_has_normal_hinting">has_normal_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the normal hinting to draw `Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_has_normal_hinting">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_normal_hinting"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_enable_normal_hinting">enable_normal_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the normal hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_enable_normal_hinting">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_light_hinting"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_has_light_hinting">has_light_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the light hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_has_light_hinting">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_light_hinting"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_enable_light_hinting">enable_light_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the light hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_enable_light_hinting">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_monochrome_hinting"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_has_monochrome_hinting">has_monochrome_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the monochrome hinting to draw </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_has_monochrome_hinting">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_monochrome_hinting"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_enable_monochrome_hinting">enable_monochrome_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the monochrome hinting to draw </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Must only be use with monochrome display</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_enable_monochrome_hinting">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_kerning_enabled"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_is_kerning_enabled">is_kerning_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> If True, the library can use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_is_kerning_enabled">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_kerning"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_enable_kerning">enable_kerning</a>
+			<span class="ecomment">--</span><span class="ecomment"> Allow the library to use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_enable_kerning">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_kerning"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_disable_kerning">disable_kerning</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does not allow the library to use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<a class="ekeyword" href="../game_text/text_font.html#f_disable_kerning">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_maximum_height"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_maximum_height">maximum_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum height that a gliph can take in pixel using </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_maximum_height">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_ascent"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_ascent">ascent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> distance from the top of the drawing area to the baseline in pixel.</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_ascent">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_descent"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_descent">descent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> distance from the baseline to the bottom of the drawing area in pixel.</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_descent">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_line_skip_height"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_line_skip_height">line_skip_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> the recommended pixel height of a rendered line of text using </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_line_skip_height">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_monospace"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_is_monospace">is_monospace</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if every character that exists in </span><span class="equoted">Current</span><span class="ecomment"> is the same width</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_is_monospace">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_face_family_name"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_face_family_name">face_family_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the face family of </span><span class="equoted">Curent</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_face_family_name">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_face_style_name"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_face_style_name">face_style_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the face style of </span><span class="equoted">Curent</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_face_style_name">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_glyph_provided"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_is_glyph_provided">is_glyph_provided</a> <span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32.html">CHARACTER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> can draw a glyph representing </span><span class="equoted">a_character</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_is_glyph_provided">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_glyph_metrics"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_glyph_metrics">glyph_metrics</a> <span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32.html">CHARACTER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">minimal_x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">maximal_x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">minimal_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">maximal_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">advance</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The informations about the glyph representing </span><span class="equoted">a_character</span><span class="ecomment"> generated with </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><span class="nefeature">has_error</span><span class="ecomment"> on error.</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_glyph_metrics">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_text_dimension"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_text_dimension">text_dimension</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The dimension of the </span><span class="equoted">a_text</span><span class="ecomment"> drawed with </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_text_dimension">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_lock_cpf_mutex"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_lock_cpf_mutex">lock_cpf_mutex</a>
+			<span class="ecomment">--</span><span class="ecomment"> Lock the mutex of the CPF so that no object</span>
+			<span class="ecomment">--</span><span class="ecomment"> can modify the CPF. Must used </span><a class="efeature" href="../game_text/text_font_cpf.html#f_unlock_cpf_mutex">unlock_cpf_mutex</a>
+			<span class="ecomment">--</span><span class="ecomment"> After the operation is done. If not, the</span>
+			<span class="ecomment">--</span><span class="ecomment"> application may deadlock</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">lock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_unlock_cpf_mutex"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_unlock_cpf_mutex">unlock_cpf_mutex</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unlock the mutex of the CPF. Must be used after</span>
+			<span class="ecomment">--</span><span class="ecomment"> a </span><a class="efeature" href="../game_text/text_font_cpf.html#f_lock_cpf_mutex">lock_cpf_mutex</a><span class="ecomment">. If not, the application may</span>
+			<span class="ecomment">--</span><span class="ecomment"> deadlock</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">unlock_mutex</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_item"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_item">item</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Access to memory area.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that you must call </span><a class="efeature" href="../game_text/text_font_cpf.html#f_lock_cpf_mutex">lock_cpf_mutex</a><span class="ecomment"> before using</span>
+			<span class="ecomment">--</span><span class="ecomment"> this routine and using </span><a class="efeature" href="../game_text/text_font_cpf.html#f_unlock_cpf_mutex">unlock_cpf_mutex</a><span class="ecomment"> after</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><span class="nefeature">select_sub_file</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="nefeature">cpf_index</span><span class="esymbol">)</span>
+			<span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_go">go</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../game_text/text_font.html#f_item">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_text/text_font.html">TEXT_FONT</a><span class="esymbol">}</span>
+			<a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a> <span class="esymbol">:=</span> <span class="nefeature">cpf</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_position">position</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation - Variables</span>
+
+	<a name="f_last_position"></a><a class="efeature" href="../game_text/text_font_cpf.html#f_last_position">last_position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The last known position inside the CPF used in that object.</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_text/text_font_cpf.html">TEXT_FONT_CPF</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="text_font_cpf_chart.html">Chart</a>
+<a class="nav class" href="text_font_cpf_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="text_font_cpf"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

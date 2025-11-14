@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Information about a renderer driver."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_renderer_driver Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_renderer_driver_links.html">Relations</a>
+<a class="nav class" href="game_renderer_driver.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_renderer_driver"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../game_core/graphic/game_renderer_driver_chart.html">GAME_RENDERER_DRIVER</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../game_core/graphic/index.html">graphic</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Information about a renderer driver.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_make">make</a><span class="esymbol">,</span> <a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_make_from_renderer">make_from_renderer</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../game_core/implementation/game_sdl_any_chart.html">GAME_SDL_ANY</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/memory_structure_chart.html">MEMORY_STRUCTURE</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`exists' was declared in MEMORY_STRUCTURE"><a class="efeature" href="../elks/memory_structure.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_error' was declared in GAME_ERROR_MANAGER"><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`index' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_index">index</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`is_hardware_rendering_supported' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_is_hardware_rendering_supported">is_hardware_rendering_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_present_synchronized_supported' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_is_present_synchronized_supported">is_present_synchronized_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_rendering_on_texture_supported' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_is_rendering_on_texture_supported">is_rendering_on_texture_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_software_rendering_supported' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_is_software_rendering_supported">is_software_rendering_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_error' was declared in GAME_SDL_ANY"><a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`maximum_texture_height' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_maximum_texture_height">maximum_texture_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`maximum_texture_width' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_maximum_texture_width">maximum_texture_width</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`name' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_name">name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`out' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_chart.html">STRING_8</a></span>
+	<span title="`texture_formats' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_texture_formats">texture_formats</a><span class="esymbol">:</span> <a class="eclass" href="../elks/list_chart.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_pixel_format_readable_chart.html">GAME_PIXEL_FORMAT_READABLE</a><span class="esymbol">]</span></span>
+	<span title="`texture_formats_count' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_texture_formats_count">texture_formats_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_renderer_driver_links.html">Relations</a>
+<a class="nav class" href="game_renderer_driver.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_renderer_driver"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

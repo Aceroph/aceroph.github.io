@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A read only {GAME_COLOR}"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_color_readable Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_color_readable_chart.html">Chart</a>
+<a class="nav class" href="game_color_readable_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_color_readable"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A read only </span><a class="eclass" href="../game_core/graphic/game_color.html">GAME_COLOR</a><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 02 Apr 2015 02:40:10 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_core/graphic/game_color_readable.html">GAME_COLOR_READABLE</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../elks/any.html">ANY</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_is_equal">is_equal</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_out">out</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_rgb">make_rgb</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_from_hexadecimal">make_from_hexadecimal</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_rgb_from_hexadecimal">make_rgb_from_hexadecimal</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_from_other">make_from_other</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_red</span><span class="esymbol">,</span> <span class="elocal">a_green</span><span class="esymbol">,</span> <span class="elocal">a_blue</span><span class="esymbol">,</span> <span class="elocal">a_alpha</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_red</span><span class="ecomment">, </span><span class="equoted">a_green</span><span class="ecomment">, </span><span class="equoted">a_blue</span><span class="ecomment"> as primary color intensity and </span><span class="equoted">a_alpha</span><span class="ecomment"> as opacity intensity.</span>
+			<span class="ecomment">--</span><span class="ecomment"> For primary color intensity, 0=no intensity and 255=maximum intensity</span>
+			<span class="ecomment">--</span><span class="ecomment"> For opacity intensity, 0=transparent and 255=opaque</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red_internal">red_internal</a> <span class="esymbol">:=</span> <span class="elocal">a_red</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green_internal">green_internal</a> <span class="esymbol">:=</span> <span class="elocal">a_green</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue_internal">blue_internal</a> <span class="esymbol">:=</span> <span class="elocal">a_blue</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha_internal">alpha_internal</a> <span class="esymbol">:=</span> <span class="elocal">a_alpha</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_rgb"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_rgb">make_rgb</a> <span class="esymbol">(</span><span class="elocal">a_red</span><span class="esymbol">,</span> <span class="elocal">a_green</span><span class="esymbol">,</span> <span class="elocal">a_blue</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_red</span><span class="ecomment">, </span><span class="equoted">a_green</span><span class="ecomment">, </span><span class="equoted">a_blue</span><span class="ecomment"> as primary color intensity.</span>
+			<span class="ecomment">--</span><span class="ecomment"> 0=no intensity and 255=maximum intensity</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_red</span><span class="esymbol">,</span> <span class="elocal">a_green</span><span class="esymbol">,</span> <span class="elocal">a_blue</span><span class="esymbol">,</span> <span class="enumber">255</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_hexadecimal"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_from_hexadecimal">make_from_hexadecimal</a> <span class="esymbol">(</span><span class="elocal">a_hexadecimal</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_hexadecimal</span><span class="ecomment"> encoded value as primary color intensity and opacity intensity.</span>
+			<span class="ecomment">--</span><span class="ecomment"> For primary color intensity, 00=no intensity and FF=maximum intensity</span>
+			<span class="ecomment">--</span><span class="ecomment"> For opacity intensity, 0=transparent and 255=opaque</span>
+		<span class="ekeyword">require</span>
+				<span class="elocal">a_hexadecimal</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">8</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_string_red</span><span class="esymbol">,</span> <span class="elocal">l_string_green</span><span class="esymbol">,</span> <span class="elocal">l_string_blue</span><span class="esymbol">,</span> <span class="elocal">l_string_alpha</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="elocal">l_red</span><span class="esymbol">,</span> <span class="elocal">l_green</span><span class="esymbol">,</span> <span class="elocal">l_blue</span><span class="esymbol">,</span> <span class="elocal">l_alpha</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="elocal">l_convertor</span><span class="esymbol">:</span> <a class="eclass" href="../elks/hexadecimal_string_to_integer_converter.html">HEXADECIMAL_STRING_TO_INTEGER_CONVERTER</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_make">make</a>
+			<span class="elocal">l_string_red</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;0x&quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="elocal">a_hexadecimal</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_substring">substring</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">,</span> <span class="enumber">2</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a>
+			<span class="elocal">l_string_green</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;0x&quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="elocal">a_hexadecimal</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_substring">substring</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">3</span><span class="esymbol">,</span> <span class="enumber">4</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a>
+			<span class="elocal">l_string_blue</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;0x&quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="elocal">a_hexadecimal</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_substring">substring</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">5</span><span class="esymbol">,</span> <span class="enumber">6</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a>
+			<span class="elocal">l_string_alpha</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;0x&quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="elocal">a_hexadecimal</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_substring">substring</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">7</span><span class="esymbol">,</span> <span class="enumber">8</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a>
+			<span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_parse_string_with_type">parse_string_with_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_string_red</span><span class="esymbol">,</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/numeric_information.html#f_type_natural_8">Type_natural_8</a><span class="esymbol">)</span>
+			<span class="elocal">l_red</span> <span class="esymbol">:=</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_parsed_natural_8">parsed_natural_8</a>
+			<span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_parse_string_with_type">parse_string_with_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_string_green</span><span class="esymbol">,</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/numeric_information.html#f_type_natural_8">Type_natural_8</a><span class="esymbol">)</span>
+			<span class="elocal">l_green</span> <span class="esymbol">:=</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_parsed_natural_8">parsed_natural_8</a>
+			<span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_parse_string_with_type">parse_string_with_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_string_blue</span><span class="esymbol">,</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/numeric_information.html#f_type_natural_8">Type_natural_8</a><span class="esymbol">)</span>
+			<span class="elocal">l_blue</span> <span class="esymbol">:=</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_parsed_natural_8">parsed_natural_8</a>
+			<span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_parse_string_with_type">parse_string_with_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_string_alpha</span><span class="esymbol">,</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/numeric_information.html#f_type_natural_8">Type_natural_8</a><span class="esymbol">)</span>
+			<span class="elocal">l_alpha</span> <span class="esymbol">:=</span> <span class="elocal">l_convertor</span><span class="edot">.</span><a class="efeature" href="../elks/hexadecimal_string_to_integer_converter.html#f_parsed_natural_8">parsed_natural_8</a>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_red</span><span class="esymbol">,</span> <span class="elocal">l_green</span><span class="esymbol">,</span> <span class="elocal">l_blue</span><span class="esymbol">,</span> <span class="elocal">l_alpha</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_rgb_from_hexadecimal"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_rgb_from_hexadecimal">make_rgb_from_hexadecimal</a> <span class="esymbol">(</span><span class="elocal">a_hexadecimal</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_hexadecimal</span><span class="ecomment"> encoded value as primary color intensity.</span>
+			<span class="ecomment">--</span><span class="ecomment"> 00=no intensity and FF=maximum intensity</span>
+		<span class="ekeyword">require</span>
+				<span class="elocal">a_hexadecimal</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">6</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_from_hexadecimal">make_from_hexadecimal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_hexadecimal</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;ff&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_other"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make_from_other">make_from_other</a> <span class="esymbol">(</span><span class="elocal">a_other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_color_readable.html">GAME_COLOR_READABLE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment"> using primary color and opacity intensity of </span><span class="equoted">a_other</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/graphic/game_color_readable.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_other</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a><span class="esymbol">,</span> <span class="elocal">a_other</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a><span class="esymbol">,</span> <span class="elocal">a_other</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a><span class="esymbol">,</span> <span class="elocal">a_other</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_red"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Red intensity of the color</span>
+			<span class="ecomment">--</span><span class="ecomment"> 0=no intensity and 255=maximum intensity</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red_internal">red_internal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_green"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Green intensity of the color</span>
+			<span class="ecomment">--</span><span class="ecomment"> 0=no intensity and 255=maximum intensity</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green_internal">green_internal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_blue"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Blue intensity of the color</span>
+			<span class="ecomment">--</span><span class="ecomment"> 0=no intensity and 255=maximum intensity</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue_internal">blue_internal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_alpha"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> The opacity (aplha channel) intensity</span>
+			<span class="ecomment">--</span><span class="ecomment"> 0=transparent and 255=opaque</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha_internal">alpha_internal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">a_color</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_is_equal_ignore_alpha">is_equal_ignore_alpha</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_color</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_color</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a> <span class="esymbol">=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_equal_ignore_alpha"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_is_equal_ignore_alpha">is_equal_ignore_alpha</a> <span class="esymbol">(</span><span class="elocal">a_color</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">a_other</span><span class="ecomment"> identical, regardless of alpha?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">a_color</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a> <span class="esymbol">=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_color</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a> <span class="esymbol">=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_color</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a> <span class="esymbol">=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_out"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;rgba(&quot; <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_out">out</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;,&quot; <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_out">out</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;,&quot; <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_out">out</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;,&quot; <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_out">out</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;)&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_out_rgb"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_out_rgb">out_rgb</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terce printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">Current</span><span class="ecomment"> using Web </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a><span class="ecomment">, </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a><span class="ecomment"> and </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a><span class="ecomment"> annotation.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;rgb(&quot; <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_out">out</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;,&quot; <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_out">out</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;,&quot; <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_out">out</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;)&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_to_hex_string"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_to_hex_string">to_hex_string</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terce printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">Current</span><span class="ecomment">s RGBA value using Web Hexadecimal annotation.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_to_rgb_hex_string">to_rgb_hex_string</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_to_hex_string">to_hex_string</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_to_rgb_hex_string"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_to_rgb_hex_string">to_rgb_hex_string</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terce printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">Current</span><span class="ecomment">s RGB value using Web Hexadecimal annotation.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_to_hex_string">to_hex_string</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_to_hex_string">to_hex_string</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_to_hex_string">to_hex_string</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_opaque_alpha_value"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_opaque_alpha_value">Opaque_alpha_value</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a> <span class="esymbol">=</span> <span class="enumber">255</span>
+			<span class="ecomment">--</span><span class="ecomment"> The value to set to </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a><span class="ecomment"> to have </span><span class="equoted">Current</span><span class="ecomment"> fully opaque.</span>
+
+	<a name="f_transparent_alpha_value"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_transparent_alpha_value">Transparent_alpha_value</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a> <span class="esymbol">=</span> <span class="enumber">0</span>
+			<span class="ecomment">--</span><span class="ecomment"> The value to set to </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a><span class="ecomment"> to have </span><span class="equoted">Current</span><span class="ecomment"> fully transparent.</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_red_internal"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red_internal">red_internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal value of </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_red">red</a>
+
+	<a name="f_green_internal"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green_internal">green_internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal value of </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_green">green</a>
+
+	<a name="f_blue_internal"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue_internal">blue_internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal value of </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_blue">blue</a>
+
+	<a name="f_alpha_internal"></a><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha_internal">alpha_internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal value of </span><a class="efeature" href="../game_core/graphic/game_color_readable.html#f_alpha">alpha</a>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/graphic/game_color_readable.html">GAME_COLOR_READABLE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_color_readable_chart.html">Chart</a>
+<a class="nav class" href="game_color_readable_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_color_readable"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

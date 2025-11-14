@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A sound to be played by an audio source."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>audio_sound Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="audio_sound_links.html">Relations</a>
+<a class="nav class" href="audio_sound.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="audio_sound"></span>
+</div></form><pre><span class="ekeyword">deferred</span> <span class="ekeyword">class</span>
+	<a class="eclass" href="../audio_3d/audio_sound_chart.html">AUDIO_SOUND</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../audio_3d/index.html">audio_3d</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A sound to be played by an audio source.&quot;</span>
+
+<span class="ekeyword">Ancestors</span>
+	<span class="neclass">GAME_ERROR_MANAGER</span><span class="echar">*</span>
+	<span class="neclass">GAME_RESSOURCE</span><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`bits_per_sample' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_bits_per_sample">bits_per_sample</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`channel_count' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_channel_count">channel_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`frequency' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_frequency">frequency</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`has_error' was declared in GAME_ERROR_MANAGER"><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_ressource_error' was declared in GAME_RESSOURCE as `has_error'"><span class="nefeature">has_ressource_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_finished' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_is_finished">is_finished</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_open' was declared in GAME_RESSOURCE"><span class="nefeature">is_open</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_openable' was declared in GAME_RESSOURCE"><span class="nefeature">is_openable</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_seekable' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_is_seekable">is_seekable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_signed' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_is_signed">is_signed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_error' was declared in GAME_ERROR_MANAGER"><span class="nefeature">last_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`sample_count' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_sample_count">sample_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_chart.html">INTEGER_64</a></span>
+	<span title="`sample_position' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_sample_position">sample_position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_chart.html">INTEGER_64</a></span>
+	<span title="`time_count' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_time_count">time_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_chart.html">INTEGER_64</a></span>
+	<span title="`time_position' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_time_position">time_position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_chart.html">INTEGER_64</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`close' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_close">close</a></span>
+	<span title="`open' was declared in GAME_RESSOURCE"><span class="nefeature">open</span></span>
+	<span title="`restart' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_restart">restart</a></span>
+	<span title="`sample_seek' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_sample_seek">sample_seek</a> <span class="esymbol">(</span><span class="elocal">a_frame_number</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_chart.html">INTEGER_64</a><span class="esymbol">)</span></span>
+	<span title="`time_seek' is declared in `Current'"><a class="efeature" href="../audio_3d/audio_sound_chart.html#f_time_seek">time_seek</a> <span class="esymbol">(</span><span class="elocal">a_milliseconds</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_chart.html">INTEGER_64</a><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="audio_sound_links.html">Relations</a>
+<a class="nav class" href="audio_sound.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="audio_sound"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

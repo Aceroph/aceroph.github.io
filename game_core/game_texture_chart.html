@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A hardware accelerated picture in memory"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_texture Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_texture_links.html">Relations</a>
+<a class="nav class" href="game_texture.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_texture"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../game_core/graphic/game_texture_chart.html">GAME_TEXTURE</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../game_core/graphic/index.html">graphic</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A hardware accelerated picture in memory&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_texture.html#f_make">make</a><span class="esymbol">,</span> <a class="efeature" href="../game_core/graphic/game_texture.html#f_make_target">make_target</a><span class="esymbol">,</span> <a class="efeature" href="../game_core/graphic/game_texture.html#f_make_from_surface">make_from_surface</a><span class="esymbol">,</span> <a class="efeature" href="../game_core/graphic/game_texture.html#f_make_from_image">make_from_image</a><span class="esymbol">,</span> <a class="efeature" href="../game_core/graphic/game_texture.html#f_share_from_other">share_from_other</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../elks/disposable_chart.html">DISPOSABLE</a><span class="echar">*</span>
+	<a class="eclass" href="../game_core/graphic/game_blendable_chart.html">GAME_BLENDABLE</a><span class="echar">*</span>
+	<a class="eclass" href="../game_core/graphic/game_render_target_chart.html">GAME_RENDER_TARGET</a><span class="echar">*</span>
+	<a class="eclass" href="../game_core/implementation/game_sdl_any_chart.html">GAME_SDL_ANY</a><span class="echar">*</span>
+	<a class="eclass" href="../elks/memory_structure_chart.html">MEMORY_STRUCTURE</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`additionnal_alpha' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_additionnal_alpha">additionnal_alpha</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8_chart.html">NATURAL_8</a></span>
+	<span title="`additionnal_color' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_additionnal_color">additionnal_color</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a></span>
+	<span title="`exists' was declared in MEMORY_STRUCTURE"><a class="efeature" href="../elks/memory_structure.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`has_error' was declared in GAME_ERROR_MANAGER"><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`height' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_height">height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`is_additive_blending_enabled' was declared in GAME_BLENDABLE"><a class="efeature" href="../game_core/graphic/game_blendable.html#f_is_additive_blending_enabled">is_additive_blending_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_alpha_blending_enabled' was declared in GAME_BLENDABLE"><a class="efeature" href="../game_core/graphic/game_blendable.html#f_is_alpha_blending_enabled">is_alpha_blending_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_blending_disabled' was declared in GAME_BLENDABLE"><a class="efeature" href="../game_core/graphic/game_blendable.html#f_is_blending_disabled">is_blending_disabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_locked' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_is_locked">is_locked</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_modulate_blending_enabled' was declared in GAME_BLENDABLE"><a class="efeature" href="../game_core/graphic/game_blendable.html#f_is_modulate_blending_enabled">is_modulate_blending_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_streamable' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_is_streamable">is_streamable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_targetable' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_is_targetable">is_targetable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_error' was declared in GAME_SDL_ANY"><a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`pixel_format' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_pixel_format">pixel_format</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_pixel_format_readable_chart.html">GAME_PIXEL_FORMAT_READABLE</a></span>
+	<span title="`shared' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_shared">shared</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`width' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_width">width</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`disable_blending' was declared in GAME_BLENDABLE"><a class="efeature" href="../game_core/graphic/game_blendable.html#f_disable_blending">disable_blending</a></span>
+	<span title="`enable_additive_blending' was declared in GAME_BLENDABLE"><a class="efeature" href="../game_core/graphic/game_blendable.html#f_enable_additive_blending">enable_additive_blending</a></span>
+	<span title="`enable_alpha_blending' was declared in GAME_BLENDABLE"><a class="efeature" href="../game_core/graphic/game_blendable.html#f_enable_alpha_blending">enable_alpha_blending</a></span>
+	<span title="`enable_modulate_blending' was declared in GAME_BLENDABLE"><a class="efeature" href="../game_core/graphic/game_blendable.html#f_enable_modulate_blending">enable_modulate_blending</a></span>
+	<span title="`set_additionnal_alpha' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_set_additionnal_alpha">set_additionnal_alpha</a> <span class="esymbol">(</span><span class="elocal">a_additionnal_alpha</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8_chart.html">NATURAL_8</a><span class="esymbol">)</span></span>
+	<span title="`set_additionnal_color' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_set_additionnal_color">set_additionnal_color</a> <span class="esymbol">(</span><span class="elocal">a_additionnal_color</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_color_readable_chart.html">GAME_COLOR_READABLE</a><span class="esymbol">)</span></span>
+	<span title="`update_pixels' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_update_pixels">update_pixels</a> <span class="esymbol">(</span><span class="elocal">a_pixels</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_pixel_buffer_chart.html">GAME_PIXEL_BUFFER</a><span class="esymbol">)</span></span>
+	<span title="`update_pixels_with_rect' is declared in `Current'"><a class="efeature" href="../game_core/graphic/game_texture.html#f_update_pixels_with_rect">update_pixels_with_rect</a> <span class="esymbol">(</span><span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_pixels</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_pixel_buffer_chart.html">GAME_PIXEL_BUFFER</a><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_texture_links.html">Relations</a>
+<a class="nav class" href="game_texture.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_texture"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

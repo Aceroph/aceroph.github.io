@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Controller of the game library."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_library_controller Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_library_controller_chart.html">Chart</a>
+<a class="nav class" href="game_library_controller_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_library_controller"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Controller of the game library.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sat, 28 Mar 2015 03:42:16 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.1&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_core/game_library_controller.html">GAME_LIBRARY_CONTROLLER</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a>
+		<span class="ekeyword">export</span>
+			<span class="esymbol">{</span><a class="eclass" href="../elks/any.html">ANY</a><span class="esymbol">}</span> <span class="nefeature">print_on_error</span><span class="esymbol">,</span> <span class="nefeature">set_print_on_error</span><span class="esymbol">,</span> <span class="nefeature">enable_print_on_error</span><span class="esymbol">,</span> <span class="nefeature">disable_print_on_error</span>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_default_create">default_create</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../game_core/event/game_common_events.html">GAME_COMMON_EVENTS</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_make">make</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_make">make_events</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_stop">stop</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_stop">stop_events</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_run">run</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_run">run_events</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_running</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_events_running</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_clear">clear</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/event/game_common_events.html#f_clear">clear_events</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_default_create">default_create</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../game_core/input/game_dollar_gesture_manager.html">GAME_DOLLAR_GESTURE_MANAGER</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../game_core/input/game_dollar_gesture_manager.html#f_index">index</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/game_library_controller.html#f_dollar_gesture_template_index">Dollar_gesture_template_index</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_default_create">default_create</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/game_library_controller.html#f_default_create">default_create</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/game_library_controller.html#f_make_no_parachute">make_no_parachute</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_default_create"></a><a class="efeature" href="../game_core/game_library_controller.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Clean up library on segfault</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_initialise_library">initialise_library</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_no_parachute"></a><a class="efeature" href="../game_core/game_library_controller.html#f_make_no_parachute">make_no_parachute</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't clean up library on segfault</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_initialise_library">initialise_library</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_noparachute">sdl_init_noparachute</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_initialise_library"></a><a class="efeature" href="../game_core/game_library_controller.html#f_initialise_library">initialise_library</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialise the library.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_instance_count">Instance_count</a><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/game_library_controller.html#f_instance_count">Instance_count</a><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+			<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_set_iteration_per_second">set_iteration_per_second</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">60</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init">sdl_init</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+				<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Cannot initialise the game library.%N&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">check</span>
+					<span class="elocal">l_error</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../elks/linked_list.html">LINKED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a><span class="esymbol">]</span><span class="esymbol">}</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_windows">internal_windows</a><span class="edot">.</span><a class="efeature" href="../elks/linked_list.html#f_make">make</a>
+			<span class="ekeyword">create</span> <a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_make">make_events</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_set_game_library">set_game_library</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Subs Systems</span>
+
+	<a name="f_enable_video"></a><a class="efeature" href="../game_core/game_library_controller.html#f_enable_video">enable_video</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unable the video functionalities</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_enable_video_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_initialise_sub_system">initialise_sub_system</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_video">sdl_init_video</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_enable_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_video"></a><a class="efeature" href="../game_core/game_library_controller.html#f_disable_video">disable_video</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the video functionalities</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_disable_video_not_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_windows">windows</a> <span class="ekeyword">as</span> la_windows
+			<span class="ekeyword">loop</span>
+				<span class="elocal">la_windows</span><span class="edot">.</span><a class="efeature" href="../elks/iteration_cursor.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_window.html#f_close">close</a>
+			<span class="ekeyword">end</span>
+			<span class="esymbol">{</span><a class="eclass" href="../elks/memory.html">MEMORY</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/memory.html#f_full_collect">full_collect</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_quit_sub_system">quit_sub_system</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_video">sdl_init_video</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_disable_video_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_video_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_is_video_enable">set_is_video_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the text surface functionnality is enabled.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_sub_system_enable">is_sub_system_enable</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_video">sdl_init_video</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_video_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_is_video_enable">set_is_video_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_enable_video">enable_video</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_disable_video">disable_video</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_joystick"></a><a class="efeature" href="../game_core/game_library_controller.html#f_enable_joystick">enable_joystick</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unable the joystick functionality</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_enable_joystick_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_initialise_sub_system">initialise_sub_system</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_joystick">sdl_init_joystick</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_joy_device_founded_actions">joy_device_founded_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_founded_actions_callback">joystick_founded_actions_callback</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_joy_device_removed_actions">joy_device_removed_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_removed_actions_callback">joystick_removed_actions_callback</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_enable_joystick_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_joystick"></a><a class="efeature" href="../game_core/game_library_controller.html#f_disable_joystick">disable_joystick</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the joystick fonctionality</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_disable_joystick_not_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_joy_device_founded_actions">joy_device_founded_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_prune_all">prune_all</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_founded_actions_callback">joystick_founded_actions_callback</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_joy_device_removed_actions">joy_device_removed_actions</a><span class="edot">.</span><a class="efeature" href="../ise/interactive_list.html#f_prune_all">prune_all</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_removed_actions_callback">joystick_removed_actions_callback</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_close_all_joysticks">close_all_joysticks</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_wipe_out">wipe_out</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_quit_sub_system">quit_sub_system</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_joystick">sdl_init_joystick</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_disable_joystick_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_joystick_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_is_joystick_enable">set_is_joystick_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the joystick functionnality is enabled.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_sub_system_enable">is_sub_system_enable</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_joystick">sdl_init_joystick</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_joystick_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_is_joystick_enable">set_is_joystick_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_enable_joystick">enable_joystick</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_disable_joystick">disable_joystick</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_haptic"></a><a class="efeature" href="../game_core/game_library_controller.html#f_enable_haptic">enable_haptic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unable the haptic (force feedback) functionality.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Often use for Controller rumble.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_enable_haptic_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_initialise_sub_system">initialise_sub_system</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_haptic">sdl_init_haptic</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_refresh_haptics">refresh_haptics</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_enable_haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_haptic"></a><a class="efeature" href="../game_core/game_library_controller.html#f_disable_haptic">disable_haptic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the haptic (force feedback) fonctionality</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_disable_haptic_not_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_close_all_haptics">close_all_haptics</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_wipe_out">wipe_out</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_quit_sub_system">quit_sub_system</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_haptic">sdl_init_haptic</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_disable_haptic_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_haptic_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_is_haptic_enable">set_is_haptic_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the haptic (force feedback) functionnality is enabled.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_sub_system_enable">is_sub_system_enable</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_haptic">sdl_init_haptic</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_haptic_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_is_haptic_enable">set_is_haptic_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_enable_haptic">enable_haptic</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_disable_haptic">disable_haptic</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_events"></a><a class="efeature" href="../game_core/game_library_controller.html#f_enable_events">enable_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unable the events functionality.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_enable_events_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_events_enable">is_events_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_initialise_sub_system">initialise_sub_system</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_events">sdl_init_events</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_enable_events_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_events_enable">is_events_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_events"></a><a class="efeature" href="../game_core/game_library_controller.html#f_disable_events">disable_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the events fonctionality</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_disable_events_not_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_events_enable">is_events_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_quit_sub_system">quit_sub_system</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_events">sdl_init_events</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_disable_events_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_events_enable">is_events_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_events_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_events_enable">is_events_enable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_is_events_enable">set_is_events_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the events functionnality is enabled.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_sub_system_enable">is_sub_system_enable</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_init_events">sdl_init_events</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_events_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_is_events_enable">set_is_events_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller.html#f_is_events_enable">is_events_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_enable_events">enable_events</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_disable_events">disable_events</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_events_enable">is_events_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Video methods</span>
+
+	<a name="f_renderer_drivers_count"></a><a class="efeature" href="../game_core/game_library_controller.html#f_renderer_drivers_count">renderer_drivers_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return the number of renderer driver. 0 if error.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getnumrenderdrivers">sdl_getnumrenderdrivers</a>
+			<span class="ekeyword">if</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> &quot;An error occured while retriving the number of renderer drivers.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_renderer_drivers"></a><a class="efeature" href="../game_core/game_library_controller.html#f_renderer_drivers">renderer_drivers</a><span class="esymbol">:</span> <a class="eclass" href="../elks/list.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> All renderer driver of the system. 0 driver on error.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_count</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_count</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_renderer_drivers_count">renderer_drivers_count</a>
+			<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_count</span><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="elocal">l_count</span>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/bag.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../game_core/graphic/game_renderer_driver.html">GAME_RENDERER_DRIVER</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer_driver.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_displays_count"></a><a class="efeature" href="../game_core/game_library_controller.html#f_displays_count">displays_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return the number of display. 0 if error.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_count_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getnumvideodisplays">sdl_getnumvideodisplays</a>
+			<span class="ekeyword">if</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> &quot;An error occured while retriving the number of displays.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_displays"></a><a class="efeature" href="../game_core/game_library_controller.html#f_displays">displays</a><span class="esymbol">:</span> <a class="eclass" href="../elks/list.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_display.html">GAME_DISPLAY</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> All displays of the system. 0 display on error.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_count</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_count</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_displays_count">displays_count</a>
+			<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_display.html">GAME_DISPLAY</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_count</span><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="elocal">l_count</span>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/bag.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../game_core/graphic/game_display.html">GAME_DISPLAY</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_display.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_windows"></a><a class="efeature" href="../game_core/game_library_controller.html#f_windows">windows</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every </span><a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a><span class="ecomment"> in the system.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/game_library_controller.html#f_internal_windows">internal_windows</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Mouse		</span>
+
+	<a name="f_show_mouse_cursor"></a><a class="efeature" href="../game_core/game_library_controller.html#f_show_mouse_cursor">show_mouse_cursor</a>
+			<span class="ecomment">--</span><span class="ecomment"> Show the mouse cursor when the mouse is on a window created by the library.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_showcursor">sdl_showcursor</a> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_enable">sdl_enable</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">show_mouse_cursor_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_cursor_visible">is_cursor_visible</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_hide_mouse_cursor"></a><a class="efeature" href="../game_core/game_library_controller.html#f_hide_mouse_cursor">hide_mouse_cursor</a>
+			<span class="ecomment">--</span><span class="ecomment"> Don't show the mouse cursor when the mouse is on a window created by the library.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_showcursor">sdl_showcursor</a> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_disable">sdl_disable</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">hide_mouse_cursor_valid</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_cursor_visible">is_cursor_visible</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cursor_visible"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_cursor_visible">is_cursor_visible</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_is_cursor_visible">set_is_cursor_visible</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the library is set to show the mous cursor when the mouse is on a window created by the library.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_is_enable</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_is_enable</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_showcursor">sdl_showcursor</a> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_query">sdl_query</a><span class="esymbol">)</span>
+			<span class="ekeyword">check</span>
+					<span class="elocal">l_is_enable</span> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_enable">sdl_enable</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <span class="elocal">l_is_enable</span> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_disable">sdl_disable</a>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_is_enable</span> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_enable">sdl_enable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_cursor_visible"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_is_cursor_visible">set_is_cursor_visible</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller.html#f_is_cursor_visible">is_cursor_visible</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_show_mouse_cursor">show_mouse_cursor</a>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_hide_mouse_cursor">hide_mouse_cursor</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_cursor_visible">is_cursor_visible</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_relative_mouse"></a><a class="efeature" href="../game_core/game_library_controller.html#f_enable_relative_mouse">enable_relative_mouse</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the </span><a class="efeature" href="../game_core/game_library_controller.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a><span class="ecomment"> mode</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_set_is_relative_mouse_enabled">set_is_relative_mouse_enabled</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">True</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_relative_mouse"></a><a class="efeature" href="../game_core/game_library_controller.html#f_disable_relative_mouse">disable_relative_mouse</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unset the </span><a class="efeature" href="../game_core/game_library_controller.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a><span class="ecomment"> mode</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_set_is_relative_mouse_enabled">set_is_relative_mouse_enabled</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">False</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_relative_mouse_enabled"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_is_relative_mouse_enabled">set_is_relative_mouse_enabled</a>
+			<span class="ecomment">--</span><span class="ecomment"> While Enabled, the cursor is hidden, and only relative motion events (delta_x and delta_y)</span>
+			<span class="ecomment">--</span><span class="ecomment"> will be delivered to the current window the mouse position will not change.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: This function will flush any pending mouse motion.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getrelativemousemode">sdl_getrelativemousemode</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_relative_mouse_enabled"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_is_relative_mouse_enabled">set_is_relative_mouse_enabled</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/game_library_controller.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a><span class="ecomment"> with the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_setrelativemousemode">sdl_setrelativemousemode</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Relative mouse mode not supported.&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_cursor"></a><a class="efeature" href="../game_core/game_library_controller.html#f_cursor">cursor</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_cursor.html">GAME_CURSOR</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../game_core/graphic/game_cursor.html">GAME_CURSOR</a><span class="ecomment"> presently used in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_cursor.html#f_make_by_pointer">make_by_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getcursor">sdl_getcursor</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_cursor"></a><a class="efeature" href="../game_core/game_library_controller.html#f_default_cursor">default_cursor</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_cursor.html">GAME_CURSOR</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../game_core/graphic/game_cursor.html">GAME_CURSOR</a><span class="ecomment"> used in the creation of </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_cursor.html#f_make_by_pointer">make_by_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getdefaultcursor">sdl_getdefaultcursor</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cursor"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_cursor">set_cursor</a> <span class="esymbol">(</span><span class="elocal">a_cursor</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_cursor.html">GAME_CURSOR</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/game_library_controller.html#f_cursor">cursor</a><span class="ecomment"> with the value of </span><span class="equoted">a_cursor</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">cursor_valid</span><span class="esymbol">:</span> <span class="elocal">a_cursor</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_cursor.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_setcursor">sdl_setcursor</a> <span class="esymbol">(</span><span class="elocal">a_cursor</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_cursor.html#f_item">item</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_boolean">manage_error_boolean</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/game_library_controller.html#f_cursor">cursor</a> <span class="esymbol">~</span> <span class="elocal">a_cursor</span><span class="esymbol">,</span> &quot;Cannot set the cursor.&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../game_core/game_library_controller.html#f_cursor">cursor</a> <span class="esymbol">~</span> <span class="elocal">a_cursor</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_redraw_cursor"></a><a class="efeature" href="../game_core/game_library_controller.html#f_redraw_cursor">redraw_cursor</a>
+			<span class="ecomment">--</span><span class="ecomment"> Redraw the </span><a class="efeature" href="../game_core/game_library_controller.html#f_cursor">cursor</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_setcursor">sdl_setcursor</a> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">}</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_default_cursor"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_default_cursor">set_default_cursor</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put back the default </span><a class="eclass" href="../game_core/graphic/game_cursor.html">GAME_CURSOR</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_set_cursor">set_cursor</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/game_library_controller.html#f_default_cursor">default_cursor</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Joystick methods</span>
+
+	<a name="f_joysticks"></a><a class="efeature" href="../game_core/game_library_controller.html#f_joysticks">joysticks</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every </span><a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="ecomment"> detected by </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">joysticks_is_joystick_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_joysticks</span><span class="esymbol">:</span> <a class="eclass" href="../elks/linked_list.html">LINKED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_joysticks</span><span class="edot">.</span><a class="efeature" href="../elks/linked_list.html#f_make">make</a>
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a> <span class="ekeyword">as</span> la_joysticks
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">la_joysticks</span><span class="edot">.</span><a class="efeature" href="../elks/general_special_iteration_cursor.html#f_item">item</a> <span class="ekeyword">as</span> la_joystick <span class="ekeyword">then</span>
+					<span class="elocal">l_joysticks</span><span class="edot">.</span><a class="efeature" href="../elks/linked_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">la_joystick</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_joysticks</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_refresh_joysticks"></a><a class="efeature" href="../game_core/game_library_controller.html#f_refresh_joysticks">refresh_joysticks</a>
+		<span class="ekeyword">obsolete</span> &quot;Should not be necessary anymore [2020-03-30]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Update the joystiks list (if joysticks as been add or remove)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Warning: This will close all opened joysticks</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">controller_update_joysticks_joystick_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_update_joysticks_state"></a><a class="efeature" href="../game_core/game_library_controller.html#f_update_joysticks_state">update_joysticks_state</a>
+			<span class="ecomment">--</span><span class="ecomment"> Update the state of all opened joystick. This procedure is</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called at each game loop instead you disable every joystick event</span>
+			<span class="ecomment">--</span><span class="ecomment"> with </span><a class="eclass" href="../game_core/event/game_events_controller.html">GAME_EVENTS_CONTROLLER</a><span class="ecomment">.</span><span class="equoted">disable_joy_*_event</span><span class="ecomment"> or with</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="eclass" href="../game_core/event/game_events_controller.html">GAME_EVENTS_CONTROLLER</a><span class="ecomment">.</span><span class="equoted">disable_every_joy_events</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_joystickupdate">sdl_joystickupdate</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Joystick implementation</span>
+
+	<a name="f_internal_joysticks"></a><a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every </span><a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="ecomment"> connected to the system.</span>
+
+	<a name="f_open_all_joystick"></a><a class="efeature" href="../game_core/game_library_controller.html#f_open_all_joystick">open_all_joystick</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open all joystick that is not already open.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">joysticks_is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_do_all">do_all</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_joystick</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">)</span>
+					<span class="ekeyword">do</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">a_joystick</span> <span class="ekeyword">as</span> la_joystick <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_is_open">is_open</a> <span class="ekeyword">then</span>
+							<span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_open">open</a>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_close_all_joysticks"></a><a class="efeature" href="../game_core/game_library_controller.html#f_close_all_joysticks">close_all_joysticks</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close the joystick that has been opened</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">controller_close_all_joysticks_joystick_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a>
+			<span class="etag">close_all_joystick_attach</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_do_all">do_all</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_joystick</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">)</span>
+					<span class="ekeyword">do</span>
+						<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">a_joystick</span> <span class="ekeyword">as</span> la_joystick <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_is_open">is_open</a> <span class="ekeyword">then</span>
+							<span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_close">close</a>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_manage_joystick_founded_callback"></a><a class="efeature" href="../game_core/game_library_controller.html#f_manage_joystick_founded_callback">manage_joystick_founded_callback</a> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_joystick_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">{</span><span class="ecomment">PRECURSOR</span><span class="ecomment">}</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_joystick</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a> <span class="ekeyword">as</span> la_joysticks
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">la_joysticks</span><span class="edot">.</span><a class="efeature" href="../elks/general_special_iteration_cursor.html#f_item">item</a> <span class="ekeyword">as</span> la_joystick <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_open_index">open_index</a> <span class="esymbol">~</span> <span class="elocal">a_joystick_id</span> <span class="ekeyword">then</span>
+					<span class="elocal">l_joystick</span> <span class="esymbol">:=</span> <span class="elocal">la_joystick</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="ekeyword">attached</span> <span class="elocal">l_joystick</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_joystick_id</span><span class="esymbol">)</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_joystick</span><span class="esymbol">)</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_found_actions">joystick_found_actions</a><span class="edot">.</span><a class="efeature" href="../ise/action_sequence.html#f_call">call</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">,</span> <span class="elocal">l_joystick</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_manage_joystick_removed_callback"></a><a class="efeature" href="../game_core/game_library_controller.html#f_manage_joystick_removed_callback">manage_joystick_removed_callback</a> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_joystick_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="ecomment">{</span><span class="ecomment">PRECURSOR</span><span class="ecomment">}</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">l_cursor</span><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list_iteration_cursor.html">ARRAYED_LIST_ITERATION_CURSOR</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="elocal">l_found</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_cursor</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_new_cursor">new_cursor</a>
+				<span class="elocal">l_index</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">l_cursor</span><span class="edot">.</span><a class="efeature" href="../elks/general_special_iteration_cursor.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <span class="elocal">l_found</span>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">l_cursor</span><span class="edot">.</span><a class="efeature" href="../elks/general_special_iteration_cursor.html#f_item">item</a> <span class="ekeyword">as</span> la_item <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">la_item</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_index">index</a> <span class="esymbol">=</span> <span class="elocal">a_joystick_id</span> <span class="ekeyword">then</span>
+					<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_remove_actions">joystick_remove_actions</a><span class="edot">.</span><a class="efeature" href="../ise/action_sequence.html#f_call">call</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">,</span> <span class="elocal">la_item</span><span class="esymbol">)</span>
+					<span class="elocal">l_found</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+					<a class="efeature" href="../game_core/game_library_controller.html#f_manage_joystick_removed_joystick">manage_joystick_removed_joystick</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">,</span> <span class="elocal">l_index</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">l_index</span> <span class="esymbol">:=</span> <span class="elocal">l_index</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+				<span class="elocal">l_cursor</span><span class="edot">.</span><a class="efeature" href="../elks/general_special_iteration_cursor.html#f_forth">forth</a>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_found</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_manage_joystick_removed_joystick">manage_joystick_removed_joystick</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">,</span> <span class="elocal">a_joystick_id</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_manage_joystick_removed_joystick"></a><a class="efeature" href="../game_core/game_library_controller.html#f_manage_joystick_removed_joystick">manage_joystick_removed_joystick</a> <span class="esymbol">(</span><span class="elocal">a_timestamp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove the </span><a class="eclass" href="../game_core/input/game_joystick.html">GAME_JOYSTICK</a><span class="ecomment"> at index </span><span class="equoted">a_index</span><span class="ecomment"> in </span><a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_open_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_valid_index">valid_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_at">at</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">)</span> <span class="ekeyword">as</span> la_joystick <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/event/game_common_events.html#f_joystick_remove_actions">joystick_remove_actions</a><span class="edot">.</span><a class="efeature" href="../ise/action_sequence.html#f_call">call</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">[</span><span class="elocal">a_timestamp</span><span class="esymbol">,</span> <span class="elocal">la_joystick</span><span class="esymbol">]</span><span class="esymbol">)</span>
+				<span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_remove">remove</a>
+				<span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_internal_close">internal_close</a>
+				<span class="ekeyword">if</span> <span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events.html#f_is_running">is_events_running</a> <span class="ekeyword">then</span>
+					<span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/event/game_joystick_events.html#f_stop">stop_events</a>
+				<span class="ekeyword">end</span>
+				<span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/event/game_joystick_events.html#f_clear">clear_events</a>
+				<span class="elocal">l_open_index</span> <span class="esymbol">:=</span> <span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_open_index">open_index</a>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_at">at</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">)</span> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+				<span class="ekeyword">from</span>
+					<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_move">move</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">)</span>
+				<span class="ekeyword">until</span>
+					<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/linear.html#f_exhausted">exhausted</a>
+				<span class="ekeyword">loop</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_item">item</a> <span class="ekeyword">as</span> la_next_joystick <span class="ekeyword">then</span>
+						<span class="elocal">la_next_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_joystick.html#f_set_open_index">set_open_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_open_index</span><span class="esymbol">)</span>
+						<span class="elocal">l_open_index</span> <span class="esymbol">:=</span> <span class="elocal">l_open_index</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_forth">forth</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Haptic methods</span>
+
+	<a name="f_haptics"></a><a class="efeature" href="../game_core/game_library_controller.html#f_haptics">haptics</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/haptic/game_haptic_device.html">GAME_HAPTIC_DEVICE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every haptic devices on the system</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">haptic_is_haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_refresh_haptics"></a><a class="efeature" href="../game_core/game_library_controller.html#f_refresh_haptics">refresh_haptics</a>
+			<span class="ecomment">--</span><span class="ecomment"> Update the haptics list (if haptics as been add or remove)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Warning: This will close all opened haptics</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">controller_update_haptics_haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">l_haptic_count</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_close_all_haptics">close_all_haptics</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_wipe_out">wipe_out</a>
+			<span class="elocal">l_haptic_count</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_numhaptics">sdl_numhaptics</a>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="elocal">l_haptic_count</span>
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../game_core/haptic/game_haptic_device.html">GAME_HAPTIC_DEVICE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/haptic/game_haptic_device.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_haptic_maximum_gain"></a><a class="efeature" href="../game_core/game_library_controller.html#f_haptic_maximum_gain">haptic_maximum_gain</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_haptic_maximum_gain">set_haptic_maximum_gain</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum gain used by haptics in the system.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../game_core/haptic/game_haptic.html">GAME_HAPTIC</a><span class="ecomment">.</span><span class="equoted">set_gain</span><span class="ecomment"> always take 0-100</span>
+			<span class="ecomment">--</span><span class="ecomment"> gain value, but the real value is scaled</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_value_text</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_value_text</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_library_variable">library_variable</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;SDL_HAPTIC_GAIN_MAX&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">100</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_value_text</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_integer_32">is_integer_32</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_value_text</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_integer_32">to_integer_32</a>
+				<span class="ekeyword">if</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+				<span class="ekeyword">elseif</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">100</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">100</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_valid</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="enumber">100</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_haptic_maximum_gain"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_haptic_maximum_gain">set_haptic_maximum_gain</a> <span class="esymbol">(</span><span class="elocal">a_gain</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/game_library_controller.html#f_haptic_maximum_gain">haptic_maximum_gain</a><span class="ecomment"> with the value of </span><span class="equoted">a_gain</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+			<span class="etag">gain_is_valid</span><span class="esymbol">:</span> <span class="elocal">a_gain</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_gain</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="enumber">100</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_set_library_variable">set_library_variable</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;SDL_HAPTIC_GAIN_MAX&quot;<span class="esymbol">,</span> <span class="elocal">a_gain</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref.html#f_out">out</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../game_core/game_library_controller.html#f_haptic_maximum_gain">haptic_maximum_gain</a> <span class="esymbol">=</span> <span class="elocal">a_gain</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Haptic implementation</span>
+
+	<a name="f_internal_haptics"></a><a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/haptic/game_haptic_device.html">GAME_HAPTIC_DEVICE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every </span><a class="eclass" href="../game_core/haptic/game_haptic.html">GAME_HAPTIC</a><span class="ecomment"> connected to the system.</span>
+
+	<a name="f_open_all_haptic"></a><a class="efeature" href="../game_core/game_library_controller.html#f_open_all_haptic">open_all_haptic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open all haptic that is not already open.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">haptic_is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_do_all">do_all</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_haptic</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/haptic/game_haptic_device.html">GAME_HAPTIC_DEVICE</a><span class="esymbol">)</span>
+					<span class="ekeyword">do</span>
+						<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_haptic</span><span class="edot">.</span><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_open">is_open</a> <span class="ekeyword">then</span>
+							<span class="elocal">a_haptic</span><span class="edot">.</span><a class="efeature" href="../game_core/haptic/game_haptic.html#f_open">open</a>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_close_all_haptics"></a><a class="efeature" href="../game_core/game_library_controller.html#f_close_all_haptics">close_all_haptics</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close the haptic that has been opened</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">controller_close_all_haptics_haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+			<span class="etag">close_all_haptic_attach</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_haptics">internal_haptics</a><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_do_all">do_all</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">agent</span> <span class="esymbol">(</span><span class="elocal">a_haptic</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/haptic/game_haptic_device.html">GAME_HAPTIC_DEVICE</a><span class="esymbol">)</span>
+					<span class="ekeyword">do</span>
+						<span class="ekeyword">if</span> <span class="elocal">a_haptic</span><span class="edot">.</span><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_open">is_open</a> <span class="ekeyword">then</span>
+							<span class="elocal">a_haptic</span><span class="edot">.</span><a class="efeature" href="../game_core/haptic/game_haptic.html#f_close">close</a>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Touch devices</span>
+
+	<a name="f_touch_device_count"></a><a class="efeature" href="../game_core/game_library_controller.html#f_touch_device_count">touch_device_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of touch device detected on the system.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: Not necessary the same as </span><a class="efeature" href="../game_core/game_library_controller.html#f_touch_devices">touch_devices</a><span class="ecomment">.</span><span class="equoted">count</span>
+			<span class="ecomment">--</span><span class="ecomment"> because a touch device can have been added or remove</span>
+			<span class="ecomment">--</span><span class="ecomment"> since the creation of the </span><a class="efeature" href="../game_core/game_library_controller.html#f_touch_devices">touch_devices</a><span class="ecomment"> list.</span>
+			<span class="ecomment">--</span><span class="ecomment"> In that case, used </span><a class="efeature" href="../game_core/game_library_controller.html#f_refresh_touch_devices">refresh_touch_devices</a><span class="ecomment"> to update</span>
+			<span class="ecomment">--</span><span class="ecomment"> the </span><a class="efeature" href="../game_core/game_library_controller.html#f_touch_devices">touch_devices</a><span class="ecomment"> (all touch events will have to be</span>
+			<span class="ecomment">--</span><span class="ecomment"> reset)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getnumtouchdevices">sdl_getnumtouchdevices</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_touch_devices"></a><a class="efeature" href="../game_core/game_library_controller.html#f_touch_devices">touch_devices</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/input/game_touch_device.html">GAME_TOUCH_DEVICE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every finger touch device detected in he system.</span>
+			<span class="ecomment">--</span><span class="ecomment"> This list does not update itself, you have to call</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/game_library_controller.html#f_refresh_touch_devices">refresh_touch_devices</a><span class="ecomment"> to update it (all touch</span>
+			<span class="ecomment">--</span><span class="ecomment"> events will have to be reset)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">l_touch_devices</span><span class="esymbol">:</span> <a class="eclass" href="../elks/chain.html">CHAIN</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/input/game_touch_device.html">GAME_TOUCH_DEVICE</a><span class="esymbol">]</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_touch_devices">internal_touch_devices</a> <span class="ekeyword">as</span> la_touch_devices <span class="ekeyword">then</span>
+				<span class="elocal">l_touch_devices</span> <span class="esymbol">:=</span> <span class="elocal">la_touch_devices</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/input/game_touch_device.html">GAME_TOUCH_DEVICE</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="elocal">l_touch_devices</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_core/game_library_controller.html#f_touch_device_count">touch_device_count</a><span class="esymbol">)</span>
+				<span class="ekeyword">from</span>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+				<span class="ekeyword">until</span>
+					<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <a class="efeature" href="../game_core/game_library_controller.html#f_touch_device_count">touch_device_count</a>
+				<span class="ekeyword">loop</span>
+					<span class="elocal">l_touch_devices</span><span class="edot">.</span><a class="efeature" href="../elks/bag.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../game_core/input/game_touch_device.html">GAME_TOUCH_DEVICE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/input/game_touch_device.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span><span class="esymbol">)</span>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_touch_devices">internal_touch_devices</a> <span class="esymbol">:=</span> <span class="elocal">l_touch_devices</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_touch_devices</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_refresh_touch_devices"></a><a class="efeature" href="../game_core/game_library_controller.html#f_refresh_touch_devices">refresh_touch_devices</a>
+			<span class="ecomment">--</span><span class="ecomment"> Update the </span><a class="efeature" href="../game_core/game_library_controller.html#f_touch_devices">touch_devices</a><span class="ecomment"> list. Note that</span>
+			<span class="ecomment">--</span><span class="ecomment"> all touch events will have to be reset</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_clear_touch_devices">clear_touch_devices</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_touch_devices">internal_touch_devices</a> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> OpenGL</span>
+
+	<a name="f_is_gl_enabled"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The OpenGL library has been loaded</span>
+
+	<a name="f_enable_gl"></a><a class="efeature" href="../game_core/game_library_controller.html#f_enable_gl">enable_gl</a>
+			<span class="ecomment">--</span><span class="ecomment"> Load the OpenGL library</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a>
+			<span class="etag">video_must_be_loaded</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_gl_loadlibrary">sdl_gl_loadlibrary</a> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">}</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a> <span class="esymbol">:=</span> <span class="elocal">l_error</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot enable the GL library&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_gl_from_file"></a><a class="efeature" href="../game_core/game_library_controller.html#f_enable_gl_from_file">enable_gl_from_file</a> <span class="esymbol">(</span><span class="elocal">a_file_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Load the OpenGL library contained in file at </span><span class="equoted">a_file_name</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a>
+			<span class="etag">video_must_be_loaded</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_video_enable">is_video_enable</a>
+			<span class="etag">file_valid</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_file_name</span><span class="esymbol">)</span><span class="esymbol">)</span> <span class="ekeyword">as</span> la_file <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_access_readable">is_access_readable</a><span class="esymbol">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">l_c_file_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_c_file_name</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_file_name</span><span class="esymbol">)</span>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_gl_loadlibrary">sdl_gl_loadlibrary</a> <span class="esymbol">(</span><span class="elocal">l_c_file_name</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a> <span class="esymbol">:=</span> <span class="elocal">l_error</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot enable the GL library&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_gl"></a><a class="efeature" href="../game_core/game_library_controller.html#f_disable_gl">disable_gl</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unload the OpenGL library</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_gl_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_windows">windows</a> <span class="ekeyword">as</span> la_windows
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/gl/game_window_gl.html">GAME_WINDOW_GL</a><span class="esymbol">}</span> <span class="elocal">la_windows</span><span class="edot">.</span><a class="efeature" href="../elks/iteration_cursor.html#f_item">item</a> <span class="ekeyword">then</span>
+					<span class="elocal">la_windows</span><span class="edot">.</span><a class="efeature" href="../elks/iteration_cursor.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_window.html#f_close">close</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="esymbol">{</span><a class="eclass" href="../elks/memory.html">MEMORY</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/memory.html#f_full_collect">full_collect</a>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_gl_unloadlibrary">sdl_gl_unloadlibrary</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Touch devices implementation</span>
+
+	<a name="f_internal_touch_devices"></a><a class="efeature" href="../game_core/game_library_controller.html#f_internal_touch_devices">internal_touch_devices</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/chain.html">CHAIN</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/input/game_touch_device.html">GAME_TOUCH_DEVICE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Internal values of the lazy evaluated </span><a class="efeature" href="../game_core/game_library_controller.html#f_touch_devices">touch_devices</a>
+
+	<a name="f_clear_touch_devices"></a><a class="efeature" href="../game_core/game_library_controller.html#f_clear_touch_devices">clear_touch_devices</a>
+			<span class="ecomment">--</span><span class="ecomment"> Clear every </span><a class="efeature" href="../game_core/game_library_controller.html#f_touch_devices">touch_devices</a><span class="ecomment"> events</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_touch_devices">internal_touch_devices</a> <span class="ekeyword">as</span> la_devices <span class="ekeyword">then</span>
+				<span class="elocal">la_devices</span><span class="edot">.</span><a class="efeature" href="../elks/linear.html#f_do_all">do_all</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">agent</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/input/game_touch_device.html">GAME_TOUCH_DEVICE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/event/game_touch_device_events.html#f_clear">clear_events</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_dollar_gesture_template_index"></a><a class="efeature" href="../game_core/game_library_controller.html#f_dollar_gesture_template_index">Dollar_gesture_template_index</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a> <span class="esymbol">=</span> <span class="enumber">-1</span>
+			<span class="ecomment">--</span><span class="ecomment"> The internal index of the managed touch device</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Other methods</span>
+
+	<a name="f_library_variable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_library_variable">library_variable</a> <span class="esymbol">(</span><span class="elocal">a_variable</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_library_variable">set_library_variable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Retreive the internal variable </span><span class="equoted">a_variable</span><span class="ecomment"> or an empty text if it does not exist.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_text_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_text_ptr</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getenv">sdl_getenv</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/c_string.html">C_STRING</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_variable</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_text_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;&quot;
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/c_string.html">C_STRING</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make_by_pointer">make_by_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_text_ptr</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_library_variable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_library_variable">set_library_variable</a> <span class="esymbol">(</span><span class="elocal">a_variable</span><span class="esymbol">,</span> <span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign the internal variable </span><span class="equoted">a_variable</span><span class="ecomment"> with the value </span><span class="equoted">a_value</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_c_name</span><span class="esymbol">,</span> <span class="elocal">l_c_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_c_name</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_variable</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_c_value</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">)</span>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_setenv">sdl_setenv</a> <span class="esymbol">(</span><span class="elocal">l_c_name</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_c_value</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">,</span> <span class="ekeyword">True</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;Cannot set the environment variable &quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="elocal">a_variable</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot; with value &quot; <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="elocal">a_value</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">}</span>&quot;.&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_events_controller"></a><a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/event/game_events_controller.html">GAME_EVENTS_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Manage every internal events</span>
+
+	<a name="f_clear_all_events"></a><a class="efeature" href="../game_core/game_library_controller.html#f_clear_all_events">clear_all_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Clear every events set in the system</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_clear">clear</a>
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_joysticks">internal_joysticks</a> <span class="ekeyword">as</span> la_joysticks
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">la_joysticks</span><span class="edot">.</span><a class="efeature" href="../elks/general_special_iteration_cursor.html#f_item">item</a> <span class="ekeyword">as</span> la_joystick <span class="ekeyword">then</span>
+					<span class="elocal">la_joystick</span><span class="edot">.</span><a class="efeature" href="../game_core/event/game_joystick_events.html#f_clear">clear_events</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_windows">internal_windows</a> <span class="ekeyword">as</span> la_windows
+			<span class="ekeyword">loop</span>
+				<span class="elocal">la_windows</span><span class="edot">.</span><a class="efeature" href="../elks/iteration_cursor.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_window_events.html#f_clear">clear_events</a>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_touch_devices">internal_touch_devices</a> <span class="ekeyword">as</span> la_devices <span class="ekeyword">then</span>
+				<span class="ekeyword">across</span>
+					<span class="elocal">la_devices</span> <span class="ekeyword">as</span> lla_devices
+				<span class="ekeyword">loop</span>
+					<span class="elocal">lla_devices</span><span class="edot">.</span><a class="efeature" href="../elks/iteration_cursor.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_touch_device_events.html#f_clear">clear_events</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_update_events"></a><a class="efeature" href="../game_core/game_library_controller.html#f_update_events">update_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute the event polling and throw the event handeler execution for each event.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_poll_event">poll_event</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_delay"></a><a class="efeature" href="../game_core/game_library_controller.html#f_delay">delay</a> <span class="esymbol">(</span><span class="elocal">a_millisecond</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Pause the execution for given time in </span><span class="equoted">millisecond</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_delay">sdl_delay</a> <span class="esymbol">(</span><span class="elocal">a_millisecond</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_time_since_create"></a><a class="efeature" href="../game_core/game_library_controller.html#f_time_since_create">time_since_create</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of millisecond since the initialisation of the library.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getticks">sdl_getticks</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_launch"></a><a class="efeature" href="../game_core/game_library_controller.html#f_launch">launch</a>
+			<span class="ecomment">--</span><span class="ecomment"> Start the main loop. Used to get a Event-driven programming only.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't forget to execute the method </span><a class="efeature" href="../game_core/game_library_controller.html#f_stop">stop</a><span class="ecomment"> in an event handeler.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_delay</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_must_stop">must_stop</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_last_tick">last_tick</a> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_time_since_create">time_since_create</a>
+			<span class="ekeyword">until</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_must_stop">must_stop</a>
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_update_events">update_events</a>
+				<span class="elocal">l_delay</span> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_ticks_per_iteration">ticks_per_iteration</a><span class="edot">.</span><a class="efeature" href="../elks/natural_32_ref.html#f_to_integer_64">to_integer_64</a>
+				<span class="elocal">l_delay</span> <span class="esymbol">:=</span> <span class="elocal">l_delay</span> <a class="esymbol" href="../elks/integer_64.html#f_minus">-</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/game_library_controller.html#f_time_since_create">time_since_create</a> <a class="esymbol" href="../elks/natural_32.html#f_minus">-</a> <a class="efeature" href="../game_core/game_library_controller.html#f_last_tick">last_tick</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/natural_32_ref.html#f_to_integer_32">to_integer_32</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref.html#f_to_integer_64">to_integer_64</a>
+				<span class="ekeyword">if</span> <span class="elocal">l_delay</span> <a class="esymbol" href="../elks/integer_64.html#f_is_less">&lt;</a> <span class="enumber">1</span> <span class="ekeyword">then</span>
+					<a class="efeature" href="../game_core/game_library_controller.html#f_delay">delay</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<a class="efeature" href="../game_core/game_library_controller.html#f_delay">delay</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_delay</span><span class="edot">.</span><a class="efeature" href="../elks/integer_64_ref.html#f_to_natural_32">to_natural_32</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_last_tick">last_tick</a> <span class="esymbol">:=</span> <a class="efeature" href="../game_core/game_library_controller.html#f_time_since_create">time_since_create</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_launch_with_iteration_per_second"></a><a class="efeature" href="../game_core/game_library_controller.html#f_launch_with_iteration_per_second">launch_with_iteration_per_second</a> <span class="esymbol">(</span><span class="elocal">a_iteration_per_second</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Start the main loop. Used to get a Event-driven programming only.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't forget to execute the method </span><a class="efeature" href="../game_core/game_library_controller.html#f_stop">stop</a><span class="ecomment"> in an event handeler.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><a class="efeature" href="../game_core/game_library_controller.html#f_iteration_per_second">iteration_per_second</a><span class="ecomment"> to </span><span class="equoted">a_iteration_per_second</span><span class="ecomment"> before launching.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_set_iteration_per_second">set_iteration_per_second</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_iteration_per_second</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_launch">launch</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_launch_no_delay"></a><a class="efeature" href="../game_core/game_library_controller.html#f_launch_no_delay">launch_no_delay</a>
+			<span class="ecomment">--</span><span class="ecomment"> Start the main loop without any loop delay. Use it if you have</span>
+			<span class="ecomment">--</span><span class="ecomment"> a synchronisation system (like vsync) included inside the event handler</span>
+			<span class="ecomment">--</span><span class="ecomment"> Used to get a Event-driven programming only.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't forget to execute the method </span><a class="efeature" href="../game_core/game_library_controller.html#f_stop">stop</a><span class="ecomment"> in an event handler.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_must_stop">must_stop</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">until</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_must_stop">must_stop</a>
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_update_events">update_events</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_iteration_per_second"></a><a class="efeature" href="../game_core/game_library_controller.html#f_iteration_per_second">iteration_per_second</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller.html#f_set_iteration_per_second">set_iteration_per_second</a>
+			<span class="ecomment">--</span><span class="ecomment"> An approximation of the number of event loop iteration per second.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Not used by </span><a class="efeature" href="../game_core/game_library_controller.html#f_launch_no_delay">launch_no_delay</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">1000</span> <a class="esymbol" href="../elks/natural_32.html#f_integer_quotient">//</a> <a class="efeature" href="../game_core/game_library_controller.html#f_ticks_per_iteration">ticks_per_iteration</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_iteration_per_second"></a><a class="efeature" href="../game_core/game_library_controller.html#f_set_iteration_per_second">set_iteration_per_second</a> <span class="esymbol">(</span><span class="elocal">a_iteration_per_second</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><a class="efeature" href="../game_core/game_library_controller.html#f_iteration_per_second">iteration_per_second</a><span class="ecomment"> to </span><span class="equoted">a_iteration_per_second</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that this is an aproximation.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_ticks_per_iteration">ticks_per_iteration</a> <span class="esymbol">:=</span> <span class="enumber">1000</span> <a class="esymbol" href="../elks/natural_32.html#f_integer_quotient">//</a> <span class="elocal">a_iteration_per_second</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_stop"></a><a class="efeature" href="../game_core/game_library_controller.html#f_stop">stop</a>
+			<span class="ecomment">--</span><span class="ecomment"> Stop the main loop</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_must_stop">must_stop</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_quit_library"></a><a class="efeature" href="../game_core/game_library_controller.html#f_quit_library">quit_library</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close the library. Must be used before the end of the application</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_internal_windows">internal_windows</a><span class="edot">.</span><a class="efeature" href="../elks/collection.html#f_wipe_out">wipe_out</a>
+			<span class="ekeyword">if</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_gl_enabled">is_gl_enabled</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_disable_gl">disable_gl</a>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../game_core/event/game_common_events.html#f_clear">clear_events</a>
+			<span class="ekeyword">if</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_joystick_enable">is_joystick_enable</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_disable_joystick">disable_joystick</a>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_refresh_touch_devices">refresh_touch_devices</a>
+			<span class="ekeyword">create</span> <a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a>
+			<a class="efeature" href="../game_core/game_library_controller.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller.html#f_set_game_library">set_game_library</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+			<span class="esymbol">{</span><a class="eclass" href="../elks/memory.html">MEMORY</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/memory.html#f_full_collect">full_collect</a>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_quit_lib">sdl_quit_lib</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_mouse_has_haptic"></a><a class="efeature" href="../game_core/game_library_controller.html#f_mouse_has_haptic">mouse_has_haptic</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has the mouse have an internal haptic device</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_mouseishaptic">sdl_mouseishaptic</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_mouse_haptic"></a><a class="efeature" href="../game_core/game_library_controller.html#f_mouse_haptic">mouse_haptic</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/haptic/game_haptic_mouse.html">GAME_HAPTIC_MOUSE</a>
+			<span class="ecomment">--</span><span class="ecomment"> The haptic device inside the mouse</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">mouse_has_haptic</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_mouse_has_haptic">mouse_has_haptic</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_mouse_haptic">internal_mouse_haptic</a> <span class="ekeyword">as</span> la_internal_mouse_haptic <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_internal_mouse_haptic</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../game_core/haptic/game_haptic_mouse.html#f_make">make</a>
+				<a class="efeature" href="../game_core/game_library_controller.html#f_internal_mouse_haptic">internal_mouse_haptic</a> <span class="esymbol">:=</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_base_path"></a><a class="efeature" href="../game_core/game_library_controller.html#f_base_path">base_path</a><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../elks/path.html">PATH</a><span class="ecomment"> of the executable. This </span><a class="eclass" href="../elks/path.html">PATH</a><span class="ecomment"> is not safe for writing file.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_path_c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+			<span class="elocal">l_pointer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_pointer</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getbasepath">sdl_getbasepath</a>
+			<span class="ekeyword">create</span> <span class="elocal">l_path_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make_shared_from_pointer">make_shared_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_pointer</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../elks/utf_converter.html">UTF_CONVERTER</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter.html#f_utf_8_string_8_to_escaped_string_32">utf_8_string_8_to_escaped_string_32</a> <span class="esymbol">(</span><span class="elocal">l_path_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_free">sdl_free</a> <span class="esymbol">(</span><span class="elocal">l_pointer</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_get_preference_path"></a><a class="efeature" href="../game_core/game_library_controller.html#f_get_preference_path">get_preference_path</a> <span class="esymbol">(</span><span class="elocal">a_organisation</span><span class="esymbol">,</span> <span class="elocal">a_application_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Retreive the </span><a class="efeature" href="../game_core/game_library_controller.html#f_preference_path">preference_path</a><span class="ecomment">. Create the directory if it does not already exist.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_converter</span><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter.html">UTF_CONVERTER</a>
+			<span class="elocal">l_path_c</span><span class="esymbol">,</span> <span class="elocal">l_organisation_c</span><span class="esymbol">,</span> <span class="elocal">l_application_name_c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+			<span class="elocal">l_pointer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_converter</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_organisation_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter.html#f_utf_32_string_to_utf_8_string_8">utf_32_string_to_utf_8_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_organisation</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_application_name_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter.html#f_utf_32_string_to_utf_8_string_8">utf_32_string_to_utf_8_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_application_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_32">to_string_32</a><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="elocal">l_pointer</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_getprefpath">sdl_getprefpath</a> <span class="esymbol">(</span><span class="elocal">l_organisation_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_application_name_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_path_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make_shared_from_pointer">make_shared_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_pointer</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_preference_path">internal_preference_path</a><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter.html#f_utf_8_string_8_to_escaped_string_32">utf_8_string_8_to_escaped_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_path_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_free">sdl_free</a> <span class="esymbol">(</span><span class="elocal">l_pointer</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_preference_path"></a><a class="efeature" href="../game_core/game_library_controller.html#f_preference_path">preference_path</a><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../elks/path.html">PATH</a><span class="ecomment"> to save preference files. Is retreived (or created) by </span><a class="efeature" href="../game_core/game_library_controller.html#f_get_preference_path">get_preference_path</a>
+			<span class="ecomment">--</span><span class="ecomment"> The directory pointed by this </span><a class="eclass" href="../elks/path.html">PATH</a><span class="ecomment"> should be writable</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do not use the </span><a class="efeature" href="../game_core/game_library_controller.html#f_base_path">base_path</a><span class="ecomment"> to write files</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_retreived</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_is_preference_path_retreived">is_preference_path_retreived</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_preference_path">internal_preference_path</a> <span class="ekeyword">as</span> la_path <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_path</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_make_empty">make_empty</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_preference_path_retreived"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_preference_path_retreived">is_preference_path_retreived</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><a class="efeature" href="../game_core/game_library_controller.html#f_preference_path">preference_path</a><span class="ecomment"> has been correctly retreived by </span><a class="efeature" href="../game_core/game_library_controller.html#f_get_preference_path">get_preference_path</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/game_library_controller.html#f_internal_preference_path">internal_preference_path</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a><span class="esymbol">}</span> 
+
+	<a name="f_internal_windows"></a><a class="efeature" href="../game_core/game_library_controller.html#f_internal_windows">internal_windows</a><span class="esymbol">:</span> <a class="eclass" href="../elks/list.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every </span><a class="eclass" href="../game_core/graphic/game_window.html">GAME_WINDOW</a><span class="ecomment"> of the system.</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation - Methods</span>
+
+	<a name="f_initialise_sub_system"></a><a class="efeature" href="../game_core/game_library_controller.html#f_initialise_sub_system">initialise_sub_system</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialise SDL sub-systems defined by </span><span class="equoted">a_flags</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_initsubsystem">sdl_initsubsystem</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot initialize library sub system.&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_quit_sub_system"></a><a class="efeature" href="../game_core/game_library_controller.html#f_quit_sub_system">quit_sub_system</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Disable all SDL sub-system defined by </span><span class="equoted">a_flags</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_quitsubsystem">sdl_quitsubsystem</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_sub_system_enable"></a><a class="efeature" href="../game_core/game_library_controller.html#f_is_sub_system_enable">is_sub_system_enable</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the sub-systems defined by the </span><span class="equoted">a_flags</span><span class="ecomment"> are enable.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_wasinit">sdl_wasinit</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="elocal">a_flags</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation - Variables</span>
+
+	<a name="f_must_stop"></a><a class="efeature" href="../game_core/game_library_controller.html#f_must_stop">must_stop</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> When true, the launching process must stop</span>
+
+	<a name="f_last_tick"></a><a class="efeature" href="../game_core/game_library_controller.html#f_last_tick">last_tick</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="efeature" href="../game_core/game_library_controller.html#f_time_since_create">time_since_create</a><span class="ecomment"> value on the last iteration</span>
+
+	<a name="f_ticks_per_iteration"></a><a class="efeature" href="../game_core/game_library_controller.html#f_ticks_per_iteration">ticks_per_iteration</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of ticks to pass between each iteration</span>
+
+	<a name="f_internal_mouse_haptic"></a><a class="efeature" href="../game_core/game_library_controller.html#f_internal_mouse_haptic">internal_mouse_haptic</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/haptic/game_haptic_mouse.html">GAME_HAPTIC_MOUSE</a>
+			<span class="ecomment">--</span><span class="ecomment"> The haptic mouse</span>
+
+	<a name="f_internal_preference_path"></a><a class="efeature" href="../game_core/game_library_controller.html#f_internal_preference_path">internal_preference_path</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/path.html">PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> internal storage for the </span><a class="efeature" href="../game_core/game_library_controller.html#f_preference_path">preference_path</a><span class="ecomment"> attribute</span>
+
+	<a name="f_instance_count"></a><a class="efeature" href="../game_core/game_library_controller.html#f_instance_count">Instance_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/cell.html">CELL</a> <span class="esymbol">[</span><a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The number of time the </span><span class="equoted">Current</span><span class="ecomment">s class has been created</span>
+			<span class="ecomment">--</span><span class="ecomment"> Since it is a singleton, it must be always 0 or 1</span>
+		<span class="ekeyword">once</span> <span class="esymbol">(</span>&quot;PROCESS&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">is_singleton</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller.html#f_instance_count">Instance_count</a><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a> <span class="esymbol">=</span> <span class="enumber">1</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/game_library_controller.html">GAME_LIBRARY_CONTROLLER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_library_controller_chart.html">Chart</a>
+<a class="nav class" href="game_library_controller_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_library_controller"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

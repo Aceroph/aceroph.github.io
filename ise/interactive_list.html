@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Sequential, one-way linked lists that call add/remove features when an item is removed or added."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class, event, linked, list"/>
+<meta name="library" content="EiffelBase: Library of reusable components for Eiffel."/>
+<meta name="copyright" content="Copyright (c) 1984-2018, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>interactive_list Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="interactive_list_chart.html">Chart</a>
+<a class="nav class" href="interactive_list_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="interactive_list"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Sequential, one-way linked lists that call add/remove features</span>
+		<span class="estring">when an item is removed or added.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">keywords</span><span class="esymbol">:</span> <span class="estring">&quot;event, linked, list&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2018-11-13 12:58:34 +0000 (Tue, 13 Nov 2018) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102449 $&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../ise/interactive_list.html">INTERACTIVE_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+		<span class="ekeyword">undefine</span>
+			<a class="efeature" href="../elks/arrayed_list.html#f_new_filled_list">new_filled_list</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_default_create">default_create</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_merge_left">merge_left</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_merge_right">merge_right</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_wipe_out">wipe_out</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_put_front">put_front</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_put_left">put_left</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_put_right">put_right</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_remove_right">remove_right</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_replace">replace</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_remove">remove</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_put_i_th">put_i_th</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_append">append</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_make_from_array">make_from_array</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_prune_all">prune_all</a><span class="esymbol">,</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_default_create"></a><a class="efeature" href="../ise/interactive_list.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize linked list.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">4</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_array"></a><a class="efeature" href="../ise/interactive_list.html#f_make_from_array">make_from_array</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <a class="eclass" href="../elks/array.html">ARRAY</a> <span class="esymbol">[</span><span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create list from array </span><span class="equoted">a</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/array.html#f_count">count</a><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_index</span> <span class="esymbol">:=</span> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/array.html#f_lower">lower</a>
+			<span class="ekeyword">until</span>
+				<span class="elocal">l_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/array.html#f_upper">upper</a>
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/array.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_index</span><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="elocal">l_index</span> <span class="esymbol">:=</span> <span class="elocal">l_index</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Miscellaneous</span>
+
+	<a name="f_on_item_added_at"></a><a class="efeature" href="../ise/interactive_list.html#f_on_item_added_at">on_item_added_at</a> <span class="esymbol">(</span><span class="elocal">an_item</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">;</span> <span class="elocal">item_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">an_item</span><span class="ecomment"> has just been added at index </span><span class="equoted">item_index</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">item_index_valid</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="enumber">1</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="elocal">item_index</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">item_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_on_item_removed_at"></a><a class="efeature" href="../ise/interactive_list.html#f_on_item_removed_at">on_item_removed_at</a> <span class="esymbol">(</span><span class="elocal">an_item</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">;</span> <span class="elocal">item_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">an_item</span><span class="ecomment"> has just been removed from index </span><span class="equoted">item_index</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">item_index_valid</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="enumber">1</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="elocal">item_index</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">item_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element Change</span>
+
+	<a name="f_put_front"></a><a class="efeature" href="../ise/interactive_list.html#f_put_front">put_front</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> to beginning.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do not move cursor.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_put_front">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_extend"></a><a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> to end.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do not move cursor.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_extend">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_append"></a><a class="efeature" href="../ise/interactive_list.html#f_append">append</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/sequence.html">SEQUENCE</a> <span class="esymbol">[</span><span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Append a copy of </span><span class="equoted">s</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">new_count</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">new_count</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/finite.html#f_count">count</a>
+			<span class="ekeyword">if</span> <span class="elocal">new_count</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <a class="efeature" href="../elks/arrayed_list.html#f_capacity">capacity</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/arrayed_list.html#f_grow">grow</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">new_count</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">across</span>
+				<span class="ekeyword">if</span> <span class="elocal">s</span> <span class="esymbol">=</span> <span class="ekeyword">Current</span> <span class="ekeyword">then</span>
+					<span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/any.html#f_twin">twin</a>
+				<span class="ekeyword">else</span>
+					<span class="elocal">s</span>
+				<span class="ekeyword">end</span> <span class="ekeyword">as</span> c
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../ise/interactive_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/iteration_cursor.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_left"></a><a class="efeature" href="../ise/interactive_list.html#f_put_left">put_left</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> to the left of cursor position.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do not move cursor.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_put_left">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_right"></a><a class="efeature" href="../ise/interactive_list.html#f_put_right">put_right</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> to the right of cursor position.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do not move cursor.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_put_right">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_i_th"></a><a class="efeature" href="../ise/interactive_list.html#f_put_i_th">put_i_th</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_i_th">i_th</a><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Replace </span><span class="equoted">i</span><span class="ecomment">-th entry, if in index interval, by </span><span class="equoted">v</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">original_item</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">original_item</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_i_th">i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_put_i_th">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">if</span> <span class="elocal">original_item</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../ise/interactive_list.html#f_removed_item">removed_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">original_item</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_replace"></a><a class="efeature" href="../ise/interactive_list.html#f_replace">replace</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Replace current item by </span><span class="equoted">v</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">original_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">original_item</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">original_index</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a>
+			<span class="elocal">original_item</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_replace">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_removed_item">removed_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">original_item</span><span class="esymbol">,</span> <span class="elocal">original_index</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <span class="elocal">original_index</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_remove"></a><a class="efeature" href="../ise/interactive_list.html#f_remove">remove</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove current item.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to right neighbor</span>
+			<span class="ecomment">--</span><span class="ecomment"> (or </span><a class="efeature" href="../elks/list.html#f_after">after</a><span class="ecomment"> if no right neighbor).</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">original_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">original_item</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">original_index</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a>
+			<span class="elocal">original_item</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_remove">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_removed_item">removed_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">original_item</span><span class="esymbol">,</span> <span class="elocal">original_index</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_remove_right"></a><a class="efeature" href="../ise/interactive_list.html#f_remove_right">remove_right</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove item to the right of cursor position.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do not move cursor.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">item_removed</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">item_removed</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_i_th">i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_remove_right">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_removed_item">removed_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">item_removed</span><span class="esymbol">,</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_merge_left"></a><a class="efeature" href="../ise/interactive_list.html#f_merge_left">merge_left</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Merge </span><span class="equoted">other</span><span class="ecomment"> into current structure after cursor</span>
+			<span class="ecomment">--</span><span class="ecomment"> position. Do not move cursor. Empty </span><span class="equoted">other</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">original_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">original_other_count</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">original_index</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a>
+			<span class="elocal">original_other_count</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_count">count</a>
+			<a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_merge_right">merge_right</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <span class="esymbol">:=</span> <span class="elocal">original_index</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="elocal">original_other_count</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_merge_right"></a><a class="efeature" href="../ise/interactive_list.html#f_merge_right">merge_right</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Merge </span><span class="equoted">other</span><span class="ecomment"> into current structure before cursor</span>
+			<span class="ecomment">--</span><span class="ecomment"> position. Do not move cursor. Empty </span><span class="equoted">other</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">original_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">original_index</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_merge_right">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../ise/interactive_list.html#f_update_for_added">update_for_added</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">original_index</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+			<a class="efeature" href="../elks/arrayed_list.html#f_go_i_th">go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">original_index</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_prune_all"></a><a class="efeature" href="../ise/interactive_list.html#f_prune_all">prune_all</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove all occurrences of </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Reference or object equality,</span>
+			<span class="ecomment">--</span><span class="ecomment"> based on </span><a class="efeature" href="../elks/container.html#f_object_comparison">object_comparison</a><span class="ecomment">.)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">offset</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="elocal">res</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="elocal">obj_cmp</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="elocal">l_item</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a>
+			<span class="elocal">l_area</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_area">area</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">obj_cmp</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/container.html#f_object_comparison">object_comparison</a>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_area</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_area">area</a>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+				<span class="elocal">nb</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <span class="esymbol">=</span> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_is_less">&lt;</a> <span class="elocal">nb</span> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="elocal">offset</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="elocal">offset</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+						<span class="elocal">l_area</span><span class="edot">.</span><a class="efeature" href="../elks/special.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_area</span><span class="edot">.</span><a class="efeature" href="../elks/special.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="elocal">offset</span><span class="esymbol">)</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+					<span class="elocal">l_item</span> <span class="esymbol">:=</span> <span class="elocal">l_area</span><span class="edot">.</span><a class="efeature" href="../elks/special.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+					<span class="ekeyword">if</span> <span class="elocal">obj_cmp</span> <span class="ekeyword">then</span>
+						<span class="elocal">res</span> <span class="esymbol">:=</span> <span class="elocal">v</span> <span class="esymbol">~</span> <span class="elocal">l_item</span>
+					<span class="ekeyword">else</span>
+						<span class="elocal">res</span> <span class="esymbol">:=</span> <span class="elocal">v</span> <span class="esymbol">=</span> <span class="elocal">l_item</span>
+					<span class="ekeyword">end</span>
+					<span class="ekeyword">if</span> <span class="elocal">res</span> <span class="ekeyword">then</span>
+						<a class="efeature" href="../ise/interactive_list.html#f_removed_item">removed_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_item</span><span class="esymbol">,</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <a class="efeature" href="../elks/chain.html#f_lower">Lower</a><span class="esymbol">)</span>
+						<span class="elocal">offset</span> <span class="esymbol">:=</span> <span class="elocal">offset</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+					<span class="ekeyword">else</span>
+						<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">else</span>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="elocal">l_area</span><span class="edot">.</span><a class="efeature" href="../elks/special.html#f_remove_tail">remove_tail</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">offset</span><span class="esymbol">)</span>
+			<a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">is_after</span><span class="esymbol">:</span> <a class="efeature" href="../elks/list.html#f_after">after</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_update_for_added"></a><a class="efeature" href="../ise/interactive_list.html#f_update_for_added">update_for_added</a> <span class="esymbol">(</span><span class="elocal">start_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Call </span><a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="ecomment"> for all items from index </span><span class="equoted">start_index</span><span class="ecomment"> to </span><a class="efeature" href="../elks/arrayed_list.html#f_count">count</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_index</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a>
+			<span class="ekeyword">from</span>
+				<a class="efeature" href="../elks/arrayed_list.html#f_go_i_th">go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">start_index</span><span class="esymbol">)</span>
+			<span class="ekeyword">until</span>
+				<a class="efeature" href="../elks/arrayed_list.html#f_index">index</a> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a>
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">,</span> <a class="efeature" href="../elks/arrayed_list.html#f_index">index</a><span class="esymbol">)</span>
+				<a class="efeature" href="../elks/arrayed_list.html#f_forth">forth</a>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../elks/arrayed_list.html#f_go_i_th">go_i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_index</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Removal</span>
+
+	<a name="f_wipe_out"></a><a class="efeature" href="../ise/interactive_list.html#f_wipe_out">wipe_out</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove all items.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_area">area</a>
+			<span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">l_count</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_area">area</a><span class="edot">.</span><a class="efeature" href="../elks/any.html#f_twin">twin</a>
+			<span class="elocal">l_count</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/arrayed_list.html#f_count">count</a>
+			<a class="ekeyword" href="../elks/arrayed_list.html#f_wipe_out">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a><span class="esymbol">}</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <span class="esymbol">=</span> <span class="elocal">l_count</span>
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../ise/interactive_list.html#f_on_item_removed_at">on_item_removed_at</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l</span> <a class="esymbol" href="../elks/special.html#f_at">@</a> <span class="elocal">i</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">)</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_add_all"></a><a class="efeature" href="../ise/interactive_list.html#f_add_all">add_all</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">;</span> <span class="elocal">start_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Call </span><span class="equoted">on_item_added</span><span class="ecomment"> for all elements in </span><span class="equoted">other</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">cur</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor.html">CURSOR</a>
+			<span class="elocal">current_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">current_index</span> <span class="esymbol">:=</span> <span class="elocal">start_index</span>
+			<span class="elocal">cur</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_cursor">cursor</a>
+			<span class="ekeyword">from</span>
+				<span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_start">start</a>
+			<span class="ekeyword">until</span>
+				<span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_after">after</a>
+			<span class="ekeyword">loop</span>
+				<a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">current_index</span><span class="esymbol">)</span>
+				<span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_forth">forth</a>
+				<span class="elocal">current_index</span> <span class="esymbol">:=</span> <span class="elocal">current_index</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+			<span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_go_to">go_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">cur</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_in_operation"></a><a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are we executing an operation from ARRAYED_LIST?</span>
+
+	<a name="f_added_item"></a><a class="efeature" href="../ise/interactive_list.html#f_added_item">added_item</a> <span class="esymbol">(</span><span class="elocal">an_item</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">;</span> <span class="elocal">item_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">an_item</span><span class="ecomment"> is has been added.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../ise/interactive_list.html#f_on_item_added_at">on_item_added_at</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">an_item</span><span class="esymbol">,</span> <span class="elocal">item_index</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_removed_item"></a><a class="efeature" href="../ise/interactive_list.html#f_removed_item">removed_item</a> <span class="esymbol">(</span><span class="elocal">an_item</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/arrayed_list.html#f_item">item</a><span class="esymbol">;</span> <span class="elocal">item_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">an_item</span><span class="ecomment"> has been removed.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../ise/interactive_list.html#f_in_operation">in_operation</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../ise/interactive_list.html#f_on_item_removed_at">on_item_removed_at</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">an_item</span><span class="esymbol">,</span> <span class="elocal">item_index</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;EiffelBase: Library of reusable components for Eiffel.&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2018, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../ise/interactive_list.html">INTERACTIVE_LIST</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="interactive_list_chart.html">Chart</a>
+<a class="nav class" href="interactive_list_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="interactive_list"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

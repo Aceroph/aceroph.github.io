@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="JSON_ARRAY represent an array in JSON. An array in JSON is an ordered set of names. Examples array     []     [elements]"/>
+<meta name="author" content="$Author: jfiat $"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="2010-2018, Javier Velilla, Jocelyn Fiat, Eiffel Software and others https://github.com/eiffelhub/json."/>
+<meta name="license" content="https://github.com/eiffelhub/json/blob/master/License.txt"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>json_array Text</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="json_array_chart.html">Chart</a>
+<a class="nav class" href="json_array_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="json_array"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">JSON_ARRAY represent an array in JSON.</span>
+		<span class="estring">An array in JSON is an ordered set of names.</span>
+		<span class="estring">Examples</span>
+		<span class="estring">array</span>
+		<span class="estring"> &nbsp;&nbsp;&nbsp;[]</span>
+		<span class="estring"> &nbsp;&nbsp;&nbsp;</span><span class="estring">[elements]</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;$Author: jfiat $&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102453 $&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../../json/json_kernel/json_array.html">JSON_ARRAY</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_is_array">Is_array</a><span class="esymbol">,</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_chained_item">chained_item</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../../elks/iterable.html">ITERABLE</a> <span class="esymbol">[</span><a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">]</span>
+
+	<a class="eclass" href="../../elks/debug_output.html">DEBUG_OUTPUT</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../json/json_kernel/json_array.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../../json/json_kernel/json_array.html#f_make_empty">make_empty</a><span class="esymbol">,</span>
+	<a class="efeature" href="../../json/json_kernel/json_array.html#f_make_array">make_array</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize JSON array with capacity of </span><span class="equoted">nb</span><span class="ecomment"> items.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">nb</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_empty"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_make_empty">make_empty</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize empty JSON array.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_array"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_make_array">make_array</a>
+		<span class="ekeyword">obsolete</span> &quot;Use `make' [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Initialize JSON Array</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">10</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report			</span>
+
+	<a name="f_is_array"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_is_array">Is_array</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current an array value?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_i_th"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_i_th">i_th</a> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><a class="esymbol" href="../../json/json_kernel/json_array.html#f_i_th">[]</a><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Item at </span><span class="equoted">i</span><span class="ecomment">-th position</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_valid_index</span><span class="esymbol">:</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_valid_index">valid_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_i_th">i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_chained_item"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_chained_item">chained_item</a> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><a class="esymbol" href="../../json/json_kernel/json_array.html#f_chained_item">@</a><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../../json/json_kernel/json_string.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a>
+			<span class="ecomment">--</span><span class="ecomment"> &lt;Precursor&gt;.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_key</span><span class="edot">.</span><a class="efeature" href="../../json/json_kernel/json_string.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../../elks/readable_string_general.html#f_is_integer">is_integer</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_i_th">i_th</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_key</span><span class="edot">.</span><a class="efeature" href="../../json/json_kernel/json_string.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../../elks/readable_string_general.html#f_to_integer">to_integer</a><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../../json/json_kernel/json_value.html#f_chained_item">Precursor</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_representation"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_representation">representation</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> UTF-8 encoded Unicode string representation of Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;[&quot;
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a> <span class="ekeyword">as</span> ic
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/readable_string_8.html#f_count">count</a> <a class="esymbol" href="../../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">1</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/string_8.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">','</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/string_8.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ic</span><span class="edot">.</span><a class="efeature" href="../../elks/general_special_iteration_cursor.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../../json/json_kernel/json_value.html#f_representation">representation</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/string_8.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">']'</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Visitor pattern</span>
+
+	<a name="f_accept"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_accept">accept</a> <span class="esymbol">(</span><span class="elocal">a_visitor</span><span class="esymbol">:</span> <a class="eclass" href="../../json/json_utility/json_visitor.html">JSON_VISITOR</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Accept </span><span class="equoted">a_visitor</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Call </span><span class="equoted">visit_json_array</span><span class="ecomment"> procedure on </span><span class="equoted">a_visitor</span><span class="ecomment">.)</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">a_visitor</span><span class="edot">.</span><a class="efeature" href="../../json/json_utility/json_visitor.html#f_visit_json_array">visit_json_array</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_new_cursor"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_new_cursor">new_cursor</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/iteration_cursor.html">ITERATION_CURSOR</a> <span class="esymbol">[</span><a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Fresh cursor associated with current structure</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_new_cursor">new_cursor</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Mesurement</span>
+
+	<a name="f_count"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_count">count</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of items.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_count">count</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_valid_index"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_valid_index">valid_index</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">i</span><span class="ecomment"> a valid index?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="enumber">1</span> <a class="esymbol" href="../../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="elocal">i</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../../elks/comparable.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../../json/json_kernel/json_array.html#f_count">count</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Change Element</span>
+
+	<a name="f_put_front"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_put_front">put_front</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">v_not_void</span><span class="esymbol">:</span> <span class="elocal">v</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_put_front">put_front</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">has_new_value</span><span class="esymbol">:</span> <span class="ekeyword">old</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_count">count</a> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span> <span class="esymbol">=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_count">count</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted">and</a> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_first">first</a> <span class="esymbol">=</span> <span class="elocal">v</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_add"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_add">add</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../../json/json_kernel/json_array.html">JSON_ARRAY</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../../json/json_kernel/json_array.html#f_extend">extend</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">v_not_void</span><span class="esymbol">:</span> <span class="elocal">v</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">has_new_value</span><span class="esymbol">:</span> <span class="ekeyword">old</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_count">count</a> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span> <span class="esymbol">=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_count">count</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted">and</a> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_extend"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_extend">extend</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../../json/json_kernel/json_array.html">JSON_ARRAY</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../../json/json_kernel/json_array.html#f_add">add</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">v_not_void</span><span class="esymbol">:</span> <span class="elocal">v</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">has_new_value</span><span class="esymbol">:</span> <span class="ekeyword">old</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_count">count</a> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span> <span class="esymbol">=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_count">count</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted">and</a> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_prune_all"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_prune_all">prune_all</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove all occurrences of </span><span class="equoted">v</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">v_not_void</span><span class="esymbol">:</span> <span class="elocal">v</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_prune_all">prune_all</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">not_has_new_value</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_wipe_out"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_wipe_out">wipe_out</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove all items.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_wipe_out">wipe_out</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Report</span>
+
+	<a name="f_hash_code"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_hash_code">hash_code</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Hash code value</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_started</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">across</span>
+				<a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a> <span class="ekeyword">as</span> ic
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_started</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/integer_32.html#f_integer_remainder">\\</a> <span class="enumber">8388593</span><span class="esymbol">)</span> <a class="esymbol" href="../../elks/integer_32.html#f_bit_shift_left">|&lt;&lt;</a> <span class="enumber">8</span><span class="esymbol">)</span> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <span class="elocal">ic</span><span class="edot">.</span><a class="efeature" href="../../elks/general_special_iteration_cursor.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../../elks/hashable.html#f_hash_code">hash_code</a>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">ic</span><span class="edot">.</span><a class="efeature" href="../../elks/general_special_iteration_cursor.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../../elks/hashable.html#f_hash_code">hash_code</a>
+					<span class="elocal">l_started</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../../elks/integer_32.html#f_integer_remainder">\\</a> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="edot">.</span><a class="efeature" href="../../elks/arrayed_list.html#f_count">count</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Conversion</span>
+
+	<a name="f_array_representation"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_array_representation">array_representation</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Representation as a sequences of values.</span>
+			<span class="ecomment">--</span><span class="ecomment"> be careful, modifying the return object may have impact on the original JSON_ARRAY object.		</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_debug_output"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_debug_output">debug_output</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> String that should be displayed in debugger to represent </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_count">count</a><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot; item(s)&quot;
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_items"></a><a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../json/json_kernel/json_value.html">JSON_VALUE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Value container</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">items_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../json/json_kernel/json_array.html#f_items">items</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;2010-2018, Javier Velilla, Jocelyn Fiat, Eiffel Software and others </span><a class="estring" href="https://github.com/eiffelhub/json.">https://github.com/eiffelhub/json.</a><span class="estring">&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;</span><a class="estring" href="https://github.com/eiffelhub/json/blob/master/License.txt">https://github.com/eiffelhub/json/blob/master/License.txt</a><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../json/json_kernel/json_array.html">JSON_ARRAY</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="json_array_chart.html">Chart</a>
+<a class="nav class" href="json_array_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="json_array"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

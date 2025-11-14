@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Tools to capture audio from a capturing audio device"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>audio_capture_controller Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_capture_controller_chart.html">Chart</a>
+<a class="nav class" href="audio_capture_controller_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="audio_capture_controller"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Tools to capture audio from a capturing audio device&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 15 Jun 2017 19:17:55 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;0.1&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../audio_3d/audio_capture_controller.html">AUDIO_CAPTURE_CONTROLLER</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../audio_3d/audio_openal_error_manager.html">AUDIO_OPENAL_ERROR_MANAGER</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_read_alc_error">read_alc_error</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_library_controller.html">AUDIO_LIBRARY_CONTROLLER</a><span class="esymbol">}</span>
+	<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_frequency</span><span class="esymbol">,</span> <span class="elocal">a_channel_count</span><span class="esymbol">,</span> <span class="elocal">a_bits_per_sample</span><span class="esymbol">,</span> <span class="elocal">a_buffer_count</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization of </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_device</span><span class="ecomment"> as </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="ecomment">, </span><span class="equoted">a_frequency</span><span class="ecomment"> as </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_frequency">frequency</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_channel_count</span><span class="ecomment"> as </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a><span class="ecomment"> and </span><span class="equoted">a_bits_per_sample</span><span class="ecomment"> as </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_bits_per_sample">bits_per_sample</a><span class="ecomment"> and </span><span class="equoted">a_buffer_count</span><span class="ecomment"> to initialize </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a>
+			<span class="ecomment">--</span><span class="ecomment"> and </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer_sample_count">buffer_sample_count</a>
+		<span class="ekeyword">require</span>
+			<span class="etag">device_valid</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_device</span><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a>
+			<span class="etag">channel_valid</span><span class="esymbol">:</span> <span class="elocal">a_channel_count</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_channel_count</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="enumber">2</span>
+			<span class="etag">bits_per_sample_valid</span><span class="esymbol">:</span> <span class="elocal">a_bits_per_sample</span> <span class="esymbol">~</span> <span class="enumber">8</span> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <span class="elocal">a_bits_per_sample</span> <span class="esymbol">~</span> <span class="enumber">16</span>
+			<span class="etag">frequency_valid</span><span class="esymbol">:</span> <span class="elocal">a_frequency</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a> <span class="esymbol">:=</span> <span class="elocal">a_device</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a> <span class="esymbol">:=</span> <span class="elocal">a_channel_count</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_frequency">frequency</a> <span class="esymbol">:=</span> <span class="elocal">a_frequency</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_bits_per_sample">bits_per_sample</a> <span class="esymbol">:=</span> <span class="elocal">a_bits_per_sample</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer_sample_count">buffer_sample_count</a> <span class="esymbol">:=</span> <span class="elocal">a_buffer_count</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_buffer_count</span> <a class="esymbol" href="../elks/integer_32.html#f_product">*</a> <span class="elocal">a_channel_count</span> <a class="esymbol" href="../elks/integer_32.html#f_product">*</a> <span class="esymbol">(</span><span class="elocal">a_bits_per_sample</span> <a class="esymbol" href="../elks/integer_32.html#f_integer_quotient">//</a> <span class="enumber">8</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_device_closed">is_device_closed</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_has_samples">has_samples</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_updating">is_updating</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_is_capturing"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> is presently capturing sound</span>
+
+	<a name="f_is_device_closed"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_device_closed">is_device_closed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The capturing device id closed</span>
+
+	<a name="f_channel_count"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The channel number of </span><span class="equoted">Current</span><span class="ecomment"> (1=mono, 2=stereo, etc.).</span>
+
+	<a name="f_frequency"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_frequency">frequency</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The frequency (sample rate) of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+
+	<a name="f_bits_per_sample"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_bits_per_sample">bits_per_sample</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The bit resolution of one frame of </span><span class="equoted">Current</span><span class="ecomment"> (without channel count).</span>
+
+	<a name="f_buffer_sample_count"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer_sample_count">buffer_sample_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of samples that the </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="ecomment"> will be able to contain (for example,</span>
+			<span class="ecomment">--</span><span class="ecomment"> a stereo 16 bits capture with a buffer count of 1024 will have the size 1024*2*2 = 5096 bytes)</span>
+
+	<a name="f_buffer"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/managed_pointer.html">MANAGED_POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The data that has been read by </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_update">update</a>
+
+	<a name="f_start_capture"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_start_capture">start_capture</a>
+			<span class="ecomment">--</span><span class="ecomment"> Strart the capture (use </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_update">update</a><span class="ecomment"> to fill the </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">device_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_device_closed">is_device_closed</a>
+			<span class="etag">not_already_started</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_clear_alc_error">clear_alc_error</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">)</span>
+			<span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_capture_start">alc_capture_start</a> <span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_read_alc_error">read_alc_error</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">,</span> &quot;Cannot start capture.&quot;<span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">capture_started</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_stop_capture"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_stop_capture">stop_capture</a>
+			<span class="ecomment">--</span><span class="ecomment"> Stop the capture</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">device_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_device_closed">is_device_closed</a>
+			<span class="etag">not_already_stopped</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_clear_alc_error">clear_alc_error</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">)</span>
+			<span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_capture_stop">alc_capture_stop</a> <span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_read_alc_error">read_alc_error</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">,</span> &quot;Cannot stop capture.&quot;<span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">captue_stopped</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_update"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_update">update</a>
+			<span class="ecomment">--</span><span class="ecomment"> Update </span><span class="equoted">a_buffer</span><span class="ecomment"> with the new value of the capture</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">device_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_device_closed">is_device_closed</a>
+			<span class="etag">is_capturing</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_updating">is_updating</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_clear_alc_error">clear_alc_error</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">)</span>
+			<span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_capture_samples">alc_capture_samples</a> <span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">,</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer.html#f_item">item</a><span class="esymbol">,</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer_sample_count">buffer_sample_count</a><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_has_samples">has_samples</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_read_alc_error">read_alc_error</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">,</span> &quot;Cannot capture samples.&quot;<span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_updating">is_updating</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_samples"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_has_samples">has_samples</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Samples has been found by the last call to </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_update">update</a>
+
+	<a name="f_get_sample"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_get_sample">get_sample</a> <span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/list.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/integer_16.html">INTEGER_16</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Get the sample at the position </span><span class="equoted">a_index</span><span class="ecomment"> in the </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="ecomment"> (start at 1).</span>
+			<span class="ecomment">--</span><span class="ecomment"> The number of value in </span><span class="equoted">Result</span><span class="ecomment"> represent the </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_bits_per_sample">bits_per_sample</a><span class="ecomment"> is 8, the values are unsigned from 0 to 255 with 128 being an ouput level of 0</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_bits_per_sample">bits_per_sample</a><span class="ecomment"> is 16, the values are signed from -32768 to 32767 with 0 being an ouput level of 0</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">index_valid</span><span class="esymbol">:</span> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/comparable.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer_sample_count">buffer_sample_count</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/integer_16.html">INTEGER_16</a><span class="esymbol">]</span><span class="esymbol">}</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a><span class="esymbol">)</span>
+			<span class="elocal">l_index</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="elocal">a_index</span> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_32.html#f_product">*</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_bits_per_sample">bits_per_sample</a> <span class="esymbol">~</span> <span class="enumber">16</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">across</span>
+					<span class="elocal">l_index</span> <a class="esymbol" href="../elks/integer_32_ref.html#f_interval">|..|</a> <span class="esymbol">(</span><span class="elocal">l_index</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span> <span class="ekeyword">as</span> la_index
+				<span class="ekeyword">loop</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/bag.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer.html#f_read_integer_16">read_integer_16</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">la_index</span><span class="edot">.</span><a class="efeature" href="../elks/iteration_cursor.html#f_item">item</a><span class="esymbol">)</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">across</span>
+					<span class="elocal">l_index</span> <a class="esymbol" href="../elks/integer_32_ref.html#f_interval">|..|</a> <span class="esymbol">(</span><span class="elocal">l_index</span> <a class="esymbol" href="../elks/integer_32.html#f_plus">+</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span> <span class="ekeyword">as</span> la_index
+				<span class="ekeyword">loop</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/bag.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer.html#f_read_natural_8">read_natural_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">la_index</span><span class="edot">.</span><a class="efeature" href="../elks/iteration_cursor.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/natural_8_ref.html#f_to_integer_16">to_integer_16</a><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sample_count_valid</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite.html#f_count">count</a> <span class="esymbol">~</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_any.html">AUDIO_ANY</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_device"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_device">device</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Internal representation of the capture device</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_library_controller.html">AUDIO_LIBRARY_CONTROLLER</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_close_device"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_close_device">close_device</a>
+			<span class="ecomment">--</span><span class="ecomment"> Called when the </span><a class="eclass" href="../audio_3d/audio_library_controller.html">AUDIO_LIBRARY_CONTROLLER</a><span class="ecomment"> close the capture device.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_capturing">is_capturing</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_stop_capture">stop_capture</a>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_device_closed">is_device_closed</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_null"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_null">null</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> A NULL C pointer</span>
+
+	<a name="f_is_updating"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_updating">is_updating</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> An </span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_update">update</a><span class="ecomment"> presently in progress</span>
+
+	<a name="f_read_alc_error"></a><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_read_alc_error">read_alc_error</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_message</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Read the next OpenAL error</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_al_error_code">last_al_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_al_no_error">al_no_error</a>
+			<a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_get_error">alc_get_error</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_is_updating">is_updating</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_invalid_value">alc_invalid_value</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../audio_3d/audio_capture_controller.html#f_has_samples">has_samples</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">else</span>
+				<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_alc_error_code">last_alc_error_code</a> <span class="esymbol">/=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_external.html">AUDIO_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_3d/audio_external.html#f_alc_no_error">alc_no_error</a>
+				<span class="ekeyword">if</span> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="nefeature">Print_on_error_internal</span><span class="edot">.</span><a class="efeature" href="../elks/cell.html#f_item">item</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_message</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+					<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_openal_error_manager.html#f_last_error">last_error</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">buffer_count_valid</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer">buffer</a><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer.html#f_count">count</a> <span class="esymbol">~</span> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_buffer_sample_count">buffer_sample_count</a> <a class="esymbol" href="../elks/integer_32.html#f_product">*</a> <a class="efeature" href="../audio_3d/audio_capture_controller.html#f_channel_count">channel_count</a> <a class="esymbol" href="../elks/integer_32.html#f_product">*</a> <span class="esymbol">(</span><a class="efeature" href="../audio_3d/audio_capture_controller.html#f_bits_per_sample">bits_per_sample</a> <a class="esymbol" href="../elks/integer_32.html#f_integer_quotient">//</a> <span class="enumber">8</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../audio_3d/audio_capture_controller.html">AUDIO_CAPTURE_CONTROLLER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_capture_controller_chart.html">Chart</a>
+<a class="nav class" href="audio_capture_controller_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="audio_capture_controller"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

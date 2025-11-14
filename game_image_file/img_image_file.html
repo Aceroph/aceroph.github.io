@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="An image from an image file"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>img_image_file Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="img_image_file_chart.html">Chart</a>
+<a class="nav class" href="img_image_file_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="img_image_file"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;An image from an image file&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 02 Apr 2015 03:46:04 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_image_file/img_image_file.html">IMG_IMAGE_FILE</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../game_core/graphic/game_image.html">GAME_IMAGE</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_clear_error">clear_sdl_error</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_last_error">last_error</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_last_error">last_sdl_error</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../game_image_file/img_image_file.html#f_is_openable">is_openable</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_image_file/img_image_file.html#f_open">open</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_image_file/img_image_file.html#f_dispose">dispose</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../game_image_file/img_any.html">IMG_ANY</a>
+		<span class="ekeyword">undefine</span>
+			<span class="nefeature">default_create</span>
+		<span class="ekeyword">select</span>
+			<a class="efeature" href="../game_image_file/img_any.html#f_clear_error">clear_error</a><span class="esymbol">,</span>
+			<a class="efeature" href="../game_image_file/img_any.html#f_last_error">last_error</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_image_file/img_image_file.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_make"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> make </span><span class="equoted">Current</span><span class="ecomment"> from the BMP image file </span><span class="equoted">filename</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_filename_c</span><span class="esymbol">,</span> <span class="elocal">l_mode_c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">default_create</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_filename_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_mode_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;rb&quot;<span class="esymbol">)</span>
+			<a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_rwfromfile">sdl_rwfromfile</a> <span class="esymbol">(</span><span class="elocal">l_filename_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_mode_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_is_cur"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_cur">is_cur</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support BMP format and the file is a valid CUR file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_iscur">img_iscur</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_ico"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_ico">is_ico</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support BMP format and the file is a valid ICO file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_isico">img_isico</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_bmp"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_bmp">is_bmp</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support BMP format and the file is a valid BMP file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_isbmp">img_isbmp</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_pnm"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_pnm">is_pnm</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support PNM format and the file is a valid PNM file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_ispnm">img_ispnm</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_xpm"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_xpm">is_xpm</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support XPM format and the file is a valid XPM file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_isxpm">img_isxpm</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_xcf"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_xcf">is_xcf</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support XCF format and the file is a valid XCF file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_isxcf">img_isxcf</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_pcx"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_pcx">is_pcx</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support PCX format and the file is a valid PCX file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_ispcx">img_ispcx</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_gif"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_gif">is_gif</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support GIF format and the file is a valid GIF file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_isgif">img_isgif</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_jpg"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_jpg">is_jpg</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support JPG format and the file is a valid JPG file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_isjpg">img_isjpg</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_tif"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_tif">is_tif</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support TIF format and the file is a valid TIF file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_istif">img_istif</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_png"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_png">is_png</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support PNG format and the file is a valid PNG file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_ispng">img_ispng</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_lbm"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_lbm">is_lbm</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support LBM format and the file is a valid LBM file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_islbm">img_islbm</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_xv"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_xv">is_xv</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support XV format and the file is a valid XV file.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_isxv">img_isxv</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_openable"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_is_openable">is_openable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can </span><span class="equoted">Current</span><span class="ecomment"> be </span><a class="efeature" href="../game_image_file/img_image_file.html#f_open">open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_is_cur">is_cur</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_ico">is_ico</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_bmp">is_bmp</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_pnm">is_pnm</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_xpm">is_xpm</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_xcf">is_xcf</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_pcx">is_pcx</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_gif">is_gif</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_jpg">is_jpg</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_tif">is_tif</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_png">is_png</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_lbm">is_lbm</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_is_xv">is_xv</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_open"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_open">open</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open </span><span class="equoted">Current</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_internal_pointer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_image_file/img_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_internal_pointer</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../game_image_file/img_sdl_image_external.html">IMG_SDL_IMAGE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_image_file/img_sdl_image_external.html#f_img_load_rw">img_load_rw</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_internal_pointer</span><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;An error occured while opening the image.%N&quot;<span class="esymbol">)</span>
+				<a class="efeature" href="../elks/any.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_any.html#f_last_error">last_error</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../game_core/graphic/game_image.html#f_own_from_pointer">own_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_internal_pointer</span><span class="esymbol">)</span>
+			<span class="nefeature">has_ressource_error</span> <span class="esymbol">:=</span> <span class="nefeature">has_error</span>
+			<span class="nefeature">is_open</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation - Variable</span>
+
+	<a name="f_rwop"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Pointer to the Read/Write C tool</span>
+
+	<a name="f_dispose"></a><a class="efeature" href="../game_image_file/img_image_file.html#f_dispose">dispose</a>
+			<span class="ecomment">--</span><span class="ecomment"> Action to be executed just before garbage collection</span>
+			<span class="ecomment">--</span><span class="ecomment"> reclaims an object.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect it in descendants to perform specific dispose</span>
+			<span class="ecomment">--</span><span class="ecomment"> actions. Those actions should only take care of freeing</span>
+			<span class="ecomment">--</span><span class="ecomment"> external resources; they should not perform remote calls</span>
+			<span class="ecomment">--</span><span class="ecomment"> on other objects since these may also be dead and reclaimed.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="edot">.</span><a class="efeature" href="../elks/pointer.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external.html#f_sdl_freerw">sdl_freerw</a> <span class="esymbol">(</span><a class="efeature" href="../game_image_file/img_image_file.html#f_rwop">rwop</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+			<a class="ekeyword" href="../game_core/graphic/game_image.html#f_dispose">Precursor</a> <span class="esymbol">{</span><a class="eclass" href="../game_core/graphic/game_image.html">GAME_IMAGE</a><span class="esymbol">}</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_image_file/img_image_file.html">IMG_IMAGE_FILE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="img_image_file_chart.html">Chart</a>
+<a class="nav class" href="img_image_file_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="img_image_file"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="File utilities, for retrieving files and folders and formatting paths."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2017, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="licensing_options" content="http://www.eiffel.com/licensing"/>
+<meta name="copying" content="This file is part of Eiffel Software's Eiffel Development Environment.  Eiffel Software's Eiffel Development Environment is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2 of the License (available at the URL listed under license above).  Eiffel Software's Eiffel Development Environment is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.  You should have received a copy of the GNU General Public License along with Eiffel Software's Eiffel Development Environment; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>file_utilities Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="file_utilities_chart.html">Chart</a>
+<a class="nav class" href="file_utilities_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="file_utilities"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">File utilities, for retrieving files and folders and formatting paths.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2017-03-23 19:18:26 +0000 (Thu, 23 Mar 2017) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 100033 $&quot;</span>
+
+<span class="ekeyword">expanded</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../ise/file_utilities.html">FILE_UTILITIES</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../elks/any.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Query</span>
+
+	<a name="f_compact_path"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../ise/file_utilities.html#f_compact_path">compact_path</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_32.html">READABLE_STRING_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/string_32.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Compacts a file path, removing . and ..</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_path</span><span class="ecomment">: A path to compact.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Result</span><span class="ecomment">: The compacted path or Void if the path could not be compacted.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_path_attached</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">not_a_path_is_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_path</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_sep</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32.html">CHARACTER_32</a>
+			<span class="elocal">l_parts</span><span class="esymbol">:</span> <a class="eclass" href="../elks/list.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/readable_string_32.html">READABLE_STRING_32</a><span class="esymbol">]</span>
+			<span class="elocal">l_part</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_32.html">READABLE_STRING_32</a>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_sep</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/any.html#f_operating_environment">Operating_environment</a><span class="edot">.</span><a class="efeature" href="../elks/operating_environment.html#f_directory_separator">Directory_separator</a><span class="edot">.</span><a class="efeature" href="../elks/character_8.html#f_to_character_32">to_character_32</a>
+			<span class="elocal">l_parts</span> <span class="esymbol">:=</span> <span class="elocal">a_path</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_split">split</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_sep</span><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_start">start</a>
+			<span class="ekeyword">until</span>
+				<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted">or</a> <span class="elocal">l_error</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">l_part</span> <span class="esymbol">:=</span> <span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/active.html#f_item">item</a>
+				<span class="ekeyword">if</span> <span class="elocal">l_part</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_same_string">same_string_general</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;.&quot;<span class="esymbol">)</span> <span class="ekeyword">then</span>
+					<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_remove">remove</a>
+				<span class="ekeyword">elseif</span> <span class="elocal">l_part</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_same_string">same_string_general</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;..&quot;<span class="esymbol">)</span> <span class="ekeyword">then</span>
+					<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_remove">remove</a>
+					<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/finite.html#f_is_empty">is_empty</a> <span class="ekeyword">then</span>
+						<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/bilinear.html#f_back">back</a>
+						<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_before">before</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/active.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_empty">is_empty</a> <span class="ekeyword">then</span>
+							<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_remove">remove</a>
+						<span class="ekeyword">else</span>
+							<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">else</span>
+					<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_forth">forth</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_error</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_32.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_path</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_32.html#f_count">count</a><span class="esymbol">)</span>
+				<span class="ekeyword">from</span>
+					<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_start">start</a>
+				<span class="ekeyword">until</span>
+					<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_after">after</a>
+				<span class="ekeyword">loop</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_32.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/active.html#f_item">item</a><span class="esymbol">)</span>
+					<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/chain.html#f_islast">islast</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_32.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_sep</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+					<span class="elocal">l_parts</span><span class="edot">.</span><a class="efeature" href="../elks/list.html#f_forth">forth</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_ends_with"></a><a class="efeature" href="../ise/file_utilities.html#f_ends_with">ends_with</a> <span class="esymbol">(</span><span class="elocal">a_folder</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">;</span> <span class="elocal">a_end_with</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_levels</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Scans a folder for matching files.</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_folder</span><span class="ecomment">: Folder location to scan.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_levels</span><span class="ecomment">: Number of levels to recursively scan. 0 to scan the specified folder only, -1 to scan all folders.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_end_with</span><span class="ecomment">: A string results end with, ignoring cases.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_folder_exists</span><span class="esymbol">:</span> <a class="efeature" href="../ise/file_utilities.html#f_directory_path_exists">directory_path_exists</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_folder</span><span class="esymbol">)</span>
+			<span class="etag">a_levels_is_valid</span><span class="esymbol">:</span> <span class="elocal">a_levels</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">-1</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../ise/file_utilities.html#f_internal_files_end_with">internal_files_end_with</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_folder</span><span class="esymbol">,</span> <span class="elocal">a_end_with</span><span class="esymbol">,</span> <span class="elocal">a_levels</span><span class="esymbol">,</span> <span class="ekeyword">True</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Query</span>
+
+	<a name="f_internal_files_end_with"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../ise/file_utilities.html#f_internal_files_end_with">internal_files_end_with</a> <span class="esymbol">(</span><span class="elocal">a_folder</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">;</span> <span class="elocal">a_end_with</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_levels</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_recursive</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Scans a folder for matching files.</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_folder</span><span class="ecomment">: Folder location to scan.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_levels</span><span class="ecomment">: Number of levels to recursively scan. 0 to scan the specified folder only, -1 to scan all folders.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_end_with</span><span class="ecomment">: A string results end with, ignoring cases</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_folder_exists</span><span class="esymbol">:</span> <a class="efeature" href="../ise/file_utilities.html#f_directory_path_exists">directory_path_exists</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_folder</span><span class="esymbol">)</span>
+			<span class="etag">a_levels_is_valid</span><span class="esymbol">:</span> <span class="elocal">a_levels</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">-1</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_dn</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a>
+			<span class="elocal">l_dir</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/directory.html">DIRECTORY</a>
+			<span class="elocal">l_retried</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="elocal">l_path</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a>
+			<span class="elocal">f</span><span class="esymbol">:</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+			<span class="elocal">d</span><span class="esymbol">:</span> <a class="eclass" href="../elks/directory.html">DIRECTORY</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="elocal">a_recursive</span> <span class="ekeyword">then</span>
+					<span class="elocal">l_dn</span> <span class="esymbol">:=</span> <span class="elocal">a_folder</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_absolute_path">absolute_path</a>
+				<span class="ekeyword">else</span>
+					<span class="elocal">l_dn</span> <span class="esymbol">:=</span> <span class="elocal">a_folder</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_dn</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_is_readable">is_readable</a> <span class="ekeyword">then</span>
+					<span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_open_read">open_read</a>
+					<span class="ekeyword">from</span>
+						<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_count">count</a><span class="esymbol">)</span>
+						<span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_readentry">readentry</a>
+					<span class="ekeyword">until</span>
+						<a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="ekeyword">attached</span> <span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_last_entry_32">last_entry_32</a> <span class="ekeyword">as</span> e
+					<span class="ekeyword">loop</span>
+						<span class="elocal">l_path</span> <span class="esymbol">:=</span> <span class="elocal">l_dn</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_extended">extended</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">e</span><span class="esymbol">)</span>
+						<span class="ekeyword">create</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_path</span><span class="esymbol">)</span>
+						<span class="ekeyword">if</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_readable">is_readable</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_plain">is_plain</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">e</span><span class="edot">.</span><a class="efeature" href="../elks/string_32.html#f_as_lower">as_lower</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_ends_with">ends_with_general</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_end_with</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_as_lower">as_lower</a><span class="esymbol">)</span> <span class="ekeyword">then</span>
+							<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_path</span><span class="esymbol">)</span>
+						<span class="ekeyword">else</span>
+							<span class="ekeyword">if</span> <span class="esymbol">(</span><span class="elocal">e</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_32.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">e</span> <a class="esymbol" href="../elks/string_32.html#f_item">[</a><span class="enumber">1</span><a class="esymbol" href="../elks/string_32.html#f_item">]</a> <span class="esymbol">=</span> <span class="echar">'.'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="elocal">e</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_32.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">2</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">e</span> <a class="esymbol" href="../elks/string_32.html#f_item">[</a><span class="enumber">1</span><a class="esymbol" href="../elks/string_32.html#f_item">]</a> <span class="esymbol">=</span> <span class="echar">'.'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8.html#f_to_character_32">to_character_32</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">e</span> <a class="esymbol" href="../elks/string_32.html#f_item">[</a><span class="enumber">2</span><a class="esymbol" href="../elks/string_32.html#f_item">]</a> <span class="esymbol">=</span> <span class="echar">'.'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span> <span class="ekeyword">then</span>
+							<span class="ekeyword">elseif</span> <span class="elocal">a_levels</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted_semistrict">or else</a> <span class="elocal">a_levels</span> <span class="esymbol">=</span> <span class="enumber">-1</span> <span class="ekeyword">then</span>
+								<span class="ekeyword">create</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_path</span><span class="esymbol">)</span>
+								<span class="ekeyword">if</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_is_readable">is_readable</a> <span class="ekeyword">then</span>
+									<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../ise/file_utilities.html#f_internal_files_end_with">internal_files_end_with</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_path</span><span class="esymbol">,</span> <span class="elocal">a_end_with</span><span class="esymbol">,</span> <span class="esymbol">(</span><span class="elocal">a_levels</span> <a class="esymbol" href="../elks/integer_32.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/comparable.html#f_max">max</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">-1</span><span class="esymbol">)</span><span class="esymbol">,</span> <span class="ekeyword">False</span><span class="esymbol">)</span><span class="esymbol">)</span>
+								<span class="ekeyword">end</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">end</span>
+						<span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_readentry">readentry</a>
+					<span class="ekeyword">end</span>
+					<span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_close">close</a>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">elseif</span> <span class="elocal">l_dir</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_is_closed">is_closed</a> <span class="ekeyword">then</span>
+				<span class="elocal">l_dir</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_close">close</a>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="elocal">l_retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> File name operations</span>
+
+	<a name="f_make_directory_name_in"></a><a class="efeature" href="../ise/file_utilities.html#f_make_directory_name_in">make_directory_name_in</a> <span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">location</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> A directory name for directory </span><span class="equoted">name</span><span class="ecomment"> in directory </span><span class="equoted">location</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../ise/file_utilities.html#f_make_file_name_in">make_file_name_in</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">,</span> <span class="elocal">location</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_file_name_in"></a><a class="efeature" href="../ise/file_utilities.html#f_make_file_name_in">make_file_name_in</a> <span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">location</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> A file name for file </span><span class="equoted">name</span><span class="ecomment"> in directory </span><span class="equoted">location</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">location</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_extended">extended</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_name">name</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Directory operations</span>
+
+	<a name="f_directory_path_exists"></a><a class="efeature" href="../ise/file_utilities.html#f_directory_path_exists">directory_path_exists</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does directory of path </span><span class="equoted">p</span><span class="ecomment"> exist?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/directory.html">DIRECTORY</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_directory_exists"></a><a class="efeature" href="../ise/file_utilities.html#f_directory_exists">directory_exists</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does directory of name </span><span class="equoted">n</span><span class="ecomment"> exist?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/directory.html">DIRECTORY</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_names"></a><a class="efeature" href="../ise/file_utilities.html#f_file_names">file_names</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_32.html">READABLE_STRING_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> List of file names in directory with name </span><span class="equoted">n</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Or void if directory is not readable (does not exist, cannot be accessed, etc.).</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">d</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/directory.html">DIRECTORY</a>
+			<span class="elocal">is_retried</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="elocal">f</span><span class="esymbol">:</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">is_retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_is_readable">is_readable</a> <span class="ekeyword">then</span>
+					<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_open_read">open_read</a>
+					<span class="ekeyword">from</span>
+						<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+						<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_readentry">readentry</a>
+					<span class="ekeyword">until</span>
+						<a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="ekeyword">attached</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_last_entry_32">last_entry_32</a> <span class="ekeyword">as</span> e
+					<span class="ekeyword">loop</span>
+						<span class="ekeyword">create</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_extended">extended</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">e</span><span class="esymbol">)</span><span class="esymbol">)</span>
+						<span class="ekeyword">if</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_readable">is_readable</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_plain">is_plain</a> <span class="ekeyword">then</span>
+							<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">e</span><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+						<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_readentry">readentry</a>
+					<span class="ekeyword">end</span>
+					<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_close">close</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">elseif</span> <span class="ekeyword">attached</span> <span class="elocal">d</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_is_closed">is_closed</a> <span class="ekeyword">then</span>
+				<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_close">close</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="elocal">is_retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_directory_names"></a><a class="efeature" href="../ise/file_utilities.html#f_directory_names">directory_names</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_32.html">READABLE_STRING_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/arrayed_list.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/string_32.html">STRING_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> List of directory names (excluding current and parent directory) in directory with name </span><span class="equoted">n</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Or void if directory is not readable (does not exist, cannot be accessed, etc.).</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">d</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/directory.html">DIRECTORY</a>
+			<span class="elocal">is_retried</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="elocal">f</span><span class="esymbol">:</span> <a class="eclass" href="../elks/directory.html">DIRECTORY</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">is_retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_is_readable">is_readable</a> <span class="ekeyword">then</span>
+					<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_open_read">open_read</a>
+					<span class="ekeyword">from</span>
+						<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+						<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_readentry">readentry</a>
+					<span class="ekeyword">until</span>
+						<a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="ekeyword">attached</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_last_entry_32">last_entry_32</a> <span class="ekeyword">as</span> e
+					<span class="ekeyword">loop</span>
+						<span class="ekeyword">if</span> <span class="esymbol">(</span><span class="elocal">e</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_32.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">e</span> <a class="esymbol" href="../elks/string_32.html#f_item">[</a><span class="enumber">1</span><a class="esymbol" href="../elks/string_32.html#f_item">]</a> <span class="esymbol">=</span> <span class="echar">'.'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="elocal">e</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_32.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">2</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">e</span> <a class="esymbol" href="../elks/string_32.html#f_item">[</a><span class="enumber">1</span><a class="esymbol" href="../elks/string_32.html#f_item">]</a> <span class="esymbol">=</span> <span class="echar">'.'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8.html#f_to_character_32">to_character_32</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">e</span> <a class="esymbol" href="../elks/string_32.html#f_item">[</a><span class="enumber">2</span><a class="esymbol" href="../elks/string_32.html#f_item">]</a> <span class="esymbol">=</span> <span class="echar">'.'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">else</span>
+							<span class="ekeyword">create</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_extended">extended</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">e</span><span class="esymbol">)</span><span class="esymbol">)</span>
+							<span class="ekeyword">if</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_is_readable">is_readable</a> <span class="ekeyword">then</span>
+								<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">e</span><span class="esymbol">)</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">end</span>
+						<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_readentry">readentry</a>
+					<span class="ekeyword">end</span>
+					<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_close">close</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">elseif</span> <span class="ekeyword">attached</span> <span class="elocal">d</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_is_closed">is_closed</a> <span class="ekeyword">then</span>
+				<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_close">close</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="elocal">is_retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_create_directory_path"></a><a class="efeature" href="../ise/file_utilities.html#f_create_directory_path">create_directory_path</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Creates a directory and any parent directories if they do not exist.</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_path</span><span class="ecomment">: The path to create.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_path_attached</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">not_a_path_is_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_path</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">is_retried</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="elocal">d</span><span class="esymbol">:</span> <a class="eclass" href="../elks/directory.html">DIRECTORY</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">is_retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a> <span class="ekeyword">then</span>
+					<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_recursive_create_dir">recursive_create_dir</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="elocal">is_retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_create_directory"></a><a class="efeature" href="../ise/file_utilities.html#f_create_directory">create_directory</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Creates a directory and any parent directories if they do not exist.</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_path</span><span class="ecomment">: The directory to create.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_path_attached</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">not_a_path_is_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">a_path</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">is_retried</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="elocal">d</span><span class="esymbol">:</span> <a class="eclass" href="../elks/directory.html">DIRECTORY</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">is_retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_exists">exists</a> <span class="ekeyword">then</span>
+					<span class="elocal">d</span><span class="edot">.</span><a class="efeature" href="../elks/directory.html#f_recursive_create_dir">recursive_create_dir</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="elocal">is_retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> File operations</span>
+
+	<a name="f_copy_file"></a><a class="efeature" href="../ise/file_utilities.html#f_copy_file">copy_file</a> <span class="esymbol">(</span><span class="elocal">old_name</span><span class="esymbol">,</span> <span class="elocal">new_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy file named </span><span class="equoted">old_name</span><span class="ecomment"> to </span><span class="equoted">new_name</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">f</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+			<span class="elocal">t</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+			<span class="elocal">is_rescued</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">is_rescued</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">f</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_open_read">is_open_read</a> <span class="ekeyword">then</span>
+					<span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_close">close</a>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">t</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_open_write">is_open_write</a> <span class="ekeyword">then</span>
+					<span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_close">close</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">old_name</span><span class="esymbol">)</span>
+				<span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_open_read">open_read</a>
+				<span class="ekeyword">create</span> <span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">new_name</span><span class="esymbol">)</span>
+				<span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_open_write">open_write</a>
+				<span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_copy_to">copy_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">)</span>
+				<span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_close">close</a>
+				<span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_close">close</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">is_rescued</span> <span class="ekeyword">then</span>
+				<span class="elocal">is_rescued</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+				<span class="ekeyword">retry</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_copy_file_path"></a><a class="efeature" href="../ise/file_utilities.html#f_copy_file_path">copy_file_path</a> <span class="esymbol">(</span><span class="elocal">old_path</span><span class="esymbol">,</span> <span class="elocal">new_path</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy file named </span><span class="equoted">old_path</span><span class="ecomment"> to </span><span class="equoted">new_path</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">f</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+			<span class="elocal">t</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+			<span class="elocal">is_rescued</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">is_rescued</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">f</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_open_read">is_open_read</a> <span class="ekeyword">then</span>
+					<span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_close">close</a>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">t</span> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_open_write">is_open_write</a> <span class="ekeyword">then</span>
+					<span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_close">close</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">old_path</span><span class="esymbol">)</span>
+				<span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_open_read">open_read</a>
+				<span class="ekeyword">create</span> <span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">new_path</span><span class="esymbol">)</span>
+				<span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_open_write">open_write</a>
+				<span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_copy_to">copy_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">)</span>
+				<span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_close">close</a>
+				<span class="elocal">t</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_close">close</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">is_rescued</span> <span class="ekeyword">then</span>
+				<span class="elocal">is_rescued</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+				<span class="ekeyword">retry</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_rename_file"></a><a class="efeature" href="../ise/file_utilities.html#f_rename_file">rename_file</a> <span class="esymbol">(</span><span class="elocal">old_name</span><span class="esymbol">,</span> <span class="elocal">new_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Rename file named </span><span class="equoted">old_name</span><span class="ecomment"> to </span><span class="equoted">new_name</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">old_name</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_rename_file">rename_file</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">new_name</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_rename_file_path"></a><a class="efeature" href="../ise/file_utilities.html#f_rename_file_path">rename_file_path</a> <span class="esymbol">(</span><span class="elocal">old_path</span><span class="esymbol">,</span> <span class="elocal">new_path</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Rename file named </span><span class="equoted">old_path</span><span class="ecomment"> to </span><span class="equoted">new_path</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">old_path</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_rename_path">rename_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">new_path</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_exists"></a><a class="efeature" href="../ise/file_utilities.html#f_file_exists">file_exists</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does file of name </span><span class="equoted">n</span><span class="ecomment"> exist?</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">f</span><span class="esymbol">:</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+			<span class="elocal">is_retried</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">n</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">is_retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_plain">is_plain</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="elocal">is_retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_path_exists"></a><a class="efeature" href="../ise/file_utilities.html#f_file_path_exists">file_path_exists</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <a class="eclass" href="../elks/path.html">PATH</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does file of path </span><span class="equoted">p</span><span class="ecomment"> exist?</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">f</span><span class="esymbol">:</span> <a class="eclass" href="../elks/raw_file.html">RAW_FILE</a>
+			<span class="elocal">is_retried</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/path.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../elks/boolean.html#f_negated">not</a> <span class="elocal">is_retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_make_with_path">make_with_path</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">f</span><span class="edot">.</span><a class="efeature" href="../elks/file.html#f_is_plain">is_plain</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<span class="elocal">is_retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2017, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">licensing_options</span><span class="esymbol">:</span> <span class="estring">&quot;</span><a class="estring" href="http://www.eiffel.com/licensing">http://www.eiffel.com/licensing</a><span class="estring">&quot;</span>
+	<span class="eitag">copying</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">This file is part of Eiffel Software's Eiffel Development Environment.</span>
+		
+		<span class="estring">Eiffel Software's Eiffel Development Environment is free</span>
+		<span class="estring">software; you can redistribute it and/or modify it under</span>
+		<span class="estring">the terms of the GNU General Public License as published</span>
+		<span class="estring">by the Free Software Foundation, version 2 of the License</span>
+		<span class="estring">(available at the URL listed under &quot;license&quot; above).</span>
+		
+		<span class="estring">Eiffel Software's Eiffel Development Environment is</span>
+		<span class="estring">distributed in the hope that it will be useful, but</span>
+		<span class="estring">WITHOUT ANY WARRANTY; without even the implied warranty</span>
+		<span class="estring">of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span>
+		<span class="estring">See the GNU General Public License for more details.</span>
+		
+		<span class="estring">You should have received a copy of the GNU General Public</span>
+		<span class="estring">License along with Eiffel Software's Eiffel Development</span>
+		<span class="estring">Environment; if not, write to the Free Software Foundation,</span>
+		<span class="estring">Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../ise/file_utilities.html">FILE_UTILITIES</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="file_utilities_chart.html">Chart</a>
+<a class="nav class" href="file_utilities_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="file_utilities"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

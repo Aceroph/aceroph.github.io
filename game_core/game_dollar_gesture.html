@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A complexe gesture similar to a template"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_dollar_gesture Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_dollar_gesture_chart.html">Chart</a>
+<a class="nav class" href="game_dollar_gesture_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_dollar_gesture"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A complexe gesture similar to a template&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Fri, 17 Apr 2015 17:55:32 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../game_core/event/game_dollar_gesture.html">GAME_DOLLAR_GESTURE</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../game_core/event/game_gesture.html">GAME_GESTURE</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../game_core/event/game_gesture.html#f_make">make</a> <span class="ekeyword">as</span> <a class="efeature" href="../game_core/event/game_gesture.html#f_make">make_gesture</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/event/game_dollar_gesture.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../game_core/event/game_dollar_gesture.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_template_hash</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a><span class="esymbol">;</span> <span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">,</span> <span class="elocal">a_difference</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32.html">REAL_32</a><span class="esymbol">;</span> <span class="elocal">a_fingers_count</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization of </span><span class="equoted">Current</span><span class="ecomment"> compare to the template identified by </span><span class="equoted">a_template_hash</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> using </span><span class="equoted">a_x</span><span class="ecomment"> as </span><a class="efeature" href="../game_core/event/game_gesture.html#f_x">x</a><span class="ecomment">, </span><span class="equoted">a_y</span><span class="ecomment"> as </span><a class="efeature" href="../game_core/event/game_gesture.html#f_y">y</a><span class="ecomment">, </span><span class="equoted">a_fingers_count</span><span class="ecomment"> as </span><a class="efeature" href="../game_core/event/game_gesture.html#f_fingers_count">fingers_count</a><span class="ecomment"> and</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_difference</span><span class="ecomment"> as </span><a class="efeature" href="../game_core/event/game_dollar_gesture.html#f_difference">difference</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../game_core/event/game_gesture.html#f_make">make_gesture</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">,</span> <span class="elocal">a_fingers_count</span><span class="esymbol">)</span>
+			<a class="efeature" href="../game_core/event/game_dollar_gesture.html#f_template_hash">template_hash</a> <span class="esymbol">:=</span> <span class="elocal">a_template_hash</span>
+			<a class="efeature" href="../game_core/event/game_dollar_gesture.html#f_difference">difference</a> <span class="esymbol">:=</span> <span class="elocal">a_difference</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_template_hash"></a><a class="efeature" href="../game_core/event/game_dollar_gesture.html#f_template_hash">template_hash</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64.html">INTEGER_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> The quasi-unique hash of the dollar gesture template that is the closest to </span><span class="equoted">Current</span>
+
+	<a name="f_difference"></a><a class="efeature" href="../game_core/event/game_dollar_gesture.html#f_difference">difference</a><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32.html">REAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The distance (error) between </span><span class="equoted">Current</span><span class="ecomment"> and the dollar gesture template (The lower the closest)</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/event/game_dollar_gesture.html">GAME_DOLLAR_GESTURE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_dollar_gesture_chart.html">Chart</a>
+<a class="nav class" href="game_dollar_gesture_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_dollar_gesture"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

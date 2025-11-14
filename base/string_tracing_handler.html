@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Abstract class to dispatch tracing events to user using TYPE and STRING data."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="library" content="EiffelBase: Library of reusable components for Eiffel."/>
+<meta name="copyright" content="Copyright (c) 1984-2013, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>string_tracing_handler Text</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="string_tracing_handler_chart.html">Chart</a>
+<a class="nav class" href="string_tracing_handler_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="string_tracing_handler"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Abstract class to dispatch tracing events to user using TYPE and STRING data.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2013-05-20 23:15:17 +0000 (Mon, 20 May 2013) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 92557 $&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../ise/string_tracing_handler.html">STRING_TRACING_HANDLER</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../ise/tracing_handler.html">TRACING_HANDLER</a>
+		<span class="ekeyword">rename</span>
+			<a class="efeature" href="../ise/tracing_handler.html#f_trace">trace</a> <span class="ekeyword">as</span> <a class="efeature" href="../ise/string_tracing_handler.html#f_internal_trace">internal_trace</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Tracing</span>
+
+	<a name="f_trace"></a><a class="efeature" href="../ise/string_tracing_handler.html#f_trace">trace</a> <span class="esymbol">(</span><span class="elocal">a_type</span><span class="esymbol">:</span> <a class="eclass" href="../elks/type.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any.html">ANY</a><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">a_class_name</span><span class="esymbol">,</span> <span class="elocal">a_feature_name</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/string_8.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">a_depth</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_is_entering</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Trigger a trace operation from a feature represented by </span><span class="equoted">a_feature_name</span><span class="ecomment"> defined in</span>
+			<span class="ecomment">--</span><span class="ecomment"> class </span><span class="equoted">a_class_name</span><span class="ecomment"> and applied to an object of type </span><span class="equoted">a_type</span><span class="ecomment"> at a call depth </span><span class="equoted">a_depth</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_is_entering</span><span class="ecomment"> we are entering the routine, otherwise we are exiting it.			</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_depth_non_negative</span><span class="esymbol">:</span> <span class="elocal">a_depth</span> <a class="esymbol" href="../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_internal_trace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../ise/string_tracing_handler.html#f_internal_trace">internal_trace</a> <span class="esymbol">(</span><span class="elocal">a_type_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_c_class_name</span><span class="esymbol">,</span> <span class="elocal">a_c_feature_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_depth</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_is_entering</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Convert arguments </span><span class="equoted">a_c_class_name</span><span class="ecomment"> and </span><span class="equoted">a_c_feature_name</span><span class="ecomment"> to STRINGs and execute </span><a class="efeature" href="../ise/string_tracing_handler.html#f_trace">trace</a><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_class_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8.html">STRING_8</a>
+			<span class="elocal">l_type</span><span class="esymbol">:</span> <a class="eclass" href="../elks/type.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any.html">ANY</a><span class="esymbol">]</span>
+			<span class="elocal">l_buffer</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../ise/string_tracing_handler.html#f_c_buffer">C_buffer</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_type</span> <span class="esymbol">:=</span> <a class="efeature" href="../ise/string_tracing_handler.html#f_internal">Internal</a><span class="edot">.</span><a class="efeature" href="../elks/reflector.html#f_type_of_type">type_of_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_type_id</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_c_class_name</span> <span class="esymbol">/=</span> <a class="efeature" href="../elks/any.html#f_default_pointer">default_pointer</a> <a class="ekeyword" href="../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_c_feature_name</span> <span class="esymbol">/=</span> <a class="efeature" href="../elks/any.html#f_default_pointer">default_pointer</a> <span class="ekeyword">then</span>
+				<span class="elocal">l_buffer</span> <span class="esymbol">:=</span> <a class="efeature" href="../ise/string_tracing_handler.html#f_c_buffer">C_buffer</a>
+				<span class="elocal">l_buffer</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_set_shared_from_pointer">set_shared_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_c_class_name</span><span class="esymbol">)</span>
+				<span class="elocal">l_class_name</span> <span class="esymbol">:=</span> <span class="elocal">l_buffer</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a>
+				<span class="elocal">l_buffer</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_set_shared_from_pointer">set_shared_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_c_feature_name</span><span class="esymbol">)</span>
+				<a class="efeature" href="../ise/string_tracing_handler.html#f_trace">trace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_type</span><span class="esymbol">,</span> <span class="elocal">l_class_name</span><span class="esymbol">,</span> <span class="elocal">l_buffer</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_string">string</a><span class="esymbol">,</span> <span class="elocal">a_depth</span><span class="esymbol">,</span> <span class="elocal">a_is_entering</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../ise/string_tracing_handler.html#f_trace">trace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_type</span><span class="esymbol">,</span> <span class="ekeyword">Void</span><span class="esymbol">,</span> <span class="ekeyword">Void</span><span class="esymbol">,</span> <span class="elocal">a_depth</span><span class="esymbol">,</span> <span class="elocal">a_is_entering</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_internal"></a><a class="efeature" href="../ise/string_tracing_handler.html#f_internal">Internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/reflector.html">REFLECTOR</a>
+			<span class="ecomment">--</span><span class="ecomment"> Quick access to features of INTERNAL</span>
+		<span class="ekeyword">once</span> <span class="esymbol">(</span>&quot;THREAD&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">internal_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_c_buffer"></a><a class="efeature" href="../ise/string_tracing_handler.html#f_c_buffer">C_buffer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string.html">C_STRING</a>
+			<span class="ecomment">--</span><span class="ecomment"> Buffer to convert C strings to Eiffel strings</span>
+		<span class="ekeyword">once</span> <span class="esymbol">(</span>&quot;THREAD&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/c_string.html#f_make_empty">make_empty</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">c_buffer_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;EiffelBase: Library of reusable components for Eiffel.&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2013, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../ise/string_tracing_handler.html">STRING_TRACING_HANDLER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="string_tracing_handler_chart.html">Chart</a>
+<a class="nav class" href="string_tracing_handler_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="string_tracing_handler"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

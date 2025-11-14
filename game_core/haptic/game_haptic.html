@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Information and control of force feedback devices"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_haptic Text</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_haptic_chart.html">Chart</a>
+<a class="nav class" href="game_haptic_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_haptic"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Information and control of force feedback devices&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sat, 28 Feb 2015 19:20:47 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> 
+	<a class="eclass" href="../../game_core/haptic/game_haptic.html">GAME_HAPTIC</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../../game_core/implementation/game_sdl_any.html">GAME_SDL_ANY</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_default_create">default_create</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../../game_core/game_library_shared.html">GAME_LIBRARY_SHARED</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_default_create">default_create</a>
+		<span class="ekeyword">end</span>
+
+	<a class="eclass" href="../../elks/disposable.html">DISPOSABLE</a>
+		<span class="ekeyword">redefine</span>
+			<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_default_create">default_create</a>
+		<span class="ekeyword">end</span>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_default_create"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process instances of classes with no creation clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/linked_list.html">LINKED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/haptic/game_haptic_effect_compiled.html">GAME_HAPTIC_EFFECT_COMPILED</a><span class="esymbol">]</span><span class="esymbol">}</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_compiled_effect">internal_compiled_effect</a><span class="edot">.</span><a class="efeature" href="../../elks/linked_list.html#f_make">make</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Query</span>
+
+	<a name="f_is_open"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> currently usable</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../../elks/pointer.html#f_is_default_pointer">is_default_pointer</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_constant_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_constant_effect_supported">is_constant_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported constant effect</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_constant">sdl_haptic_constant</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_periodic_sine_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_periodic_sine_effect_supported">is_periodic_sine_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported periodic sine effect</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;__ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;/ &nbsp;\ &nbsp;&nbsp;&nbsp;/ &nbsp;\ &nbsp;&nbsp;&nbsp;/ &nbsp;\ &nbsp;&nbsp;&nbsp;/</span>
+			<span class="ecomment">--</span><span class="ecomment"> / &nbsp;&nbsp;&nbsp;\__/ &nbsp;&nbsp;&nbsp;\__/ &nbsp;&nbsp;&nbsp;\__/</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_sine">sdl_haptic_sine</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_periodic_triangle_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_periodic_triangle_effect_supported">is_periodic_triangle_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported periodic triangle effect</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;/\ &nbsp;&nbsp;&nbsp;/\ &nbsp;&nbsp;&nbsp;/\ &nbsp;&nbsp;&nbsp;/\ &nbsp;&nbsp;&nbsp;/\</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;/ &nbsp;\ &nbsp;/ &nbsp;\ &nbsp;/ &nbsp;\ &nbsp;/ &nbsp;\ &nbsp;/</span>
+			<span class="ecomment">--</span><span class="ecomment"> / &nbsp;&nbsp;&nbsp;\/ &nbsp;&nbsp;&nbsp;\/ &nbsp;&nbsp;&nbsp;\/ &nbsp;&nbsp;&nbsp;\/</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_triangle">sdl_haptic_triangle</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_periodic_saw_tooth_up_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_periodic_saw_tooth_up_effect_supported">is_periodic_saw_tooth_up_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported periodic effect of the type</span>
+			<span class="ecomment">--</span><span class="ecomment"> sawtooth with the openning at the bottom.</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;/| &nbsp;/| &nbsp;/| &nbsp;/| &nbsp;/| &nbsp;/| &nbsp;/|</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;/ | / | / | / | / | / | / |</span>
+			<span class="ecomment">--</span><span class="ecomment"> / &nbsp;|/ &nbsp;|/ &nbsp;|/ &nbsp;|/ &nbsp;|/ &nbsp;|/ &nbsp;|</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_sawtoothup">sdl_haptic_sawtoothup</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_periodic_saw_tooth_down_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_periodic_saw_tooth_down_effect_supported">is_periodic_saw_tooth_down_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported periodic effect of the type</span>
+			<span class="ecomment">--</span><span class="ecomment"> sawtooth with the openning at the top.</span>
+			<span class="ecomment">--</span><span class="ecomment"> \ &nbsp;|\ &nbsp;|\ &nbsp;|\ &nbsp;|\ &nbsp;|\ &nbsp;|\ &nbsp;|</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;\ | \ | \ | \ | \ | \ | \ |</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;\| &nbsp;\| &nbsp;\| &nbsp;\| &nbsp;\| &nbsp;\| &nbsp;\|</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_sawtoothdown">sdl_haptic_sawtoothdown</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_linear_ramp_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_linear_ramp_effect_supported">is_linear_ramp_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported linear ramp effect</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_ramp">sdl_haptic_ramp</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_conditionnal_spring_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_conditionnal_spring_effect_supported">is_conditionnal_spring_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported conditionnal effect base on axis position</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_spring">sdl_haptic_spring</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_conditionnal_damper_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_conditionnal_damper_effect_supported">is_conditionnal_damper_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported conditionnal effect base on axis velocities</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_damper">sdl_haptic_damper</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_conditionnal_inertia_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_conditionnal_inertia_effect_supported">is_conditionnal_inertia_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported conditionnal effect base on axis acceleration</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_inertia">sdl_haptic_inertia</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_conditionnal_friction_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_conditionnal_friction_effect_supported">is_conditionnal_friction_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported conditionnal effect base on axis movement</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_friction">sdl_haptic_friction</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_left_right_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_left_right_effect_supported">is_left_right_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported left/right effect</span>
+			<span class="ecomment">--</span><span class="ecomment"> Used in lots of recent console controller</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_leftright">sdl_haptic_leftright</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_custom_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_custom_effect_supported">is_custom_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported custom effect</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_custom">sdl_haptic_custom</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_gain_control_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_gain_control_supported">is_gain_control_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported gain control</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_gain">sdl_haptic_gain</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_auto_center_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_auto_center_supported">is_auto_center_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported the auto center feature</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_autocenter">sdl_haptic_autocenter</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_status_query_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_status_query_supported">is_status_query_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported the query of effect status</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_status">sdl_haptic_status</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_pause_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_pause_supported">is_pause_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> supported the pause of an effect</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticquery">sdl_hapticquery</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_bit_and">bit_and</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_pause">sdl_haptic_pause</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_rumble_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble_supported">is_rumble_supported</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can </span><span class="equoted">Current</span><span class="ecomment"> be used as a simple rumble playback</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticrumblesupported">sdl_hapticrumblesupported</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_paused"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_paused">is_paused</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has </span><span class="equoted">Current</span><span class="ecomment"> presently stop with a </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_pause">pause</a><span class="ecomment">.</span>
+
+	<a name="f_is_rumble"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble">is_rumble</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> initialized as a rumble playback</span>
+
+	<a name="f_axes_count"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_axes_count">axes_count</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of axes of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticnumaxes">sdl_hapticnumaxes</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_maximum_effect_compiled"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_maximum_effect_compiled">maximum_effect_compiled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum number of effect that </span><span class="equoted">Current</span><span class="ecomment"> can compiled and store</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that on some system, tis information is not given, so this</span>
+			<span class="ecomment">--</span><span class="ecomment"> may be a simple approximation</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticnumeffects">sdl_hapticnumeffects</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot get the maximum number of effect that an haptic can compile.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_error</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_maximum_effect_playing"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_maximum_effect_playing">maximum_effect_playing</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum number of effect that </span><span class="equoted">Current</span><span class="ecomment"> can play at the same time</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that on some system, tis information is not given, so this</span>
+			<span class="ecomment">--</span><span class="ecomment"> may be a simple approximation</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticnumeffectsplaying">sdl_hapticnumeffectsplaying</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot get the maximum number of effect that an haptic can play.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_error</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_effect_supported"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_effect_supported">is_effect_supported</a> <span class="esymbol">(</span><span class="elocal">a_effect</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/haptic/game_haptic_effect.html">GAME_HAPTIC_EFFECT</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_effect</span><span class="ecomment"> can be compiled by </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_value</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticeffectsupported">sdl_hapticeffectsupported</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_effect</span><span class="edot">.</span><a class="efeature" href="../../elks/memory_structure.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_value</span> <a class="esymbol" href="../../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_value</span><span class="esymbol">,</span> &quot;Cannot validate if an effect is supported by an haptic&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_value</span> <a class="esymbol" href="../../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_open"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_open">open</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">Current</span><span class="ecomment"> usable</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_open">internal_open</a>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_pointer">manage_error_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">,</span> &quot;Cannot open the haptic device&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted_semistrict">and then</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_gain_control_supported">is_gain_control_supported</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_set_gain">set_gain</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">100</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_close"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_close">close</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">Current</span><span class="ecomment"> not usable</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticclose">sdl_hapticclose</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+			<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a> <span class="esymbol">:=</span> <span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../../elks/pointer.html">POINTER</a><span class="esymbol">}</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_close</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_pause"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_pause">pause</a>
+			<span class="ecomment">--</span><span class="ecomment"> Mommentaly stop the playing effect. Use </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_resume">resume</a><span class="ecomment"> to restart it</span>
+			<span class="ecomment">--</span><span class="ecomment"> where it was when paused.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+			<span class="etag">pause_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_pause_supported">is_pause_supported</a>
+			<span class="etag">not_paused</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_paused">is_paused</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticpause">sdl_hapticpause</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot pause the haptic effect.&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_paused">is_paused</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_paused</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_paused">is_paused</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_resume"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_resume">resume</a>
+			<span class="ecomment">--</span><span class="ecomment"> Restart an effect that has been </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_pause">pause</a><span class="ecomment"> before.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+			<span class="etag">pause_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_pause_supported">is_pause_supported</a>
+			<span class="etag">is_paused</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_paused">is_paused</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticunpause">sdl_hapticunpause</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot resume the effect.&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_paused">is_paused</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">in_unpaused</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_paused">is_paused</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_initialize_rumble"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_initialize_rumble">initialize_rumble</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialized a rumble playback into </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+			<span class="etag">rumble_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble_supported">is_rumble_supported</a>
+			<span class="etag">not_already_rumble</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble">is_rumble</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticrumbleinit">sdl_hapticrumbleinit</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot initialize a rumble playback.&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble">is_rumble</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_rumble_activated</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble">is_rumble</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_rumble_play"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_rumble_play">rumble_play</a> <span class="esymbol">(</span><span class="elocal">a_strength</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">;</span> <span class="elocal">a_length</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Start a rumble playback with a magnitude of </span><span class="equoted">a_strength</span>
+			<span class="ecomment">--</span><span class="ecomment"> and a duration </span><span class="equoted">a_length</span><span class="ecomment"> in millisecond</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+			<span class="etag">rumble_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble_supported">is_rumble_supported</a>
+			<span class="etag">is_rumble_device</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble">is_rumble</a>
+			<span class="etag">strength_is_valid</span><span class="esymbol">:</span> <span class="elocal">a_strength</span> <a class="esymbol" href="../../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32.html#f_to_real">to_real</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_strength</span> <a class="esymbol" href="../../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="enumber">1</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32.html#f_to_real">to_real</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticrumbleplay">sdl_hapticrumbleplay</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_strength</span><span class="esymbol">,</span> <span class="elocal">a_length</span><span class="esymbol">)</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot playback a rumble.&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_rumble_play_infinite_length"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_rumble_play_infinite_length">rumble_play_infinite_length</a> <span class="esymbol">(</span><span class="elocal">a_strength</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Start a rumble playbacki with a magnitude of </span><span class="equoted">a_strength</span>
+			<span class="ecomment">--</span><span class="ecomment"> and never stop (use </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_rumble_stop">rumble_stop</a><span class="ecomment"> to stop)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+			<span class="etag">rumble_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble_supported">is_rumble_supported</a>
+			<span class="etag">is_rumble_device</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble">is_rumble</a>
+			<span class="etag">strength_is_valid</span><span class="esymbol">:</span> <span class="elocal">a_strength</span> <a class="esymbol" href="../../elks/comparable.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32.html#f_to_real">to_real</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted">and</a> <span class="elocal">a_strength</span> <a class="esymbol" href="../../elks/comparable.html#f_is_less_equal">&lt;=</a> <span class="enumber">1</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32.html#f_to_real">to_real</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_rumble_play">rumble_play</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_strength</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_haptic_infinity">sdl_haptic_infinity</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_rumble_stop"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_rumble_stop">rumble_stop</a>
+			<span class="ecomment">--</span><span class="ecomment"> Stop a rumble playback</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+			<span class="etag">rumble_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble_supported">is_rumble_supported</a>
+			<span class="etag">is_rumble_device</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_rumble">is_rumble</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticrumblestop">sdl_hapticrumblestop</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot stop a rumble.&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_gain"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_gain">gain</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_set_gain">set_gain</a>
+			<span class="ecomment">--</span><span class="ecomment"> The intensity of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">gain_control_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_gain_control_supported">is_gain_control_supported</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_i_gain">i_gain</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_gain"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_set_gain">set_gain</a> <span class="esymbol">(</span><span class="elocal">a_gain</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_gain">gain</a><span class="ecomment"> the value of </span><span class="equoted">a_gain</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+			<span class="etag">gain_control_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_gain_control_supported">is_gain_control_supported</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticsetgain">sdl_hapticsetgain</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_gain</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <a class="esymbol" href="../../elks/integer_32.html#f_is_less">&lt;</a> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Cannot set the haptic gain&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_i_gain">i_gain</a> <span class="esymbol">:=</span> <span class="elocal">a_gain</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_gain">gain</a> <span class="esymbol">=</span> <span class="elocal">a_gain</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_stop_all_effects"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_stop_all_effects">stop_all_effects</a>
+			<span class="ecomment">--</span><span class="ecomment"> Stop every effect on </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/implementation/game_sdl_external.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../game_core/implementation/game_sdl_external.html#f_sdl_hapticstopall">sdl_hapticstopall</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">)</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_manage_error_code">manage_error_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error</span><span class="esymbol">,</span> &quot;Could not stop all effect on haptic.&quot;<span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_compiled_effect_count"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effect_count">compiled_effect_count</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effects">compiled_effects</a><span class="ecomment"> in </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_compiled_effect">internal_compiled_effect</a><span class="edot">.</span><a class="efeature" href="../../elks/finite.html#f_count">count</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_compiled_effects"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effects">compiled_effects</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../../game_core/haptic/game_haptic_effect_compiled.html">GAME_HAPTIC_EFFECT_COMPILED</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every compiled effect into </span><span class="equoted">Current</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">make</span><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_compiled_effect">internal_compiled_effect</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_compile"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compile">compile</a> <span class="esymbol">(</span><span class="elocal">a_effect</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/haptic/game_haptic_effect.html">GAME_HAPTIC_EFFECT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a new compiled effect and store it in the </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effects">compiled_effects</a>
+			<span class="ecomment">--</span><span class="ecomment"> list. You can get ot quicker by using </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_last_compiled_effect">last_compiled_effect</a>
+		<span class="ekeyword">require</span>
+			<span class="etag">current_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a>
+			<span class="etag">effect_valid</span><span class="esymbol">:</span> <span class="elocal">a_effect</span><span class="edot">.</span><a class="efeature" href="../../elks/memory_structure.html#f_exists">exists</a>
+			<span class="etag">effect_supported</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_effect_supported">is_effect_supported</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_effect</span><span class="esymbol">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_effect</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/haptic/game_haptic_effect_compiled.html">GAME_HAPTIC_EFFECT_COMPILED</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_clear_error">clear_error</a>
+			<span class="ekeyword">create</span> <span class="elocal">l_effect</span><span class="edot">.</span><a class="efeature" href="../../game_core/haptic/game_haptic_effect_compiled.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">a_effect</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_effect</span><span class="edot">.</span><a class="efeature" href="../../game_core/haptic/game_haptic_effect_compiled.html#f_is_open">is_open</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_compiled_effect">internal_compiled_effect</a><span class="edot">.</span><a class="efeature" href="../../elks/bag.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_effect</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_count_valid</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effect_count">compiled_effect_count</a> <span class="esymbol">=</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effect_count">compiled_effect_count</a> <a class="esymbol" href="../../elks/integer_32.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+			<span class="etag">is_count_not_null</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effect_count">compiled_effect_count</a> <a class="esymbol" href="../../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span><span class="esymbol">)</span>
+			<span class="etag">last_compiled_valid</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_last_compiled_effect">last_compiled_effect</a><span class="edot">.</span><a class="efeature" href="../../game_core/haptic/game_haptic_effect_compiled.html#f_is_open">is_open</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted">and</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_last_compiled_effect">last_compiled_effect</a><span class="edot">.</span><a class="efeature" href="../../game_core/haptic/game_haptic_effect_compiled.html#f_haptic">haptic</a> <span class="esymbol">=</span> <span class="ekeyword">Current</span> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted">and</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_last_compiled_effect">last_compiled_effect</a><span class="edot">.</span><a class="efeature" href="../../game_core/haptic/game_haptic_effect_compiled.html#f_effect">effect</a> <span class="esymbol">=</span> <span class="elocal">a_effect</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_last_compiled_effect"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_last_compiled_effect">last_compiled_effect</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/haptic/game_haptic_effect_compiled.html">GAME_HAPTIC_EFFECT_COMPILED</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last compiled effect that has been compiled with </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compile">compile</a>
+		<span class="ekeyword">require</span>
+			<span class="etag">element_exist</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effect_count">compiled_effect_count</a> <a class="esymbol" href="../../elks/comparable.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_compiled_effect">internal_compiled_effect</a><span class="edot">.</span><a class="efeature" href="../../elks/chain.html#f_last">last</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/haptic/game_haptic_effect_compiled.html">GAME_HAPTIC_EFFECT_COMPILED</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_remove_compiled_effect"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_remove_compiled_effect">remove_compiled_effect</a> <span class="esymbol">(</span><span class="elocal">a_compiled_effect</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/haptic/game_haptic_effect_compiled.html">GAME_HAPTIC_EFFECT_COMPILED</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove </span><span class="equoted">a_compiled_effect</span><span class="ecomment"> from the </span><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effects">compiled_effects</a>
+			<span class="ecomment">--</span><span class="ecomment"> Warning, this will not close the effect. You have to close</span>
+			<span class="ecomment">--</span><span class="ecomment"> it first.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_compiled_effect">internal_compiled_effect</a><span class="edot">.</span><a class="efeature" href="../../elks/sequence.html#f_prune_all">prune_all</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_compiled_effect</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">removed</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_compiled_effects">compiled_effects</a><span class="edot">.</span><a class="efeature" href="../../elks/linear.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_compiled_effect</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_item"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_item">item</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Internal pointer of </span><span class="equoted">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_internal_compiled_effect"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_compiled_effect">internal_compiled_effect</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/list.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../game_core/haptic/game_haptic_effect_compiled.html">GAME_HAPTIC_EFFECT_COMPILED</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every compiled effect into </span><span class="equoted">Current</span>
+
+	<a name="f_internal_open"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_internal_open">internal_open</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal C function to open the haptic</span>
+		<span class="ekeyword">deferred</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_i_gain"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_i_gain">i_gain</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Internal value of the gain</span>
+
+	<a name="f_dispose"></a><a class="efeature" href="../../game_core/haptic/game_haptic.html#f_dispose">dispose</a>
+			<span class="ecomment">--</span><span class="ecomment"> Action to be executed just before garbage collection</span>
+			<span class="ecomment">--</span><span class="ecomment"> reclaims an object.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect it in descendants to perform specific dispose</span>
+			<span class="ecomment">--</span><span class="ecomment"> actions. Those actions should only take care of freeing</span>
+			<span class="ecomment">--</span><span class="ecomment"> external resources; they should not perform remote calls</span>
+			<span class="ecomment">--</span><span class="ecomment"> on other objects since these may also be dead and reclaimed.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../../game_core/haptic/game_haptic.html#f_is_open">is_open</a> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../game_core/haptic/game_haptic.html#f_close">close</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">is_haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../../game_core/game_library_controller.html#f_is_haptic_enable">is_haptic_enable</a>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/haptic/game_haptic.html">GAME_HAPTIC</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_haptic_chart.html">Chart</a>
+<a class="nav class" href="game_haptic_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="game_haptic"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

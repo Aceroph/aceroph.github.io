@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="GAME_COLOR to use with SDL"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_sdl_color Chart</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_sdl_color_links.html">Relations</a>
+<a class="nav class" href="game_sdl_color.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_sdl_color"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../../game_core/implementation/game_sdl_color_chart.html">GAME_SDL_COLOR</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../../game_core/implementation/index.html">implementation</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;GAME_COLOR to use with SDL&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_make">make</a><span class="esymbol">,</span> <a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_make_rgb">make_rgb</a><span class="esymbol">,</span> <a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_make_from_hexadecimal">make_from_hexadecimal</a><span class="esymbol">,</span> <a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_make_rgb_from_hexadecimal">make_rgb_from_hexadecimal</a><span class="esymbol">,</span> <a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_make_from_other">make_from_other</a><span class="esymbol">,</span> <a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_make_from_pointer">make_from_pointer</a><span class="esymbol">,</span> <a class="efeature" href="../../elks/memory_structure.html#f_make_by_pointer">share_from_pointer</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../../game_core/graphic/game_color_chart.html">GAME_COLOR</a>
+	<a class="eclass" href="../../game_core/implementation/game_sdl_any_chart.html">GAME_SDL_ANY</a><span class="echar">*</span>
+	<a class="eclass" href="../../elks/memory_structure_chart.html">MEMORY_STRUCTURE</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`alpha' is declared in `Current'"><a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_alpha">alpha</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a></span>
+	<span title="`blue' is declared in `Current'"><a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_blue">blue</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a></span>
+	<span title="`green' is declared in `Current'"><a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_green">green</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a></span>
+	<span title="`has_error' was declared in GAME_ERROR_MANAGER"><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_equal' was declared in GAME_COLOR_READABLE"><a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">a_color</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span> <a class="eclass" href="../../game_core/implementation/game_sdl_color_chart.html">GAME_SDL_COLOR</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_equal_ignore_alpha' was declared in GAME_COLOR_READABLE"><a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_is_equal_ignore_alpha">is_equal_ignore_alpha</a> <span class="esymbol">(</span><span class="elocal">a_color</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span> <a class="eclass" href="../../game_core/implementation/game_sdl_color_chart.html">GAME_SDL_COLOR</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_error' was declared in GAME_SDL_ANY"><a class="efeature" href="../../game_core/implementation/game_sdl_any.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`opaque_alpha_value' was declared in GAME_COLOR_READABLE"><a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_opaque_alpha_value">Opaque_alpha_value</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a></span>
+	<span title="`out' was declared in GAME_COLOR_READABLE"><a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_chart.html">STRING_8</a></span>
+	<span title="`out_rgb' was declared in GAME_COLOR_READABLE"><a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_out_rgb">out_rgb</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_chart.html">STRING_8</a></span>
+	<span title="`red' is declared in `Current'"><a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_red">red</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a></span>
+	<span title="`shared' was declared in MEMORY_STRUCTURE"><a class="efeature" href="../../elks/memory_structure.html#f_shared">shared</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`to_hex_string' was declared in GAME_COLOR_READABLE"><a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_to_hex_string">to_hex_string</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_chart.html">STRING_8</a></span>
+	<span title="`to_rgb_hex_string' was declared in GAME_COLOR_READABLE"><a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_to_rgb_hex_string">to_rgb_hex_string</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_chart.html">STRING_8</a></span>
+	<span title="`transparent_alpha_value' was declared in GAME_COLOR_READABLE"><a class="efeature" href="../../game_core/graphic/game_color_readable.html#f_transparent_alpha_value">Transparent_alpha_value</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`set_alpha' is declared in `Current'"><a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_set_alpha">set_alpha</a> <span class="esymbol">(</span><span class="elocal">a_alpha</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a><span class="esymbol">)</span></span>
+	<span title="`set_blue' is declared in `Current'"><a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_set_blue">set_blue</a> <span class="esymbol">(</span><span class="elocal">a_blue</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a><span class="esymbol">)</span></span>
+	<span title="`set_green' is declared in `Current'"><a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_set_green">set_green</a> <span class="esymbol">(</span><span class="elocal">a_green</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a><span class="esymbol">)</span></span>
+	<span title="`set_red' is declared in `Current'"><a class="efeature" href="../../game_core/implementation/game_sdl_color.html#f_set_red">set_red</a> <span class="esymbol">(</span><span class="elocal">a_red</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_8_chart.html">NATURAL_8</a><span class="esymbol">)</span></span>
+
+<span class="ekeyword">Constraints</span>
+	<span class="etag">sdl color pointer valid</span>
+
+</pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_sdl_color_links.html">Relations</a>
+<a class="nav class" href="game_sdl_color.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_sdl_color"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

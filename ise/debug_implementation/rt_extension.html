@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Eiffel class instanciated and used from the Eiffel runtime."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="library" content="EiffelBase: Library of reusable components for Eiffel."/>
+<meta name="copyright" content="Copyright (c) 1984-2019, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>rt_extension Text</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_extension_chart.html">Chart</a>
+<a class="nav class" href="rt_extension_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="rt_extension"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel class instanciated and used from the Eiffel runtime.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2019-03-20 17:08:56 +0000 (Wed, 20 Mar 2019) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102984 $&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../../ise/debug_implementation/rt_extension.html">RT_EXTENSION</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../../ise/debug_implementation/rt_extension_general.html">RT_EXTENSION_GENERAL</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../elks/any.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Notification</span>
+
+	<a name="f_notify"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_notify">notify</a> <span class="esymbol">(</span><span class="elocal">a_id</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_data</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple.html">TUPLE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Notify operation </span><span class="equoted">a_id</span><span class="ecomment"> with data </span><span class="equoted">a_data</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_data_attached</span><span class="esymbol">:</span> <span class="elocal">a_data</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">retried</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="elocal">retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">inspect</span> <span class="elocal">a_id</span>
+				<span class="ekeyword">when</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_enter_feature">Op_enter_feature</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">}</span> <span class="elocal">a_data</span> <span class="ekeyword">as</span> t_ef <span class="ekeyword">then</span>
+						<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_enter_feature">process_enter_feature</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_ef</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">check</span>
+							<span class="etag">valid_tuple_data</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_reset_events_feature_argument">reset_events_feature_argument</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">)</span>
+				<span class="ekeyword">when</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_leave_feature">Op_leave_feature</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">}</span> <span class="elocal">a_data</span> <span class="ekeyword">as</span> t_lf <span class="ekeyword">then</span>
+						<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_leave_feature">process_leave_feature</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_lf</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">check</span>
+							<span class="etag">valid_tuple_data</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_reset_events_feature_argument">reset_events_feature_argument</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">)</span>
+				<span class="ekeyword">when</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rescue_feature">Op_rescue_feature</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">}</span> <span class="elocal">a_data</span> <span class="ekeyword">as</span> t_rf <span class="ekeyword">then</span>
+						<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_rescue_feature">process_rescue_feature</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_rf</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">check</span>
+							<span class="etag">valid_tuple_data</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_reset_events_feature_argument">reset_events_feature_argument</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">)</span>
+				<span class="ekeyword">when</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rt_hook">Op_rt_hook</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">}</span> <span class="elocal">a_data</span> <span class="ekeyword">as</span> t_rh <span class="ekeyword">then</span>
+						<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_rt_hook">process_rt_hook</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_rh</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">check</span>
+							<span class="etag">valid_tuple_data</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_reset_events_feature_argument">reset_events_feature_argument</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">)</span>
+				<span class="ekeyword">when</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rt_assign_attrib">Op_rt_assign_attrib</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_assign_argument">events_assign_argument</a><span class="esymbol">}</span> <span class="elocal">a_data</span> <span class="ekeyword">as</span> t_att <span class="ekeyword">then</span>
+						<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_rt_assign_attrib">process_rt_assign_attrib</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_att</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">check</span>
+							<span class="etag">valid_tuple_data</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_reset_events_assign_argument">reset_events_assign_argument</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">)</span>
+				<span class="ekeyword">when</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rt_assign_local">Op_rt_assign_local</a> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_assign_argument">events_assign_argument</a><span class="esymbol">}</span> <span class="elocal">a_data</span> <span class="ekeyword">as</span> t_loc <span class="ekeyword">then</span>
+						<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_rt_assign_local">process_rt_assign_local</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">t_loc</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">check</span>
+							<span class="etag">valid_tuple_data</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_reset_events_assign_argument">reset_events_assign_argument</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;rt_extension&quot;<span class="esymbol">)</span>
+						<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Error: &quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <a class="efeature" href="../../elks/any.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot; -&gt;&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <span class="elocal">a_id</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Error: Rescue -&gt; RT_EXTENSION.notify (&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <span class="elocal">a_id</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;, a_data)%N&quot;<span class="esymbol">)</span>
+			<span class="elocal">retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_notify_argument"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_notify_argument">notify_argument</a> <span class="esymbol">(</span><span class="elocal">a_id</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/tuple.html">TUPLE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Empty argument container for operation </span><span class="equoted">a_id</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">retried</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="elocal">retried</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_cached_arguments">Cached_arguments</a> <a class="esymbol" href="../../elks/array.html#f_item">[</a><span class="elocal">a_id</span><a class="esymbol" href="../../elks/array.html#f_item">]</a>
+				<span class="ekeyword">if</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">inspect</span> <span class="elocal">a_id</span>
+					<span class="ekeyword">when</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_enter_feature">Op_enter_feature</a><span class="esymbol">,</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_leave_feature">Op_leave_feature</a><span class="esymbol">,</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rescue_feature">Op_rescue_feature</a><span class="esymbol">,</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rt_hook">Op_rt_hook</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">create</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">}</span> <span class="ekeyword">Result</span>
+					<span class="ekeyword">when</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rt_assign_attrib">Op_rt_assign_attrib</a><span class="esymbol">,</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rt_assign_local">Op_rt_assign_local</a> <span class="ekeyword">then</span>
+						<span class="ekeyword">create</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_assign_argument">events_assign_argument</a><span class="esymbol">}</span> <span class="ekeyword">Result</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">debug</span> <span class="esymbol">(</span>&quot;rt_extension&quot;<span class="esymbol">)</span>
+							<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Error: RT_EXTENSION.notify_argument (&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <span class="elocal">a_id</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;): unmatched id !%N&quot;<span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_cached_arguments">Cached_arguments</a> <a class="esymbol" href="../../elks/array.html#f_item">[</a><span class="elocal">a_id</span><a class="esymbol" href="../../elks/array.html#f_item">]</a> <span class="esymbol">:=</span> <span class="ekeyword">Result</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">rescue</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_extension_common.html#f_dtrace">dtrace</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Error: Rescue -&gt; RT_EXTENSION.notify_argument (&quot; <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> <span class="elocal">a_id</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_out">out</a> <a class="esymbol" href="../../elks/string_8.html#f_plus">+</a> &quot;)%N&quot;<span class="esymbol">)</span>
+			<span class="elocal">retried</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">retry</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_cached_arguments"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_cached_arguments">Cached_arguments</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/array.html">ARRAY</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/tuple.html">TUPLE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Cached argument to use less temporary objects</span>
+		<span class="ekeyword">once</span> <span class="esymbol">(</span>&quot;THREAD&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/array.html#f_make_filled">make_filled</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Void</span><span class="esymbol">,</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_enter_feature">Op_enter_feature</a><span class="esymbol">,</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension_general.html#f_op_rt_assign_local">Op_rt_assign_local</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Execution replay</span>
+
+	<a name="f_events_feature_argument"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">ref</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">;</span> <span class="elocal">cid</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">fid</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Argument for </span><span class="equoted">process_*_feature</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> used only as anchor for type declaration</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">check</span>
+					<span class="ekeyword">False</span>
+			<span class="ekeyword">then</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_events_assign_argument"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_assign_argument">events_assign_argument</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">ref</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">;</span> <span class="elocal">a_dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_pos</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_xpm_info</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Argument for </span><span class="equoted">process_*_assign</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> used only as anchor for type declaration</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">check</span>
+					<span class="ekeyword">False</span>
+			<span class="ekeyword">then</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_reset_events_feature_argument"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_reset_events_feature_argument">reset_events_feature_argument</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple.html">TUPLE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Reset argument for </span><span class="equoted">process_*_feature</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">t_attached</span><span class="esymbol">:</span> <span class="elocal">t</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">}</span> <span class="elocal">t</span> <span class="ekeyword">as</span> ot <span class="ekeyword">then</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">ref</span> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">cid</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">fid</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">a_dep</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_reset_events_assign_argument"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_reset_events_assign_argument">reset_events_assign_argument</a> <span class="esymbol">(</span><span class="elocal">t</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple.html">TUPLE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Reset argument for </span><span class="equoted">process_*_feature</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">t_attached</span><span class="esymbol">:</span> <span class="elocal">t</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_assign_argument">events_assign_argument</a><span class="esymbol">}</span> <span class="elocal">t</span> <span class="ekeyword">as</span> ot <span class="ekeyword">then</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">ref</span> <span class="esymbol">:=</span> <span class="ekeyword">Void</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">a_dep</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">a_pos</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">a_type</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+				<span class="elocal">ot</span><span class="edot">.</span><span class="elocal">a_xpm_info</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_process_enter_feature"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_enter_feature">process_enter_feature</a> <span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Execution enters a feature</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_data_attached</span><span class="esymbol">:</span> <span class="elocal">a_data</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">execution_recording_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="ekeyword">as</span> r <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">}</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">ref</span> <span class="ekeyword">as</span> ref <span class="ekeyword">then</span>
+					<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_enter_feature">enter_feature</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">cid</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">fid</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_dep</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">check</span>
+						<span class="etag">ref_should_not_be_void</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_process_rescue_feature"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_rescue_feature">process_rescue_feature</a> <span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Execution enters a feature</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_data_attached</span><span class="esymbol">:</span> <span class="elocal">a_data</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">execution_recording_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="ekeyword">as</span> r <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">}</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">ref</span> <span class="ekeyword">as</span> ref <span class="ekeyword">then</span>
+					<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_enter_rescue">enter_rescue</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">cid</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">fid</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_dep</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">check</span>
+						<span class="etag">ref_should_not_be_void</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_process_leave_feature"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_leave_feature">process_leave_feature</a> <span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_feature_argument">events_feature_argument</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Execution leaves a feature</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_data_attached</span><span class="esymbol">:</span> <span class="elocal">a_data</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">execution_recording_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="ekeyword">as</span> r <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">}</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">ref</span> <span class="ekeyword">as</span> ref <span class="ekeyword">then</span>
+					<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_leave_feature">leave_feature</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">cid</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">fid</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_dep</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">check</span>
+						<span class="etag">ref_should_not_be_void</span><span class="esymbol">:</span> <span class="ekeyword">False</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_process_rt_hook"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_rt_hook">process_rt_hook</a> <span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">unused_ref</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">;</span> <span class="elocal">a_dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">bp_i</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">bp_ni</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Execution reach a RTHOOK or RTNHOOK point</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_data_attached</span><span class="esymbol">:</span> <span class="elocal">a_data</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">execution_recording_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="ekeyword">as</span> r <span class="ekeyword">then</span>
+				<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_notify_rt_hook">notify_rt_hook</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_dep</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">bp_i</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">bp_ni</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_process_rt_assign_attrib"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_rt_assign_attrib">process_rt_assign_attrib</a> <span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_assign_argument">events_assign_argument</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Local variable assignment event</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_data_attached</span><span class="esymbol">:</span> <span class="elocal">a_data</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">execution_recording_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="ekeyword">as</span> r <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_recording_values">recording_values</a> <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="ekeyword">attached</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">ref</span> <span class="ekeyword">as</span> ot_ref <span class="ekeyword">then</span>
+				<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_notify_rt_assign_attribute">notify_rt_assign_attribute</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_dep</span><span class="esymbol">,</span> <span class="elocal">ot_ref</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_pos</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_type</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_to_natural_32">to_natural_32</a><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_xpm_info</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_process_rt_assign_local"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_process_rt_assign_local">process_rt_assign_local</a> <span class="esymbol">(</span><span class="elocal">a_data</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_events_assign_argument">events_assign_argument</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Local variable assignment event</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_data_attached</span><span class="esymbol">:</span> <span class="elocal">a_data</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">execution_recording_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">no_ref</span><span class="esymbol">:</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">ref</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="ekeyword">as</span> r <a class="ekeyword" href="../../elks/boolean.html#f_conjuncted_semistrict">and then</a> <span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_recording_values">recording_values</a> <span class="ekeyword">then</span>
+				<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_notify_rt_assign_local">notify_rt_assign_local</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_dep</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_pos</span><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_type</span><span class="edot">.</span><a class="efeature" href="../../elks/integer_32_ref.html#f_to_natural_32">to_natural_32</a><span class="esymbol">,</span> <span class="elocal">a_data</span><span class="edot">.</span><span class="elocal">a_xpm_info</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_new_execution_recorder"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_new_execution_recorder">new_execution_recorder</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html">RT_DBG_EXECUTION_RECORDER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New Execution recorder.</span>
+			<span class="ecomment">--</span><span class="ecomment"> You can overwrite default parameters in this feature.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Check </span><span class="equoted">{RT_DBG_EXECUTION_RECORDER}.make</span><span class="ecomment"> to see the default values.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_parameters">Execution_recorder_parameters</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_execution_recorder"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_new_execution_recorder">new_execution_recorder</a>
+			<span class="ecomment">--</span><span class="ecomment"> Once per thread record.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_cell">Execution_recorder_cell</a><span class="edot">.</span><a class="efeature" href="../../elks/cell.html#f_item">item</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_execution_recorder_parameters"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_parameters">Execution_recorder_parameters</a><span class="esymbol">:</span> <span class="ekeyword">separate</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_execution_parameters.html">RT_DBG_EXECUTION_PARAMETERS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Once per process record parameters.</span>
+		<span class="ekeyword">once</span> <span class="esymbol">(</span>&quot;PROCESS&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_parameters.html#f_make">make</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_execution_recorder_parameters"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_set_execution_recorder_parameters">set_execution_recorder_parameters</a> <span class="esymbol">(</span><span class="elocal">a_maximum_record_count</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_flatten_when_closing</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">a_keep_calls_record</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">a_recording_values</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set execution recorder parameters</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">p</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_parameters">Execution_recorder_parameters</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">p</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_parameters">Execution_recorder_parameters</a>
+			<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_set_execution_recorder_parameters_to">set_execution_recorder_parameters_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_maximum_record_count</span><span class="esymbol">,</span> <span class="elocal">a_flatten_when_closing</span><span class="esymbol">,</span> <span class="elocal">a_keep_calls_record</span><span class="esymbol">,</span> <span class="elocal">a_recording_values</span><span class="esymbol">,</span> <span class="elocal">p</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="ekeyword">as</span> r <span class="ekeyword">then</span>
+				<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_update_parameters">update_parameters</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_execution_recorder_parameters_to"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_set_execution_recorder_parameters_to">set_execution_recorder_parameters_to</a> <span class="esymbol">(</span><span class="elocal">a_maximum_record_count</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_flatten_when_closing</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">a_keep_calls_record</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">a_recording_values</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">p</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_parameters">Execution_recorder_parameters</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set execution recorder parameters to </span><span class="equoted">p</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_parameters.html#f_set_maximum_record_count">set_maximum_record_count</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_maximum_record_count</span><span class="esymbol">)</span>
+			<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_parameters.html#f_set_flatten_when_closing">set_flatten_when_closing</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_flatten_when_closing</span><span class="esymbol">)</span>
+			<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_parameters.html#f_set_keep_calls_records">set_keep_calls_records</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_keep_calls_record</span><span class="esymbol">)</span>
+			<span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_parameters.html#f_set_recording_values">set_recording_values</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_recording_values</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_execution_recorder_cell"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_cell">Execution_recorder_cell</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/cell.html">CELL</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html">RT_DBG_EXECUTION_RECORDER</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Cell containing the once per thread recorder, if activated.</span>
+		<span class="ekeyword">once</span> <span class="esymbol">(</span>&quot;THREAD&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/cell.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Void</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Execution replay		</span>
+
+	<a name="f_activate_execution_replay_recording"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_activate_execution_replay_recording">activate_execution_replay_recording</a> <span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">ref</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">;</span> <span class="elocal">cid</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">fid</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">break_index</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Start or Stop execution replay recording</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">ref_attached</span><span class="esymbol">:</span> <span class="elocal">ref</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">r</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">b</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">check</span>
+						<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">r</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_new_execution_recorder">new_execution_recorder</a>
+				<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_cell">Execution_recorder_cell</a><span class="edot">.</span><a class="efeature" href="../../elks/cell.html#f_replace">replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">r</span><span class="esymbol">)</span>
+				<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_start_recording">start_recording</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">,</span> <span class="elocal">cid</span><span class="esymbol">,</span> <span class="elocal">fid</span><span class="esymbol">,</span> <span class="elocal">dep</span><span class="esymbol">,</span> <span class="elocal">break_index</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="elocal">r</span> <span class="esymbol">:=</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a>
+				<span class="ekeyword">if</span> <span class="elocal">r</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+					<span class="elocal">r</span><span class="edot">.</span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder.html#f_stop_recording">stop_recording</a>
+				<span class="ekeyword">end</span>
+				<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder_cell">Execution_recorder_cell</a><span class="edot">.</span><a class="efeature" href="../../elks/cell.html#f_replace">replace</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Void</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">recorder_if_on</span><span class="esymbol">:</span> <span class="elocal">b</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">no_recorder_if_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean.html#f_negated">not</a> <span class="elocal">b</span> <a class="ekeyword" href="../../elks/boolean.html#f_implication">implies</a> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_execution_recorder">execution_recorder</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> debug purpose: to remove</span>
+
+	<a name="f_test_activate_recording"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_test_activate_recording">test_activate_recording</a> <span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">;</span> <span class="elocal">fid</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">bpline</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">ref_attached</span><span class="esymbol">:</span> <span class="elocal">ref</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_activate_execution_replay_recording">activate_execution_replay_recording</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">True</span><span class="esymbol">,</span> <span class="elocal">ref</span><span class="esymbol">,</span> <span class="elocal">ref</span><span class="edot">.</span><a class="efeature" href="../../elks/any.html#f_generating_type">generating_type</a><span class="edot">.</span><a class="efeature" href="../../elks/type.html#f_type_id">type_id</a><span class="esymbol">,</span> <span class="elocal">fid</span><span class="esymbol">,</span> <span class="elocal">dep</span><span class="esymbol">,</span> <span class="elocal">bpline</span><span class="esymbol">)</span>
+			<a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_c_activate_recording">c_activate_recording</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_c_activate_recording"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_c_activate_recording">c_activate_recording</a>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_main.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;[
+				#ifdef WORKBENCH
+					EIF_GET_CONTEXT
+					is_inside_rt_eiffel_code = 0;
+					exec_recording_enabled = 1;
+					set_debug_mode (1);
+				#endif
+			]<span class="estring">&quot;</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_c_is_inside_rt_eiffel_code"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_c_is_inside_rt_eiffel_code">c_is_inside_rt_eiffel_code</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_debug.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;[
+				#ifdef WORKBENCH
+					EIF_GET_CONTEXT
+					return is_inside_rt_eiffel_code;
+				#else
+					return 0;
+				#endif
+			]<span class="estring">&quot;</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> SCOOP Access	</span>
+
+	<a name="f_scoop_processor_id_from_object"></a><a class="efeature" href="../../ise/debug_implementation/rt_extension.html#f_scoop_processor_id_from_object">scoop_processor_id_from_object</a> <span class="esymbol">(</span><span class="elocal">a_object</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> SCOOP Processor id for object </span><span class="equoted">a_object</span><span class="ecomment">.</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_scoop.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;RTS_PID(eif_access($a_object))&quot;
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">no_attribute</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../../elks/reflected_reference_object.html">REFLECTED_REFERENCE_OBJECT</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_reference_object.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/reflected_object.html#f_field_count">field_count</a> <span class="esymbol">=</span> <span class="enumber">0</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;EiffelBase: Library of reusable components for Eiffel.&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2019, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../ise/debug_implementation/rt_extension.html">RT_EXTENSION</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_extension_chart.html">Chart</a>
+<a class="nav class" href="rt_extension_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<span class="nav class goto">Go to: <input name="c" value="rt_extension"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

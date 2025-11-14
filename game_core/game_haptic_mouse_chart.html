@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="An haptic device inside a mouse"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_haptic_mouse Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_haptic_mouse_links.html">Relations</a>
+<a class="nav class" href="game_haptic_mouse.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_haptic_mouse"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../game_core/haptic/game_haptic_mouse_chart.html">GAME_HAPTIC_MOUSE</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <a class="ecluster" href="../game_core/haptic/index.html">haptic</a>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;An haptic device inside a mouse&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/haptic/game_haptic_mouse.html#f_make">make</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../game_core/haptic/game_haptic_chart.html">GAME_HAPTIC</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`axes_count' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_axes_count">axes_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`compiled_effect_count' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_compiled_effect_count">compiled_effect_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`compiled_effects' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_compiled_effects">compiled_effects</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/haptic/game_haptic_effect_compiled_chart.html">GAME_HAPTIC_EFFECT_COMPILED</a><span class="esymbol">]</span></span>
+	<span title="`gain' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_gain">gain</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`game_library' was declared in GAME_LIBRARY_SHARED"><a class="efeature" href="../game_core/game_library_shared.html#f_game_library">Game_library</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_chart.html">GAME_LIBRARY_CONTROLLER</a></span>
+	<span title="`has_error' was declared in GAME_ERROR_MANAGER"><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_auto_center_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_auto_center_supported">is_auto_center_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_conditionnal_damper_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_conditionnal_damper_effect_supported">is_conditionnal_damper_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_conditionnal_friction_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_conditionnal_friction_effect_supported">is_conditionnal_friction_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_conditionnal_inertia_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_conditionnal_inertia_effect_supported">is_conditionnal_inertia_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_conditionnal_spring_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_conditionnal_spring_effect_supported">is_conditionnal_spring_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_constant_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_constant_effect_supported">is_constant_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_custom_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_custom_effect_supported">is_custom_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_effect_supported">is_effect_supported</a> <span class="esymbol">(</span><span class="elocal">a_effect</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/haptic/game_haptic_effect_chart.html">GAME_HAPTIC_EFFECT</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_gain_control_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_gain_control_supported">is_gain_control_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_left_right_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_left_right_effect_supported">is_left_right_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_linear_ramp_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_linear_ramp_effect_supported">is_linear_ramp_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_open' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_open">is_open</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_pause_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_pause_supported">is_pause_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_paused' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_paused">is_paused</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_periodic_saw_tooth_down_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_periodic_saw_tooth_down_effect_supported">is_periodic_saw_tooth_down_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_periodic_saw_tooth_up_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_periodic_saw_tooth_up_effect_supported">is_periodic_saw_tooth_up_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_periodic_sine_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_periodic_sine_effect_supported">is_periodic_sine_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_periodic_triangle_effect_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_periodic_triangle_effect_supported">is_periodic_triangle_effect_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_rumble' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_rumble">is_rumble</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_rumble_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_rumble_supported">is_rumble_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_status_query_supported' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_is_status_query_supported">is_status_query_supported</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_compiled_effect' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_last_compiled_effect">last_compiled_effect</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/haptic/game_haptic_effect_compiled_chart.html">GAME_HAPTIC_EFFECT_COMPILED</a></span>
+	<span title="`last_error' was declared in GAME_SDL_ANY"><a class="efeature" href="../game_core/implementation/game_sdl_any.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_chart.html">READABLE_STRING_GENERAL</a></span>
+	<span title="`maximum_effect_compiled' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_maximum_effect_compiled">maximum_effect_compiled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`maximum_effect_playing' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_maximum_effect_playing">maximum_effect_playing</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`close' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_close">close</a></span>
+	<span title="`compile' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_compile">compile</a> <span class="esymbol">(</span><span class="elocal">a_effect</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/haptic/game_haptic_effect_chart.html">GAME_HAPTIC_EFFECT</a><span class="esymbol">)</span></span>
+	<span title="`initialize_rumble' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_initialize_rumble">initialize_rumble</a></span>
+	<span title="`open' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_open">open</a></span>
+	<span title="`pause' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_pause">pause</a></span>
+	<span title="`resume' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_resume">resume</a></span>
+	<span title="`rumble_play' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_rumble_play">rumble_play</a> <span class="esymbol">(</span><span class="elocal">a_strength</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_chart.html">REAL_32</a><span class="esymbol">;</span> <span class="elocal">a_length</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_chart.html">NATURAL_32</a><span class="esymbol">)</span></span>
+	<span title="`rumble_play_infinite_length' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_rumble_play_infinite_length">rumble_play_infinite_length</a> <span class="esymbol">(</span><span class="elocal">a_strength</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_chart.html">REAL_32</a><span class="esymbol">)</span></span>
+	<span title="`rumble_stop' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_rumble_stop">rumble_stop</a></span>
+	<span title="`set_gain' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_set_gain">set_gain</a> <span class="esymbol">(</span><span class="elocal">a_gain</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+	<span title="`stop_all_effects' was declared in GAME_HAPTIC"><a class="efeature" href="../game_core/haptic/game_haptic.html#f_stop_all_effects">stop_all_effects</a></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="game_haptic_mouse_links.html">Relations</a>
+<a class="nav class" href="game_haptic_mouse.html">Text</a>
+<span class="nav class goto">Go to: <input name="c" value="game_haptic_mouse"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
