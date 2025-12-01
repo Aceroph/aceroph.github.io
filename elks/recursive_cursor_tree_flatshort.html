@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Cursor trees with a recursive structure"/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="names" content="recursive_cursor_tree, cursor_tree, tree"/>
+<meta name="access" content="cursor, membership"/>
+<meta name="representation" content="recursive"/>
+<meta name="contents" content="generic"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2018, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>recursive_cursor_tree Flat contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="recursive_cursor_tree_chart.html">Chart</a>
+<a class="nav class" href="recursive_cursor_tree_links.html">Relations</a>
+<a class="nav class" href="recursive_cursor_tree.html">Text</a>
+<a class="nav class" href="recursive_cursor_tree_flat.html">Flat</a>
+<a class="nav class" href="recursive_cursor_tree_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="recursive_cursor_tree"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Cursor trees with a recursive structure&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Free implementation of ELKS library&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">names</span><span class="esymbol">:</span> recursive_cursor_tree<span class="esymbol">,</span> cursor_tree<span class="esymbol">,</span> tree
+	<span class="eitag">access</span><span class="esymbol">:</span> cursor<span class="esymbol">,</span> membership
+	<span class="eitag">representation</span><span class="esymbol">:</span> recursive
+	<span class="eitag">contents</span><span class="esymbol">:</span> generic
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2018-12-15 18:06:16 +0000 (Sat, 15 Dec 2018) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102608 $&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_default_create"></a><a class="efeature" href="../elks/any_flatshort.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process instances of classes with no creation clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_child_item"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_child_item">child_item</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="egeneric">G</span>
+			<span class="ecomment">--</span><span class="ecomment"> Item in </span><span class="equoted">i</span><span class="ecomment">-th child</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">argument_within_bounds</span><span class="esymbol">:</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+	<a name="f_cursor"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_cursor">cursor</a><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_tree_cursor_flatshort.html">RECURSIVE_TREE_CURSOR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Current cursor position</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_structure_flatshort.html">CURSOR_STRUCTURE</a>
+			<span class="etag">cursor_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flatshort.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flatshort.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_has"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_has">has</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does structure include an occurrence of </span><span class="equoted">v</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Reference or object equality,</span>
+			<span class="ecomment">--</span><span class="ecomment"> based on </span><a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_index_of"></a><a class="efeature" href="../elks/linear_flatshort.html#f_index_of">index_of</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_item">item</a><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Index of </span><span class="equoted">i</span><span class="ecomment">-th occurrence of </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> 0 if none.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Reference or object equality,</span>
+			<span class="ecomment">--</span><span class="ecomment"> based on </span><a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+			<span class="etag">positive_occurrences</span><span class="esymbol">:</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+			<span class="etag">non_negative_result</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_item"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_item">item</a><span class="esymbol">:</span> <span class="egeneric">G</span>
+			<span class="ecomment">--</span><span class="ecomment"> Item at cursor position</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/active_flatshort.html">ACTIVE</a>
+			<span class="etag">readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_readable">readable</a>
+
+	<a name="f_item_for_iteration"></a><a class="efeature" href="../elks/linear_flatshort.html#f_item_for_iteration">item_for_iteration</a><span class="esymbol">:</span> <span class="egeneric">G</span>
+			<span class="ecomment">--</span><span class="ecomment"> Item at current position</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+	<a name="f_new_cursor"></a><a class="efeature" href="../elks/iterable_flatshort.html#f_new_cursor">new_cursor</a><span class="esymbol">:</span> <a class="eclass" href="../elks/iteration_cursor_flatshort.html">ITERATION_CURSOR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Fresh cursor associated with current structure</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/iterable_flatshort.html">ITERABLE</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/iterable_flatshort.html">ITERABLE</a>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_occurrences"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_occurrences">occurrences</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of times </span><span class="equoted">v</span><span class="ecomment"> appears in structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Reference or object equality,</span>
+			<span class="ecomment">--</span><span class="ecomment"> based on </span><a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_parent_item"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_parent_item">parent_item</a><span class="esymbol">:</span> <span class="egeneric">G</span>
+			<span class="ecomment">--</span><span class="ecomment"> Item in parent.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_on_root</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_root">is_root</a>
+
+	<a name="f_search"></a><a class="efeature" href="../elks/linear_flatshort.html#f_search">search</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Move to first position (at or after current</span>
+			<span class="ecomment">--</span><span class="ecomment"> position) where </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_item">item</a><span class="ecomment"> and </span><span class="equoted">v</span><span class="ecomment"> are equal.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Reference or object equality,</span>
+			<span class="ecomment">--</span><span class="ecomment"> based on </span><a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a><span class="ecomment">.)</span>
+			<span class="ecomment">--</span><span class="ecomment"> If no such position ensure that </span><a class="efeature" href="../elks/linear_flatshort.html#f_exhausted">exhausted</a><span class="ecomment"> will be true.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+			<span class="etag">object_found</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/linear_flatshort.html#f_exhausted">exhausted</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">v</span> <span class="esymbol">~</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_item">item</a>
+			<span class="etag">item_found</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/linear_flatshort.html#f_exhausted">exhausted</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">v</span> <span class="esymbol">=</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_item">item</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Measurement</span>
+
+	<a name="f_arity"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of children of active node.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If cursor is </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a><span class="ecomment">, 0 if tree is empty, 1 otherwise.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/hierarchical_flatshort.html">HIERARCHICAL</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+		<span class="ekeyword">require else</span>
+			<span class="etag">valid_cursor</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a>
+
+	<a name="f_breadth"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_breadth">breadth</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Breadth of current level</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_count"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_count">count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of items in the tree</span>
+
+	<a name="f_depth"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_depth">depth</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Depth of the tree</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_estimated_count_of"></a><a class="efeature" href="../elks/container_flatshort.html#f_estimated_count_of">estimated_count_of</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/iterable_flatshort.html">ITERABLE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Estimated number of elements in </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">non_negative_result</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_level"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_level">level</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Level of current node in tree</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Root is on level 1)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_above"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there no valid cursor position above cursor?</span>
+
+	<a name="f_after"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there no valid cursor position to the right of cursor?</span>
+
+	<a name="f_before"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there no valid cursor position to the left of cursor?</span>
+
+	<a name="f_below"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_below">below</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there no valid cursor position below cursor?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_changeable_comparison_criterion"></a><a class="efeature" href="../elks/container_flatshort.html#f_changeable_comparison_criterion">changeable_comparison_criterion</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> May </span><a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a><span class="ecomment"> be changed?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Answer: yes by default.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a><span class="ecomment">)</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_exhausted"></a><a class="efeature" href="../elks/linear_flatshort.html#f_exhausted">exhausted</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has structure been completely explored?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+			<span class="etag">exhausted_when_off</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_extendible"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_extendible">extendible</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> May new items be added on current level?</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span> <a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a>
+			<span class="ekeyword">True</span>
+
+	<a name="f_is_empty"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the tree empty?</span>
+
+	<a name="f_is_inserted"></a><a class="efeature" href="../elks/collection_flatshort.html#f_is_inserted">is_inserted</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has </span><span class="equoted">v</span><span class="ecomment"> been inserted by the most recent insertion?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (By default, the value returned is equivalent to calling </span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">has (v)</span><span class="ecomment">. However, descendants might be able to provide more</span>
+			<span class="ecomment">--</span><span class="ecomment"> efficient implementations.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a><span class="ecomment">)</span>
+
+	<a name="f_is_leaf"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_is_leaf">is_leaf</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is cursor on a leaf?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_is_root"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_root">is_root</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is cursor on tree root?</span>
+
+	<a name="f_isfirst"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_isfirst">isfirst</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is cursor on first sibling?</span>
+
+	<a name="f_islast"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_islast">islast</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is cursor on last sibling?</span>
+
+	<a name="f_object_comparison"></a><a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Must search operations use </span><a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a><span class="ecomment"> rather than </span><span class="equoted">=</span>
+			<span class="ecomment">--</span><span class="ecomment"> for comparing references? (Default: no, use </span><span class="equoted">=</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a><span class="ecomment">)</span>
+
+	<a name="f_off"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there no current item?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (True if </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_prunable"></a><a class="efeature" href="../elks/collection_flatshort.html#f_prunable">prunable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> May items be removed?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a><span class="ecomment">)</span>
+
+	<a name="f_readable"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_readable">readable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there a current item that may be read?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_replaceable"></a><a class="efeature" href="../elks/active_flatshort.html#f_replaceable">replaceable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can current item be replaced?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/active_flatshort.html">ACTIVE</a><span class="ecomment">)</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_valid_cursor"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_valid_cursor">valid_cursor</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor_flatshort.html">CURSOR</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can the cursor be moved to position </span><span class="equoted">p</span><span class="ecomment">?</span>
+
+	<a name="f_valid_cursor_index"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_valid_cursor_index">valid_cursor_index</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can cursor be moved to </span><span class="equoted">i</span><span class="ecomment">-th child?</span>
+			<span class="ecomment">--</span><span class="ecomment"> 0 is before and </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a><span class="ecomment"> + 1 is after.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_writable"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_writable">writable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there a current item that may be modified?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_compare_objects"></a><a class="efeature" href="../elks/container_flatshort.html#f_compare_objects">compare_objects</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ensure that future search operations will use </span><a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a>
+			<span class="ecomment">--</span><span class="ecomment"> rather than </span><span class="equoted">=</span><span class="ecomment"> for comparing references.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a>
+			<span class="etag">changeable_comparison_criterion</span><span class="esymbol">:</span> <a class="efeature" href="../elks/container_flatshort.html#f_changeable_comparison_criterion">changeable_comparison_criterion</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a>
+				<a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a>
+
+	<a name="f_compare_references"></a><a class="efeature" href="../elks/container_flatshort.html#f_compare_references">compare_references</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ensure that future search operations will use </span><span class="equoted">=</span>
+			<span class="ecomment">--</span><span class="ecomment"> rather than </span><a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a><span class="ecomment"> for comparing references.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a>
+			<span class="etag">changeable_comparison_criterion</span><span class="esymbol">:</span> <a class="efeature" href="../elks/container_flatshort.html#f_changeable_comparison_criterion">changeable_comparison_criterion</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a>
+			<span class="etag">reference_comparison</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/container_flatshort.html#f_object_comparison">object_comparison</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Cursor movement</span>
+
+	<a name="f_back"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_back">back</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor one position backward.</span>
+
+	<a name="f_breadth_forth"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_breadth_forth">breadth_forth</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to next position in breadth-first order.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If the active node is the last in</span>
+			<span class="ecomment">--</span><span class="ecomment"> breadth-first order, the cursor ends up </span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+	<a name="f_down"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_down">down</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor one level downward:</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">i</span><span class="ecomment">-th child if there is one,</span>
+			<span class="ecomment">--</span><span class="ecomment"> or </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a><span class="ecomment"> if </span><span class="equoted">i</span><span class="ecomment"> = </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a><span class="ecomment"> + 1,</span>
+			<span class="ecomment">--</span><span class="ecomment"> or </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a><span class="ecomment"> if </span><span class="equoted">i</span><span class="ecomment"> = 0.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/hierarchical_flatshort.html">HIERARCHICAL</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+			<span class="etag">argument_within_bounds</span><span class="esymbol">:</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a>
+		<span class="ekeyword">require else</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_before</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a>
+			<span class="etag">not_after</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a>
+			<span class="etag">not_below</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_below">below</a>
+			<span class="etag">valid_cursor_index</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">i</span> <span class="esymbol">=</span> <span class="enumber">0</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_valid_cursor_index">valid_cursor_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure then</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">gone_before</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">i</span> <span class="esymbol">=</span> <span class="enumber">0</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a>
+
+	<a name="f_forth"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_forth">forth</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor one position forward.</span>
+
+	<a name="f_go_last_child"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_go_last_child">go_last_child</a>
+			<span class="ecomment">--</span><span class="ecomment"> Go to the last child of current parent.</span>
+			<span class="ecomment">--</span><span class="ecomment"> No effect if below</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span> <a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+			<span class="ekeyword">True</span>
+		<span class="ekeyword">require else</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_above</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a>
+
+	<a name="f_go_to"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_go_to">go_to</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor_flatshort.html">CURSOR</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to position </span><span class="equoted">p</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_structure_flatshort.html">CURSOR_STRUCTURE</a>
+			<span class="etag">cursor_position_valid</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_valid_cursor">valid_cursor</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">)</span>
+
+	<a name="f_level_back"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_level_back">level_back</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to previous position of current level.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_level_forth"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_level_forth">level_forth</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to next position of current level.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_postorder_forth"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_postorder_forth">postorder_forth</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to next position in postorder.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If the active node is the last in</span>
+			<span class="ecomment">--</span><span class="ecomment"> postorder, the cursor ends up </span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+	<a name="f_postorder_start"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_postorder_start">postorder_start</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to first position in postorder.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Leave cursor off if tree is empty.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+
+	<a name="f_preorder_forth"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_preorder_forth">preorder_forth</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to next position in preorder.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If the active node is the last in</span>
+			<span class="ecomment">--</span><span class="ecomment"> preorder, the cursor ends up </span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+			<span class="etag">not_after</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a>
+
+	<a name="f_start"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_start">start</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor to root.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Leave cursor </span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a><span class="ecomment"> if </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span> <a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="ekeyword">True</span>
+		<span class="ekeyword">ensure then</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">on_root_unless_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_root">is_root</a>
+
+	<a name="f_start_on_level"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_start_on_level">start_on_level</a> <span class="esymbol">(</span><span class="elocal">l</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Move the cursor to the first position</span>
+			<span class="ecomment">--</span><span class="ecomment"> of the </span><span class="equoted">l</span><span class="ecomment">-th level counting from root.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">argument_within_bounds</span><span class="esymbol">:</span> <span class="elocal">l</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_depth">depth</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="elocal">l</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">level_expected</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_level">level</a> <span class="esymbol">=</span> <span class="elocal">l</span>
+			<span class="etag">is_first</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_isfirst">isfirst</a>
+
+	<a name="f_up"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_up">up</a>
+			<span class="ecomment">--</span><span class="ecomment"> Move cursor one level upward to parent,</span>
+			<span class="ecomment">--</span><span class="ecomment"> or </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a><span class="ecomment"> if </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_root">is_root</a><span class="ecomment"> holds.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/hierarchical_flatshort.html">HIERARCHICAL</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+		<span class="ekeyword">require else</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_above</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a>
+		<span class="ekeyword">ensure then</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_before</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a>
+			<span class="etag">not_after</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a>
+			<span class="etag">not_below</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_below">below</a>
+			<span class="etag">coherency</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">old</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="ekeyword">old</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_root">is_root</a><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_fill"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_fill">fill</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Fill with as many items of </span><span class="equoted">other</span>
+			<span class="ecomment">--</span><span class="ecomment"> as possible.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The representations of </span><span class="equoted">other</span><span class="ecomment"> and current structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> need not be the same.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">is_empty</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_fill"></a><a class="efeature" href="../elks/collection_flatshort.html#f_fill">container_fill</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Fill with as many items of </span><span class="equoted">other</span><span class="ecomment"> as possible.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The representations of </span><span class="equoted">other</span><span class="ecomment"> and current structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> need not be the same.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_fill_from_active"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_fill_from_active">fill_from_active</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy subtree of </span><span class="equoted">other</span><span class="ecomment">'s active node</span>
+			<span class="ecomment">--</span><span class="ecomment"> onto active node of current tree.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">cursor_on_leaf</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_is_leaf">is_leaf</a>
+
+	<a name="f_merge_left"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_merge_left">merge_left</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Merge the items of </span><span class="equoted">other</span><span class="ecomment"> into current structure to</span>
+			<span class="ecomment">--</span><span class="ecomment"> the left of cursor position.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">other_exists</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">not_before</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a>
+			<span class="etag">not_above</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a>
+			<span class="etag">only_one_root</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_level">level</a> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_merge_right"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_merge_right">merge_right</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Merge the items of </span><span class="equoted">other</span><span class="ecomment"> into current structure to</span>
+			<span class="ecomment">--</span><span class="ecomment"> the right of cursor position.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">other_exists</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">not_after</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a>
+			<span class="etag">not_above</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a>
+			<span class="etag">only_one_root</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_level">level</a> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_put"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_put">put</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">v</span><span class="ecomment"> at cursor position.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Synonym for </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_replace">replace</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_extendible">extendible</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a>
+			<span class="etag">item_inserted</span><span class="esymbol">:</span> <a class="efeature" href="../elks/collection_flatshort.html#f_is_inserted">is_inserted</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+
+	<a name="f_put_left"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_put_left">put_left</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> to the left of cursor position.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_before</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a>
+			<span class="etag">not_above</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a>
+			<span class="etag">only_one_root</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_level">level</a> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_put_right"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_put_right">put_right</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> to the right of cursor position.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_after</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a>
+			<span class="etag">not_above</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a>
+			<span class="etag">only_one_root</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_level">level</a> <span class="esymbol">=</span> <span class="enumber">1</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_replace"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_replace">replace</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Replace current item by </span><span class="equoted">v</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/active_flatshort.html">ACTIVE</a>
+			<span class="etag">writable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_writable">writable</a>
+			<span class="etag">replaceable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/active_flatshort.html#f_replaceable">replaceable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/active_flatshort.html">ACTIVE</a>
+			<span class="etag">item_replaced</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_item">item</a> <span class="esymbol">=</span> <span class="elocal">v</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Removal</span>
+
+	<a name="f_remove"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_remove">remove</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove node at cursor position</span>
+			<span class="ecomment">--</span><span class="ecomment"> (and consequently the corresponding</span>
+			<span class="ecomment">--</span><span class="ecomment"> subtree). Cursor moved up one level.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/active_flatshort.html">ACTIVE</a>
+			<span class="etag">prunable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/collection_flatshort.html#f_prunable">prunable</a>
+			<span class="etag">writable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_writable">writable</a>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">not_off_unless_empty</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+	<a name="f_wipe_out"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_wipe_out">wipe_out</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove all items.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a>
+			<span class="etag">prunable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/collection_flatshort.html#f_prunable">prunable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a>
+			<span class="etag">wiped_out</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">cursor_above</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Conversion</span>
+
+	<a name="f_linear_representation"></a><a class="efeature" href="../elks/linear_flatshort.html#f_linear_representation">linear_representation</a><span class="esymbol">:</span> <a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Representation as a linear structure</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span> <a class="eclass" href="../elks/container_flatshort.html">CONTAINER</a>
+			<span class="ekeyword">True</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_child_tree"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_child_tree">child_tree</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Subtree rooted at </span><span class="equoted">i</span><span class="ecomment">-th child</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">argument_within_bounds</span><span class="esymbol">:</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_parent_tree"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_parent_tree">parent_tree</a><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Subtree rooted at parent</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_on_root</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_root">is_root</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_subtree"></a><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_subtree">subtree</a><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Subtree rooted at current node</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+			<span class="etag">not_off</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flatshort.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Insert element</span>
+
+	<a name="f_extend"></a><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_extend">extend</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="egeneric">G</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add </span><span class="equoted">v</span><span class="ecomment"> after last child.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">v</span><span class="ecomment"> the </span><span class="equoted">first_child</span><span class="ecomment"> if </span><a class="efeature" href="../elks/cursor_tree_flatshort.html#f_below">below</a><span class="ecomment"> and place</span>
+			<span class="ecomment">--</span><span class="ecomment"> cursor </span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_extendible">extendible</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/collection_flatshort.html">COLLECTION</a>
+			<span class="etag">item_inserted</span><span class="esymbol">:</span> <a class="efeature" href="../elks/collection_flatshort.html#f_is_inserted">is_inserted</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Iteration</span>
+
+	<a name="f_do_all"></a><a class="efeature" href="../elks/traversable_flatshort.html#f_do_all">do_all</a> <span class="esymbol">(</span><span class="elocal">action</span><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure_flatshort.html">PROCEDURE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Apply </span><span class="equoted">action</span><span class="ecomment"> to every item.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Semantics not guaranteed if </span><span class="equoted">action</span><span class="ecomment"> changes the structure;</span>
+			<span class="ecomment">--</span><span class="ecomment"> in such a case, apply iterator to clone of structure instead.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">action_exists</span><span class="esymbol">:</span> <span class="elocal">action</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_do_all"></a><a class="efeature" href="../elks/linear_flatshort.html#f_do_all">linear_do_all</a> <span class="esymbol">(</span><span class="elocal">action</span><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure_flatshort.html">PROCEDURE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Apply </span><span class="equoted">action</span><span class="ecomment"> to every item.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Semantics not guaranteed if </span><span class="equoted">action</span><span class="ecomment"> changes the structure;</span>
+			<span class="ecomment">--</span><span class="ecomment"> in such a case, apply iterator to clone of structure instead.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">action_exists</span><span class="esymbol">:</span> <span class="elocal">action</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_do_if"></a><a class="efeature" href="../elks/traversable_flatshort.html#f_do_if">do_if</a> <span class="esymbol">(</span><span class="elocal">action</span><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure_flatshort.html">PROCEDURE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../elks/function_flatshort.html">FUNCTION</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Apply </span><span class="equoted">action</span><span class="ecomment"> to every item that satisfies </span><span class="equoted">test</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Semantics not guaranteed if </span><span class="equoted">action</span><span class="ecomment"> or </span><span class="equoted">test</span><span class="ecomment"> changes the structure;</span>
+			<span class="ecomment">--</span><span class="ecomment"> in such a case, apply iterator to clone of structure instead.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">action_exists</span><span class="esymbol">:</span> <span class="elocal">action</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">test_exists</span><span class="esymbol">:</span> <span class="elocal">test</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_do_if"></a><a class="efeature" href="../elks/linear_flatshort.html#f_do_if">linear_do_if</a> <span class="esymbol">(</span><span class="elocal">action</span><span class="esymbol">:</span> <a class="eclass" href="../elks/procedure_flatshort.html">PROCEDURE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../elks/function_flatshort.html">FUNCTION</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Apply </span><span class="equoted">action</span><span class="ecomment"> to every item that satisfies </span><span class="equoted">test</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Semantics not guaranteed if </span><span class="equoted">action</span><span class="ecomment"> or </span><span class="equoted">test</span><span class="ecomment"> changes the structure;</span>
+			<span class="ecomment">--</span><span class="ecomment"> in such a case, apply iterator to clone of structure instead.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">action_exists</span><span class="esymbol">:</span> <span class="elocal">action</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">test_exists</span><span class="esymbol">:</span> <span class="elocal">test</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_for_all"></a><a class="efeature" href="../elks/linear_flatshort.html#f_for_all">linear_for_all</a> <span class="esymbol">(</span><span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../elks/function_flatshort.html">FUNCTION</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">test</span><span class="ecomment"> true for all items?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Semantics not guaranteed if </span><span class="equoted">test</span><span class="ecomment"> changes the structure;</span>
+			<span class="ecomment">--</span><span class="ecomment"> in such a case, apply iterator to clone of structure instead.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">test_exists</span><span class="esymbol">:</span> <span class="elocal">test</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure then</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+			<span class="etag">empty</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_for_all"></a><a class="efeature" href="../elks/traversable_flatshort.html#f_for_all">for_all</a> <span class="esymbol">(</span><span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../elks/function_flatshort.html">FUNCTION</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">test</span><span class="ecomment"> true for all items?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">test_exists</span><span class="esymbol">:</span> <span class="elocal">test</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_there_exists"></a><a class="efeature" href="../elks/traversable_flatshort.html#f_there_exists">there_exists</a> <span class="esymbol">(</span><span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../elks/function_flatshort.html">FUNCTION</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">test</span><span class="ecomment"> true for at least one item?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">test_exists</span><span class="esymbol">:</span> <span class="elocal">test</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_there_exists"></a><a class="efeature" href="../elks/linear_flatshort.html#f_there_exists">linear_there_exists</a> <span class="esymbol">(</span><span class="elocal">test</span><span class="esymbol">:</span> <a class="eclass" href="../elks/function_flatshort.html">FUNCTION</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">test</span><span class="ecomment"> true for at least one item?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Semantics not guaranteed if </span><span class="equoted">test</span><span class="ecomment"> changes the structure;</span>
+			<span class="ecomment">--</span><span class="ecomment"> in such a case, apply iterator to clone of structure instead.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+			<span class="etag">test_exists</span><span class="esymbol">:</span> <span class="elocal">test</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flatshort.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flatshort.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flatshort.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flatshort.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flatshort.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flatshort.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Retrieval</span>
+
+	<a name="f_internal_correct_mismatch"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_internal_correct_mismatch">internal_correct_mismatch</a>
+			<span class="ecomment">--</span><span class="ecomment"> Called from runtime to perform a proper dynamic dispatch on </span><span class="equoted">correct_mismatch</span>
+			<span class="ecomment">--</span><span class="ecomment"> from MISMATCH_CORRECTOR.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">coherency</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">attached</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_active_parent">active_parent</a> <span class="ekeyword">as</span> a <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/tree_flatshort.html#f_child">child</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_active">active</a><span class="esymbol">)</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/cursor_tree_flatshort.html">CURSOR_TREE</a>
+	<span class="etag">non_negative_depth</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_depth">depth</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+	<span class="etag">non_negative_breadth</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_breadth">breadth</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+	<span class="etag">is_leaf_definition</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_is_leaf">is_leaf</a> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a> <span class="esymbol">=</span> <span class="enumber">0</span><span class="esymbol">)</span>
+	<span class="etag">above_property</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <span class="enumber">1</span><span class="esymbol">)</span>
+	<span class="etag">on_tree</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_isfirst">isfirst</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_islast">islast</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_is_leaf">is_leaf</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_root">is_root</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+	<span class="etag">off_definition</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_below">below</a>
+	<span class="etag">below_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_below">below</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a><span class="esymbol">)</span>
+	<span class="etag">above_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_below">below</a><span class="esymbol">)</span>
+	<span class="etag">after_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a><span class="esymbol">)</span>
+	<span class="etag">before_constaint</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_above">above</a><span class="esymbol">)</span>
+	<span class="etag">empty_below_constraint</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_before">before</a><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_below">below</a>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/hierarchical_flatshort.html">HIERARCHICAL</a>
+	<span class="etag">non_negative_successor_count</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_arity">arity</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/traversable_flatshort.html">TRAVERSABLE</a>
+	<span class="etag">empty_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/active_flatshort.html">ACTIVE</a>
+	<span class="etag">writable_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_writable">writable</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_readable">readable</a>
+	<span class="etag">empty_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_is_empty">is_empty</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_readable">readable</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_writable">writable</a><span class="esymbol">)</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/linear_flatshort.html">LINEAR</a>
+	<span class="etag">after_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../elks/recursive_cursor_tree_flatshort.html#f_after">after</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/cursor_tree_flatshort.html#f_off">off</a>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2018, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../elks/recursive_cursor_tree_flatshort.html">RECURSIVE_CURSOR_TREE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="recursive_cursor_tree_chart.html">Chart</a>
+<a class="nav class" href="recursive_cursor_tree_links.html">Relations</a>
+<a class="nav class" href="recursive_cursor_tree.html">Text</a>
+<a class="nav class" href="recursive_cursor_tree_flat.html">Flat</a>
+<a class="nav class" href="recursive_cursor_tree_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="recursive_cursor_tree"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

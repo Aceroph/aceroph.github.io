@@ -27,6 +27,9 @@
 <a class="nav class" href="boolean_chart.html">Chart</a>
 <span class="nav class selected">Relations</span>
 <a class="nav class" href="boolean.html">Text</a>
+<a class="nav class" href="boolean_flat.html">Flat</a>
+<a class="nav class" href="boolean_short.html">Contracts</a>
+<a class="nav class" href="boolean_flatshort.html">Flat contracts</a>
 <span class="nav class goto">Go to: <input name="c" value="boolean"></span>
 </div></form><pre><span class="ekeyword">expanded</span> <span class="ekeyword">class</span>
 	<a class="eclass" href="../elks/boolean_links.html">BOOLEAN</a>
@@ -35,6 +38,7 @@
 	<a class="eclass" href="../elks/boolean_ref_links.html">BOOLEAN_REF</a>
 
 <span class="ekeyword">Clients</span>
+	<span class="neclass">ABSOLUTE</span><span class="echar">*</span>
 	<a class="eclass" href="../ise/action_sequence_links.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><span class="egeneric">EVENT_DATA</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/tuple_links.html">TUPLE</a> <span class="ekeyword">create</span> <a class="efeature" href="../elks/any.html#f_default_create">default_create</a> <span class="ekeyword">end</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/active_links.html">ACTIVE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../ise/active_integer_interval_links.html">ACTIVE_INTEGER_INTERVAL</a>
@@ -78,8 +82,8 @@
 	<span class="neclass">CHUNK</span>
 	<a class="eclass" href="../elks/circular_links.html">CIRCULAR</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/class_name_translations_links.html">CLASS_NAME_TRANSLATIONS</a>
+	<span class="neclass">CODE_VALIDITY_CHECKER</span>
 	<a class="eclass" href="../elks/collection_links.html">COLLECTION</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
-	<span class="neclass">COLOR_RANGE</span>
 	<a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="echar">*</span>
 	<a class="eclass" href="../elks/comparable_set_links.html">COMPARABLE_SET</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/comparable_struct_links.html">COMPARABLE_STRUCT</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
@@ -90,15 +94,40 @@
 	<a class="eclass" href="../elks/container_links.html">CONTAINER</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<span class="neclass">CPF_PACKAGE_FILE</span>
 	<span class="neclass">CPF_RESSOURCE_MANAGER</span><span class="echar">*</span>
+	<span class="neclass">CRAFTING_MANAGER</span>
 	<a class="eclass" href="../elks/cursor_tree_links.html">CURSOR_TREE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">C_DATE</span>
 	<a class="eclass" href="../elks/c_string_links.html">C_STRING</a>
+	<span class="neclass">DATE</span>
+	<span class="neclass">DATE_CONSTANTS</span>
+	<span class="neclass">DATE_DURATION</span>
+	<span class="neclass">DATE_TIME</span>
+	<span class="neclass">DATE_TIME_CODE_STRING</span>
+	<span class="neclass">DATE_TIME_DURATION</span>
+	<span class="neclass">DATE_TIME_PARSER</span>
+	<span class="neclass">DATE_TIME_VALIDITY_CHECKER</span>
+	<span class="neclass">DATE_VALIDITY_CHECKER</span>
 	<span class="neclass">DIMENSION</span>
 	<a class="eclass" href="../elks/directory_links.html">DIRECTORY</a>
 	<a class="eclass" href="../elks/dispenser_links.html">DISPENSER</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DURATION</span><span class="echar">*</span>
 	<a class="eclass" href="../elks/dynamic_chain_links.html">DYNAMIC_CHAIN</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/dynamic_list_links.html">DYNAMIC_LIST</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/dynamic_tree_links.html">DYNAMIC_TREE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<span class="neclass">ENGINE</span>
+	<span class="neclass">ENTITY</span><span class="echar">*</span>
+	<a class="eclass" href="../testing/eqa_assertions_links.html">EQA_ASSERTIONS</a>
+	<a class="eclass" href="../testing/eqa_environment_links.html">EQA_ENVIRONMENT</a>
+	<a class="eclass" href="../etf/eqa_evaluator_links.html">EQA_EVALUATOR</a>
+	<a class="eclass" href="../testing/eqa_file_system_links.html">EQA_FILE_SYSTEM</a>
+	<a class="eclass" href="../testing/eqa_partial_result_links.html">EQA_PARTIAL_RESULT</a>
+	<a class="eclass" href="../testing/eqa_result_links.html">EQA_RESULT</a>
+	<a class="eclass" href="../testing/eqa_system_path_links.html">EQA_SYSTEM_PATH</a>
+	<a class="eclass" href="../testing/eqa_test_evaluator_links.html">EQA_TEST_EVALUATOR</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../testing/eqa_test_set_links.html">EQA_TEST_SET</a> <span class="ekeyword">create</span> <a class="efeature" href="../testing/eqa_test_set.html#f_default_create">default_create</a> <span class="ekeyword">end</span><span class="esymbol">]</span>
+	<a class="eclass" href="../testing/eqa_test_invocation_exception_links.html">EQA_TEST_INVOCATION_EXCEPTION</a>
+	<a class="eclass" href="../testing/eqa_test_invocation_response_links.html">EQA_TEST_INVOCATION_RESPONSE</a>
+	<a class="eclass" href="../testing/eqa_test_output_buffer_links.html">EQA_TEST_OUTPUT_BUFFER</a>
+	<a class="eclass" href="../testing/eqa_test_set_links.html">EQA_TEST_SET</a><span class="echar">*</span>
 	<a class="eclass" href="../elks/exception_links.html">EXCEPTION</a>
 	<a class="eclass" href="../elks/exceptions_links.html">EXCEPTIONS</a>
 	<a class="eclass" href="../elks/exception_manager_links.html">EXCEPTION_MANAGER</a>
@@ -109,6 +138,7 @@
 	<a class="eclass" href="../elks/file_info_links.html">FILE_INFO</a>
 	<a class="eclass" href="../elks/file_name_links.html">FILE_NAME</a>
 	<a class="eclass" href="../ise/file_utilities_links.html">FILE_UTILITIES</a>
+	<span class="neclass">FIND_SEPARATOR_FACILITY</span>
 	<a class="eclass" href="../elks/fixed_links.html">FIXED</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/fixed_list_links.html">FIXED_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/fixed_tree_links.html">FIXED_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
@@ -117,6 +147,7 @@
 	<a class="eclass" href="../elks/function_links.html">FUNCTION</a> <span class="esymbol">[</span><span class="egeneric">OPEN_ARGS</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/tuple_links.html">TUPLE</a> <span class="ekeyword">create</span> <a class="efeature" href="../elks/any.html#f_default_create">default_create</a> <span class="ekeyword">end</span><span class="esymbol">,</span> <span class="egeneric">RESULT_TYPE</span><span class="esymbol">]</span>
 	<span class="neclass">GAME_3D_OBJECT</span><span class="echar">*</span>
 	<a class="eclass" href="../game_core/graphic/game_blendable_links.html">GAME_BLENDABLE</a><span class="echar">*</span>
+	<span class="neclass">GAME_COLOR_DESERIALIZER</span>
 	<a class="eclass" href="../game_core/graphic/game_color_palette_links.html">GAME_COLOR_PALETTE</a>
 	<a class="eclass" href="../game_core/graphic/game_color_readable_links.html">GAME_COLOR_READABLE</a>
 	<a class="eclass" href="../game_core/graphic/game_cursor_links.html">GAME_CURSOR</a>
@@ -159,9 +190,13 @@
 	<a class="eclass" href="../game_core/graphic/game_window_rendered_builder_links.html">GAME_WINDOW_RENDERED_BUILDER</a>
 	<a class="eclass" href="../elks/gc_info_links.html">GC_INFO</a>
 	<span class="neclass">GUI_BOX</span>
+	<span class="neclass">GUI_COLUMN</span>
 	<span class="neclass">GUI_COMPONENT</span><span class="echar">*</span>
-	<span class="neclass">GUI_IMAGE</span>
+	<span class="neclass">GUI_CONTAINER</span>
 	<span class="neclass">GUI_LABEL</span>
+	<span class="neclass">GUI_MENU</span><span class="echar">*</span>
+	<span class="neclass">GUI_RECIPE</span>
+	<span class="neclass">GUI_ROW</span>
 	<a class="eclass" href="../elks/hash_table_links.html">HASH_TABLE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <span class="egeneric">K</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/hashable_links.html">HASHABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/hash_table_iteration_cursor_links.html">HASH_TABLE_ITERATION_CURSOR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <span class="egeneric">K</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/hashable_links.html">HASHABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/heap_priority_queue_links.html">HEAP_PRIORITY_QUEUE</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
@@ -172,6 +207,11 @@
 	<a class="eclass" href="../elks/immutable_string_32_links.html">IMMUTABLE_STRING_32</a>
 	<a class="eclass" href="../elks/immutable_string_8_links.html">IMMUTABLE_STRING_8</a>
 	<a class="eclass" href="../elks/indexable_iteration_cursor_links.html">INDEXABLE_ITERATION_CURSOR</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">INET4_ADDRESS</span>
+	<span class="neclass">INET6_ADDRESS</span>
+	<span class="neclass">INET_ADDRESS</span><span class="echar">*</span>
+	<span class="neclass">INET_ADDRESS_FACTORY</span>
+	<span class="neclass">INET_PROPERTIES</span>
 	<a class="eclass" href="../elks/infinite_links.html">INFINITE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/integer_16_ref_links.html">INTEGER_16_REF</a>
 	<a class="eclass" href="../elks/integer_32_ref_links.html">INTEGER_32_REF</a>
@@ -181,11 +221,18 @@
 	<a class="eclass" href="../elks/integer_overflow_checker_links.html">INTEGER_OVERFLOW_CHECKER</a>
 	<a class="eclass" href="../ise/interactive_list_links.html">INTERACTIVE_LIST</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/internal_links.html">INTERNAL</a>
+	<span class="neclass">INTERVAL</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="neclass">ABSOLUTE</span><span class="esymbol">]</span>
 	<span class="neclass">INVENTORY</span>
 	<a class="eclass" href="../elks/io_medium_links.html">IO_MEDIUM</a><span class="echar">*</span>
 	<a class="eclass" href="../ise/ise_exception_manager_links.html">ISE_EXCEPTION_MANAGER</a>
+	<span class="neclass">ITEM_REGISTRY</span>
 	<span class="neclass">ITEM_SLOT</span>
+	<span class="neclass">ITEM_STACK_DESERIALIZER</span>
 	<a class="eclass" href="../elks/iteration_cursor_links.html">ITERATION_CURSOR</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../etf/itp_constant_links.html">ITP_CONSTANT</a>
+	<a class="eclass" href="../etf/itp_interpreter_links.html">ITP_INTERPRETER</a>
+	<a class="eclass" href="../etf/itp_store_links.html">ITP_STORE</a>
+	<a class="eclass" href="../etf/itp_variable_links.html">ITP_VARIABLE</a>
 	<a class="eclass" href="../json/json_kernel/json_array_links.html">JSON_ARRAY</a>
 	<a class="eclass" href="../json/json_kernel/json_boolean_links.html">JSON_BOOLEAN</a>
 	<a class="eclass" href="../json_serialization/json_core_deserializer_links.html">JSON_CORE_DESERIALIZER</a>
@@ -218,7 +265,9 @@
 	<a class="eclass" href="../elks/linked_stack_links.html">LINKED_STACK</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/linked_tree_links.html">LINKED_TREE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/linked_tree_iteration_cursor_links.html">LINKED_TREE_ITERATION_CURSOR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">LIQUID_TILE</span>
 	<a class="eclass" href="../elks/list_links.html">LIST</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">LIVING_ENTITY</span><span class="echar">*</span>
 	<a class="eclass" href="../elks/managed_pointer_links.html">MANAGED_POINTER</a>
 	<span class="neclass">MATH_UTILS</span>
 	<a class="eclass" href="../elks/memory_links.html">MEMORY</a>
@@ -232,9 +281,13 @@
 	<a class="eclass" href="../elks/natural_32_ref_links.html">NATURAL_32_REF</a>
 	<a class="eclass" href="../elks/natural_64_ref_links.html">NATURAL_64_REF</a>
 	<a class="eclass" href="../elks/natural_8_ref_links.html">NATURAL_8_REF</a>
+	<span class="neclass">NETWORK_SOCKET</span><span class="echar">*</span>
+	<span class="neclass">NETWORK_SOCKET_ADDRESS</span>
+	<span class="neclass">NETWORK_STREAM_SOCKET</span>
 	<a class="eclass" href="../elks/numeric_information_links.html">NUMERIC_INFORMATION</a>
 	<a class="eclass" href="../elks/object_graph_marker_links.html">OBJECT_GRAPH_MARKER</a>
 	<a class="eclass" href="../elks/object_graph_traversable_links.html">OBJECT_GRAPH_TRAVERSABLE</a><span class="echar">*</span>
+	<span class="neclass">PACKET</span>
 	<a class="eclass" href="../elks/part_comparable_links.html">PART_COMPARABLE</a><span class="echar">*</span>
 	<a class="eclass" href="../elks/part_sorted_list_links.html">PART_SORTED_LIST</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/part_comparable_links.html">PART_COMPARABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/part_sorted_set_links.html">PART_SORTED_SET</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/part_comparable_links.html">PART_COMPARABLE</a><span class="esymbol">]</span>
@@ -242,7 +295,9 @@
 	<a class="eclass" href="../elks/path_links.html">PATH</a>
 	<a class="eclass" href="../elks/path_name_links.html">PATH_NAME</a><span class="echar">*</span>
 	<a class="eclass" href="../elks/plain_text_file_links.html">PLAIN_TEXT_FILE</a>
+	<span class="neclass">PLAYER</span>
 	<span class="neclass">POSITION</span>
+	<span class="neclass">POWDER_TILE</span>
 	<a class="eclass" href="../elks/primes_links.html">PRIMES</a>
 	<a class="eclass" href="../ise/profiling_setting_links.html">PROFILING_SETTING</a>
 	<a class="eclass" href="../elks/random_links.html">RANDOM</a>
@@ -255,6 +310,9 @@
 	<a class="eclass" href="../ise/read_write_lock_links.html">READ_WRITE_LOCK</a>
 	<a class="eclass" href="../elks/real_32_ref_links.html">REAL_32_REF</a>
 	<a class="eclass" href="../elks/real_64_ref_links.html">REAL_64_REF</a>
+	<span class="neclass">RECIPES_SHARED</span>
+	<span class="neclass">RECIPE_DESERIALIZER</span>
+	<span class="neclass">RECIPE_REGISTRY</span>
 	<a class="eclass" href="../elks/recursive_cursor_tree_links.html">RECURSIVE_CURSOR_TREE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/reflected_copy_semantics_object_links.html">REFLECTED_COPY_SEMANTICS_OBJECT</a>
 	<a class="eclass" href="../elks/reflected_object_links.html">REFLECTED_OBJECT</a><span class="echar">*</span>
@@ -292,6 +350,9 @@
 	<a class="eclass" href="../elks/sequence_links.html">SEQUENCE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/seq_string_links.html">SEQ_STRING</a>
 	<a class="eclass" href="../elks/set_links.html">SET</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">SOCKET</span><span class="echar">*</span>
+	<span class="neclass">SOCKET_ADDRESS</span>
+	<span class="neclass">SOCKET_TIMEOUT_UTILITIES</span>
 	<a class="eclass" href="../elks/sorted_list_links.html">SORTED_LIST</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/sorted_struct_links.html">SORTED_STRUCT</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/sorted_two_way_list_links.html">SORTED_TWO_WAY_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
@@ -299,6 +360,7 @@
 	<a class="eclass" href="../elks/special_iteration_cursor_links.html">SPECIAL_ITERATION_CURSOR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/stack_links.html">STACK</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/storable_links.html">STORABLE</a>
+	<span class="neclass">STREAM_SOCKET</span><span class="echar">*</span>
 	<a class="eclass" href="../elks/string_32_links.html">STRING_32</a>
 	<a class="eclass" href="../elks/string_32_iteration_cursor_links.html">STRING_32_ITERATION_CURSOR</a>
 	<a class="eclass" href="../elks/string_8_links.html">STRING_8</a>
@@ -323,7 +385,12 @@
 	<span class="neclass">THREAD</span><span class="echar">*</span>
 	<span class="neclass">THREAD_ATTRIBUTES</span>
 	<span class="neclass">TILE</span>
+	<span class="neclass">TILE_ATTRIBUTES_DESERIALIZER</span>
 	<span class="neclass">TILE_REGISTRY</span>
+	<span class="neclass">TILE_REGISTRY_SHARED</span><span class="echar">*</span>
+	<span class="neclass">TIME</span>
+	<span class="neclass">TIME_DURATION</span>
+	<span class="neclass">TIME_VALIDITY_CHECKER</span>
 	<a class="eclass" href="../ise/tracing_handler_links.html">TRACING_HANDLER</a><span class="echar">*</span>
 	<a class="eclass" href="../ise/tracing_setting_links.html">TRACING_SETTING</a>
 	<a class="eclass" href="../elks/traversable_links.html">TRAVERSABLE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
@@ -354,6 +421,9 @@
 <a class="nav class" href="boolean_chart.html">Chart</a>
 <span class="nav class selected">Relations</span>
 <a class="nav class" href="boolean.html">Text</a>
+<a class="nav class" href="boolean_flat.html">Flat</a>
+<a class="nav class" href="boolean_short.html">Contracts</a>
+<a class="nav class" href="boolean_flatshort.html">Flat contracts</a>
 <span class="nav class goto">Go to: <input name="c" value="boolean"></span>
 </div></form><pre></pre>
 <p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A {GAME_WINDOW} that can be used directly with OpenGL."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_window_gl Contracts</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_gl_chart.html">Chart</a>
+<a class="nav class" href="game_window_gl_links.html">Relations</a>
+<a class="nav class" href="game_window_gl.html">Text</a>
+<a class="nav class" href="game_window_gl_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_window_gl_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_window_gl"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A </span><a class="eclass" href="../../game_core/graphic/game_window_short.html">GAME_WINDOW</a><span class="estring"> that can be used directly with OpenGL.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Tue, 29 Dec 2015 19:06:42 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;1.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../../game_core/gl/game_window_gl_short.html">GAME_WINDOW_GL</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_gl_context_valid"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The contex of </span><span class="equoted">Current</span><span class="ecomment"> is correctly created</span>
+
+	<a name="f_gl_drawable_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_drawable_size">gl_drawable_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Return the drawable area dimension of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Ti differ of </span><a class="efeature" href="../../game_core/graphic/game_window_short.html#f_size">size</a><span class="ecomment"> when we're rendering to a high-DPI drawable</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: use that with glViewport</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_version"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_version">gl_version</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">major</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">minor</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The version of OpenGL that </span><span class="equoted">Current</span><span class="ecomment"> use.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default depend on the OpenGL library in the system</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_red_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_red_size">gl_red_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the red channel of the color buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 3</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_green_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_green_size">gl_green_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the green channel of the color buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 3</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_blue_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_blue_size">gl_blue_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the blue channel of the color buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 2</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_alpha_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_alpha_size">gl_alpha_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the alpha channel of the color buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 0</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_buffer_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_buffer_size">gl_buffer_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the frame buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 0</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_double_buffer_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_double_buffer_enabled">is_gl_double_buffer_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if </span><span class="equoted">Current</span><span class="ecomment"> is double buffered. False if not.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: True</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_depth_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_depth_size">gl_depth_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the depth buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 16</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_stencil_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_stencil_size">gl_stencil_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the stencil buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 0</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_accumulation_red_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_accumulation_red_size">gl_accumulation_red_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the red channel of the accumulation buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 0</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_accumulation_green_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_accumulation_green_size">gl_accumulation_green_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the green channel of the accumulation buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 0</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_accumulation_blue_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_accumulation_blue_size">gl_accumulation_blue_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the blue channel of the accumulation buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 0</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_accumulation_alpha_size"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_accumulation_alpha_size">gl_accumulation_alpha_size</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Minimum number of bits for the alpha channel of the accumulation buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Defaults to 0</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_stereo_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_stereo_enabled">is_gl_stereo_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if </span><span class="equoted">Current</span><span class="ecomment"> used quad buffer stereo rendering. False if not.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_multi_sample_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_multi_sample_enabled">is_gl_multi_sample_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if </span><span class="equoted">Current</span><span class="ecomment"> used multisample anti-aliasing. False if not</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_gl_multi_sample_count"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_multi_sample_count">gl_multi_sample_count</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> If multisample anti-aliasing is enabled (see: </span><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_multi_sample_enabled">is_gl_multi_sample_enabled</a><span class="ecomment">),</span>
+			<span class="ecomment">--</span><span class="ecomment"> return the number of samples used around the current pixel</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: 0</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_multi_sample_enabled">is_gl_multi_sample_enabled</a>
+
+	<a name="f_is_gl_software_rendering_enable"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_software_rendering_enable">is_gl_software_rendering_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> uses software rendering.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_hardware_rendering_enable"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_hardware_rendering_enable">is_gl_hardware_rendering_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> uses hardware rendering.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: True</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_debug_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_debug_enabled">is_gl_debug_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put the GL into a &quot;debug&quot; mode. May cause performance lost</span>
+			<span class="ecomment">--</span><span class="ecomment"> Ignored on system that does not support it.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_forward_compatibility_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_forward_compatibility_enabled">is_gl_forward_compatibility_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> If True, no deprecated context functionality will be supported</span>
+			<span class="ecomment">--</span><span class="ecomment"> Can cause a performance gain</span>
+			<span class="ecomment">--</span><span class="ecomment"> Only available for OpenGL 3.0 and newer</span>
+			<span class="ecomment">--</span><span class="ecomment"> Ignored on system that does not support it.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_robust_access_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_robust_access_enabled">is_gl_robust_access_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> If True, Internal OpenGL context will use more robust API.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Ignored on system that does not support it.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Can cause a performance lost</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_reset_isolation_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_reset_isolation_enabled">is_gl_reset_isolation_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True to enable more rebust driver or hardware failure reset management.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Ignored on system that does not support it.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_core_profile_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_core_profile_enabled">is_gl_core_profile_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True to enable the core context profile.</span>
+			<span class="ecomment">--</span><span class="ecomment"> In this profile, deprecated conext funtionnalities will be disabled;</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: Depend on the system</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_compatibility_profile_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_compatibility_profile_enabled">is_gl_compatibility_profile_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True to enable the compatibility context profile.</span>
+			<span class="ecomment">--</span><span class="ecomment"> In this profile, deprecated conext funtionnalities will be enabled;</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: Depend on the system</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_es_profile_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_es_profile_enabled">is_gl_es_profile_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True to enable the GLES context profile.</span>
+			<span class="ecomment">--</span><span class="ecomment"> In this profile, only the GLES subset of the context functionnalities will be enabled</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: Depend on the system</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_context_sharing_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_context_sharing_enabled">is_gl_context_sharing_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True to enable OpenGL Context Sharing</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_is_gl_srgb_request_enabled"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_is_gl_srgb_request_enabled">is_gl_srgb_request_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True to request sRGB rendering</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+
+	<a name="f_update"></a><a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_update">update</a>
+			<span class="ecomment">--</span><span class="ecomment"> Print the visual buffer modification to the screen</span>
+		<span class="ekeyword">require else</span>
+				<a class="efeature" href="../../game_core/gl/game_window_gl_short.html#f_gl_context_valid">gl_context_valid</a>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/gl/game_window_gl_short.html">GAME_WINDOW_GL</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_gl_chart.html">Chart</a>
+<a class="nav class" href="game_window_gl_links.html">Relations</a>
+<a class="nav class" href="game_window_gl.html">Text</a>
+<a class="nav class" href="game_window_gl_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_window_gl_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_window_gl"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

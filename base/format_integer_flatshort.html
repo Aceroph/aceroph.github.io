@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Formatter for integral numbers"/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="names" content="format_integer"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2012, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>format_integer Flat contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="format_integer_chart.html">Chart</a>
+<a class="nav class" href="format_integer_links.html">Relations</a>
+<a class="nav class" href="format_integer.html">Text</a>
+<a class="nav class" href="format_integer_flat.html">Flat</a>
+<a class="nav class" href="format_integer_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="format_integer"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Formatter for integral numbers&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Free implementation of ELKS library&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">names</span><span class="esymbol">:</span> format_integer
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2013-03-20 23:43:02 +0000 (Wed, 20 Mar 2013) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 92323 $&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a>
+
+<span class="ekeyword">create</span> 
+	<a name="f_make"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">w</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">reasonable_field</span><span class="esymbol">:</span> <span class="elocal">w</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">blank_fill</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_fill_character">fill_character</a> <span class="esymbol">=</span> <span class="echar">' '</span>
+			<span class="etag">show_sign_negative</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign_negative">show_sign_negative</a>
+			<span class="etag">no_separator</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_no_separator">no_separator</a>
+			<span class="etag">width_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_width">width</a> <span class="esymbol">=</span> <span class="elocal">w</span>
+			<span class="etag">right_justified</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_right_justified">right_justified</a>
+			<span class="etag">leading_sign</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_leading_sign">leading_sign</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">w</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">reasonable_field</span><span class="esymbol">:</span> <span class="elocal">w</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">blank_fill</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_fill_character">fill_character</a> <span class="esymbol">=</span> <span class="echar">' '</span>
+			<span class="etag">show_sign_negative</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign_negative">show_sign_negative</a>
+			<span class="etag">no_separator</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_no_separator">no_separator</a>
+			<span class="etag">width_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_width">width</a> <span class="esymbol">=</span> <span class="elocal">w</span>
+			<span class="etag">right_justified</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_right_justified">right_justified</a>
+			<span class="etag">leading_sign</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_leading_sign">leading_sign</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_bracketted_negative"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_bracketted_negative">bracketted_negative</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Enclose negative numbers in brackets?</span>
+
+	<a name="f_fill_character"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_fill_character">fill_character</a><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flatshort.html">CHARACTER_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Padding character.</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flatshort.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flatshort.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_justification"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_justification">justification</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Where in the field the format goes.</span>
+
+	<a name="f_separator"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_separator">separator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flatshort.html">CHARACTER_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Separator between 1000's of numbers.</span>
+
+	<a name="f_sign_format"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_format">sign_format</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> How the sign is formatted.</span>
+
+	<a name="f_sign_string"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Formatting details for the sign.</span>
+
+	<a name="f_trailing_sign"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_trailing_sign">trailing_sign</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the sign at the end?</span>
+
+	<a name="f_width"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_width">width</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Width of the field.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_centered"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_centered">centered</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are numbers to be formatted centered?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_justification">justification</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_center_justification">Center_justification</a><span class="esymbol">)</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_ignore_sign"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_ignore_sign">ignore_sign</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the sign of a number?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_format">sign_format</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_ignore_sign_value">Ignore_sign_value</a><span class="esymbol">)</span>
+
+	<a name="f_leading_sign"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_leading_sign">leading_sign</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the sign leading?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/format_integer_flatshort.html#f_trailing_sign">trailing_sign</a>
+
+	<a name="f_left_justified"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_left_justified">left_justified</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are numbers to be formatted with spaces on the right?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_justification">justification</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_left_justification">Left_justification</a><span class="esymbol">)</span>
+
+	<a name="f_no_separator"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_no_separator">no_separator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there a separator?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_separator">separator</a> <span class="esymbol">=</span> <span class="echar">'%U'</span><span class="esymbol">)</span>
+
+	<a name="f_not_justified"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_not_justified">not_justified</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are numbers to be formatted in smallest string possible</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_justification">justification</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_no_justification">No_justification</a><span class="esymbol">)</span>
+
+	<a name="f_right_justified"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_right_justified">right_justified</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are numbers to be formatted with spaces on the left?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_justification">justification</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_right_justification">Right_justification</a><span class="esymbol">)</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_show_sign"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign">show_sign</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are numbers to show sign whether positive or negative?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_format">sign_format</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign_value">Show_sign_value</a><span class="esymbol">)</span>
+
+	<a name="f_show_sign_negative"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign_negative">show_sign_negative</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are numbers to show sign only when negative?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_format">sign_format</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_negative_value">Sign_negative_value</a><span class="esymbol">)</span>
+
+	<a name="f_show_sign_positive"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign_positive">show_sign_positive</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are numbers to show sign only when positive?</span>
+		<span class="ekeyword">ensure</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_format">sign_format</a> <span class="esymbol">=</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_positive_value">Sign_positive_value</a><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_asterisk_fill"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_asterisk_fill">asterisk_fill</a>
+			<span class="ecomment">--</span><span class="ecomment"> Fill numbers with asterisks.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_fill_character">fill_character</a> <span class="esymbol">=</span> <span class="echar">'*'</span>
+
+	<a name="f_blank_fill"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_blank_fill">blank_fill</a>
+			<span class="ecomment">--</span><span class="ecomment"> Fill numbers with blanks.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_fill_character">fill_character</a> <span class="esymbol">=</span> <span class="echar">' '</span>
+
+	<a name="f_bracket_negative"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_bracket_negative">bracket_negative</a>
+			<span class="ecomment">--</span><span class="ecomment"> Bracket negative numbers.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_bracketted_negative">bracketted_negative</a>
+
+	<a name="f_center_justify"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_center_justify">center_justify</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put padding on right and left</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_centered">centered</a>
+
+	<a name="f_comma_separate"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_comma_separate">comma_separate</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set separator to comma.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_separator">separator</a> <span class="esymbol">=</span> <span class="echar">','</span>
+
+	<a name="f_dollar_fill"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_dollar_fill">dollar_fill</a>
+			<span class="ecomment">--</span><span class="ecomment"> Fill numbers with dollars.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_fill_character">fill_character</a> <span class="esymbol">=</span> <span class="echar">'$'</span>
+
+	<a name="f_dot_separate"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_dot_separate">dot_separate</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set separator to period.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_separator">separator</a> <span class="esymbol">=</span> <span class="echar">'.'</span>
+
+	<a name="f_left_justify"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_left_justify">left_justify</a>
+			<span class="ecomment">--</span><span class="ecomment">Put padding on right</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_left_justified">left_justified</a>
+
+	<a name="f_no_justify"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_no_justify">no_justify</a>
+			<span class="ecomment">--</span><span class="ecomment"> Always return the smallest string possible</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_not_justified">not_justified</a>
+
+	<a name="f_remove_separator"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_remove_separator">remove_separator</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove the separator.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_separator">separator</a> <span class="esymbol">=</span> <span class="echar">'%U'</span>
+
+	<a name="f_right_justify"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_right_justify">right_justify</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put padding on left</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_right_justified">right_justified</a>
+
+	<a name="f_set_fill"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_set_fill">set_fill</a> <span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flatshort.html">CHARACTER_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Fill numbers with </span><span class="equoted">c</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_fill_character">fill_character</a> <span class="esymbol">=</span> <span class="elocal">c</span>
+
+	<a name="f_set_separator"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_set_separator">set_separator</a> <span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flatshort.html">CHARACTER_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set the separator to </span><span class="equoted">c</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_separator">separator</a> <span class="esymbol">=</span> <span class="elocal">c</span>
+
+	<a name="f_set_sign"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_set_sign">set_sign</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set sign values for positive, zero, negative</span>
+			<span class="ecomment">--</span><span class="ecomment"> All values must be the same length.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Stored as negative, zero, positive.</span>
+		<span class="ekeyword">require</span>
+				<span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+				<span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flatshort.html#f_count">count</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">3</span>
+				<span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flatshort.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32_flatshort.html#f_integer_remainder">\\</a> <span class="enumber">3</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sign_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a> <span class="esymbol">~</span> <span class="elocal">s</span>
+
+	<a name="f_set_width"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_set_width">set_width</a> <span class="esymbol">(</span><span class="elocal">w</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set width to </span><span class="equoted">w</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">wide_enough</span><span class="esymbol">:</span> <span class="elocal">w</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_width">width</a> <span class="esymbol">=</span> <span class="elocal">w</span>
+
+	<a name="f_sign_cr_dr"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_cr_dr">sign_cr_dr</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set sign for CR/DR</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a> <span class="esymbol">~</span> &quot;CR  DR&quot;
+
+	<a name="f_sign_dr_cr"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_dr_cr">sign_dr_cr</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set sign for DR/CR</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a> <span class="esymbol">~</span> &quot;DR  CR&quot;
+
+	<a name="f_sign_floating_dollar"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_floating_dollar">sign_floating_dollar</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set sign for floating dollar.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a> <span class="esymbol">~</span> &quot;$$$&quot;
+
+	<a name="f_sign_floating_dollar_signed"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_floating_dollar_signed">sign_floating_dollar_signed</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set sign for floating dollar include sign.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a> <span class="esymbol">~</span> &quot;-$ $+$&quot;
+
+	<a name="f_sign_ignore"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_ignore">sign_ignore</a>
+			<span class="ecomment">--</span><span class="ecomment"> Do not show sign.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_ignore_sign">ignore_sign</a>
+
+	<a name="f_sign_leading"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_leading">sign_leading</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the sign to lead</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_leading_sign">leading_sign</a>
+
+	<a name="f_sign_negative_only"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_negative_only">sign_negative_only</a>
+			<span class="ecomment">--</span><span class="ecomment"> Show sign for negative numbers only.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign_negative">show_sign_negative</a>
+
+	<a name="f_sign_normal"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_normal">sign_normal</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set sign for - and +.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a> <span class="esymbol">~</span> &quot;- +&quot;
+
+	<a name="f_sign_positive_only"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_positive_only">sign_positive_only</a>
+			<span class="ecomment">--</span><span class="ecomment"> Show sign for positive numbers only.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign_positive">show_sign_positive</a>
+
+	<a name="f_sign_show"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_show">sign_show</a>
+			<span class="ecomment">--</span><span class="ecomment"> Show sign for all numbers.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_show_sign">show_sign</a>
+
+	<a name="f_sign_trailing"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_trailing">sign_trailing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the sign to trail</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_trailing_sign">trailing_sign</a>
+
+	<a name="f_unbracket_negative"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_unbracket_negative">unbracket_negative</a>
+			<span class="ecomment">--</span><span class="ecomment"> Do not bracket negative numbers.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/format_integer_flatshort.html#f_bracketted_negative">bracketted_negative</a>
+
+	<a name="f_underscore_separate"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_underscore_separate">underscore_separate</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set separator to underscore.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_separator">separator</a> <span class="esymbol">=</span> <span class="echar">'_'</span>
+
+	<a name="f_zero_fill"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_zero_fill">zero_fill</a>
+			<span class="ecomment">--</span><span class="ecomment"> Fill numbers with zeros.</span>
+		<span class="ekeyword">ensure</span>
+				<a class="efeature" href="../elks/format_integer_flatshort.html#f_fill_character">fill_character</a> <span class="esymbol">=</span> <span class="echar">'0'</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Conversion</span>
+
+	<a name="f_formatted"></a><a class="efeature" href="../elks/format_integer_flatshort.html#f_formatted">formatted</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Format the integer.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_not_justified">not_justified</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flatshort.html#f_count">count</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <a class="efeature" href="../elks/format_integer_flatshort.html#f_width">width</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flatshort.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flatshort.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flatshort.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flatshort.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flatshort.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flatshort.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flatshort.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">sign_string_attached</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">sign_string_count</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flatshort.html#f_count">count</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">3</span>
+	<span class="etag">sign_string_equal_parts</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_sign_string">sign_string</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flatshort.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32_flatshort.html#f_integer_remainder">\\</a> <span class="enumber">3</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+	<span class="etag">wide_enough</span><span class="esymbol">:</span> <a class="efeature" href="../elks/format_integer_flatshort.html#f_width">width</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span>
+		<a class="efeature" href="../elks/format_integer_flatshort.html#f_no_justification">No_justification</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../elks/format_integer_flatshort.html#f_justification">justification</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../elks/format_integer_flatshort.html#f_justification">justification</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../elks/format_integer_flatshort.html#f_right_justification">Right_justification</a>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2012, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../elks/format_integer_flatshort.html">FORMAT_INTEGER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="format_integer_chart.html">Chart</a>
+<a class="nav class" href="format_integer_links.html">Relations</a>
+<a class="nav class" href="format_integer.html">Text</a>
+<a class="nav class" href="format_integer_flat.html">Flat</a>
+<a class="nav class" href="format_integer_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="format_integer"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Controler for the event.  It is important to call poll_event or wait_event regularly  if you want events to be launch."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_events_controller Contracts</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_events_controller_chart.html">Chart</a>
+<a class="nav class" href="game_events_controller_links.html">Relations</a>
+<a class="nav class" href="game_events_controller.html">Text</a>
+<a class="nav class" href="game_events_controller_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_events_controller_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_events_controller"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Controler for the event. </span>
+		<span class="estring">It is important to call poll_event or wait_event regularly </span>
+		<span class="estring">if you want events to be launch.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sat, 28 Mar 2015 03:44:41 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../../game_core/event/game_events_controller_short.html">GAME_EVENTS_CONTROLLER</a>
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../../game_core/game_library_controller_short.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">}</span>
+	<a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_clear"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_clear">clear</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove every event in the system</span>
+
+	<a name="f_poll_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_poll_event">poll_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute an event validation. If no event is pending, do nothing.</span>
+		<span class="ekeyword">require</span>
+				<span class="ekeyword">attached</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_game_library">game_library</a> <span class="ekeyword">as</span> la_game_library <a class="ekeyword" href="../../elks/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="elocal">la_game_library</span><span class="edot">.</span><a class="efeature" href="../../game_core/game_library_controller_short.html#f_is_events_enable">is_events_enable</a>
+
+	<a name="f_quit_signal_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_quit_signal_actions">quit_signal_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the application receive a quit signal.</span>
+
+	<a name="f_iteration_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_iteration_actions">iteration_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called at each game loop</span>
+
+	<a name="f_window_event_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_window_event_actions">window_event_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the window identified by </span><span class="equoted">window_id</span><span class="ecomment"> is changing state. </span><span class="equoted">event_type</span><span class="ecomment"> may take the following value:</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_SHOWN: The window has been shown</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_HIDDEN: The window has been hidden</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_EXPOSED: The window has been exposed and should be redraw</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_MOVED: window has been moved to coordinate (</span><span class="equoted">data1</span><span class="ecomment">,</span><span class="equoted">data2</span><span class="ecomment">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_RESIZED: window has been resized to dimension </span><span class="equoted">data1</span><span class="ecomment">x</span><span class="equoted">data2</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this event is always preceded by SDL_WINDOWEVENT_SIZE_CHANGED</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_SIZE_CHANGED: window size has changed</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_MINIMIZED: window has been minimized</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_MAXIMIZED: window has been maximized</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_RESTORED: window has been restored to normal size and position</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_ENTER: window has gained mouse focus</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_LEAVE: window has lost mouse focus</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_FOCUS_GAINED: window has gained keyboard focus</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_FOCUS_LOST: window has lost keyboard focus</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_WINDOWEVENT_CLOSE: the window manager requests that the window be closed</span>
+
+	<a name="f_key_pressed_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_key_pressed_actions">key_pressed_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_16_short.html">NATURAL_16</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a user presses a button on a keyboard. The current focused window</span>
+			<span class="ecomment">--</span><span class="ecomment"> is identified by </span><span class="equoted">window_id</span><span class="ecomment">. </span><span class="equoted">repeat</span><span class="ecomment"> is non zero if the event is a key repeat.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The key pressed has the physical code </span><span class="equoted">scancode</span><span class="ecomment">, the virtual code </span><span class="equoted">keycode</span><span class="ecomment"> and</span>
+			<span class="ecomment">--</span><span class="ecomment"> has the current </span><span class="equoted">modifier</span><span class="ecomment"> (CTRL, SHIFT, ALT, etc.) in effect.</span>
+
+	<a name="f_key_released_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_key_released_actions">key_released_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_16_short.html">NATURAL_16</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a user releases a button on a keyboard. The current focused window</span>
+			<span class="ecomment">--</span><span class="ecomment"> is identified by </span><span class="equoted">window_id</span><span class="ecomment">. </span><span class="equoted">repeat</span><span class="ecomment"> is non zero if the event is a key repeat.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The key released has the physical code </span><span class="equoted">scancode</span><span class="ecomment">, the virtual code </span><span class="equoted">keycode</span><span class="ecomment"> and</span>
+			<span class="ecomment">--</span><span class="ecomment"> has the current </span><span class="equoted">modifier</span><span class="ecomment"> (CTRL, SHIFT, ALT, etc.) in effect.</span>
+
+	<a name="f_text_editing_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_text_editing_actions">text_editing_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/string_32_short.html">STRING_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a </span><span class="equoted">text</span><span class="ecomment"> has been edited in the window identified by </span><span class="equoted">window_id</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The text must be edited from the </span><span class="equoted">start</span><span class="ecomment"> character for </span><span class="equoted">lenght</span><span class="ecomment"> characters.</span>
+
+	<a name="f_text_input_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_text_input_actions">text_input_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/string_32_short.html">STRING_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a </span><span class="equoted">text</span><span class="ecomment"> has been input in the window identified by </span><span class="equoted">window_id</span><span class="ecomment">.</span>
+
+	<a name="f_mouse_motion_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_motion_actions">mouse_motion_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the mouse identified by </span><span class="equoted">mouse_id</span><span class="ecomment"> has been moved to the coordinate (</span><span class="equoted">x</span><span class="ecomment">,</span><span class="equoted">y</span><span class="ecomment">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> in the window identified by </span><span class="equoted">window_id</span><span class="ecomment">. The mouse has been move of </span><span class="equoted">x_relative</span>
+			<span class="ecomment">--</span><span class="ecomment"> position on the x axis and </span><span class="equoted">y_relative</span><span class="ecomment"> position on the y axis since the last call</span>
+			<span class="ecomment">--</span><span class="ecomment"> of the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_motion_actions">mouse_motion_actions</a><span class="ecomment"> event. The </span><span class="equoted">state</span><span class="ecomment"> of the mouse indicate which buttons is</span>
+			<span class="ecomment">--</span><span class="ecomment"> currently pressed. It is check with the following mask:</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_LMASK: Left button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_MMASK: Middle button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_RMASK: Right button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_X1MASK: First optionnal button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_X2MASK: Second optionnal button</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: </span><span class="equoted">mouse_id</span><span class="ecomment"> may be SDL_TOUCH_MOUSEID</span>
+
+	<a name="f_mouse_button_pressed_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_button_pressed_actions">mouse_button_pressed_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a button of the mouse identified by </span><span class="equoted">mouse_id</span><span class="ecomment"> at coordinate (</span><span class="equoted">x</span><span class="ecomment">,</span><span class="equoted">y</span><span class="ecomment">) in the window</span>
+			<span class="ecomment">--</span><span class="ecomment"> identified by </span><span class="equoted">window_id</span><span class="ecomment"> has been pressed. The </span><span class="equoted">clicks</span><span class="ecomment"> show how much successive clicks</span>
+			<span class="ecomment">--</span><span class="ecomment"> has been made (1 for simple click, 2 for double click, etc.). The </span><span class="equoted">button</span><span class="ecomment"> say what</span>
+			<span class="ecomment">--</span><span class="ecomment"> mouse button has been pressed. The value can be:</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_LEFT: Left button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_MIDDLE: Middle button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_RIGHT: Right button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_X1: First optionnal button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_X2: Second optionnal button</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: </span><span class="equoted">mouse_id</span><span class="ecomment"> may be SDL_TOUCH_MOUSEID</span>
+
+	<a name="f_mouse_button_released_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_button_released_actions">mouse_button_released_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a button of the mouse identified by </span><span class="equoted">mouse_id</span><span class="ecomment"> at coordinate (</span><span class="equoted">x</span><span class="ecomment">,</span><span class="equoted">y</span><span class="ecomment">) in the window</span>
+			<span class="ecomment">--</span><span class="ecomment"> identified by </span><span class="equoted">window_id</span><span class="ecomment"> has been released. The </span><span class="equoted">clicks</span><span class="ecomment"> show how much successive clicks</span>
+			<span class="ecomment">--</span><span class="ecomment"> has been made (1 for simple click, 2 for double click, etc.). The </span><span class="equoted">button</span><span class="ecomment"> say what</span>
+			<span class="ecomment">--</span><span class="ecomment"> mouse button has been released. The value can be:</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_LEFT: Left button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_MIDDLE: Middle button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_RIGHT: Right button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_X1: First optionnal button</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_BUTTON_X2: Second optionnal button</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: </span><span class="equoted">mouse_id</span><span class="ecomment"> may be SDL_TOUCH_MOUSEID</span>
+
+	<a name="f_mouse_wheel_move_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_wheel_move_actions">mouse_wheel_move_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the wheel of the mouse identified by </span><span class="equoted">mouse_id</span><span class="ecomment"> in the window identified by</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">window_id</span><span class="ecomment"> has been moved. A positive </span><span class="equoted">x</span><span class="ecomment"> indicate a move to the right and a negative</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">x</span><span class="ecomment"> indicate a move to the left. A positive </span><span class="equoted">y</span><span class="ecomment"> indicate a move up and a</span>
+			<span class="ecomment">--</span><span class="ecomment"> negative </span><span class="equoted">x</span><span class="ecomment"> indicate a move down.</span>
+
+	<a name="f_joy_axis_motion_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_axis_motion_actions">joy_axis_motion_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_16_short.html">INTEGER_16</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the axis identified by </span><span class="equoted">axis_id</span><span class="ecomment"> of the joystick identified by </span><span class="equoted">joystick_id</span><span class="ecomment"> has</span>
+			<span class="ecomment">--</span><span class="ecomment"> been moved to a certain </span><span class="equoted">value</span><span class="ecomment">.</span>
+
+	<a name="f_joy_ball_motion_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_ball_motion_actions">joy_ball_motion_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_16_short.html">INTEGER_16</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_16_short.html">INTEGER_16</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the ball identified by </span><span class="equoted">ball_id</span><span class="ecomment"> of the joystick identified by </span><span class="equoted">joystick_id</span><span class="ecomment"> has</span>
+			<span class="ecomment">--</span><span class="ecomment"> been moved. The </span><span class="equoted">x_relative</span><span class="ecomment"> and </span><span class="equoted">y_relative</span><span class="ecomment"> indicate the move relative to the last</span>
+			<span class="ecomment">--</span><span class="ecomment"> call of the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_ball_motion_actions">joy_ball_motion_actions</a><span class="ecomment"> event.</span>
+
+	<a name="f_joy_hat_motion_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_hat_motion_actions">joy_hat_motion_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the hat identified by </span><span class="equoted">hat_id</span><span class="ecomment"> of the joystick identified by </span><span class="equoted">joystick_id</span><span class="ecomment"> has</span>
+			<span class="ecomment">--</span><span class="ecomment"> been moved to a certain </span><span class="equoted">value</span><span class="ecomment">. The </span><span class="equoted">value</span><span class="ecomment"> can be one of the following:</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_LEFTUP</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_UP</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_RIGHTUP</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_LEFT</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_CENTERED</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_RIGHT</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_LEFTDOWN</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_DOWN</span>
+			<span class="ecomment">--</span><span class="ecomment"> SDL_HAT_RIGHTDOWN</span>
+
+	<a name="f_joy_button_pressed_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_button_pressed_actions">joy_button_pressed_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the button identified by </span><span class="equoted">button_id</span><span class="ecomment"> of the joystick identified by </span><span class="equoted">joystick_id</span><span class="ecomment"> has</span>
+			<span class="ecomment">--</span><span class="ecomment"> been pressed.</span>
+
+	<a name="f_joy_button_released_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_button_released_actions">joy_button_released_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the button identified by </span><span class="equoted">button_id</span><span class="ecomment"> of the joystick identified by </span><span class="equoted">joystick_id</span><span class="ecomment"> has</span>
+			<span class="ecomment">--</span><span class="ecomment"> been released.</span>
+
+	<a name="f_joy_device_founded_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_device_founded_actions">joy_device_founded_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a new joystick device identified by </span><span class="equoted">joystick_id</span><span class="ecomment"> has been founded.</span>
+
+	<a name="f_joy_device_removed_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_device_removed_actions">joy_device_removed_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a new joystick device identified by </span><span class="equoted">joystick_id</span><span class="ecomment"> has been removed.</span>
+
+	<a name="f_finger_motion_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_motion_actions">finger_motion_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a finger identified by </span><span class="equoted">finger_id</span><span class="ecomment"> in the touch device identified by</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">touch_id</span><span class="ecomment"> has been moved to (</span><span class="equoted">x</span><span class="ecomment">,</span><span class="equoted">y</span><span class="ecomment">) with a certain </span><span class="equoted">pressure</span><span class="ecomment">. The</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">x_relative</span><span class="ecomment"> and </span><span class="equoted">y_relative</span><span class="ecomment"> indicate the move relative to the last</span>
+			<span class="ecomment">--</span><span class="ecomment"> call of the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_motion_actions">finger_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that </span><span class="equoted">x</span><span class="ecomment">, </span><span class="equoted">y</span><span class="ecomment">, </span><span class="equoted">x_relative</span><span class="ecomment">, </span><span class="equoted">y_relative</span><span class="ecomment"> and </span><span class="equoted">pressure</span><span class="ecomment"> are normalize</span>
+			<span class="ecomment">--</span><span class="ecomment"> between 0 and 1.</span>
+
+	<a name="f_finger_released_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_released_actions">finger_released_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a finger identified by </span><span class="equoted">finger_id</span><span class="ecomment"> in the touch device identified by</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">touch_id</span><span class="ecomment"> has been released at (</span><span class="equoted">x</span><span class="ecomment">,</span><span class="equoted">y</span><span class="ecomment">) with a certain </span><span class="equoted">pressure</span><span class="ecomment">. The</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">x_relative</span><span class="ecomment"> and </span><span class="equoted">y_relative</span><span class="ecomment"> indicate the move relative to the last</span>
+			<span class="ecomment">--</span><span class="ecomment"> call of the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_motion_actions">finger_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that </span><span class="equoted">x</span><span class="ecomment">, </span><span class="equoted">y</span><span class="ecomment">, </span><span class="equoted">x_relative</span><span class="ecomment">, </span><span class="equoted">y_relative</span><span class="ecomment"> and </span><span class="equoted">pressure</span><span class="ecomment"> are normalize</span>
+			<span class="ecomment">--</span><span class="ecomment"> between 0 and 1.</span>
+
+	<a name="f_finger_touched_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_touched_actions">finger_touched_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a finger identified by </span><span class="equoted">finger_id</span><span class="ecomment"> in the touch device identified by</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">touch_id</span><span class="ecomment"> has been pressed at (</span><span class="equoted">x</span><span class="ecomment">,</span><span class="equoted">y</span><span class="ecomment">) with a certain </span><span class="equoted">pressure</span><span class="ecomment">. The</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">x_relative</span><span class="ecomment"> and </span><span class="equoted">y_relative</span><span class="ecomment"> indicate the move relative to the last</span>
+			<span class="ecomment">--</span><span class="ecomment"> call of the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_motion_actions">finger_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that </span><span class="equoted">x</span><span class="ecomment">, </span><span class="equoted">y</span><span class="ecomment">, </span><span class="equoted">x_relative</span><span class="ecomment">, </span><span class="equoted">y_relative</span><span class="ecomment"> and </span><span class="equoted">pressure</span><span class="ecomment"> are normalize</span>
+			<span class="ecomment">--</span><span class="ecomment"> between 0 and 1.</span>
+
+	<a name="f_fingers_gesture_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_fingers_gesture_actions">fingers_gesture_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_16_short.html">NATURAL_16</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a gesture has been made on the touch device identified by </span><span class="equoted">touch_id</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The gesture has a certain </span><span class="equoted">fingers_count</span><span class="ecomment">, is centered at (</span><span class="equoted">center_x</span><span class="ecomment">, </span><span class="equoted">center_y</span><span class="ecomment">).</span>
+			<span class="ecomment">--</span><span class="ecomment"> The fingers used a rotation of </span><span class="equoted">theta</span><span class="ecomment"> degree and have a </span><span class="equoted">distance</span><span class="ecomment"> of pinch.</span>
+
+	<a name="f_dollar_gesture_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_dollar_gesture_actions">dollar_gesture_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a $1 gesture has been recognize on the touch device </span><span class="equoted">touch_id</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The gesture is uniquely identified by </span><span class="equoted">gesture_id</span><span class="ecomment">. I use </span><span class="equoted">fingers_count</span><span class="ecomment"> fingers</span>
+			<span class="ecomment">--</span><span class="ecomment"> and is centered at (</span><span class="equoted">x</span><span class="ecomment">,</span><span class="equoted">y</span><span class="ecomment">) where </span><span class="equoted">x</span><span class="ecomment"> and </span><span class="equoted">y</span><span class="ecomment"> are normalized (between 0 and 1).</span>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><span class="equoted">error</span><span class="ecomment"> indicate the difference between the current gesture and the template.</span>
+
+	<a name="f_dollar_record_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_dollar_record_actions">dollar_record_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/integer_64_short.html">INTEGER_64</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When a $1 gesture has been recorded on the touch device </span><span class="equoted">touch_id</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The gesture is uniquely identified by </span><span class="equoted">gesture_id</span><span class="ecomment">.</span>
+
+	<a name="f_file_dropped_actions"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_file_dropped_actions">file_dropped_actions</a><span class="esymbol">:</span> <a class="eclass" href="../../ise/action_sequence_short.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../../elks/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The file pointed by </span><span class="equoted">filename</span><span class="ecomment"> has been dropped on a window of the game.</span>
+			<span class="ecomment">--</span><span class="ecomment"> This event is disabled by default. use </span><a class="eclass" href="../../game_core/event/game_events_controller_short.html">GAME_EVENTS_CONTROLLER</a><span class="ecomment">.</span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_file_dropped_event">enable_file_dropped_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> to activate it.</span>
+
+	<a name="f_enable_quit_signal_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_quit_signal_event">enable_quit_signal_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_quit_signal_actions">quit_signal_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_quit_signal_event_enable">is_quit_signal_event_enable</a>
+
+	<a name="f_disable_quit_signal_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_quit_signal_event">disable_quit_signal_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_quit_signal_actions">quit_signal_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_quit_signal_event_enable">is_quit_signal_event_enable</a>
+
+	<a name="f_is_quit_signal_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_quit_signal_event_enable">is_quit_signal_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_quit_signal_event_enable">set_is_quit_signal_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_quit_signal_actions">quit_signal_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_quit_signal_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_quit_signal_event_enable">set_is_quit_signal_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_quit_signal_event_enable">is_quit_signal_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_quit_signal_event_enable">is_quit_signal_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_window_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_window_event">enable_window_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_window_event_actions">window_event_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_window_event_enable">is_window_event_enable</a>
+
+	<a name="f_disable_window_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_window_event">disable_window_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_window_event_actions">window_event_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_window_event_enable">is_window_event_enable</a>
+
+	<a name="f_is_window_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_window_event_enable">is_window_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_window_event_enable">set_is_window_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_window_event_actions">window_event_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_window_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_window_event_enable">set_is_window_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_window_event_enable">is_window_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_window_event_enable">is_window_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_key_pressed_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_key_pressed_event">enable_key_pressed_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_key_pressed_actions">key_pressed_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_pressed_event_enable">is_key_pressed_event_enable</a>
+
+	<a name="f_disable_key_pressed_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_key_pressed_event">disable_key_pressed_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_key_pressed_actions">key_pressed_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_pressed_event_enable">is_key_pressed_event_enable</a>
+
+	<a name="f_is_key_pressed_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_pressed_event_enable">is_key_pressed_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_key_pressed_event_enable">set_is_key_pressed_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_key_pressed_actions">key_pressed_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_key_pressed_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_key_pressed_event_enable">set_is_key_pressed_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_pressed_event_enable">is_key_pressed_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_pressed_event_enable">is_key_pressed_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_key_released_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_key_released_event">enable_key_released_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_key_released_actions">key_released_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_released_event_enable">is_key_released_event_enable</a>
+
+	<a name="f_disable_key_released_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_key_released_event">disable_key_released_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_key_released_actions">key_released_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_released_event_enable">is_key_released_event_enable</a>
+
+	<a name="f_is_key_released_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_released_event_enable">is_key_released_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_key_released_event_enable">set_is_key_released_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_key_released_actions">key_released_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_key_released_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_key_released_event_enable">set_is_key_released_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_released_event_enable">is_key_released_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_key_released_event_enable">is_key_released_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_is_text_editing_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_text_editing_event_enable">is_text_editing_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_text_editing_actions">text_editing_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_is_text_input_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_text_input_event_enable">is_text_input_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_text_input_actions">text_input_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_enable_mouse_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_mouse_motion_event">enable_mouse_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_motion_actions">mouse_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_motion_event_enable">is_mouse_motion_event_enable</a>
+
+	<a name="f_disable_mouse_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_mouse_motion_event">disable_mouse_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_motion_actions">mouse_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_motion_event_enable">is_mouse_motion_event_enable</a>
+
+	<a name="f_is_mouse_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_motion_event_enable">is_mouse_motion_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_mouse_motion_event_enable">set_is_mouse_motion_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_motion_actions">mouse_motion_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_mouse_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_mouse_motion_event_enable">set_is_mouse_motion_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_text_input_event_enable">is_text_input_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_motion_event_enable">is_mouse_motion_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_mouse_button_pressed_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_mouse_button_pressed_event">enable_mouse_button_pressed_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_button_pressed_actions">mouse_button_pressed_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_pressed_event_enable">is_mouse_button_pressed_event_enable</a>
+
+	<a name="f_disable_mouse_button_pressed_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_mouse_button_pressed_event">disable_mouse_button_pressed_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_button_pressed_actions">mouse_button_pressed_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_pressed_event_enable">is_mouse_button_pressed_event_enable</a>
+
+	<a name="f_is_mouse_button_pressed_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_pressed_event_enable">is_mouse_button_pressed_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_mouse_button_pressed_event_enable">set_is_mouse_button_pressed_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_button_pressed_actions">mouse_button_pressed_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_mouse_button_pressed_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_mouse_button_pressed_event_enable">set_is_mouse_button_pressed_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_pressed_event_enable">is_mouse_button_pressed_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_pressed_event_enable">is_mouse_button_pressed_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_mouse_button_released_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_mouse_button_released_event">enable_mouse_button_released_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_button_released_actions">mouse_button_released_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_released_event_enable">is_mouse_button_released_event_enable</a>
+
+	<a name="f_disable_mouse_button_released_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_mouse_button_released_event">disable_mouse_button_released_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_button_released_actions">mouse_button_released_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_released_event_enable">is_mouse_button_released_event_enable</a>
+
+	<a name="f_is_mouse_button_released_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_released_event_enable">is_mouse_button_released_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_mouse_button_released_event_enable">set_is_mouse_button_released_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_button_released_actions">mouse_button_released_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_mouse_button_released_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_mouse_button_released_event_enable">set_is_mouse_button_released_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_released_event_enable">is_mouse_button_released_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_button_released_event_enable">is_mouse_button_released_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_mouse_wheel_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_mouse_wheel_event">enable_mouse_wheel_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_wheel_move_actions">mouse_wheel_move_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_wheel_event_enable">is_mouse_wheel_event_enable</a>
+
+	<a name="f_disable_mouse_wheel_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_mouse_wheel_event">disable_mouse_wheel_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_wheel_move_actions">mouse_wheel_move_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_wheel_event_enable">is_mouse_wheel_event_enable</a>
+
+	<a name="f_is_mouse_wheel_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_wheel_event_enable">is_mouse_wheel_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_mouse_wheel_event_enable">set_is_mouse_wheel_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_mouse_wheel_move_actions">mouse_wheel_move_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_mouse_wheel_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_mouse_wheel_event_enable">set_is_mouse_wheel_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_wheel_event_enable">is_mouse_wheel_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_mouse_wheel_event_enable">is_mouse_wheel_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_joy_axis_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_joy_axis_motion_event">enable_joy_axis_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_axis_motion_actions">joy_axis_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_axis_motion_event_enable">is_joy_axis_motion_event_enable</a>
+
+	<a name="f_disable_joy_axis_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_joy_axis_motion_event">disable_joy_axis_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_axis_motion_actions">joy_axis_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_axis_motion_event_enable">is_joy_axis_motion_event_enable</a>
+
+	<a name="f_is_joy_axis_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_axis_motion_event_enable">is_joy_axis_motion_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_axis_motion_event_enable">set_is_joy_axis_motion_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_axis_motion_actions">joy_axis_motion_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_joy_axis_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_axis_motion_event_enable">set_is_joy_axis_motion_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_axis_motion_event_enable">is_joy_axis_motion_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_axis_motion_event_enable">is_joy_axis_motion_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_joy_ball_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_joy_ball_motion_event">enable_joy_ball_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_ball_motion_actions">joy_ball_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_ball_motion_event_enable">is_joy_ball_motion_event_enable</a>
+
+	<a name="f_disable_joy_ball_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_joy_ball_motion_event">disable_joy_ball_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_ball_motion_actions">joy_ball_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_ball_motion_event_enable">is_joy_ball_motion_event_enable</a>
+
+	<a name="f_is_joy_ball_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_ball_motion_event_enable">is_joy_ball_motion_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_ball_motion_event_enable">set_is_joy_ball_motion_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_ball_motion_actions">joy_ball_motion_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_joy_ball_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_ball_motion_event_enable">set_is_joy_ball_motion_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_ball_motion_event_enable">is_joy_ball_motion_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_ball_motion_event_enable">is_joy_ball_motion_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_joy_hat_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_joy_hat_motion_event">enable_joy_hat_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_hat_motion_actions">joy_hat_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_hat_motion_event_enable">is_joy_hat_motion_event_enable</a>
+
+	<a name="f_disable_joy_hat_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_joy_hat_motion_event">disable_joy_hat_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_hat_motion_actions">joy_hat_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_hat_motion_event_enable">is_joy_hat_motion_event_enable</a>
+
+	<a name="f_is_joy_hat_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_hat_motion_event_enable">is_joy_hat_motion_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_hat_motion_event_enable">set_is_joy_hat_motion_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_hat_motion_actions">joy_hat_motion_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_joy_hat_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_hat_motion_event_enable">set_is_joy_hat_motion_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_hat_motion_event_enable">is_joy_hat_motion_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_hat_motion_event_enable">is_joy_hat_motion_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_joy_button_pressed_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_joy_button_pressed_event">enable_joy_button_pressed_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_button_pressed_actions">joy_button_pressed_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_pressed_event_enable">is_joy_button_pressed_event_enable</a>
+
+	<a name="f_disable_joy_button_pressed_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_joy_button_pressed_event">disable_joy_button_pressed_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_button_pressed_actions">joy_button_pressed_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_pressed_event_enable">is_joy_button_pressed_event_enable</a>
+
+	<a name="f_is_joy_button_pressed_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_pressed_event_enable">is_joy_button_pressed_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_button_pressed_event_enable">set_is_joy_button_pressed_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_button_pressed_actions">joy_button_pressed_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_joy_button_pressed_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_button_pressed_event_enable">set_is_joy_button_pressed_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_pressed_event_enable">is_joy_button_pressed_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_pressed_event_enable">is_joy_button_pressed_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_joy_button_released_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_joy_button_released_event">enable_joy_button_released_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_button_released_actions">joy_button_released_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_released_event_enable">is_joy_button_released_event_enable</a>
+
+	<a name="f_disable_joy_button_released_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_joy_button_released_event">disable_joy_button_released_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_button_released_actions">joy_button_released_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_released_event_enable">is_joy_button_released_event_enable</a>
+
+	<a name="f_is_joy_button_released_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_released_event_enable">is_joy_button_released_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_button_released_event_enable">set_is_joy_button_released_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_button_released_actions">joy_button_released_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_joy_button_released_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_button_released_event_enable">set_is_joy_button_released_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_released_event_enable">is_joy_button_released_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_released_event_enable">is_joy_button_released_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_joy_device_founded_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_joy_device_founded_event">enable_joy_device_founded_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_device_founded_actions">joy_device_founded_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a>
+
+	<a name="f_disable_joy_device_founded_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_joy_device_founded_event">disable_joy_device_founded_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_device_founded_actions">joy_device_founded_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a>
+
+	<a name="f_is_joy_device_founded_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_device_founded_event_enable">set_is_joy_device_founded_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_device_founded_actions">joy_device_founded_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_joy_device_founded_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_device_founded_event_enable">set_is_joy_device_founded_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_joy_device_removed_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_joy_device_removed_event">enable_joy_device_removed_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_device_removed_actions">joy_device_removed_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a>
+
+	<a name="f_disable_joy_device_removed_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_joy_device_removed_event">disable_joy_device_removed_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_device_removed_actions">joy_device_removed_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a>
+
+	<a name="f_is_joy_device_removed_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_device_removed_event_enable">set_is_joy_device_removed_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_joy_device_removed_actions">joy_device_removed_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_joy_device_removed_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_joy_device_removed_event_enable">set_is_joy_device_removed_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_every_joy_events"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_every_joy_events">enable_every_joy_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Enable every joystick events.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_events_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_axis_motion_event_enable">is_joy_axis_motion_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_ball_motion_event_enable">is_joy_ball_motion_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_hat_motion_event_enable">is_joy_hat_motion_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_pressed_event_enable">is_joy_button_pressed_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_released_event_enable">is_joy_button_released_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a>
+
+	<a name="f_disable_every_joy_events"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_every_joy_events">disable_every_joy_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore every joystick events.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_events_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <span class="esymbol">(</span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_axis_motion_event_enable">is_joy_axis_motion_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_disjuncted">or</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_ball_motion_event_enable">is_joy_ball_motion_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_disjuncted">or</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_hat_motion_event_enable">is_joy_hat_motion_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_disjuncted">or</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_pressed_event_enable">is_joy_button_pressed_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_disjuncted">or</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_button_released_event_enable">is_joy_button_released_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_disjuncted">or</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_disjuncted">or</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a><span class="esymbol">)</span>
+
+	<a name="f_is_any_joy_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_any_joy_event_enable">is_any_joy_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_any_joy_event_enable">set_is_any_joy_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there any joystick event that is enable</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_any_joy_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_any_joy_event_enable">set_is_any_joy_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_any_joy_event_enable">is_any_joy_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_any_joy_event_enable">is_any_joy_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_finger_touched_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_finger_touched_event">enable_finger_touched_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_touched_actions">finger_touched_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_touched_event_enable">is_finger_touched_event_enable</a>
+
+	<a name="f_disable_finger_touched_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_finger_touched_event">disable_finger_touched_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_touched_actions">finger_touched_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_touched_event_enable">is_finger_touched_event_enable</a>
+
+	<a name="f_is_finger_touched_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_touched_event_enable">is_finger_touched_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_finger_touched_event_enable">set_is_finger_touched_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_touched_actions">finger_touched_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_finger_touched_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_finger_touched_event_enable">set_is_finger_touched_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_touched_event_enable">is_finger_touched_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_touched_event_enable">is_finger_touched_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_finger_released_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_finger_released_event">enable_finger_released_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_released_actions">finger_released_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_released_event_enable">is_finger_released_event_enable</a>
+
+	<a name="f_disable_finger_released_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_finger_released_event">disable_finger_released_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_released_actions">finger_released_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_released_event_enable">is_finger_released_event_enable</a>
+
+	<a name="f_is_finger_released_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_released_event_enable">is_finger_released_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_finger_released_event_enable">set_is_finger_released_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_released_actions">finger_released_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_finger_released_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_finger_released_event_enable">set_is_finger_released_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_released_event_enable">is_finger_released_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_released_event_enable">is_finger_released_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_finger_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_finger_motion_event">enable_finger_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_motion_actions">finger_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_motion_event_enable">is_finger_motion_event_enable</a>
+
+	<a name="f_disable_finger_motion_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_finger_motion_event">disable_finger_motion_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_motion_actions">finger_motion_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_motion_event_enable">is_finger_motion_event_enable</a>
+
+	<a name="f_is_finger_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_motion_event_enable">is_finger_motion_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_finger_motion_event_enable">set_is_finger_motion_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_finger_motion_actions">finger_motion_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_finger_motion_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_finger_motion_event_enable">set_is_finger_motion_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_motion_event_enable">is_finger_motion_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_finger_motion_event_enable">is_finger_motion_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_fingers_gesture_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_fingers_gesture_event">enable_fingers_gesture_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_fingers_gesture_actions">fingers_gesture_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_fingers_gesture_event_enable">is_fingers_gesture_event_enable</a>
+
+	<a name="f_disable_fingers_gesture_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_fingers_gesture_event">disable_fingers_gesture_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_fingers_gesture_actions">fingers_gesture_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_fingers_gesture_event_enable">is_fingers_gesture_event_enable</a>
+
+	<a name="f_is_fingers_gesture_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_fingers_gesture_event_enable">is_fingers_gesture_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_fingers_gesture_event_enable">set_is_fingers_gesture_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_fingers_gesture_actions">fingers_gesture_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_fingers_gesture_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_fingers_gesture_event_enable">set_is_fingers_gesture_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_fingers_gesture_event_enable">is_fingers_gesture_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_fingers_gesture_event_enable">is_fingers_gesture_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_dollar_gesture_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_dollar_gesture_event">enable_dollar_gesture_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_dollar_gesture_actions">dollar_gesture_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_gesture_event_enable">is_dollar_gesture_event_enable</a>
+
+	<a name="f_disable_dollar_gesture_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_dollar_gesture_event">disable_dollar_gesture_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_dollar_gesture_actions">dollar_gesture_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_gesture_event_enable">is_dollar_gesture_event_enable</a>
+
+	<a name="f_is_dollar_gesture_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_gesture_event_enable">is_dollar_gesture_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_dollar_gesture_event_enable">set_is_dollar_gesture_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_dollar_gesture_actions">dollar_gesture_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_dollar_gesture_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_dollar_gesture_event_enable">set_is_dollar_gesture_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_gesture_event_enable">is_dollar_gesture_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_gesture_event_enable">is_dollar_gesture_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_dollar_record_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_dollar_record_event">enable_dollar_record_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_dollar_record_actions">dollar_record_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_record_event_enable">is_dollar_record_event_enable</a>
+
+	<a name="f_disable_dollar_record_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_dollar_record_event">disable_dollar_record_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_dollar_record_actions">dollar_record_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_record_event_enable">is_dollar_record_event_enable</a>
+
+	<a name="f_is_dollar_record_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_record_event_enable">is_dollar_record_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_dollar_record_event_enable">set_is_dollar_record_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_dollar_record_actions">dollar_record_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enabled by default</span>
+
+	<a name="f_set_is_dollar_record_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_dollar_record_event_enable">set_is_dollar_record_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_record_event_enable">is_dollar_record_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_dollar_record_event_enable">is_dollar_record_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_enable_file_dropped_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_enable_file_dropped_event">enable_file_dropped_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_file_dropped_actions">file_dropped_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Disable by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_file_dropped_event_enable">is_file_dropped_event_enable</a>
+
+	<a name="f_disable_file_dropped_event"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_disable_file_dropped_event">disable_file_dropped_event</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ignore the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_file_dropped_actions">file_dropped_actions</a><span class="ecomment"> event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Disable by default</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_event_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_file_dropped_event_enable">is_file_dropped_event_enable</a>
+
+	<a name="f_is_file_dropped_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_file_dropped_event_enable">is_file_dropped_event_enable</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_file_dropped_event_enable">set_is_file_dropped_event_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_file_dropped_actions">file_dropped_actions</a><span class="ecomment"> event has to be process.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Disable by default</span>
+
+	<a name="f_set_is_file_dropped_event_enable"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_set_is_file_dropped_event_enable">set_is_file_dropped_event_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_file_dropped_event_enable">is_file_dropped_event_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_is_file_dropped_event_enable">is_file_dropped_event_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_game_library"></a><a class="efeature" href="../../game_core/event/game_events_controller_short.html#f_game_library">game_library</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../game_core/game_library_controller_short.html">GAME_LIBRARY_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library controller used by </span><span class="equoted">Current</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/event/game_events_controller_short.html">GAME_EVENTS_CONTROLLER</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_events_controller_chart.html">Chart</a>
+<a class="nav class" href="game_events_controller_links.html">Relations</a>
+<a class="nav class" href="game_events_controller.html">Text</a>
+<a class="nav class" href="game_events_controller_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_events_controller_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_events_controller"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

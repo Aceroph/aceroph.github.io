@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="The way the pixels are store in memory."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_pixel_format Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_pixel_format_chart.html">Chart</a>
+<a class="nav class" href="game_pixel_format_links.html">Relations</a>
+<a class="nav class" href="game_pixel_format.html">Text</a>
+<a class="nav class" href="game_pixel_format_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_pixel_format_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_pixel_format"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;The way the pixels are store in memory.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 02 Apr 2015 02:40:10 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../game_core/graphic/game_pixel_format_short.html">GAME_PIXEL_FORMAT</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_default_create">default_create</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_make_from_other">make_from_other</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_make_from_bits_per_pixel_and_masks">make_from_bits_per_pixel_and_masks</a>
+
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_any_short.html">GAME_SDL_ANY</a><span class="esymbol">}</span>
+	<a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_make_from_flags">make_from_flags</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_make_from_structure_pointer">make_from_structure_pointer</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_share_from_structure_pointer">share_from_structure_pointer</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_own_from_structure_pointer">own_from_structure_pointer</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_set_unknown"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_unknown">set_unknown</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to unknown</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_unknown">is_unknown</a>
+
+	<a name="f_set_index1lsb"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_index1lsb">set_index1lsb</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to index1lsb</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_index1lsb">is_index1lsb</a>
+
+	<a name="f_set_index1msb"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_index1msb">set_index1msb</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to index1msb</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_index1msb">is_index1msb</a>
+
+	<a name="f_set_index4lsb"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_index4lsb">set_index4lsb</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to index4lsb</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_index4lsb">is_index4lsb</a>
+
+	<a name="f_set_index4msb"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_index4msb">set_index4msb</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to index4msb</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_index4msb">is_index4msb</a>
+
+	<a name="f_set_index8"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_index8">set_index8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to index8</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_index8">is_index8</a>
+
+	<a name="f_set_rgb332"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgb332">set_rgb332</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgb332</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgb332">is_rgb332</a>
+
+	<a name="f_set_rgb444"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgb444">set_rgb444</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgb444</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgb444">is_rgb444</a>
+
+	<a name="f_set_rgb555"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgb555">set_rgb555</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgb555</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgb555">is_rgb555</a>
+
+	<a name="f_set_bgr555"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_bgr555">set_bgr555</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to bgr555</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_bgr555">is_bgr555</a>
+
+	<a name="f_set_argb4444"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_argb4444">set_argb4444</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to argb4444</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_argb4444">is_argb4444</a>
+
+	<a name="f_set_rgba4444"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgba4444">set_rgba4444</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgba4444</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgba4444">is_rgba4444</a>
+
+	<a name="f_set_abgr4444"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_abgr4444">set_abgr4444</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to abgr4444</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_abgr4444">is_abgr4444</a>
+
+	<a name="f_set_bgra4444"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_bgra4444">set_bgra4444</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to bgra4444</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_bgra4444">is_bgra4444</a>
+
+	<a name="f_set_argb1555"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_argb1555">set_argb1555</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to argb1555</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_argb1555">is_argb1555</a>
+
+	<a name="f_set_rgba5551"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgba5551">set_rgba5551</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgba5551</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgba5551">is_rgba5551</a>
+
+	<a name="f_set_abgr1555"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_abgr1555">set_abgr1555</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to abgr1555</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_abgr1555">is_abgr1555</a>
+
+	<a name="f_set_bgra5551"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_bgra5551">set_bgra5551</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to bgra5551</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_bgra5551">is_bgra5551</a>
+
+	<a name="f_set_rgb565"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgb565">set_rgb565</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgb565</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgb565">is_rgb565</a>
+
+	<a name="f_set_bgr565"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_bgr565">set_bgr565</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to bgr565</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_bgr565">is_bgr565</a>
+
+	<a name="f_set_rgb24"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgb24">set_rgb24</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgb24</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgb24">is_rgb24</a>
+
+	<a name="f_set_bgr24"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_bgr24">set_bgr24</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to bgr24</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_bgr24">is_bgr24</a>
+
+	<a name="f_set_rgb888"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgb888">set_rgb888</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgb888</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgb888">is_rgb888</a>
+
+	<a name="f_set_rgbx8888"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgbx8888">set_rgbx8888</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgbx8888</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgbx8888">is_rgbx8888</a>
+
+	<a name="f_set_bgr888"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_bgr888">set_bgr888</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to bgr888</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_bgr888">is_bgr888</a>
+
+	<a name="f_set_bgrx8888"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_bgrx8888">set_bgrx8888</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to bgrx8888</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_bgrx8888">is_bgrx8888</a>
+
+	<a name="f_set_argb8888"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_argb8888">set_argb8888</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to argb8888</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_argb8888">is_argb8888</a>
+
+	<a name="f_set_rgba8888"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_rgba8888">set_rgba8888</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to rgba8888</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_rgba8888">is_rgba8888</a>
+
+	<a name="f_set_abgr8888"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_abgr8888">set_abgr8888</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to abgr8888</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_abgr8888">is_abgr8888</a>
+
+	<a name="f_set_bgra8888"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_bgra8888">set_bgra8888</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to bgra8888</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_bgra8888">is_bgra8888</a>
+
+	<a name="f_set_argb2101010"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_argb2101010">set_argb2101010</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to argb2101010</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_argb2101010">is_argb2101010</a>
+
+	<a name="f_set_yv12"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_yv12">set_yv12</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to yv12</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_yv12">is_yv12</a>
+
+	<a name="f_set_iyuv"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_iyuv">set_iyuv</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to iyuv</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_iyuv">is_iyuv</a>
+
+	<a name="f_set_yuy2"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_yuy2">set_yuy2</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to yuy2</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_yuy2">is_yuy2</a>
+
+	<a name="f_set_uyvy"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_uyvy">set_uyvy</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to uyvy</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_uyvy">is_uyvy</a>
+
+	<a name="f_set_yvyu"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_set_yvyu">set_yvyu</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the pixel format of </span><span class="equoted">Current</span><span class="ecomment"> to yvyu</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">pixel_format_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_is_yvyu">is_yvyu</a>
+
+	<a name="f_color_palette"></a><a class="efeature" href="../game_core/graphic/game_pixel_format_short.html#f_color_palette">color_palette</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/graphic/game_color_palette_short.html">GAME_COLOR_PALETTE</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_pixel_format_readable_short.html#f_set_color_palette">set_color_palette</a>
+			<span class="ecomment">--</span><span class="ecomment"> The palette of color used in the indexed pixel format</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/graphic/game_pixel_format_short.html">GAME_PIXEL_FORMAT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_pixel_format_chart.html">Chart</a>
+<a class="nav class" href="game_pixel_format_links.html">Relations</a>
+<a class="nav class" href="game_pixel_format.html">Text</a>
+<a class="nav class" href="game_pixel_format_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_pixel_format_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_pixel_format"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

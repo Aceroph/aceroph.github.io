@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A font that can be use to draw text with a {TEXT_IMAGE}."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>text_font Flat contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="text_font_chart.html">Chart</a>
+<a class="nav class" href="text_font_links.html">Relations</a>
+<a class="nav class" href="text_font.html">Text</a>
+<a class="nav class" href="text_font_flat.html">Flat</a>
+<a class="nav class" href="text_font_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="text_font"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A font that can be use to draw text with a </span><span class="estring">{</span><span class="estring">TEXT_IMAGE</span><span class="estring">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Mon, 30 Mar 2015 01:06:37 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a>
+
+<span class="ekeyword">create</span> 
+	<a name="f_make"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_text_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_library_shared_flatshort.html#f_text_library">Text_library</a><span class="edot">.</span><a class="efeature" href="../game_text/text_controller_flatshort.html#f_is_text_enable">is_text_enable</a>
+			<span class="etag">filename_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="elocal">a_filename</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flatshort.html#f_is_empty">is_empty</a>
+			<span class="etag">size_stricly_positive</span><span class="esymbol">:</span> <span class="elocal">a_size</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+
+	<a name="f_make_with_index"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_make_with_index">make_with_index</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The index is use if there is more than one font in a ttf file.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_text_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_library_shared_flatshort.html#f_text_library">Text_library</a><span class="edot">.</span><a class="efeature" href="../game_text/text_controller_flatshort.html#f_is_text_enable">is_text_enable</a>
+			<span class="etag">filename_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="elocal">a_filename</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flatshort.html#f_is_empty">is_empty</a>
+			<span class="etag">size_stricly_positive</span><span class="esymbol">:</span> <span class="elocal">a_size</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+			<span class="etag">index_positive</span><span class="esymbol">:</span> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_ascent"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_ascent">ascent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> distance from the top of the drawing area to the baseline in pixel.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_descent"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_descent">descent</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> distance from the baseline to the bottom of the drawing area in pixel.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_disable_bold"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_disable_bold">disable_bold</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove a bold style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_bold">is_bold</a>
+
+	<a name="f_disable_hinting"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_disable_hinting">disable_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the draw hinting of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_disable_italic"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_disable_italic">disable_italic</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove an italic style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_italic">is_italic</a>
+
+	<a name="f_disable_kerning"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_disable_kerning">disable_kerning</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does not allow the library to use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_kerning_enabled">is_kerning_enabled</a>
+
+	<a name="f_disable_outline"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_disable_outline">disable_outline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the outline size in </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font_flatshort.html#f_has_outline">has_outline</a>
+
+	<a name="f_disable_strike_through"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_disable_strike_through">disable_strike_through</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove a strike through style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_strike_through">is_strike_through</a>
+
+	<a name="f_disable_style_modifier"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_disable_style_modifier">disable_style_modifier</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable all style modifier (underline, bold, italic and strike through)</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_disable_underline"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_disable_underline">disable_underline</a>
+			<span class="ecomment">--</span><span class="ecomment"> remove an underline style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_underline">is_underline</a>
+
+	<a name="f_enable_bold"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_enable_bold">enable_bold</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add a bold style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_bold">is_bold</a>
+
+	<a name="f_enable_italic"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_enable_italic">enable_italic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add an italic style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_italic">is_italic</a>
+
+	<a name="f_enable_kerning"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_enable_kerning">enable_kerning</a>
+			<span class="ecomment">--</span><span class="ecomment"> Allow the library to use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_kerning_enabled">is_kerning_enabled</a>
+
+	<a name="f_enable_light_hinting"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_enable_light_hinting">enable_light_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the light hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_has_light_hinting">has_light_hinting</a>
+
+	<a name="f_enable_monochrome_hinting"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_enable_monochrome_hinting">enable_monochrome_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the monochrome hinting to draw </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Must only be use with monochrome display</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_has_monochrome_hinting">has_monochrome_hinting</a>
+
+	<a name="f_enable_normal_hinting"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_enable_normal_hinting">enable_normal_hinting</a>
+			<span class="ecomment">--</span><span class="ecomment"> Use the normal hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_has_normal_hinting">has_normal_hinting</a>
+
+	<a name="f_enable_strike_through"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_enable_strike_through">enable_strike_through</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add a strike through style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_strike_through">is_strike_through</a>
+
+	<a name="f_enable_underline"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_enable_underline">enable_underline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Add an underline style modifier to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_underline">is_underline</a>
+
+	<a name="f_exists"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is allocated memory still allocated?</span>
+
+	<a name="f_face_family_name"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_face_family_name">face_family_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the face family of </span><span class="equoted">Curent</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_face_style_name"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_face_style_name">face_style_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the face style of </span><span class="equoted">Curent</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flatshort.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flatshort.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_glyph_metrics"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_glyph_metrics">glyph_metrics</a> <span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32_flatshort.html">CHARACTER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_flatshort.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">minimal_x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">maximal_x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">minimal_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">maximal_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">advance</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The informations about the glyph representing </span><span class="equoted">a_character</span><span class="ecomment"> generated with </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><span class="nefeature">has_error</span><span class="ecomment"> on error.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+			<span class="etag">is_character_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_glyph_provided">is_glyph_provided</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">)</span>
+
+	<a name="f_has_error"></a><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the library has generate an error</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+
+	<a name="f_has_error"></a><span class="nefeature">has_ressource_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has an error occured while opening </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_RESSOURCE</span><span class="ecomment">)</span>
+
+	<a name="f_has_hinting"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_has_hinting">has_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has the library a hint about how to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_has_light_hinting"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_has_light_hinting">has_light_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the light hinting to draw </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_has_monochrome_hinting"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_has_monochrome_hinting">has_monochrome_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the monochrome hinting to draw </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_has_normal_hinting"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_has_normal_hinting">has_normal_hinting</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The library has the normal hinting to draw `Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_has_outline"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_has_outline">has_outline</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an outline size.</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_has_style_modifier"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_has_style_modifier">has_style_modifier</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has a style modifier (underline, bold, italic or strike through)</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_index"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_index">index</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The index of the font in the file.</span>
+
+	<a name="f_is_bold"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_bold">is_bold</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_bold">set_is_bold</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has a bold style modifier</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_is_glyph_provided"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_glyph_provided">is_glyph_provided</a> <span class="esymbol">(</span><span class="elocal">a_character</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32_flatshort.html">CHARACTER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> can draw a glyph representing </span><span class="equoted">a_character</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_is_italic"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_italic">is_italic</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_italic">set_is_italic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an italic style modifier</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_is_kerning_enabled"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_kerning_enabled">is_kerning_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_kerning_enabled">set_is_kerning_enabled</a>
+			<span class="ecomment">--</span><span class="ecomment"> If True, the library can use kerning when drawing a text with </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_is_monospace"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_monospace">is_monospace</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if every character that exists in </span><span class="equoted">Current</span><span class="ecomment"> is the same width</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_is_open"></a><span class="nefeature">is_open</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has been properly opened</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_RESSOURCE</span><span class="ecomment">)</span>
+
+	<a name="f_is_openable"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_openable">is_openable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can </span><span class="equoted">Current</span><span class="ecomment"> be </span><a class="efeature" href="../game_text/text_font_flatshort.html#f_open">open</a>
+
+	<a name="f_is_strike_through"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_strike_through">is_strike_through</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_strike_through">set_is_strike_through</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has a strike through style modifier</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_is_underline"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_underline">is_underline</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_underline">set_is_underline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has an underline style modifier</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_last_error"></a><a class="efeature" href="../game_core/implementation/game_sdl_any_flatshort.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The last error generate by the library</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/implementation/game_sdl_any_flatshort.html">GAME_SDL_ANY</a><span class="ecomment">)</span>
+
+	<a name="f_line_skip_height"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_line_skip_height">line_skip_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> the recommended pixel height of a rendered line of text using </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_maximum_height"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_maximum_height">maximum_height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum height that a gliph can take in pixel using </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_open"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_open">open</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">GAME_RESSOURCE</span>
+			<span class="etag">ressource_is_openable</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_openable">is_openable</a>
+			<span class="etag">ressource_is_not_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">is_open</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">has_ressource_error</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">GAME_RESSOURCE</span>
+			<span class="etag">ressource_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <span class="nefeature">has_ressource_error</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+			<span class="etag">is_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="nefeature">is_open</span>
+
+	<a name="f_outline_size"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_outline_size">outline_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_set_outline_size">set_outline_size</a>
+			<span class="ecomment">--</span><span class="ecomment"> The ouline width of </span><span class="equoted">Current</span><span class="ecomment"> (0 for disabled)</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_set_is_bold"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_bold">set_is_bold</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_bold">is_bold</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_bold">is_bold</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_italic"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_italic">set_is_italic</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_italic">is_italic</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_italic">is_italic</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_kerning_enabled"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_kerning_enabled">set_is_kerning_enabled</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_kerning_enabled">is_kerning_enabled</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_kerning_enabled">is_kerning_enabled</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_strike_through"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_strike_through">set_is_strike_through</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_strike_through">is_strike_through</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_strike_through">is_strike_through</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_underline"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_set_is_underline">set_is_underline</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_text/text_font_flatshort.html#f_is_underline">is_underline</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_is_underline">is_underline</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_outline_size"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_set_outline_size">set_outline_size</a> <span class="esymbol">(</span><span class="elocal">a_outline_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_text/text_font_flatshort.html#f_outline_size">outline_size</a><span class="ecomment"> with the value of </span><a class="efeature" href="../game_text/text_font_flatshort.html#f_outline_size">outline_size</a>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+			<span class="etag">outline_size_valid</span><span class="esymbol">:</span> <span class="elocal">a_outline_size</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_text/text_font_flatshort.html#f_outline_size">outline_size</a> <span class="esymbol">=</span> <span class="elocal">a_outline_size</span>
+
+	<a name="f_size"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_size">size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The font height.</span>
+
+	<a name="f_text_dimension"></a><a class="efeature" href="../game_text/text_font_flatshort.html#f_text_dimension">text_dimension</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_flatshort.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The dimension of the </span><span class="equoted">a_text</span><span class="ecomment"> drawed with </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+	<a name="f_text_library"></a><a class="efeature" href="../game_text/text_library_shared_flatshort.html#f_text_library">Text_library</a><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_controller_flatshort.html">TEXT_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The main manager of the text library</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_text/text_library_shared_flatshort.html">TEXT_LIBRARY_SHARED</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flatshort.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flatshort.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flatshort.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flatshort.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flatshort.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flatshort.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flatshort.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">is_open_exists</span><span class="esymbol">:</span> <span class="nefeature">is_open</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../game_text/text_font_flatshort.html#f_exists">exists</a>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_text/text_font_flatshort.html">TEXT_FONT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="text_font_chart.html">Chart</a>
+<a class="nav class" href="text_font_links.html">Relations</a>
+<a class="nav class" href="text_font.html">Text</a>
+<a class="nav class" href="text_font_flat.html">Flat</a>
+<a class="nav class" href="text_font_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="text_font"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

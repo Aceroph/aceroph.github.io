@@ -25,6 +25,9 @@
 <a class="nav class" href="iteration_cursor_chart.html">Chart</a>
 <span class="nav class selected">Relations</span>
 <a class="nav class" href="iteration_cursor.html">Text</a>
+<a class="nav class" href="iteration_cursor_flat.html">Flat</a>
+<a class="nav class" href="iteration_cursor_short.html">Contracts</a>
+<a class="nav class" href="iteration_cursor_flatshort.html">Flat contracts</a>
 <span class="nav class goto">Go to: <input name="c" value="iteration_cursor"></span>
 </div></form><pre><span class="ekeyword">deferred</span> <span class="ekeyword">class</span>
 	<a class="eclass" href="../elks/iteration_cursor_links.html">ITERATION_CURSOR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
@@ -56,8 +59,8 @@
 	<a class="eclass" href="../audio_3d/audio_library_controller_links.html">AUDIO_LIBRARY_CONTROLLER</a>
 	<a class="eclass" href="../elks/binary_search_tree_set_links.html">BINARY_SEARCH_TREE_SET</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/bool_string_links.html">BOOL_STRING</a>
-	<span class="neclass">COLOR_RANGE</span>
-	<span class="neclass">CROSSHAIR</span>
+	<span class="neclass">CHUNK</span>
+	<span class="neclass">CRAFTING_MANAGER</span>
 	<span class="neclass">DIMENSION</span>
 	<a class="eclass" href="../elks/fixed_list_links.html">FIXED_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../game_core/game_library_controller_links.html">GAME_LIBRARY_CONTROLLER</a>
@@ -65,10 +68,14 @@
 	<a class="eclass" href="../game_core/graphic/game_renderer_driver_links.html">GAME_RENDERER_DRIVER</a>
 	<a class="eclass" href="../game_core/graphic/game_surface_links.html">GAME_SURFACE</a>
 	<span class="neclass">GUI_BOX</span>
-	<span class="neclass">GUI_LISTBOX</span>
+	<span class="neclass">GUI_COLUMN</span>
+	<span class="neclass">GUI_CONTAINER</span>
+	<span class="neclass">GUI_RECIPE</span>
+	<span class="neclass">GUI_ROW</span>
 	<a class="eclass" href="../elks/hash_table_links.html">HASH_TABLE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <span class="egeneric">K</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/hashable_links.html">HASHABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/heap_priority_queue_links.html">HEAP_PRIORITY_QUEUE</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../ise/interactive_list_links.html">INTERACTIVE_LIST</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">INVENTORY</span>
 	<a class="eclass" href="../elks/iteration_cursor_links.html">ITERATION_CURSOR</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 	<a class="eclass" href="../json/json_kernel/json_array_links.html">JSON_ARRAY</a>
 	<a class="eclass" href="../json_serialization/json_deserializer_context_links.html">JSON_DESERIALIZER_CONTEXT</a>
@@ -85,10 +92,13 @@
 	<a class="eclass" href="../elks/native_string_links.html">NATIVE_STRING</a>
 	<a class="eclass" href="../elks/part_sorted_set_links.html">PART_SORTED_SET</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/part_comparable_links.html">PART_COMPARABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/path_links.html">PATH</a>
+	<span class="neclass">RECIPES_SHARED</span>
+	<span class="neclass">RECIPE_DESERIALIZER</span>
+	<span class="neclass">RECIPE_REGISTRY</span>
 	<a class="eclass" href="../elks/reflector_links.html">REFLECTOR</a>
 	<a class="eclass" href="../ise/debug_implementation/rt_dbg_call_record_links.html">RT_DBG_CALL_RECORD</a>
 	<a class="eclass" href="../elks/subset_links.html">SUBSET</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
-	<span class="neclass">TILE_REGISTRY</span>
+	<span class="neclass">TILE_REGISTRY_SHARED</span><span class="echar">*</span>
 	<a class="eclass" href="../elks/tuple_links.html">TUPLE</a>
 	<a class="eclass" href="../elks/two_way_sorted_set_links.html">TWO_WAY_SORTED_SET</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../elks/comparable_links.html">COMPARABLE</a><span class="esymbol">]</span>
 	<a class="eclass" href="../elks/utf_converter_links.html">UTF_CONVERTER</a>
@@ -105,6 +115,9 @@
 <a class="nav class" href="iteration_cursor_chart.html">Chart</a>
 <span class="nav class selected">Relations</span>
 <a class="nav class" href="iteration_cursor.html">Text</a>
+<a class="nav class" href="iteration_cursor_flat.html">Flat</a>
+<a class="nav class" href="iteration_cursor_short.html">Contracts</a>
+<a class="nav class" href="iteration_cursor_flatshort.html">Flat contracts</a>
 <span class="nav class goto">Go to: <input name="c" value="iteration_cursor"></span>
 </div></form><pre></pre>
 <p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>

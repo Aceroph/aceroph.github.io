@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Call record"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="library" content="EiffelBase: Library of reusable components for Eiffel."/>
+<meta name="copyright" content="Copyright (c) 1984-2018, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>rt_dbg_call_record Contracts</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_dbg_call_record_chart.html">Chart</a>
+<a class="nav class" href="rt_dbg_call_record_links.html">Relations</a>
+<a class="nav class" href="rt_dbg_call_record.html">Text</a>
+<a class="nav class" href="rt_dbg_call_record_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="rt_dbg_call_record_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="rt_dbg_call_record"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Call record&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2018-11-14 14:54:22 +0000 (Wed, 14 Nov 2018) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102461 $&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../../ise/debug_implementation/rt_dbg_call_record_short.html">RT_DBG_CALL_RECORD</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Properties</span>
+
+	<a name="f_object"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_object">object</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_short.html">ANY</a>
+			<span class="ecomment">--</span><span class="ecomment"> Target object.</span>
+
+	<a name="f_dynamic_class_type_id"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_dynamic_class_type_id">dynamic_class_type_id</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Related dynamic class type id.</span>
+
+	<a name="f_class_type_id"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_class_type_id">class_type_id</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Related written class type id.</span>
+
+	<a name="f_feature_rout_id"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_feature_rout_id">feature_rout_id</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Related feature routine id.</span>
+
+	<a name="f_breakable_info"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_breakable_info">breakable_info</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">line</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">nested</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Breakable info when call occurred.</span>
+
+	<a name="f_depth"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_depth">depth</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Call stack depth of Current's call</span>
+
+	<a name="f_parent"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_parent">parent</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Parent's call record.</span>
+
+	<a name="f_steps"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_steps">steps</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Steps data</span>
+
+	<a name="f_call_records"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_call_records">call_records</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sub call records.</span>
+
+	<a name="f_value_records"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_value_records">value_records</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record_short.html">RT_DBG_VALUE_RECORD</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Recorded values (assignment...)</span>
+
+	<a name="f_flat_value_records_has_local"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_flat_value_records_has_local">flat_value_records_has_local</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_value_records">value_records</a><span class="ecomment"> has local values ?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_flat</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_is_flat">is_flat</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Measure</span>
+
+	<a name="f_rt_information_available"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_rt_information_available">rt_information_available</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Runtime information available for this call ?</span>
+
+	<a name="f_last_position"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_last_position">last_position</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">line</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">nested</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Last position</span>
+
+	<a name="f_same_object_type"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_same_object_type">same_object_type</a> <span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_short.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">ref</span><span class="ecomment"> representing the same value as </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_object">object</a><span class="ecomment"> ?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Change</span>
+
+	<a name="f_wipe_out_value_records"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_wipe_out_value_records">wipe_out_value_records</a>
+			<span class="ecomment">--</span><span class="ecomment"> Wipe out value records</span>
+
+	<a name="f_set_breakable_info"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_set_breakable_info">set_breakable_info</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_breakable_info">breakable_info</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set breakable_info</span>
+
+	<a name="f_register_position"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_register_position">register_position</a> <span class="esymbol">(</span><span class="elocal">a_line</span><span class="esymbol">,</span> <span class="elocal">a_nested</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set last position</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_line_valid</span><span class="esymbol">:</span> <span class="elocal">a_line</span> <a class="esymbol" href="../../elks/comparable_short.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+			<span class="etag">a_nested_valid</span><span class="esymbol">:</span> <span class="elocal">a_nested</span> <a class="esymbol" href="../../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status</span>
+
+	<a name="f_is_expanded"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_is_expanded">is_expanded</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_object">object</a><span class="ecomment"> an expanded value ?</span>
+
+	<a name="f_is_flat"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_is_flat">is_flat</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current record flat ?</span>
+
+	<a name="f_is_closed"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_is_closed">is_closed</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current record closed ?</span>
+
+	<a name="f_call_records_closed"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_call_records_closed">call_records_closed</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is call_records entries closed?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_not_closed</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_is_closed">is_closed</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> debug</span>
+
+	<a name="f_debug_display_steps"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_debug_display_steps">debug_display_steps</a>
+			<span class="ecomment">--</span><span class="ecomment"> Display </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_steps">steps</a><span class="ecomment"> for debugging purpose.</span>
+
+	<a name="f_debug_output"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_debug_output">debug_output</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Debug output as string representation.</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">recorder_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_recorder">recorder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">steps_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_steps">steps</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">last_position_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_last_position">last_position</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">non_empty_call_records</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_call_records">call_records</a> <span class="ekeyword">as</span> crecs <a class="ekeyword" href="../../elks/boolean_short.html#f_implication">implies</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <span class="elocal">crecs</span><span class="edot">.</span><a class="efeature" href="../../elks/finite_short.html#f_is_empty">is_empty</a>
+	<span class="etag">value_records_not_void_if_flat</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_is_flat">is_flat</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_call_record_short.html#f_value_records">value_records</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;EiffelBase: Library of reusable components for Eiffel.&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2018, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_call_record_short.html">RT_DBG_CALL_RECORD</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_dbg_call_record_chart.html">Chart</a>
+<a class="nav class" href="rt_dbg_call_record_links.html">Relations</a>
+<a class="nav class" href="rt_dbg_call_record.html">Text</a>
+<a class="nav class" href="rt_dbg_call_record_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="rt_dbg_call_record_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="rt_dbg_call_record"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

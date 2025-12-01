@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="TTTTTA sound source in a 3d environment. TTTTT TTTTTIf a stereo sound is queued in the source, the 3d environment TTTTTis not applied. TTTTT TTTTT16 bit buffers are signed and 0 is the silent position TTTTT8 bit buffers are unsigned and 128 is the silent position TTTTTfor stereo formats the left channel comes first "/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>audio_source Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_source_chart.html">Chart</a>
+<a class="nav class" href="audio_source_links.html">Relations</a>
+<a class="nav class" href="audio_source.html">Text</a>
+<a class="nav class" href="audio_source_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="audio_source_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="audio_source"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">					A sound source in a 3d environment.</span>
+		<span class="estring">					</span>
+		<span class="estring">					If a stereo sound is queued in the source, the 3d environment</span>
+		<span class="estring">					is not applied.</span>
+		<span class="estring">					</span>
+		<span class="estring">					16 bit buffers are signed and 0 is the silent position</span>
+		<span class="estring">					8 bit buffers are unsigned and 128 is the silent position</span>
+		<span class="estring">					for stereo formats the left channel comes first</span>
+		
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Tue, 07 Apr 2015 01:15:20 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../audio_3d/audio_source_short.html">AUDIO_SOURCE</a>
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_library_controller_short.html">AUDIO_LIBRARY_CONTROLLER</a><span class="esymbol">}</span>
+	<a class="efeature" href="../audio_3d/audio_source_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_buffer_size"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_buffer_size">buffer_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The buffer size for the sound streaming (default is 65536). Allocate too little memory to buffer can cause sound to stop before finishing.</span>
+
+	<a name="f_play"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_play">play</a>
+			<span class="ecomment">--</span><span class="ecomment"> Start the sound streaming.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_pause"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_pause">pause</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put the streaming in pause.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_stop"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_stop">stop</a>
+			<span class="ecomment">--</span><span class="ecomment"> Stop the streaming. All queud sound will be remove from the queue.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_is_playing"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_is_playing">is_playing</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if the sound source is currently playing.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_is_pause"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_is_pause">is_pause</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if the sound source is currently on pause.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_is_stop"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_is_stop">is_stop</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if the sound source has been stoped.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_is_initial"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_is_initial">is_initial</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if the sound source has been rewinded.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_gain"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_gain">gain</a><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_set_gain">set_gain</a>
+			<span class="ecomment">--</span><span class="ecomment"> The gain (volume) of </span><span class="equoted">Current</span><span class="ecomment">. The gain will always be a REAL between 0 and 1.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If the gain is set at 0, </span><span class="equoted">Current</span><span class="ecomment"> is mute. If the gain is set at 1, it is at it's max volume.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_set_gain"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_set_gain">set_gain</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set the </span><span class="equoted">Current</span><span class="ecomment"> gain (volume) to </span><span class="equoted">a_value</span><span class="ecomment">. The </span><span class="equoted">a_value</span><span class="ecomment"> must always be a REAL between 0 and 1.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If the </span><span class="equoted">a_value</span><span class="ecomment"> is set at 0, the source is mute. If the </span><span class="equoted">a_value</span><span class="ecomment"> is set at 1, it is at it's max volume.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+			<span class="etag">source_set_gain_valid_value</span><span class="esymbol">:</span> <span class="elocal">a_value</span> <a class="esymbol" href="../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0.0</span> <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a_value</span> <a class="esymbol" href="../elks/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="enumber">1.0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">source_set_gain_is_set</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_short.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../audio_3d/audio_source_short.html#f_gain">gain</a> <span class="esymbol">=</span> <span class="elocal">a_value</span>
+
+	<a name="f_queue_sound_loop"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_queue_sound_loop">queue_sound_loop</a> <span class="esymbol">(</span><span class="elocal">a_sound</span><span class="esymbol">:</span> <a class="eclass" href="../audio_3d/audio_sound_short.html">AUDIO_SOUND</a><span class="esymbol">;</span> <span class="elocal">a_nb_loop</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add a </span><span class="equoted">a_sound</span><span class="ecomment"> to the playing queue.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">a_nb_loop</span><span class="ecomment"> to 0 for no loop and to -1 for infinite loop</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+			<span class="etag">queud_sound_is_open</span><span class="esymbol">:</span> <span class="elocal">a_sound</span><span class="edot">.</span><span class="nefeature">is_open</span>
+
+	<a name="f_queue_sound"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_queue_sound">queue_sound</a> <span class="esymbol">(</span><span class="elocal">a_sound</span><span class="esymbol">:</span> <a class="eclass" href="../audio_3d/audio_sound_short.html">AUDIO_SOUND</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add a </span><span class="equoted">a_sound</span><span class="ecomment"> to the playing queue.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't loop the sound at all (only one playing).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+			<span class="etag">queud_sound_is_open</span><span class="esymbol">:</span> <span class="elocal">a_sound</span><span class="edot">.</span><span class="nefeature">is_open</span>
+
+	<a name="f_queue_sound_infinite_loop"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_queue_sound_infinite_loop">queue_sound_infinite_loop</a> <span class="esymbol">(</span><span class="elocal">a_sound</span><span class="esymbol">:</span> <a class="eclass" href="../audio_3d/audio_sound_short.html">AUDIO_SOUND</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add a </span><span class="equoted">a_sound</span><span class="ecomment"> to the playing queue.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Loop the </span><span class="equoted">a_sound</span><span class="ecomment"> until the source is stopped.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+			<span class="etag">queud_sound_is_open</span><span class="esymbol">:</span> <span class="elocal">a_sound</span><span class="edot">.</span><span class="nefeature">is_open</span>
+
+	<a name="f_sound_queued"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_sound_queued">sound_queued</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">sound</span><span class="esymbol">:</span> <a class="eclass" href="../audio_3d/audio_sound_short.html">AUDIO_SOUND</a><span class="esymbol">;</span> <span class="elocal">nb_loop</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The queue containing every sound to play</span>
+
+	<a name="f_update_playing"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_update_playing">update_playing</a>
+			<span class="ecomment">--</span><span class="ecomment"> This methode must be execute at regular interval. If it is not execute enough in a certain time lap, the sounds will stop before finishing.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If this append, you can call this methode more often or use bigger </span><a class="efeature" href="../audio_3d/audio_source_short.html#f_buffer_size">buffer_size</a><span class="ecomment">. You can use the routine </span><span class="equoted">update</span><span class="ecomment"> on the </span><a class="eclass" href="../audio_3d/audio_library_controller_short.html">AUDIO_LIBRARY_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> and it will do the same effect.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_set_direction"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_set_direction">set_direction</a> <span class="esymbol">(</span><span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">,</span> <span class="elocal">a_z</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set the source direction. Meaning where the source object is looking at in the 3D environment.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_direction"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_direction">direction</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a><span class="esymbol">;</span> <span class="elocal">y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a><span class="esymbol">;</span> <span class="elocal">z</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Get the source direction. Meaning where the source object is looking at in the 3D environment.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_is_open</span><span class="esymbol">:</span> <a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a>
+
+	<a name="f_is_open"></a><a class="efeature" href="../audio_3d/audio_source_short.html#f_is_open">is_open</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> open and ready to be used (without initialization error)</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../audio_3d/audio_source_short.html">AUDIO_SOURCE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_source_chart.html">Chart</a>
+<a class="nav class" href="audio_source_links.html">Relations</a>
+<a class="nav class" href="audio_source.html">Text</a>
+<a class="nav class" href="audio_source_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="audio_source_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="audio_source"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

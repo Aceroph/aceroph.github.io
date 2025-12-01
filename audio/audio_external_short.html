@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="External C feature for Audio libraries."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>audio_external Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_external_chart.html">Chart</a>
+<a class="nav class" href="audio_external_links.html">Relations</a>
+<a class="nav class" href="audio_external.html">Text</a>
+<a class="nav class" href="audio_external_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="audio_external_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="audio_external"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;External C feature for Audio libraries.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Tue, 07 Apr 2015 01:15:20 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../audio_3d/audio_external_short.html">AUDIO_EXTERNAL</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../elks/any_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> OpenAL Functions</span>
+
+	<a name="f_al_get_error"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_get_error">al_get_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_get_error"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_get_error">alc_get_error</a> <span class="esymbol">(</span><span class="elocal">device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_get_string"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_get_string">alc_get_string</a> <span class="esymbol">(</span><span class="elocal">devicehandle</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">token</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a>
+
+	<a name="f_alc_create_context"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_create_context">alc_create_context</a> <span class="esymbol">(</span><span class="elocal">device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">flags</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a>
+
+	<a name="f_alc_make_context_current"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_make_context_current">alc_make_context_current</a> <span class="esymbol">(</span><span class="elocal">context</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+
+	<a name="f_alc_get_current_context"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_get_current_context">alc_get_current_context</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a>
+
+	<a name="f_alc_destroy_context"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_destroy_context">alc_destroy_context</a> <span class="esymbol">(</span><span class="elocal">context</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_alc_suspend_context"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_suspend_context">alc_suspend_context</a> <span class="esymbol">(</span><span class="elocal">context</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_alc_open_device"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_open_device">alc_open_device</a> <span class="esymbol">(</span><span class="elocal">device_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a>
+
+	<a name="f_alc_close_device"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_close_device">alc_close_device</a> <span class="esymbol">(</span><span class="elocal">device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+
+	<a name="f_alc_is_extension_present"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_is_extension_present">alc_is_extension_present</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">,</span> <span class="elocal">a_extname</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+
+	<a name="f_alc_capture_open_device"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_capture_open_device">alc_capture_open_device</a> <span class="esymbol">(</span><span class="elocal">a_devicename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_frequency</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_format</span><span class="esymbol">,</span> <span class="elocal">a_buffersize</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a>
+
+	<a name="f_alc_capture_close_device"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_capture_close_device">alc_capture_close_device</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+
+	<a name="f_alc_capture_start"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_capture_start">alc_capture_start</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_alc_capture_stop"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_capture_stop">alc_capture_stop</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_alc_capture_samples"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_capture_samples">alc_capture_samples</a> <span class="esymbol">(</span><span class="elocal">a_device</span><span class="esymbol">,</span> <span class="elocal">a_buffer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_samples</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+
+	<a name="f_al_get_listener_fv"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_get_listener_fv">al_get_listener_fv</a> <span class="esymbol">(</span><span class="elocal">param</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">les_params</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_set_listener_fv"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_set_listener_fv">al_set_listener_fv</a> <span class="esymbol">(</span><span class="elocal">param</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">les_params</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_get_source_fv"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_get_source_fv">al_get_source_fv</a> <span class="esymbol">(</span><span class="elocal">source_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">param</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">les_params</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_get_source_i"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_get_source_i">al_get_source_i</a> <span class="esymbol">(</span><span class="elocal">source_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">param</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">les_params</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_get_source_f"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_get_source_f">al_get_source_f</a> <span class="esymbol">(</span><span class="elocal">source_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">param</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">les_params</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_is_source"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_is_source">al_is_source</a> <span class="esymbol">(</span><span class="elocal">source_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+
+	<a name="f_al_set_source_fv"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_set_source_fv">al_set_source_fv</a> <span class="esymbol">(</span><span class="elocal">source_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">param</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">les_params</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_set_source_f"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_set_source_f">al_set_source_f</a> <span class="esymbol">(</span><span class="elocal">source_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">param</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">les_params</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_al_gen_sources"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_gen_sources">al_gen_sources</a> <span class="esymbol">(</span><span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">sources</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_delete_sources"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_delete_sources">al_delete_sources</a> <span class="esymbol">(</span><span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">sources</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_gen_buffers"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_gen_buffers">al_gen_buffers</a> <span class="esymbol">(</span><span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">buffers</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_is_buffer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_is_buffer">al_is_buffer</a> <span class="esymbol">(</span><span class="elocal">buffer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+
+	<a name="f_al_source_queue_buffers"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_source_queue_buffers">al_source_queue_buffers</a> <span class="esymbol">(</span><span class="elocal">source</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">buffers</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_source_unqueue_buffers"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_source_unqueue_buffers">al_source_unqueue_buffers</a> <span class="esymbol">(</span><span class="elocal">source</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">buffers</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_delete_buffers"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_delete_buffers">al_delete_buffers</a> <span class="esymbol">(</span><span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">buffers</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_al_buffer_data"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_buffer_data">al_buffer_data</a> <span class="esymbol">(</span><span class="elocal">buffer_id</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">format</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">buffers</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">size</span><span class="esymbol">,</span> <span class="elocal">freq</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+
+	<a name="f_al_source_play"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_source_play">al_source_play</a> <span class="esymbol">(</span><span class="elocal">source</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_al_source_pause"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_source_pause">al_source_pause</a> <span class="esymbol">(</span><span class="elocal">source</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_al_source_stop"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_source_stop">al_source_stop</a> <span class="esymbol">(</span><span class="elocal">source</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_al_source_rewind"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_source_rewind">al_source_rewind</a> <span class="esymbol">(</span><span class="elocal">source</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> OpenAL Constants</span>
+
+	<a name="f_alc_all_device_specifier"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_all_device_specifier">alc_all_device_specifier</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_device_specifier"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_device_specifier">alc_device_specifier</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_capture_device_specifier"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_capture_device_specifier">alc_capture_device_specifier</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_invalid_value"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_invalid_value">alc_invalid_value</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_invalid_value"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_invalid_value">al_invalid_value</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_invalid_enum"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_invalid_enum">al_invalid_enum</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_invalid_enum"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_invalid_enum">alc_invalid_enum</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_invalid_operation"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_invalid_operation">al_invalid_operation</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_invalid_name"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_invalid_name">al_invalid_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_out_of_memory"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_out_of_memory">al_out_of_memory</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_out_of_memory"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_out_of_memory">alc_out_of_memory</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_invalid_device"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_invalid_device">alc_invalid_device</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_invalid_context"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_invalid_context">alc_invalid_context</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_no_error"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_no_error">al_no_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_alc_no_error"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_alc_no_error">alc_no_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_position"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_position">al_position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_velocity"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_velocity">al_velocity</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_orientation"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_orientation">al_orientation</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_direction"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_direction">al_direction</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_buffers_processed"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_buffers_processed">al_buffers_processed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_buffers_queued"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_buffers_queued">al_buffers_queued</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_format_mono8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_format_mono8">al_format_mono8</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_format_stereo8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_format_stereo8">al_format_stereo8</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_format_mono16"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_format_mono16">al_format_mono16</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_format_stereo16"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_format_stereo16">al_format_stereo16</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_source_state"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_source_state">al_source_state</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_initial"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_initial">al_initial</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_playing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_playing">al_playing</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_paused"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_paused">al_paused</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_stopped"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_stopped">al_stopped</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_al_gain"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../audio_3d/audio_external_short.html#f_al_gain">al_gain</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../audio_3d/audio_external_short.html">AUDIO_EXTERNAL</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_external_chart.html">Chart</a>
+<a class="nav class" href="audio_external_links.html">Relations</a>
+<a class="nav class" href="audio_external.html">Text</a>
+<a class="nav class" href="audio_external_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="audio_external_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="audio_external"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

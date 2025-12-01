@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A JSON_STRING represent a string in JSON. A string is a collection of zero or more Unicodes characters, wrapped in double quotes, using blackslash espaces."/>
+<meta name="author" content="$Author: jfiat $"/>
+<meta name="license" content="MIT (see http://www.opensource.org/licenses/mit-license.php)"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="2010-2018, Javier Velilla, Jocelyn Fiat, Eiffel Software and others https://github.com/eiffelhub/json."/>
+<meta name="license" content="https://github.com/eiffelhub/json/blob/master/License.txt"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>json_string Flat</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="json_string_chart.html">Chart</a>
+<a class="nav class" href="json_string_links.html">Relations</a>
+<a class="nav class" href="json_string.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="json_string_short.html">Contracts</a>
+<a class="nav class" href="json_string_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="json_string"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">A JSON_STRING represent a string in JSON.</span>
+		<span class="estring">A string is a collection of zero or more Unicodes characters, wrapped in double</span>
+		<span class="estring">quotes, using blackslash espaces.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;$Author: jfiat $&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2018-11-14 11:33:00 +0000 (Wed, 14 Nov 2018) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102453 $&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT (see </span><a class="estring" href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a><span class="estring">)&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string">make_from_string</a><span class="esymbol">,</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string_32">make_from_string_32</a><span class="esymbol">,</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string_general">make_from_string_general</a><span class="esymbol">,</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_escaped_json_string">make_from_escaped_json_string</a><span class="esymbol">,</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_with_escaped_json">make_with_escaped_json</a><span class="esymbol">,</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_json">make_json</a><span class="esymbol">,</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_json_from_string_32">make_json_from_string_32</a>
+
+<span class="ekeyword">convert</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string">make_from_string</a> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">,</span>
+		<a class="eclass" href="../elks/string_8_flat.html">STRING_8</a><span class="esymbol">,</span>
+		<a class="eclass" href="../elks/immutable_string_8_flat.html">IMMUTABLE_STRING_8</a><span class="esymbol">}</span><span class="esymbol">)</span><span class="esymbol">,</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string_32">make_from_string_32</a> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../elks/readable_string_32_flat.html">READABLE_STRING_32</a><span class="esymbol">,</span>
+		<a class="eclass" href="../elks/string_32_flat.html">STRING_32</a><span class="esymbol">,</span>
+		<a class="eclass" href="../elks/immutable_string_32_flat.html">IMMUTABLE_STRING_32</a><span class="esymbol">}</span><span class="esymbol">)</span><span class="esymbol">,</span>
+	<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string_general">make_from_string_general</a> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">,</span>
+		<a class="eclass" href="../elks/string_general_flat.html">STRING_GENERAL</a><span class="esymbol">,</span>
+		<a class="eclass" href="../elks/immutable_string_general_flat.html">IMMUTABLE_STRING_GENERAL</a><span class="esymbol">}</span><span class="esymbol">)</span>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_default_create"></a><a class="efeature" href="../elks/any_flat.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process instances of classes with no creation clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_escaped_json_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_escaped_json_string">make_from_escaped_json_string</a> <span class="esymbol">(</span><span class="elocal">a_escaped_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize with </span><span class="equoted">a_escaped_string</span><span class="ecomment"> already JSON escaped.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_escaped_string_not_void</span><span class="esymbol">:</span> <span class="elocal">a_escaped_string</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a> <span class="esymbol">:=</span> <span class="elocal">a_escaped_string</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_as_string_8">as_string_8</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_json_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_json_string">make_from_json_string</a> <span class="esymbol">(</span><span class="elocal">a_json</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize with </span><span class="equoted">a_json</span><span class="ecomment"> string value.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_escaped_json_string">make_from_escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_json</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string">make_from_string</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize from ascii string </span><span class="equoted">s</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">s_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_escaped_json_string">make_from_escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_escaped_json_string">escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_string_32"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string_32">make_from_string_32</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_32_flat.html">READABLE_STRING_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize from unicode string </span><span class="equoted">s</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">s_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_escaped_json_string">make_from_escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_escaped_json_string">escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_from_string_general"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string_general">make_from_string_general</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize from string </span><span class="equoted">s</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">s_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">}</span> <span class="elocal">s</span> <span class="ekeyword">as</span> s8 <span class="ekeyword">then</span>
+				<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s8</span><span class="esymbol">)</span>
+			<span class="ekeyword">elseif</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../elks/readable_string_32_flat.html">READABLE_STRING_32</a><span class="esymbol">}</span> <span class="elocal">s</span> <span class="ekeyword">as</span> s32 <span class="ekeyword">then</span>
+				<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string_32">make_from_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s32</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_string_32">make_from_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_as_string_32">as_string_32</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_json"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_json">make_json</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `make_from_string' [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Initialize.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">item_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_with_escaped_json">make_with_escaped_json</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_escaped_json_string">escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_json_from_string_32"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_json_from_string_32">make_json_from_string_32</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_32_flat.html">READABLE_STRING_32</a><span class="esymbol">)</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `make_from_string_32' [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Initialize from STRING_32 </span><span class="equoted">s</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">item_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_with_escaped_json">make_with_escaped_json</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_escaped_json_string">escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_escaped_json"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_with_escaped_json">make_with_escaped_json</a> <span class="esymbol">(</span><span class="elocal">a_escaped_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `make_from_escaped_json_string' [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Initialize with </span><span class="equoted">a_escaped_string</span><span class="ecomment"> already JSON escaped.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_escaped_string_not_void</span><span class="esymbol">:</span> <span class="elocal">a_escaped_string</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_make_from_escaped_json_string">make_from_escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_escaped_string</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_chained_item"></a><a class="efeature" href="../json/json_kernel/json_value_flat.html#f_chained_item">chained_item</a> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><a class="esymbol" href="../json/json_kernel/json_value_flat.html#f_chained_item">@</a><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_value_flat.html">JSON_VALUE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Item associated with key </span><span class="equoted">a_key</span><span class="ecomment"> if exists.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: if item does not exists, return also JSON_NULL.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flat.html">JSON_VALUE</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../json/json_kernel/json_null_flat.html">JSON_NULL</a><span class="esymbol">}</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flat.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flat.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flat.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flat.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_key"></a><a class="efeature" href="../json/json_kernel/json_value_flat.html#f_has_key">has_key</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has Current an item associated with </span><span class="equoted">a_key</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span><span class="ecomment"> relevant for object and array values!</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flat.html">JSON_VALUE</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_item"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> JSON+UTF-8 encoded content.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is JSON_STRING &nbsp;made of same character sequence as </span><span class="equoted">other</span>
+			<span class="ecomment">--</span><span class="ecomment"> (possibly with a different capacity)?</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_same_string">same_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_debug_output"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_debug_output">debug_output</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> String that should be displayed in debugger to represent </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/debug_output_flat.html">DEBUG_OUTPUT</a>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_hash_code"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_hash_code">hash_code</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Hash code value</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_hash_code">hash_code</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/hashable_flat.html">HASHABLE</a>
+			<span class="etag">good_hash_value</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_array"></a><a class="efeature" href="../json/json_kernel/json_value_flat.html#f_is_array">is_array</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current an array value?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flat.html">JSON_VALUE</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_hashable"></a><a class="efeature" href="../elks/hashable_flat.html#f_is_hashable">is_hashable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> May current object be hashed?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (True by default.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/hashable_flat.html">HASHABLE</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_null"></a><a class="efeature" href="../json/json_kernel/json_value_flat.html#f_is_null">is_null</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current a null value?	</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flat.html">JSON_VALUE</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_number"></a><a class="efeature" href="../json/json_kernel/json_value_flat.html#f_is_number">is_number</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current a number value?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flat.html">JSON_VALUE</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_object"></a><a class="efeature" href="../json/json_kernel/json_value_flat.html#f_is_object">is_object</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current an object value?	</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flat.html">JSON_VALUE</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Conversion</span>
+
+	<a name="f_representation"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_representation">representation</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> String representation of </span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="ecomment"> with escaped entities if any.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'&quot;'</span><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'&quot;'</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_unescape_to_string_32"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_unescape_to_string_32">unescape_to_string_32</a> <span class="esymbol">(</span><span class="elocal">a_output</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_32_flat.html">STRING_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Unescape string </span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="ecomment"> into </span><span class="equoted">a_output</span><span class="ecomment"> string 32.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a>
+			<span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="elocal">c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flat.html">NATURAL_32</a>
+			<span class="elocal">ch</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flat.html">CHARACTER_8</a>
+			<span class="elocal">hex</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">s</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a>
+			<span class="elocal">n</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater">&gt;</a> <span class="elocal">n</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">ch</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">ch</span> <span class="esymbol">=</span> <span class="echar">'\'</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_is_less">&lt;</a> <span class="elocal">n</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">inspect</span> <span class="elocal">s</span> <a class="esymbol" href="../elks/readable_string_8_flat.html#f_item">[</a><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span><a class="esymbol" href="../elks/readable_string_8_flat.html#f_item">]</a>
+						<span class="ekeyword">when</span> <span class="echar">'&quot;'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'&quot;'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'\'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'\'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'/'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'/'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'b'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%B'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'f'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%F'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'n'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%N'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'r'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%R'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'t'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%T'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'u'</span> <span class="ekeyword">then</span>
+							<span class="ekeyword">if</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">5</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="elocal">n</span> <span class="ekeyword">then</span>
+								<span class="elocal">hex</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_substring">substring</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span><span class="esymbol">,</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">5</span><span class="esymbol">)</span>
+								<span class="ekeyword">check</span>
+										<span class="elocal">hex</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">4</span>
+								<span class="ekeyword">end</span>
+								<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general_flat.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_hexadecimal_to_natural_32">hexadecimal_to_natural_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">hex</span><span class="esymbol">)</span><span class="esymbol">)</span>
+								<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">6</span>
+							<span class="ekeyword">else</span>
+								<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ch</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+								<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">else</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ch</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">else</span>
+						<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ch</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+						<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">else</span>
+					<span class="elocal">c</span> <span class="esymbol">:=</span> <span class="elocal">ch</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_ref_flat.html#f_natural_32_code">natural_32_code</a>
+					<span class="ekeyword">if</span> <span class="elocal">c</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="enumber">127</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">check</span>
+								<span class="elocal">ch</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a> <span class="esymbol">=</span> <span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../elks/natural_32_flat.html#f_to_character_32">to_character_32</a>
+						<span class="ekeyword">end</span>
+						<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_32_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">ch</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a><span class="esymbol">)</span>
+					<span class="ekeyword">elseif</span> <span class="elocal">c</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="enumber">223</span> <span class="ekeyword">then</span>
+						<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+						<span class="ekeyword">if</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="elocal">n</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general_flat.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">c</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">31</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_shift_left">|&lt;&lt;</a> <span class="enumber">6</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_or">|</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_code">code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">63</span><span class="esymbol">)</span><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">elseif</span> <span class="elocal">c</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="enumber">239</span> <span class="ekeyword">then</span>
+						<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">if</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="elocal">n</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general_flat.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">c</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">15</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_shift_left">|&lt;&lt;</a> <span class="enumber">12</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_or">|</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_code">code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">63</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_shift_left">|&lt;&lt;</a> <span class="enumber">6</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_or">|</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_code">code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">63</span><span class="esymbol">)</span><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">elseif</span> <span class="elocal">c</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="enumber">247</span> <span class="ekeyword">then</span>
+						<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">3</span>
+						<span class="ekeyword">if</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="elocal">n</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general_flat.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">c</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">7</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_shift_left">|&lt;&lt;</a> <span class="enumber">18</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_or">|</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_code">code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_minus">-</a> <span class="enumber">2</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">63</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_shift_left">|&lt;&lt;</a> <span class="enumber">12</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_or">|</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_code">code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">63</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_shift_left">|&lt;&lt;</a> <span class="enumber">6</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_or">|</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_code">code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_bit_and">&#38;</a> <span class="enumber">63</span><span class="esymbol">)</span><span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">end</span>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_unescape_to_string_8"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_unescape_to_string_8">unescape_to_string_8</a> <span class="esymbol">(</span><span class="elocal">a_output</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Unescape string </span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="ecomment"> into </span><span class="equoted">a_output</span><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">s</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a>
+			<span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="elocal">c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flat.html">CHARACTER_8</a>
+			<span class="elocal">l_code</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_hexadecimal_to_natural_32">hexadecimal_to_natural_32</a>
+			<span class="elocal">hex</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">s</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a>
+			<span class="elocal">n</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater">&gt;</a> <span class="elocal">n</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">c</span> <span class="esymbol">:=</span> <span class="elocal">s</span> <a class="esymbol" href="../elks/string_8_flat.html#f_item">[</a><span class="elocal">i</span><a class="esymbol" href="../elks/string_8_flat.html#f_item">]</a>
+				<span class="ekeyword">if</span> <span class="elocal">c</span> <span class="esymbol">=</span> <span class="echar">'\'</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_is_less">&lt;</a> <span class="elocal">n</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">inspect</span> <span class="elocal">s</span> <a class="esymbol" href="../elks/string_8_flat.html#f_item">[</a><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span><a class="esymbol" href="../elks/string_8_flat.html#f_item">]</a>
+						<span class="ekeyword">when</span> <span class="echar">'&quot;'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'&quot;'</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'\'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'\'</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'/'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'/'</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'b'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%B'</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'f'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%F'</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'n'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%N'</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'r'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%R'</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'t'</span> <span class="ekeyword">then</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'%T'</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span>
+						<span class="ekeyword">when</span> <span class="echar">'u'</span> <span class="ekeyword">then</span>
+							<span class="ekeyword">if</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">5</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="elocal">n</span> <span class="ekeyword">then</span>
+								<span class="elocal">hex</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_substring">substring</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">2</span><span class="esymbol">,</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">5</span><span class="esymbol">)</span>
+								<span class="ekeyword">check</span>
+									<span class="etag">is_escaped_unicode</span><span class="esymbol">:</span> <span class="elocal">hex</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">4</span>
+								<span class="ekeyword">end</span>
+								<span class="elocal">l_code</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_hexadecimal_to_natural_32">hexadecimal_to_natural_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">hex</span><span class="esymbol">)</span>
+								<span class="ekeyword">if</span> <span class="elocal">l_code</span><span class="edot">.</span><a class="efeature" href="../elks/natural_32_ref_flat.html#f_is_valid_character_8_code">is_valid_character_8_code</a> <span class="ekeyword">then</span>
+									<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_general_flat.html#f_append_code">append_code</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_code</span><span class="esymbol">)</span>
+								<span class="ekeyword">else</span>
+									<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">)</span>
+									<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'u'</span><span class="esymbol">)</span>
+									<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">hex</span><span class="esymbol">)</span>
+								<span class="ekeyword">end</span>
+								<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">6</span>
+							<span class="ekeyword">else</span>
+								<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">)</span>
+								<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+							<span class="ekeyword">end</span>
+						<span class="ekeyword">else</span>
+							<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">)</span>
+							<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">else</span>
+						<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">)</span>
+						<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">else</span>
+					<span class="elocal">a_output</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_character">append_character</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">)</span>
+					<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_unescaped_string_32"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_unescaped_string_32">unescaped_string_32</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_32_flat.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unescaped uncode string from </span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">s</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_32_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a><span class="esymbol">)</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_unescape_to_string_32">unescape_to_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_unescaped_string_8"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_unescaped_string_8">unescaped_string_8</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unescaped ascii string from </span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="ecomment">.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">s</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">s</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a><span class="esymbol">)</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_unescape_to_string_8">unescape_to_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_clone">clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> For non-void </span><span class="equoted">other</span><span class="ecomment">, </span><a class="efeature" href="../elks/any_flat.html#f_clone">clone</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment">;</span>
+			<span class="ecomment">--</span><span class="ecomment"> to change copying/cloning semantics, redefine </span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_clone">deep_clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `deep_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void: otherwise, new object structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> recursively duplicated from the one attached to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_clone">standard_clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `standard_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_twin">standard_twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_as_attached"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_as_attached">as_attached</a><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a>
+		<span class="ekeyword">obsolete</span> &quot;Remove calls to this feature. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Attached version of Current.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Can be used during transitional period to convert</span>
+			<span class="ecomment">--</span><span class="ecomment"> non-void-safe classes to void-safe ones.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flat.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flat.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_escaped_json_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_escaped_json_string">escaped_json_string</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> JSON string with '&quot;' and '\' characters and unicode escaped</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">s_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">j</span><span class="esymbol">,</span> <span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="elocal">uc</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_32_flat.html">CHARACTER_32</a>
+			<span class="elocal">c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flat.html">CHARACTER_8</a>
+			<span class="elocal">h</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="elocal">l_utf_8_encoding_needed</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">n</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_count">count</a>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="elocal">n</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_integer_quotient">//</a> <span class="enumber">10</span><span class="esymbol">)</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater">&gt;</a> <span class="elocal">n</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">uc</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">uc</span><span class="edot">.</span><a class="efeature" href="../elks/character_32_ref_flat.html#f_is_character_8">is_character_8</a> <span class="ekeyword">then</span>
+					<span class="elocal">c</span> <span class="esymbol">:=</span> <span class="elocal">uc</span><span class="edot">.</span><a class="efeature" href="../elks/character_32_flat.html#f_to_character_8">to_character_8</a>
+					<span class="ekeyword">inspect</span> <span class="elocal">c</span>
+					<span class="ekeyword">when</span> <span class="echar">'%U'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\u0000&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">when</span> <span class="echar">'&quot;'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\%&quot;&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">when</span> <span class="echar">'\'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\\&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">when</span> <span class="echar">'/'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">if</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_valid_index">valid_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="echar">'&lt;'</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_flat.html#f_to_character_32">to_character_32</a> <span class="ekeyword">then</span>
+							<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\/&quot;<span class="esymbol">)</span>
+						<span class="ekeyword">else</span>
+							<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;/&quot;<span class="esymbol">)</span>
+						<span class="ekeyword">end</span>
+					<span class="ekeyword">when</span> <span class="echar">'%B'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\b&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">when</span> <span class="echar">'%F'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\f&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">when</span> <span class="echar">'%N'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\n&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">when</span> <span class="echar">'%R'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\r&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">when</span> <span class="echar">'%T'</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\t&quot;<span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">if</span> <span class="elocal">uc</span><span class="edot">.</span><a class="efeature" href="../elks/character_32_flat.html#f_natural_32_code">natural_32_code</a> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater">&gt;</a> <span class="enumber">127</span> <span class="ekeyword">then</span>
+							<span class="elocal">l_utf_8_encoding_needed</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+						<span class="ekeyword">end</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_extend">extend</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;\u&quot;<span class="esymbol">)</span>
+					<span class="elocal">h</span> <span class="esymbol">:=</span> <span class="elocal">uc</span><span class="edot">.</span><a class="efeature" href="../elks/character_32_flat.html#f_code">code</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_to_hex_string">to_hex_string</a>
+					<span class="ekeyword">from</span>
+						<span class="elocal">j</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+					<span class="ekeyword">until</span>
+						<span class="elocal">h</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">4</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted">or</a> <span class="esymbol">(</span><span class="elocal">j</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="elocal">h</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">h</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">j</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="echar">'0'</span><span class="esymbol">)</span>
+					<span class="ekeyword">loop</span>
+						<span class="elocal">j</span> <span class="esymbol">:=</span> <span class="elocal">j</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+					<span class="ekeyword">end</span>
+					<span class="elocal">h</span> <span class="esymbol">:=</span> <span class="elocal">h</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_substring">substring</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">j</span><span class="esymbol">,</span> <span class="elocal">h</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a><span class="esymbol">)</span>
+					<span class="ekeyword">from</span>
+					<span class="ekeyword">until</span>
+						<span class="elocal">h</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater_equal">&gt;=</a> <span class="enumber">4</span>
+					<span class="ekeyword">loop</span>
+						<span class="elocal">h</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_prepend_integer">prepend_integer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+					<span class="ekeyword">check</span>
+						<span class="etag">hexastring_has_4_chars</span><span class="esymbol">:</span> <span class="elocal">h</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">4</span>
+					<span class="ekeyword">end</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">h</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_utf_8_encoding_needed</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_utf_converter">Utf_converter</a><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_utf_32_string_to_utf_8_string_8">utf_32_string_to_utf_8_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">)</span>
+				<span class="ekeyword">check</span>
+					<span class="etag">is_valid_utf_8_string_8</span><span class="esymbol">:</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_utf_converter">Utf_converter</a><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_is_valid_utf_8_string_8">is_valid_utf_8_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_hexadecimal_to_natural_32"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_hexadecimal_to_natural_32">hexadecimal_to_natural_32</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flat.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Hexadecimal string </span><span class="equoted">s</span><span class="ecomment"> converted to NATURAL_32 value</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">s_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_hexadecimal</span><span class="esymbol">:</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_is_hexadecimal">is_hexadecimal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">,</span> <span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="elocal">char</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flat.html">CHARACTER_8</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">nb</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a>
+			<span class="ekeyword">if</span> <span class="elocal">nb</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater_equal">&gt;=</a> <span class="enumber">2</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">2</span><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="echar">'x'</span> <span class="ekeyword">then</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">3</span>
+			<span class="ekeyword">else</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+			<span class="ekeyword">from</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater">&gt;</a> <span class="elocal">nb</span>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_product">*</a> <span class="enumber">16</span>
+				<span class="elocal">char</span> <span class="esymbol">:=</span> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="elocal">char</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater_equal">&gt;=</a> <span class="echar">'0'</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">char</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="echar">'9'</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_plus">+</a> <span class="esymbol">(</span><span class="elocal">char</span> <a class="esymbol" href="../elks/character_8_ref_flat.html#f_difference">|-|</a> <span class="echar">'0'</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_to_natural_32">to_natural_32</a>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/natural_32_flat.html#f_plus">+</a> <span class="esymbol">(</span><span class="elocal">char</span><span class="edot">.</span><a class="efeature" href="../elks/character_8_ref_flat.html#f_lower">lower</a> <a class="esymbol" href="../elks/character_8_ref_flat.html#f_difference">|-|</a> <span class="echar">'a'</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">10</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_to_natural_32">to_natural_32</a>
+				<span class="ekeyword">end</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_hexadecimal"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_is_hexadecimal">is_hexadecimal</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">s</span><span class="ecomment"> an hexadecimal value?</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="enumber">1</span>
+			<span class="ekeyword">until</span>
+				<span class="elocal">i</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater">&gt;</a> <span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_count">count</a> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted">or</a> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="ekeyword">Result</span>
+			<span class="ekeyword">loop</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">s</span> <a class="esymbol" href="../elks/readable_string_8_flat.html#f_item">[</a><span class="elocal">i</span><a class="esymbol" href="../elks/readable_string_8_flat.html#f_item">]</a><span class="edot">.</span><a class="efeature" href="../elks/character_8_ref_flat.html#f_is_hexa_digit">is_hexa_digit</a>
+				<span class="elocal">i</span> <span class="esymbol">:=</span> <span class="elocal">i</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_utf_converter"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_utf_converter">Utf_converter</a><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter_flat.html">UTF_CONVERTER</a>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Change Element</span>
+
+	<a name="f_append"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append">append</a> <span class="esymbol">(</span><span class="elocal">a_escaped_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add JSON escaped string </span><span class="equoted">a_escaped_string</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_escaped_string_not_void</span><span class="esymbol">:</span> <span class="elocal">a_escaped_string</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_escaped_string</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_append_json_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append_json_string">append_json_string</a> <span class="esymbol">(</span><span class="elocal">a_json_string</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add JSON string </span><span class="equoted">a_json_string</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_json_string_not_void</span><span class="esymbol">:</span> <span class="elocal">a_json_string</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_json_string</span><span class="edot">.</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_append_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append_string">append_string</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add ascii string </span><span class="equoted">s</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">s_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_escaped_json_string">escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_append_string_32"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append_string_32">append_string_32</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_32_flat.html">READABLE_STRING_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add unicode string </span><span class="equoted">s</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">s_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_escaped_json_string">escaped_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_append_string_general"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append_string_general">append_string_general</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add unicode string </span><span class="equoted">s</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">s_not_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../elks/readable_string_8_flat.html">READABLE_STRING_8</a><span class="esymbol">}</span> <span class="elocal">s</span> <span class="ekeyword">as</span> s8 <span class="ekeyword">then</span>
+				<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append_string">append_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_as_string_8">as_string_8</a><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../json/json_kernel/json_string_flat.html#f_append_string_32">append_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">s</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_as_string_32">as_string_32</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flat.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_set_output_default">set_output_default</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flat.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/any_flat.html#f_tagged_out">tagged_out</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flat.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">o</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">o</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_out">out</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flat.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flat.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Retrieval</span>
+
+	<a name="f_internal_correct_mismatch"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_internal_correct_mismatch">internal_correct_mismatch</a>
+			<span class="ecomment">--</span><span class="ecomment"> Called from runtime to perform a proper dynamic dispatch on </span><span class="equoted">correct_mismatch</span>
+			<span class="ecomment">--</span><span class="ecomment"> from MISMATCH_CORRECTOR.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_msg</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="elocal">l_exc</span><span class="esymbol">:</span> <a class="eclass" href="../elks/exceptions_flat.html">EXCEPTIONS</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../elks/mismatch_corrector_flat.html">MISMATCH_CORRECTOR</a><span class="esymbol">}</span> <span class="ekeyword">Current</span> <span class="ekeyword">as</span> l_corrector <span class="ekeyword">then</span>
+				<span class="elocal">l_corrector</span><span class="edot">.</span><a class="efeature" href="../elks/mismatch_corrector_flat.html#f_correct_mismatch">correct_mismatch</a>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Mismatch: &quot;<span class="esymbol">)</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_exc</span>
+				<span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/any_flat.html#f_generating_type">generating_type</a><span class="edot">.</span><a class="efeature" href="../elks/type_flat.html#f_name">name</a><span class="esymbol">)</span>
+				<span class="elocal">l_exc</span><span class="edot">.</span><a class="efeature" href="../elks/exceptions_flat.html#f_raise_retrieval_exception">raise_retrieval_exception</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_msg</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report			</span>
+
+	<a name="f_is_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_is_string">Is_string</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current a string value?</span>
+
+	<a name="f_same_caseless_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_same_caseless_string">same_caseless_string</a> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Current value is a string value, and same caseless content as </span><span class="equoted">a_string</span><span class="ecomment">?	</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_unescaped_string_32">unescaped_string_32</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_is_case_insensitive_equal">is_case_insensitive_equal_general</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_same_string"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_same_string">same_string</a> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Current value is a string value, and same content as </span><span class="equoted">a_string</span><span class="ecomment">?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_unescaped_string_32">unescaped_string_32</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_same_string">same_string_general</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Visitor pattern</span>
+
+	<a name="f_accept"></a><a class="efeature" href="../json/json_kernel/json_string_flat.html#f_accept">accept</a> <span class="esymbol">(</span><span class="elocal">a_visitor</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_utility/json_visitor_flat.html">JSON_VISITOR</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Accept </span><span class="equoted">a_visitor</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Call </span><span class="equoted">visit_json_string</span><span class="ecomment"> procedure on </span><span class="equoted">a_visitor</span><span class="ecomment">.)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../json/json_kernel/json_value_flat.html">JSON_VALUE</a>
+			<span class="etag">a_visitor_not_void</span><span class="esymbol">:</span> <span class="elocal">a_visitor</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="elocal">a_visitor</span><span class="edot">.</span><a class="efeature" href="../json/json_utility/json_visitor_flat.html#f_visit_json_string">visit_json_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">item_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../json/json_kernel/json_string_flat.html#f_item">item</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;2010-2018, Javier Velilla, Jocelyn Fiat, Eiffel Software and others </span><a class="estring" href="https://github.com/eiffelhub/json.">https://github.com/eiffelhub/json.</a><span class="estring">&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;</span><a class="estring" href="https://github.com/eiffelhub/json/blob/master/License.txt">https://github.com/eiffelhub/json/blob/master/License.txt</a><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../json/json_kernel/json_string_flat.html">JSON_STRING</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="json_string_chart.html">Chart</a>
+<a class="nav class" href="json_string_links.html">Relations</a>
+<a class="nav class" href="json_string.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="json_string_short.html">Contracts</a>
+<a class="nav class" href="json_string_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="json_string"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

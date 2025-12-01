@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Scancode values of the SDL2 library"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_sdl_scancode Flat contracts</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_sdl_scancode_chart.html">Chart</a>
+<a class="nav class" href="game_sdl_scancode_links.html">Relations</a>
+<a class="nav class" href="game_sdl_scancode.html">Text</a>
+<a class="nav class" href="game_sdl_scancode_flat.html">Flat</a>
+<a class="nav class" href="game_sdl_scancode_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="game_sdl_scancode"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Scancode values of the SDL2 library&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 02 Apr 2015 02:40:10 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a>
+
+<span class="ekeyword">create</span> 
+	<a name="f_default_create"></a><a class="efeature" href="../../elks/any_flatshort.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process instances of classes with no creation clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../../elks/any_flatshort.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/type_flatshort.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../../elks/any_flatshort.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/finite_flatshort.html#f_is_empty">is_empty</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flatshort.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../../elks/any_flatshort.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../../elks/any_flatshort.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../../elks/any_flatshort.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Conversion</span>
+
+	<a name="f_sdl_getscancodefromkey"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_getscancodefromkey">sdl_getscancodefromkey</a> <span class="esymbol">(</span><span class="elocal">key</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_getscancodefromname"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_getscancodefromname">sdl_getscancodefromname</a> <span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_flatshort.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../../elks/any_flatshort.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../../elks/any_flatshort.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../../elks/any_flatshort.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../../elks/any_flatshort.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../../elks/any_flatshort.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/std_files_flatshort.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_out"></a><a class="efeature" href="../../elks/any_flatshort.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><a class="efeature" href="../../elks/any_flatshort.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flatshort.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../../elks/any_flatshort.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/operating_environment_flatshort.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Scancodes</span>
+
+	<a name="f_sdl_scancode_0"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_0">sdl_scancode_0</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_1">sdl_scancode_1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_2">sdl_scancode_2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_3"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_3">sdl_scancode_3</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_4"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_4">sdl_scancode_4</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_5"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_5">sdl_scancode_5</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_6">sdl_scancode_6</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_7"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_7">sdl_scancode_7</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_8">sdl_scancode_8</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_9"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_9">sdl_scancode_9</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_a"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_a">sdl_scancode_a</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_ac_back"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_ac_back">sdl_scancode_ac_back</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_ac_bookmarks"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_ac_bookmarks">sdl_scancode_ac_bookmarks</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_ac_forward"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_ac_forward">sdl_scancode_ac_forward</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_ac_home"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_ac_home">sdl_scancode_ac_home</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_ac_refresh"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_ac_refresh">sdl_scancode_ac_refresh</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_ac_search"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_ac_search">sdl_scancode_ac_search</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_ac_stop"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_ac_stop">sdl_scancode_ac_stop</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_again"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_again">sdl_scancode_again</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_alterase"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_alterase">sdl_scancode_alterase</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_apostrophe"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_apostrophe">sdl_scancode_apostrophe</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_app1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_app1">sdl_scancode_app1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_app2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_app2">sdl_scancode_app2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_application"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_application">sdl_scancode_application</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_audiomute"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_audiomute">sdl_scancode_audiomute</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_audionext"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_audionext">sdl_scancode_audionext</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_audioplay"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_audioplay">sdl_scancode_audioplay</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_audioprev"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_audioprev">sdl_scancode_audioprev</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_audiostop"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_audiostop">sdl_scancode_audiostop</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_b"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_b">sdl_scancode_b</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_backslash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_backslash">sdl_scancode_backslash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_backspace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_backspace">sdl_scancode_backspace</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_brightnessdown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_brightnessdown">sdl_scancode_brightnessdown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_brightnessup"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_brightnessup">sdl_scancode_brightnessup</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_c"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_c">sdl_scancode_c</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_calculator"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_calculator">sdl_scancode_calculator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_cancel"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_cancel">sdl_scancode_cancel</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_capslock"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_capslock">sdl_scancode_capslock</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_clear"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_clear">sdl_scancode_clear</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_clearagain"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_clearagain">sdl_scancode_clearagain</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_comma"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_comma">sdl_scancode_comma</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_computer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_computer">sdl_scancode_computer</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_copy">sdl_scancode_copy</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_crsel"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_crsel">sdl_scancode_crsel</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_currencysubunit"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_currencysubunit">sdl_scancode_currencysubunit</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_currencyunit"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_currencyunit">sdl_scancode_currencyunit</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_cut"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_cut">sdl_scancode_cut</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_d">sdl_scancode_d</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_decimalseparator"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_decimalseparator">sdl_scancode_decimalseparator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_delete"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_delete">sdl_scancode_delete</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_displayswitch"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_displayswitch">sdl_scancode_displayswitch</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_down"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_down">sdl_scancode_down</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_e"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_e">sdl_scancode_e</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_eject"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_eject">sdl_scancode_eject</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_end"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_end">sdl_scancode_end</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_equals"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_equals">sdl_scancode_equals</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_escape"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_escape">sdl_scancode_escape</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_execute"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_execute">sdl_scancode_execute</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_exsel"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_exsel">sdl_scancode_exsel</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f">sdl_scancode_f</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f1">sdl_scancode_f1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f10"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f10">sdl_scancode_f10</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f11"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f11">sdl_scancode_f11</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f12"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f12">sdl_scancode_f12</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f13"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f13">sdl_scancode_f13</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f14"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f14">sdl_scancode_f14</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f15"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f15">sdl_scancode_f15</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f16"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f16">sdl_scancode_f16</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f17"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f17">sdl_scancode_f17</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f18"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f18">sdl_scancode_f18</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f19"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f19">sdl_scancode_f19</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f2">sdl_scancode_f2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f20"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f20">sdl_scancode_f20</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f21"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f21">sdl_scancode_f21</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f22"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f22">sdl_scancode_f22</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f23"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f23">sdl_scancode_f23</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f24"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f24">sdl_scancode_f24</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f3"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f3">sdl_scancode_f3</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f4"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f4">sdl_scancode_f4</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f5"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f5">sdl_scancode_f5</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f6">sdl_scancode_f6</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f7"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f7">sdl_scancode_f7</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f8">sdl_scancode_f8</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_f9"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_f9">sdl_scancode_f9</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_find"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_find">sdl_scancode_find</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_g"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_g">sdl_scancode_g</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_grave"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_grave">sdl_scancode_grave</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_h"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_h">sdl_scancode_h</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_help"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_help">sdl_scancode_help</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_home"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_home">sdl_scancode_home</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_i"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_i">sdl_scancode_i</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_insert"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_insert">sdl_scancode_insert</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international1">sdl_scancode_international1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international2">sdl_scancode_international2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international3"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international3">sdl_scancode_international3</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international4"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international4">sdl_scancode_international4</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international5"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international5">sdl_scancode_international5</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international6">sdl_scancode_international6</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international7"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international7">sdl_scancode_international7</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international8">sdl_scancode_international8</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_international9"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_international9">sdl_scancode_international9</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_j"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_j">sdl_scancode_j</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_k"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_k">sdl_scancode_k</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kbdillumdown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kbdillumdown">sdl_scancode_kbdillumdown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kbdillumtoggle"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kbdillumtoggle">sdl_scancode_kbdillumtoggle</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kbdillumup"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kbdillumup">sdl_scancode_kbdillumup</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_0"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_0">sdl_scancode_kp_0</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_00"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_00">sdl_scancode_kp_00</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_000"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_000">sdl_scancode_kp_000</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_1">sdl_scancode_kp_1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_2">sdl_scancode_kp_2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_3"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_3">sdl_scancode_kp_3</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_4"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_4">sdl_scancode_kp_4</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_5"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_5">sdl_scancode_kp_5</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_6">sdl_scancode_kp_6</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_7"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_7">sdl_scancode_kp_7</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_8">sdl_scancode_kp_8</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_9"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_9">sdl_scancode_kp_9</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_a"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_a">sdl_scancode_kp_a</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_ampersand"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_ampersand">sdl_scancode_kp_ampersand</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_at"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_at">sdl_scancode_kp_at</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_b"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_b">sdl_scancode_kp_b</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_backspace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_backspace">sdl_scancode_kp_backspace</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_binary"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_binary">sdl_scancode_kp_binary</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_c"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_c">sdl_scancode_kp_c</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_clear"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_clear">sdl_scancode_kp_clear</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_clearentry"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_clearentry">sdl_scancode_kp_clearentry</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_colon"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_colon">sdl_scancode_kp_colon</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_comma"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_comma">sdl_scancode_kp_comma</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_d">sdl_scancode_kp_d</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_dblampersand"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_dblampersand">sdl_scancode_kp_dblampersand</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_dblverticalbar"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_dblverticalbar">sdl_scancode_kp_dblverticalbar</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_decimal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_decimal">sdl_scancode_kp_decimal</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_divide"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_divide">sdl_scancode_kp_divide</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_e"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_e">sdl_scancode_kp_e</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_enter"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_enter">sdl_scancode_kp_enter</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_equals"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_equals">sdl_scancode_kp_equals</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_equalsas400"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_equalsas400">sdl_scancode_kp_equalsas400</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_exclam"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_exclam">sdl_scancode_kp_exclam</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_f"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_f">sdl_scancode_kp_f</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_greater"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_greater">sdl_scancode_kp_greater</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_hash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_hash">sdl_scancode_kp_hash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_hexadecimal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_hexadecimal">sdl_scancode_kp_hexadecimal</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_leftbrace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_leftbrace">sdl_scancode_kp_leftbrace</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_leftparen"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_leftparen">sdl_scancode_kp_leftparen</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_less"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_less">sdl_scancode_kp_less</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_memadd"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_memadd">sdl_scancode_kp_memadd</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_memclear"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_memclear">sdl_scancode_kp_memclear</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_memdivide"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_memdivide">sdl_scancode_kp_memdivide</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_memmultiply"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_memmultiply">sdl_scancode_kp_memmultiply</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_memrecall"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_memrecall">sdl_scancode_kp_memrecall</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_memstore"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_memstore">sdl_scancode_kp_memstore</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_memsubtract"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_memsubtract">sdl_scancode_kp_memsubtract</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_minus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_minus">sdl_scancode_kp_minus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_multiply"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_multiply">sdl_scancode_kp_multiply</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_octal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_octal">sdl_scancode_kp_octal</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_percent"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_percent">sdl_scancode_kp_percent</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_period"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_period">sdl_scancode_kp_period</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_plus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_plus">sdl_scancode_kp_plus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_plusminus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_plusminus">sdl_scancode_kp_plusminus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_power"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_power">sdl_scancode_kp_power</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_rightbrace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_rightbrace">sdl_scancode_kp_rightbrace</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_rightparen"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_rightparen">sdl_scancode_kp_rightparen</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_space"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_space">sdl_scancode_kp_space</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_tab"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_tab">sdl_scancode_kp_tab</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_verticalbar"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_verticalbar">sdl_scancode_kp_verticalbar</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_kp_xor"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_kp_xor">sdl_scancode_kp_xor</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_l"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_l">sdl_scancode_l</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lalt"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lalt">sdl_scancode_lalt</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang1">sdl_scancode_lang1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang2">sdl_scancode_lang2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang3"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang3">sdl_scancode_lang3</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang4"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang4">sdl_scancode_lang4</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang5"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang5">sdl_scancode_lang5</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang6">sdl_scancode_lang6</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang7"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang7">sdl_scancode_lang7</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang8">sdl_scancode_lang8</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lang9"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lang9">sdl_scancode_lang9</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lctrl"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lctrl">sdl_scancode_lctrl</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_left"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_left">sdl_scancode_left</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_leftbracket"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_leftbracket">sdl_scancode_leftbracket</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lgui"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lgui">sdl_scancode_lgui</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_lshift"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_lshift">sdl_scancode_lshift</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_m"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_m">sdl_scancode_m</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_mail"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_mail">sdl_scancode_mail</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_mediaselect"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_mediaselect">sdl_scancode_mediaselect</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_menu"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_menu">sdl_scancode_menu</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_minus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_minus">sdl_scancode_minus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_mode"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_mode">sdl_scancode_mode</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_mute"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_mute">sdl_scancode_mute</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_n"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_n">sdl_scancode_n</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_nonusbackslash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_nonusbackslash">sdl_scancode_nonusbackslash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_nonushash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_nonushash">sdl_scancode_nonushash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_numlockclear"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_numlockclear">sdl_scancode_numlockclear</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_o"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_o">sdl_scancode_o</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_oper"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_oper">sdl_scancode_oper</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_out">sdl_scancode_out</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_p"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_p">sdl_scancode_p</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_pagedown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_pagedown">sdl_scancode_pagedown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_pageup"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_pageup">sdl_scancode_pageup</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_paste"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_paste">sdl_scancode_paste</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_pause"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_pause">sdl_scancode_pause</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_period"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_period">sdl_scancode_period</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_power"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_power">sdl_scancode_power</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_printscreen"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_printscreen">sdl_scancode_printscreen</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_prior"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_prior">sdl_scancode_prior</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_q"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_q">sdl_scancode_q</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_r"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_r">sdl_scancode_r</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_ralt"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_ralt">sdl_scancode_ralt</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_rctrl"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_rctrl">sdl_scancode_rctrl</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_return"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_return">sdl_scancode_return</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_return2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_return2">sdl_scancode_return2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_rgui"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_rgui">sdl_scancode_rgui</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_right"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_right">sdl_scancode_right</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_rightbracket"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_rightbracket">sdl_scancode_rightbracket</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_rshift"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_rshift">sdl_scancode_rshift</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_s"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_s">sdl_scancode_s</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_scrolllock"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_scrolllock">sdl_scancode_scrolllock</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_select"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_select">sdl_scancode_select</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_semicolon"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_semicolon">sdl_scancode_semicolon</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_separator"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_separator">sdl_scancode_separator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_slash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_slash">sdl_scancode_slash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_sleep"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_sleep">sdl_scancode_sleep</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_space"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_space">sdl_scancode_space</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_stop"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_stop">sdl_scancode_stop</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_sysreq"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_sysreq">sdl_scancode_sysreq</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_t"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_t">sdl_scancode_t</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_tab"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_tab">sdl_scancode_tab</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_thousandsseparator"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_thousandsseparator">sdl_scancode_thousandsseparator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_u"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_u">sdl_scancode_u</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_undo"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_undo">sdl_scancode_undo</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_unknown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_unknown">sdl_scancode_unknown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_up"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_up">sdl_scancode_up</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_v"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_v">sdl_scancode_v</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_volumedown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_volumedown">sdl_scancode_volumedown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_volumeup"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_volumeup">sdl_scancode_volumeup</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_w"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_w">sdl_scancode_w</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_www"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_www">sdl_scancode_www</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_x"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_x">sdl_scancode_x</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_y"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_y">sdl_scancode_y</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+
+	<a name="f_sdl_scancode_z"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_scancode_flatshort.html#f_sdl_scancode_z">sdl_scancode_z</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flatshort.html">NATURAL_32</a>
+	
+<span class="ekeyword">invariant</span>
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flatshort.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/implementation/game_sdl_scancode_flatshort.html">GAME_SDL_SCANCODE</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_sdl_scancode_chart.html">Chart</a>
+<a class="nav class" href="game_sdl_scancode_links.html">Relations</a>
+<a class="nav class" href="game_sdl_scancode.html">Text</a>
+<a class="nav class" href="game_sdl_scancode_flat.html">Flat</a>
+<a class="nav class" href="game_sdl_scancode_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="game_sdl_scancode"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

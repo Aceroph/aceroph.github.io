@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A cursor representing the mouse in a window"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_cursor Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_cursor_chart.html">Chart</a>
+<a class="nav class" href="game_cursor_links.html">Relations</a>
+<a class="nav class" href="game_cursor.html">Text</a>
+<a class="nav class" href="game_cursor_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_cursor_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_cursor"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A cursor representing the mouse in a window&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Mon, 04 May 2015 20:37:11 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;0.1&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../game_core/graphic/game_cursor_short.html">GAME_CURSOR</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_from_image">make_from_image</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_from_surface">make_from_surface</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_arrow">make_arrow</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_i_beam">make_i_beam</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_wait">make_wait</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_crosshair">make_crosshair</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_wait_arrow">make_wait_arrow</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_resize_north_west_south_east">make_resize_north_west_south_east</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_resize_north_east_south_west">make_resize_north_east_south_west</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_resize_north_south">make_resize_north_south</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_resize_west_east">make_resize_west_east</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_resize_all">make_resize_all</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_unavailable">make_unavailable</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_hand">make_hand</a>
+
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/game_library_controller_short.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">}</span>
+	<a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_make_by_pointer">make_by_pointer</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_exists"></a><a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_item">item</a><span class="ecomment"> reprensenting valid memory structure</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../game_core/graphic/game_cursor_short.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">a_other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/graphic/game_cursor_short.html">GAME_CURSOR</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_cursor_chart.html">Chart</a>
+<a class="nav class" href="game_cursor_links.html">Relations</a>
+<a class="nav class" href="game_cursor.html">Text</a>
+<a class="nav class" href="game_cursor_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_cursor_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_cursor"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

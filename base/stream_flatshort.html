@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Implementation of the STORABLE mechanism with streams."/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2017, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>stream Flat contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="stream_chart.html">Chart</a>
+<a class="nav class" href="stream_links.html">Relations</a>
+<a class="nav class" href="stream.html">Text</a>
+<a class="nav class" href="stream_flat.html">Flat</a>
+<a class="nav class" href="stream_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="stream"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Implementation of the STORABLE mechanism with streams.&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Free implementation of ELKS library&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2017-03-23 19:18:26 +0000 (Thu, 23 Mar 2017) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 100033 $&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../elks/stream_flatshort.html">STREAM</a>
+
+<span class="ekeyword">create</span> 
+	<a name="f_make"></a><a class="efeature" href="../elks/stream_flatshort.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Create stream object with a default_size of 100 bytes</span>
+
+	<a name="f_make_with_size"></a><a class="efeature" href="../elks/stream_flatshort.html#f_make_with_size">make_with_size</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create stream object with a default_size of </span><span class="equoted">n</span><span class="ecomment"> bytes</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../elks/stream_flatshort.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Create stream object with a default_size of 100 bytes</span>
+
+	<a name="f_make_with_size"></a><a class="efeature" href="../elks/stream_flatshort.html#f_make_with_size">make_with_size</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create stream object with a default_size of </span><span class="equoted">n</span><span class="ecomment"> bytes</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_buffer_size"></a><a class="efeature" href="../elks/stream_flatshort.html#f_buffer_size">buffer_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Buffer's size.</span>
+
+	<a name="f_create_c_buffer"></a><a class="efeature" href="../elks/stream_flatshort.html#f_create_c_buffer">create_c_buffer</a>
+			<span class="ecomment">--</span><span class="ecomment"> Create the C memory corresponding to the C buffer.</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flatshort.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flatshort.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_item"></a><a class="efeature" href="../elks/stream_flatshort.html#f_item">item</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to stored/retrieved data</span>
+
+	<a name="f_object_stored_size"></a><a class="efeature" href="../elks/stream_flatshort.html#f_object_stored_size">object_stored_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Size of last stored object.</span>
+
+	<a name="f_retrieved"></a><a class="efeature" href="../elks/stream_flatshort.html#f_retrieved">retrieved</a><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="ecomment">--</span><span class="ecomment"> Retrieved object structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> To access resulting object under correct type,</span>
+			<span class="ecomment">--</span><span class="ecomment"> use assignment attempt.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Will raise an exception (code </span><span class="equoted">Retrieve_exception</span><span class="ecomment">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> if content is not a stored Eiffel structure.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+			<span class="etag">support_storable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_support_storable">Support_storable</a>
+		<span class="ekeyword">require else</span>
+				<span class="ekeyword">True</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_bytes_read"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_bytes_read">bytes_read</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last number of bytes read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_to_managed_pointer">read_to_managed_pointer</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_exists"></a><a class="efeature" href="../elks/stream_flatshort.html#f_exists">Exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Stream exists in any cases.</span>
+
+	<a name="f_extendible"></a><a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> May new items be added?</span>
+
+	<a name="f_is_closed"></a><a class="efeature" href="../elks/stream_flatshort.html#f_is_closed">is_closed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the I/O medium open</span>
+
+	<a name="f_is_executable"></a><a class="efeature" href="../elks/stream_flatshort.html#f_is_executable">is_executable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is stream executable?</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">handle_exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_exists">Exists</a>
+
+	<a name="f_is_open_read"></a><a class="efeature" href="../elks/stream_flatshort.html#f_is_open_read">Is_open_read</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Stream opens for input.</span>
+
+	<a name="f_is_open_write"></a><a class="efeature" href="../elks/stream_flatshort.html#f_is_open_write">Is_open_write</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Stream opens for output.</span>
+
+	<a name="f_is_plain_text"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_is_plain_text">is_plain_text</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file reserved for text (character sequences)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_is_readable"></a><a class="efeature" href="../elks/stream_flatshort.html#f_is_readable">Is_readable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is medium readable?</span>
+
+	<a name="f_is_writable"></a><a class="efeature" href="../elks/stream_flatshort.html#f_is_writable">Is_writable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Stream is writable.</span>
+
+	<a name="f_last_character"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_character">last_character</a><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flatshort.html">CHARACTER_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last character read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_character">read_character</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_double"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_double">last_double</a><span class="esymbol">:</span> <a class="eclass" href="../elks/real_64_flatshort.html">REAL_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last double read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_double">read_double</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_integer"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer">last_integer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last integer read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer">read_integer</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_integer_16"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer_16">last_integer_16</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_16_flatshort.html">INTEGER_16</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last 16-bit integer read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_16">read_integer_16</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_integer_32"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer_32">last_integer_32</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Synonymy of </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer">last_integer</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_integer_64"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer_64">last_integer_64</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flatshort.html">INTEGER_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last 64-bit integer read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_64">read_integer_64</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_integer_8"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer_8">last_integer_8</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_8_flatshort.html">INTEGER_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last 8-bit integer read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_8">read_integer_8</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_natural"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural">last_natural</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last 32-bit natural read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural">read_natural</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_natural_16"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural_16">last_natural_16</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_16_flatshort.html">NATURAL_16</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last 16-bit natural read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural_16">read_natural_16</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_natural_32"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural_32">last_natural_32</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Synonymy of </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural">last_natural</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_natural_64"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural_64">last_natural_64</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_64_flatshort.html">NATURAL_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last 64-bit natural read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural_64">read_natural_64</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_natural_8"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural_8">last_natural_8</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8_flatshort.html">NATURAL_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last 8-bit natural read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural_8">read_natural_8</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_real"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_real">last_real</a><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_flatshort.html">REAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last real read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_real">read_real</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_last_string"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last string read</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_readable"></a><a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is there a current item that may be read?</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">handle_exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_exists">Exists</a>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_support_storable"></a><a class="efeature" href="../elks/stream_flatshort.html#f_support_storable">Support_storable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Can medium be used to store an Eiffel structure?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_close"></a><a class="efeature" href="../elks/stream_flatshort.html#f_close">close</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close medium.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">medium_is_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../elks/stream_flatshort.html#f_is_closed">is_closed</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_basic_store"></a><a class="efeature" href="../elks/stream_flatshort.html#f_basic_store">basic_store</a> <span class="esymbol">(</span><span class="elocal">object</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Produce an external representation of the</span>
+			<span class="ecomment">--</span><span class="ecomment"> entire object structure reachable from </span><span class="equoted">object</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Retrievable within current system only.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">object_not_void</span><span class="esymbol">:</span> <span class="elocal">object</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+			<span class="etag">support_storable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_support_storable">Support_storable</a>
+
+	<a name="f_general_store"></a><a class="efeature" href="../elks/stream_flatshort.html#f_general_store">general_store</a> <span class="esymbol">(</span><span class="elocal">object</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Produce an external representation of the</span>
+			<span class="ecomment">--</span><span class="ecomment"> entire object structure reachable from </span><span class="equoted">object</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Retrievable from other systems for same platform</span>
+			<span class="ecomment">--</span><span class="ecomment"> (machine architecture).</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">object_not_void</span><span class="esymbol">:</span> <span class="elocal">object</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+			<span class="etag">support_storable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_support_storable">Support_storable</a>
+
+	<a name="f_independent_store"></a><a class="efeature" href="../elks/stream_flatshort.html#f_independent_store">independent_store</a> <span class="esymbol">(</span><span class="elocal">object</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Produce an external representation of the</span>
+			<span class="ecomment">--</span><span class="ecomment"> entire object structure reachable from </span><span class="equoted">object</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Retrievable from other systems for the same or other</span>
+			<span class="ecomment">--</span><span class="ecomment"> platform (machine architecture).</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">object_not_void</span><span class="esymbol">:</span> <span class="elocal">object</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+			<span class="etag">support_storable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_support_storable">Support_storable</a>
+
+	<a name="f_set_additional_size"></a><a class="efeature" href="../elks/stream_flatshort.html#f_set_additional_size">set_additional_size</a> <span class="esymbol">(</span><span class="elocal">new_size</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><span class="equoted">new_size</span><span class="ecomment"> to BUFFER_SIZE, internal value used to</span>
+			<span class="ecomment">--</span><span class="ecomment"> increment </span><a class="efeature" href="../elks/stream_flatshort.html#f_buffer_size">buffer_size</a><span class="ecomment"> during storable operations.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Removal</span>
+
+	<a name="f_dispose"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_dispose">dispose</a>
+			<span class="ecomment">--</span><span class="ecomment"> Ensure this medium is closed when garbage collected.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/stream_flatshort.html">STREAM</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flatshort.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Obsolete</span>
+
+	<a name="f_lastchar"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_lastchar">lastchar</a><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flatshort.html">CHARACTER_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last character read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_character">read_character</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_lastdouble"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_lastdouble">lastdouble</a><span class="esymbol">:</span> <a class="eclass" href="../elks/real_64_flatshort.html">REAL_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last double read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_double">read_double</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_lastint"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_lastint">lastint</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last integer read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer">read_integer</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_lastreal"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_lastreal">lastreal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_flatshort.html">REAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last real read by </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_real">read_real</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+
+	<a name="f_laststring"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_laststring">laststring</a><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last string read</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Input</span>
+
+	<a name="f_read_character"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_character">read_character</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new character.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_character">last_character</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_readchar">readchar</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_double"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_double">read_double</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new double.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_double">last_double</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_readdouble">readdouble</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_integer"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer">read_integer</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new integer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer">last_integer</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_readint">readint</a><span class="ecomment"> and </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_32">read_integer_32</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_integer_16"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_16">read_integer_16</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new integer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer_16">last_integer_16</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_integer_32"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_32">read_integer_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new integer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer">last_integer</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer">read_integer</a><span class="ecomment"> and </span><a class="efeature" href="../elks/stream_flatshort.html#f_readint">readint</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_integer_64"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_64">read_integer_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new integer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer_64">last_integer_64</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_integer_8"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_8">read_integer_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new integer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer_8">last_integer_8</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_line"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_line">read_line</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read characters until a new line or</span>
+			<span class="ecomment">--</span><span class="ecomment"> end of medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_readline">readline</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">last_string_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_read_line_thread_aware"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_read_line_thread_aware">read_line_thread_aware</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read characters until a new line or</span>
+			<span class="ecomment">--</span><span class="ecomment"> end of medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Functionally identical to </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_line">read_line</a><span class="ecomment"> but</span>
+			<span class="ecomment">--</span><span class="ecomment"> won't prevent garbage collection from occurring</span>
+			<span class="ecomment">--</span><span class="ecomment"> while blocked waiting for data, though data must</span>
+			<span class="ecomment">--</span><span class="ecomment"> be copied an extra time.			</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">last_string_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_read_natural"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural">read_natural</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new natural.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural">last_natural</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural_32">read_natural_32</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_natural_16"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural_16">read_natural_16</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new natural.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural_16">last_natural_16</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_natural_32"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural_32">read_natural_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new natural.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural">last_natural</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural">read_natural</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_natural_64"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural_64">read_natural_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new natural.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural_64">last_natural_64</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_natural_8"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_natural_8">read_natural_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new natural.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_natural_8">last_natural_8</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_real"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_real">read_real</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new real.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_real">last_real</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_readreal">readreal</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_read_stream"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_stream">read_stream</a> <span class="esymbol">(</span><span class="elocal">nb_char</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Read a string of at most </span><span class="equoted">nb_char</span><span class="ecomment"> bound characters</span>
+			<span class="ecomment">--</span><span class="ecomment"> or until end of medium is encountered.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_readstream">readstream</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">last_string_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_read_stream_thread_aware"></a><a class="efeature" href="../elks/io_medium_flatshort.html#f_read_stream_thread_aware">read_stream_thread_aware</a> <span class="esymbol">(</span><span class="elocal">nb_char</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Read a string of at most </span><span class="equoted">nb_char</span><span class="ecomment"> bound characters</span>
+			<span class="ecomment">--</span><span class="ecomment"> or until end of medium is encountered.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Functionally identical to </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_stream">read_stream</a><span class="ecomment"> but</span>
+			<span class="ecomment">--</span><span class="ecomment"> won't prevent garbage collection from occurring</span>
+			<span class="ecomment">--</span><span class="ecomment"> while blocked waiting for data, though data must</span>
+			<span class="ecomment">--</span><span class="ecomment"> be copied an extra time.			</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">last_string_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_read_to_managed_pointer"></a><a class="efeature" href="../elks/stream_flatshort.html#f_read_to_managed_pointer">read_to_managed_pointer</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <a class="eclass" href="../elks/managed_pointer_flatshort.html">MANAGED_POINTER</a><span class="esymbol">;</span> <span class="elocal">start_pos</span><span class="esymbol">,</span> <span class="elocal">nb_bytes</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Read at most </span><span class="equoted">nb_bytes</span><span class="ecomment"> bound bytes and make result</span>
+			<span class="ecomment">--</span><span class="ecomment"> available in </span><span class="equoted">p</span><span class="ecomment"> at position </span><span class="equoted">start_pos</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">p_not_void</span><span class="esymbol">:</span> <span class="elocal">p</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">p_large_enough</span><span class="esymbol">:</span> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flatshort.html#f_count">count</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="elocal">nb_bytes</span> <a class="esymbol" href="../elks/integer_32_flatshort.html#f_plus">+</a> <span class="elocal">start_pos</span>
+			<span class="etag">nb_bytes_non_negative</span><span class="esymbol">:</span> <span class="elocal">nb_bytes</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">bytes_read_non_negative</span><span class="esymbol">:</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_bytes_read">bytes_read</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+			<span class="etag">bytes_read_not_too_big</span><span class="esymbol">:</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_bytes_read">bytes_read</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <span class="elocal">nb_bytes</span>
+
+	<a name="f_readchar"></a><a class="efeature" href="../elks/stream_flatshort.html#f_readchar">readchar</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new character.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_character">last_character</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_character">read_character</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_readdouble"></a><a class="efeature" href="../elks/stream_flatshort.html#f_readdouble">readdouble</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new double.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_double">last_double</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_double">read_double</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_readint"></a><a class="efeature" href="../elks/stream_flatshort.html#f_readint">readint</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new integer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_integer">last_integer</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer">read_integer</a><span class="ecomment"> and </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_integer_32">read_integer_32</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_readline"></a><a class="efeature" href="../elks/stream_flatshort.html#f_readline">readline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read characters until a new line or</span>
+			<span class="ecomment">--</span><span class="ecomment"> end of medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_line">read_line</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">last_string_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_readreal"></a><a class="efeature" href="../elks/stream_flatshort.html#f_readreal">readreal</a>
+			<span class="ecomment">--</span><span class="ecomment"> Read a new real.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_real">last_real</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_real">read_real</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+
+	<a name="f_readstream"></a><a class="efeature" href="../elks/stream_flatshort.html#f_readstream">readstream</a> <span class="esymbol">(</span><span class="elocal">nb_char</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Read a string of at most </span><span class="equoted">nb_char</span><span class="ecomment"> bound characters</span>
+			<span class="ecomment">--</span><span class="ecomment"> or until end of medium is encountered.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make result available in </span><a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_read_stream">read_stream</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">is_readable</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_readable">readable</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">last_string_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../elks/io_medium_flatshort.html#f_last_string">last_string</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flatshort.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flatshort.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_line"></a><a class="efeature" href="../elks/stream_flatshort.html#f_new_line">new_line</a>
+			<span class="ecomment">--</span><span class="ecomment"> Write a new line character to medium</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_new_line">put_new_line</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+		<span class="ekeyword">require else</span>
+			<span class="etag">stream_exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_exists">Exists</a>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flatshort.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flatshort.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_put_boolean"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_boolean">put_boolean</a> <span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">b</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_putbool">putbool</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_character"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_character">put_character</a> <span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flatshort.html">CHARACTER_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">c</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_putchar">putchar</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_double"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_double">put_double</a> <span class="esymbol">(</span><span class="elocal">d</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_64_flatshort.html">REAL_64</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">d</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_putdouble">putdouble</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_integer"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer">put_integer</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_putint">putint</a><span class="ecomment"> and </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer_32">put_integer_32</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_integer_16"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer_16">put_integer_16</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_16_flatshort.html">INTEGER_16</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_integer_32"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer_32">put_integer_32</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer">put_integer</a><span class="ecomment"> and </span><a class="efeature" href="../elks/stream_flatshort.html#f_putint">putint</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_integer_64"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer_64">put_integer_64</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flatshort.html">INTEGER_64</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_integer_8"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer_8">put_integer_8</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_8_flatshort.html">INTEGER_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_managed_pointer"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_managed_pointer">put_managed_pointer</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="esymbol">:</span> <a class="eclass" href="../elks/managed_pointer_flatshort.html">MANAGED_POINTER</a><span class="esymbol">;</span> <span class="elocal">start_pos</span><span class="esymbol">,</span> <span class="elocal">nb_bytes</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Put data of length </span><span class="equoted">nb_bytes</span><span class="ecomment"> pointed by </span><span class="equoted">start_pos</span><span class="ecomment"> index in </span><span class="equoted">p</span><span class="ecomment"> at</span>
+			<span class="ecomment">--</span><span class="ecomment"> current position.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">p_not_void</span><span class="esymbol">:</span> <span class="elocal">p</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">p_large_enough</span><span class="esymbol">:</span> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flatshort.html#f_count">count</a> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="elocal">nb_bytes</span> <a class="esymbol" href="../elks/integer_32_flatshort.html#f_plus">+</a> <span class="elocal">start_pos</span>
+			<span class="etag">nb_bytes_non_negative</span><span class="esymbol">:</span> <span class="elocal">nb_bytes</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_natural"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_natural">put_natural</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_natural_32">put_natural_32</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_natural_16"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_natural_16">put_natural_16</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_16_flatshort.html">NATURAL_16</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_natural_32"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_natural_32">put_natural_32</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_natural">put_natural</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_natural_64"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_natural_64">put_natural_64</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_64_flatshort.html">NATURAL_64</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_natural_8"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_natural_8">put_natural_8</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8_flatshort.html">NATURAL_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_new_line"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_new_line">put_new_line</a>
+			<span class="ecomment">--</span><span class="ecomment"> Write a new line character to medium</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_new_line">new_line</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+		<span class="ekeyword">require else</span>
+			<span class="etag">stream_exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_exists">Exists</a>
+
+	<a name="f_put_real"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_real">put_real</a> <span class="esymbol">(</span><span class="elocal">r</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_flatshort.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">r</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_putreal">putreal</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_put_string"></a><a class="efeature" href="../elks/stream_flatshort.html#f_put_string">put_string</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">s</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_putstring">putstring</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+			<span class="etag">non_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_putbool"></a><a class="efeature" href="../elks/stream_flatshort.html#f_putbool">putbool</a> <span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">b</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_boolean">put_boolean</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_putchar"></a><a class="efeature" href="../elks/stream_flatshort.html#f_putchar">putchar</a> <span class="esymbol">(</span><span class="elocal">c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/character_8_flatshort.html">CHARACTER_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">c</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_character">put_character</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_putdouble"></a><a class="efeature" href="../elks/stream_flatshort.html#f_putdouble">putdouble</a> <span class="esymbol">(</span><span class="elocal">d</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_64_flatshort.html">REAL_64</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">d</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_double">put_double</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_putint"></a><a class="efeature" href="../elks/stream_flatshort.html#f_putint">putint</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">i</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer">put_integer</a><span class="ecomment"> and </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_integer_32">put_integer_32</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_putreal"></a><a class="efeature" href="../elks/stream_flatshort.html#f_putreal">putreal</a> <span class="esymbol">(</span><span class="elocal">r</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_flatshort.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">r</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_real">put_real</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+
+	<a name="f_putstring"></a><a class="efeature" href="../elks/stream_flatshort.html#f_putstring">putstring</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write </span><span class="equoted">s</span><span class="ecomment"> to medium.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/stream_flatshort.html#f_put_string">put_string</a><span class="ecomment">.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/io_medium_flatshort.html">IO_MEDIUM</a>
+			<span class="etag">extendible</span><span class="esymbol">:</span> <a class="efeature" href="../elks/stream_flatshort.html#f_extendible">extendible</a>
+			<span class="etag">non_void</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flatshort.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flatshort.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">invariant</span>
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2017, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../elks/stream_flatshort.html">STREAM</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="stream_chart.html">Chart</a>
+<a class="nav class" href="stream_links.html">Relations</a>
+<a class="nav class" href="stream.html">Text</a>
+<a class="nav class" href="stream_flat.html">Flat</a>
+<a class="nav class" href="stream_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="stream"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

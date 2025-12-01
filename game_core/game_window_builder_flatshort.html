@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A builder to create {GAME_WINDOW}"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_window_builder Flat contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_builder_chart.html">Chart</a>
+<a class="nav class" href="game_window_builder_links.html">Relations</a>
+<a class="nav class" href="game_window_builder.html">Text</a>
+<a class="nav class" href="game_window_builder_flat.html">Flat</a>
+<a class="nav class" href="game_window_builder_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="game_window_builder"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A builder to create </span><a class="eclass" href="../game_core/graphic/game_window_flatshort.html">GAME_WINDOW</a><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Fri, 03 Apr 2015 02:41:42 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_dimension"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_dimension">dimension</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_flatshort.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The horizontal and vertical dimension of</span>
+			<span class="ecomment">--</span><span class="ecomment"> the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> at creation</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: [800, 600]</span>
+
+	<a name="f_disable_border"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_border">disable_border</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> without decoration border</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_has_border">has_border</a>
+
+	<a name="f_disable_fake_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_fake_fullscreen">disable_fake_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> windowed</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fake_fullscreen">is_fake_fullscreen</a>
+
+	<a name="f_disable_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_fullscreen">disable_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> windowed</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fullscreen">is_fullscreen</a>
+
+	<a name="f_disable_hidden"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_hidden">disable_hidden</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> showed at creation</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_hidden">is_hidden</a>
+
+	<a name="f_disable_input_grabbed"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_input_grabbed">disable_input_grabbed</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> not grab all input</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_input_grabbed">is_input_grabbed</a>
+
+	<a name="f_disable_maximized"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_maximized">disable_maximized</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> not maximized at creation</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_maximized">is_maximized</a>
+
+	<a name="f_disable_minimized"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_minimized">disable_minimized</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> not minimized at creation</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_minimized">is_minimized</a>
+
+	<a name="f_disable_position_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_position_centered">disable_position_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, use </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_x">position_x</a><span class="ecomment"> and </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_y">position_y</a>
+			<span class="ecomment">--</span><span class="ecomment"> values respectively for the horizontal and</span>
+			<span class="ecomment">--</span><span class="ecomment"> vertical position of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a>
+
+	<a name="f_disable_position_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_position_undefined">disable_position_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, use </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_x">position_x</a><span class="ecomment"> and </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_y">position_y</a>
+			<span class="ecomment">--</span><span class="ecomment"> values respectively for the horizontal and</span>
+			<span class="ecomment">--</span><span class="ecomment"> vertical position of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a>
+
+	<a name="f_disable_position_x_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_position_x_centered">disable_position_x_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, use </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_x">position_x</a><span class="ecomment"> value for the</span>
+			<span class="ecomment">--</span><span class="ecomment"> horizontal position of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a>
+
+	<a name="f_disable_position_x_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_position_x_undefined">disable_position_x_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, use </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_x">position_x</a><span class="ecomment"> value for the</span>
+			<span class="ecomment">--</span><span class="ecomment"> horizontal position of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a>
+
+	<a name="f_disable_position_y_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_position_y_centered">disable_position_y_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, use </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_y">position_y</a><span class="ecomment"> value for the</span>
+			<span class="ecomment">--</span><span class="ecomment"> vertical position of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a>
+
+	<a name="f_disable_position_y_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_position_y_undefined">disable_position_y_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, use </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_y">position_y</a><span class="ecomment"> value for the</span>
+			<span class="ecomment">--</span><span class="ecomment"> vertical position of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a>
+
+	<a name="f_disable_resizable"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_disable_resizable">disable_resizable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> not resizable</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_resizable">is_resizable</a>
+
+	<a name="f_display"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/graphic/game_display_flatshort.html">GAME_DISPLAY</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_display">set_display</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../game_core/graphic/game_display_flatshort.html">GAME_DISPLAY</a><span class="ecomment"> (screen) that the</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be drawed</span>
+			<span class="ecomment">--</span><span class="ecomment"> into at creation.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: only useful if one of </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a><span class="ecomment">, </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a><span class="ecomment">, </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a><span class="ecomment"> or</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a><span class="ecomment"> is set</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: Void</span>
+
+	<a name="f_enable_border"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_border">enable_border</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> with decoration border</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_has_border">has_border</a>
+
+	<a name="f_enable_fake_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_fake_fullscreen">enable_fake_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> fullscreened</span>
+			<span class="ecomment">--</span><span class="ecomment"> (but without changing resolution)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fullscreen">is_fullscreen</a><span class="ecomment"> will be disable</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fake_fullscreen">is_fake_fullscreen</a>
+
+	<a name="f_enable_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_fullscreen">enable_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> fullscreened</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fake_fullscreen">is_fake_fullscreen</a><span class="ecomment"> will be disable</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fullscreen">is_fullscreen</a>
+			<span class="etag">is_fake_fullscreen_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fake_fullscreen">is_fake_fullscreen</a>
+
+	<a name="f_enable_hidden"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_hidden">enable_hidden</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> hidden at creation</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_hidden">is_hidden</a>
+
+	<a name="f_enable_input_grabbed"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_input_grabbed">enable_input_grabbed</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> grab all input</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_input_grabbed">is_input_grabbed</a>
+
+	<a name="f_enable_maximized"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_maximized">enable_maximized</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> maximized at creation</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_maximized">is_maximized</a>
+
+	<a name="f_enable_minimized"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_minimized">enable_minimized</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> minimized at creation</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_minimized">is_minimized</a>
+
+	<a name="f_enable_position_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_position_centered">enable_position_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, center the horizontal and vertical</span>
+			<span class="ecomment">--</span><span class="ecomment"> position of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a>
+			<span class="etag">is_undefine_not_set</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a>
+
+	<a name="f_enable_position_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_position_undefined">enable_position_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> create </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> so that the horizontal and</span>
+			<span class="ecomment">--</span><span class="ecomment"> vertical position does not matter</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: If </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a><span class="ecomment"> is not Void, the window will appear on it</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a>
+			<span class="etag">is_centered_not_set</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a>
+
+	<a name="f_enable_position_x_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_position_x_centered">enable_position_x_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, center the horizontal position of the</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a>
+			<span class="etag">is_undefine_not_set</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a>
+
+	<a name="f_enable_position_x_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_position_x_undefined">enable_position_x_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> create </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> so that the horizontal position</span>
+			<span class="ecomment">--</span><span class="ecomment"> does not matter</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: If </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a><span class="ecomment"> is not Void, the window will appear on it</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a>
+			<span class="etag">is_centered_not_set</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a>
+
+	<a name="f_enable_position_y_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_position_y_centered">enable_position_y_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> On creation, center the vertical position of the</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a>
+			<span class="etag">is_undefine_not_set</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a>
+
+	<a name="f_enable_position_y_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_position_y_undefined">enable_position_y_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> create </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> so that the vertical position</span>
+			<span class="ecomment">--</span><span class="ecomment"> does not matter</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: If </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a><span class="ecomment"> is not Void, the window will appear on it</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a>
+			<span class="etag">is_centered_not_set</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a>
+
+	<a name="f_enable_resizable"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_enable_resizable">enable_resizable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Make the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> resizable</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_resizable">is_resizable</a>
+
+	<a name="f_flags"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_flags">flags</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_flags">set_flags</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal </span><a class="eclass" href="../game_core/graphic/game_window_flatshort.html">GAME_WINDOW</a><span class="ecomment"> create flags</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: Normally, you should not have to mess with this,</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do it only if you know what you are doing.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: 0</span>
+
+	<a name="f_game_library"></a><a class="efeature" href="../game_core/game_library_shared_flatshort.html#f_game_library">Game_library</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The main controller of the game library</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/game_library_shared_flatshort.html">GAME_LIBRARY_SHARED</a><span class="ecomment">)</span>
+
+	<a name="f_generate_window"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_flatshort.html">GAME_WINDOW</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../game_core/graphic/game_window_flatshort.html">GAME_WINDOW</a><span class="ecomment"> that fit all attributes of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">game_screen_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_shared_flatshort.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_created</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted">or</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_window_flatshort.html#f_exists">exists</a>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flatshort.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flatshort.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_has_border"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_has_border">has_border</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_has_border">set_has_border</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will have</span>
+			<span class="ecomment">--</span><span class="ecomment"> decoration border</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: True</span>
+
+	<a name="f_height"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_height">height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_height">set_height</a>
+			<span class="ecomment">--</span><span class="ecomment"> The horizontal dimension of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+			<span class="ecomment">--</span><span class="ecomment"> at creation</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: 600</span>
+
+	<a name="f_is_fake_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fake_fullscreen">is_fake_fullscreen</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_fake_fullscreen">set_is_fake_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be fullscreened</span>
+			<span class="ecomment">--</span><span class="ecomment"> (but without changing resolution)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fullscreen">is_fullscreen</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_fullscreen">set_is_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be fullscreened</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_hidden"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_hidden">is_hidden</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_hidden">set_is_hidden</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be</span>
+			<span class="ecomment">--</span><span class="ecomment"> hidden at creation</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_input_grabbed"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_input_grabbed">is_input_grabbed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_input_grabbed">set_is_input_grabbed</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will grab</span>
+			<span class="ecomment">--</span><span class="ecomment"> all input</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_maximized"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_maximized">is_maximized</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_maximized">set_is_maximized</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be</span>
+			<span class="ecomment">--</span><span class="ecomment"> maximized at creation</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_minimized"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_minimized">is_minimized</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_minimized">set_is_minimized</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be</span>
+			<span class="ecomment">--</span><span class="ecomment"> minimized at creation</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_position_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_centered">set_is_position_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be horizontally</span>
+			<span class="ecomment">--</span><span class="ecomment"> and vertically centered in the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_position_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_undefined">set_is_position_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the horizontal and vertical position of </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+			<span class="ecomment">--</span><span class="ecomment"> does not matters</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: If </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a><span class="ecomment"> is not Void, the window will appear on it</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: True</span>
+
+	<a name="f_is_position_x_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_x_centered">set_is_position_x_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be horizontally</span>
+			<span class="ecomment">--</span><span class="ecomment"> centered in the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_position_x_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_x_undefined">set_is_position_x_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the horizontal position of </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+			<span class="ecomment">--</span><span class="ecomment"> does not matters</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: If </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a><span class="ecomment"> is not Void, the window will appear on it</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: True</span>
+
+	<a name="f_is_position_y_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_y_centered">set_is_position_y_centered</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be vertically</span>
+			<span class="ecomment">--</span><span class="ecomment"> centered in the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_is_position_y_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_y_undefined">set_is_position_y_undefined</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the vertical position of </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+			<span class="ecomment">--</span><span class="ecomment"> does not matters</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: If </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a><span class="ecomment"> is not Void, the window will appear on it</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: True</span>
+
+	<a name="f_is_resizable"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_resizable">is_resizable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_resizable">set_is_resizable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> will be resizable</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: False</span>
+
+	<a name="f_position"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position">position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_flatshort.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The position of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a><span class="ecomment"> at</span>
+			<span class="ecomment">--</span><span class="ecomment"> creation</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: </span><span class="ecomment">[0,0]</span><span class="ecomment"> (unused -&gt; undefined by default)</span>
+
+	<a name="f_position_x"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_x">position_x</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_position_x">set_position_x</a>
+			<span class="ecomment">--</span><span class="ecomment"> The vertical position that the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+			<span class="ecomment">--</span><span class="ecomment"> will be create at.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: If </span><span class="equoted">position_x_centered</span><span class="ecomment"> is set, this value</span>
+			<span class="ecomment">--</span><span class="ecomment"> is not used.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: 0 (unused -&gt; undefined by default)</span>
+
+	<a name="f_position_y"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_y">position_y</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_position_y">set_position_y</a>
+			<span class="ecomment">--</span><span class="ecomment"> The horizontal position that the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+			<span class="ecomment">--</span><span class="ecomment"> will be create at.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: If </span><span class="equoted">position_y_centered</span><span class="ecomment"> is set, this value</span>
+			<span class="ecomment">--</span><span class="ecomment"> is not used.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: 0 (unused -&gt; undefined by default)</span>
+
+	<a name="f_set_dimension"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_dimension">set_dimension</a> <span class="esymbol">(</span><span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_dimension">dimension</a><span class="ecomment"> the value of </span><span class="equoted">a_width</span><span class="ecomment"> and </span><span class="equoted">a_height</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">width_valid</span><span class="esymbol">:</span> <span class="elocal">a_width</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+			<span class="etag">height_valid</span><span class="esymbol">:</span> <span class="elocal">a_height</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_dimension">dimension</a><span class="edot">.</span><span class="elocal">width</span> <span class="esymbol">=</span> <span class="elocal">a_width</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_dimension">dimension</a><span class="edot">.</span><span class="elocal">height</span> <span class="esymbol">=</span> <span class="elocal">a_height</span>
+
+	<a name="f_set_display"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_display">set_display</a> <span class="esymbol">(</span><span class="elocal">a_display</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/graphic/game_display_flatshort.html">GAME_DISPLAY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a><span class="ecomment"> the value of </span><span class="equoted">a_display</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a> <span class="esymbol">~</span> <span class="elocal">a_display</span>
+
+	<a name="f_set_flags"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_flags">set_flags</a> <span class="esymbol">(</span><span class="elocal">a_flags</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assing to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_flags">flags</a><span class="ecomment"> the value of </span><span class="equoted">a_flags</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: Normally, you should not have to mess with this,</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do it only if you know what you are doing.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_flags">flags</a> <span class="esymbol">=</span> <span class="elocal">a_flags</span>
+
+	<a name="f_set_has_border"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_has_border">set_has_border</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_has_border">has_border</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_has_border">has_border</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_height"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_height">set_height</a> <span class="esymbol">(</span><span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_height">height</a><span class="ecomment"> the value of </span><span class="equoted">a_height</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">height_valid</span><span class="esymbol">:</span> <span class="elocal">a_height</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_height">height</a> <span class="esymbol">=</span> <span class="elocal">a_height</span>
+
+	<a name="f_set_is_fake_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_fake_fullscreen">set_is_fake_fullscreen</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fake_fullscreen">is_fake_fullscreen</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fake_fullscreen">is_fake_fullscreen</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_fullscreen">set_is_fullscreen</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fullscreen">is_fullscreen</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_fullscreen">is_fullscreen</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_hidden"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_hidden">set_is_hidden</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_hidden">is_hidden</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_hidden">is_hidden</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_input_grabbed"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_input_grabbed">set_is_input_grabbed</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_input_grabbed">is_input_grabbed</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_input_grabbed">is_input_grabbed</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_maximized"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_maximized">set_is_maximized</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_maximized">is_maximized</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_maximized">is_maximized</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_minimized"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_minimized">set_is_minimized</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_minimized">is_minimized</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_minimized">is_minimized</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_position_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_centered">set_is_position_centered</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_position_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_undefined">set_is_position_undefined</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_position_x_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_x_centered">set_is_position_x_centered</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_position_x_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_x_undefined">set_is_position_x_undefined</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_position_y_centered"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_y_centered">set_is_position_y_centered</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_position_y_undefined"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_position_y_undefined">set_is_position_y_undefined</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_resizable"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_is_resizable">set_is_resizable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_resizable">is_resizable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_resizable">is_resizable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_position"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_position">set_position</a> <span class="esymbol">(</span><span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position">position</a><span class="ecomment"> the values of </span><span class="equoted">a_x</span><span class="ecomment"> and </span><span class="equoted">a_y</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: disable </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a><span class="ecomment"> and </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position">position</a><span class="edot">.</span><span class="elocal">x</span> <span class="esymbol">=</span> <span class="elocal">a_x</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position">position</a><span class="edot">.</span><span class="elocal">y</span> <span class="esymbol">=</span> <span class="elocal">a_y</span>
+			<span class="etag">is_not_centered</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a>
+			<span class="etag">is_not_undefine</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a>
+
+	<a name="f_set_position_x"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_position_x">set_position_x</a> <span class="esymbol">(</span><span class="elocal">a_position_x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_x">position_x</a><span class="ecomment"> the value of </span><span class="equoted">a_position_x</span>
+			<span class="ecomment">--</span><span class="ecomment"> note: disable </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a><span class="ecomment"> and</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_x">position_x</a> <span class="esymbol">=</span> <span class="elocal">a_position_x</span>
+			<span class="etag">not_centered</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a>
+			<span class="etag">not_undefined</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a>
+
+	<a name="f_set_position_y"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_position_y">set_position_y</a> <span class="esymbol">(</span><span class="elocal">a_position_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_y">position_y</a><span class="ecomment"> the value of </span><span class="equoted">a_position_y</span>
+			<span class="ecomment">--</span><span class="ecomment"> note: disable </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a><span class="ecomment"> and</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_y">position_y</a> <span class="esymbol">=</span> <span class="elocal">a_position_y</span>
+			<span class="etag">not_centered</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a>
+			<span class="etag">not_undefined</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a>
+
+	<a name="f_set_title"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_title">set_title</a> <span class="esymbol">(</span><span class="elocal">a_title</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_title">title</a><span class="ecomment"> the value of </span><span class="equoted">a_title</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_title">title</a> <span class="esymbol">~</span> <span class="elocal">a_title</span>
+
+	<a name="f_set_width"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_width">set_width</a> <span class="esymbol">(</span><span class="elocal">a_width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_width">width</a><span class="ecomment"> the value of </span><span class="equoted">a_width</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">width_valid</span><span class="esymbol">:</span> <span class="elocal">a_width</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_set</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_width">width</a> <span class="esymbol">=</span> <span class="elocal">a_width</span>
+
+	<a name="f_title"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_title">title</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_title">set_title</a>
+			<span class="ecomment">--</span><span class="ecomment"> The caption used to represent the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default: Empty string</span>
+
+	<a name="f_unset_display"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_unset_display">unset_display</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove the previously set </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_unset</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_display">display</a>
+
+	<a name="f_width"></a><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_width">width</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_set_width">set_width</a>
+			<span class="ecomment">--</span><span class="ecomment"> The vertical dimension of the </span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_generate_window">generate_window</a>
+			<span class="ecomment">--</span><span class="ecomment"> at creation</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default: 800</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flatshort.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flatshort.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flatshort.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flatshort.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flatshort.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flatshort.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flatshort.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">position_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position">position</a><span class="edot">.</span><span class="elocal">x</span> <span class="esymbol">=</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_x">position_x</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position">position</a><span class="edot">.</span><span class="elocal">y</span> <span class="esymbol">=</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_position_y">position_y</a>
+	<span class="etag">position_centered_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a><span class="esymbol">)</span>
+	<span class="etag">position_undefine_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a><span class="esymbol">)</span>
+	<span class="etag">position_centered_undefined_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_centered">is_position_centered</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_undefined">is_position_undefined</a>
+	<span class="etag">position_x_centered_undefined_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_centered">is_position_x_centered</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_x_undefined">is_position_x_undefined</a>
+	<span class="etag">position_y_centered_undefined_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_centered">is_position_y_centered</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_is_position_y_undefined">is_position_y_undefined</a>
+	<span class="etag">dimension_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_dimension">dimension</a><span class="edot">.</span><span class="elocal">width</span> <span class="esymbol">=</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_width">width</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_dimension">dimension</a><span class="edot">.</span><span class="elocal">height</span> <span class="esymbol">=</span> <a class="efeature" href="../game_core/graphic/game_window_builder_flatshort.html#f_height">height</a>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/graphic/game_window_builder_flatshort.html">GAME_WINDOW_BUILDER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_builder_chart.html">Chart</a>
+<a class="nav class" href="game_window_builder_links.html">Relations</a>
+<a class="nav class" href="game_window_builder.html">Text</a>
+<a class="nav class" href="game_window_builder_flat.html">Flat</a>
+<a class="nav class" href="game_window_builder_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="game_window_builder"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

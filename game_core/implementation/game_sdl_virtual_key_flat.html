@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Keycodes enum of the SDL2 library."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_sdl_virtual_key Flat</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_sdl_virtual_key_chart.html">Chart</a>
+<a class="nav class" href="game_sdl_virtual_key_links.html">Relations</a>
+<a class="nav class" href="game_sdl_virtual_key.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="game_sdl_virtual_key_short.html">Contracts</a>
+<a class="nav class" href="game_sdl_virtual_key_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_sdl_virtual_key"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Keycodes enum of the SDL2 library.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 02 Apr 2015 02:40:10 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../elks/any_flat.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_default_create"></a><a class="efeature" href="../../elks/any_flat.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process instances of classes with no creation clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../../elks/any_flat.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/type_flat.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../../elks/any_flat.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/finite_flat.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../../elks/any_flat.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../../elks/any_flat.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../../elks/any_flat.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Conversion</span>
+
+	<a name="f_sdl_getkeyfromname"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdl_getkeyfromname">sdl_getkeyfromname</a> <span class="esymbol">(</span><span class="elocal">name</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_flat.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C (const char *) : SDL_Keycode | &lt;SDL.h&gt;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDL_GetKeyFromName&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdl_getkeyfromscancode"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdl_getkeyfromscancode">sdl_getkeyfromscancode</a> <span class="esymbol">(</span><span class="elocal">scancode</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C (SDL_Scancode) : SDL_Keycode | &lt;SDL.h&gt;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDL_GetKeyFromScancode&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdl_getkeyname"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdl_getkeyname">sdl_getkeyname</a> <span class="esymbol">(</span><span class="elocal">key</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_flat.html">POINTER</a>
+		<span class="ekeyword">external</span>
+			&quot;C (SDL_Keycode) : const char* | &lt;SDL.h&gt;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDL_GetKeyName&quot;
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_clone">clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> For non-void </span><span class="equoted">other</span><span class="ecomment">, </span><a class="efeature" href="../../elks/any_flat.html#f_clone">clone</a><span class="ecomment"> calls </span><a class="efeature" href="../../elks/any_flat.html#f_copy">copy</a><span class="ecomment">;</span>
+			<span class="ecomment">--</span><span class="ecomment"> to change copying/cloning semantics, redefine </span><a class="efeature" href="../../elks/any_flat.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_twin">twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../../elks/any_flat.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_deep_clone">deep_clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `deep_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void: otherwise, new object structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> recursively duplicated from the one attached to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_deep_twin">deep_twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../../elks/any_flat.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../elks/any_flat.html#f_copy">copy</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_clone">standard_clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `standard_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_standard_twin">standard_twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../../elks/any_flat.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../../elks/any_flat.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../../elks/any_flat.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_as_attached"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_as_attached">as_attached</a><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a>
+		<span class="ekeyword">obsolete</span> &quot;Remove calls to this feature. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Attached version of Current.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Can be used during transitional period to convert</span>
+			<span class="ecomment">--</span><span class="ecomment"> non-void-safe classes to void-safe ones.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_flat.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../../elks/any_flat.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../../elks/any_flat.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../../elks/any_flat.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/std_files_flat.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../../elks/std_files_flat.html#f_set_output_default">set_output_default</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_out"></a><a class="efeature" href="../../elks/any_flat.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../elks/any_flat.html#f_tagged_out">tagged_out</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_print"></a><a class="efeature" href="../../elks/any_flat.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">o</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../../elks/std_files_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">o</span><span class="edot">.</span><a class="efeature" href="../../elks/any_flat.html#f_out">out</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../../elks/any_flat.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/operating_environment_flat.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Retrieval</span>
+
+	<a name="f_internal_correct_mismatch"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../elks/any_flat.html#f_internal_correct_mismatch">internal_correct_mismatch</a>
+			<span class="ecomment">--</span><span class="ecomment"> Called from runtime to perform a proper dynamic dispatch on </span><span class="equoted">correct_mismatch</span>
+			<span class="ecomment">--</span><span class="ecomment"> from MISMATCH_CORRECTOR.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_msg</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_flat.html">STRING_8</a>
+			<span class="elocal">l_exc</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/exceptions_flat.html">EXCEPTIONS</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../../elks/mismatch_corrector_flat.html">MISMATCH_CORRECTOR</a><span class="esymbol">}</span> <span class="ekeyword">Current</span> <span class="ekeyword">as</span> l_corrector <span class="ekeyword">then</span>
+				<span class="elocal">l_corrector</span><span class="edot">.</span><a class="efeature" href="../../elks/mismatch_corrector_flat.html#f_correct_mismatch">correct_mismatch</a>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../../elks/readable_string_8_flat.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Mismatch: &quot;<span class="esymbol">)</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_exc</span>
+				<span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../../elks/string_8_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../../elks/any_flat.html#f_generating_type">generating_type</a><span class="edot">.</span><a class="efeature" href="../../elks/type_flat.html#f_name">name</a><span class="esymbol">)</span>
+				<span class="elocal">l_exc</span><span class="edot">.</span><a class="efeature" href="../../elks/exceptions_flat.html#f_raise_retrieval_exception">raise_retrieval_exception</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_msg</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Virtual key codes</span>
+
+	<a name="f_sdlk_0"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_0">sdlk_0</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_0&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_1">sdlk_1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_1&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_2">sdlk_2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_2&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_3"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_3">sdlk_3</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_3&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_4"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_4">sdlk_4</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_4&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_5"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_5">sdlk_5</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_5&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_6">sdlk_6</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_6&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_7"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_7">sdlk_7</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_7&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_8">sdlk_8</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_8&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_9"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_9">sdlk_9</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_9&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_a"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_a">sdlk_a</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_a&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ac_back"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ac_back">sdlk_ac_back</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AC_BACK&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ac_bookmarks"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ac_bookmarks">sdlk_ac_bookmarks</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AC_BOOKMARKS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ac_forward"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ac_forward">sdlk_ac_forward</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AC_FORWARD&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ac_home"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ac_home">sdlk_ac_home</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AC_HOME&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ac_refresh"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ac_refresh">sdlk_ac_refresh</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AC_REFRESH&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ac_search"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ac_search">sdlk_ac_search</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AC_SEARCH&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ac_stop"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ac_stop">sdlk_ac_stop</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AC_STOP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_again"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_again">sdlk_again</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AGAIN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_alterase"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_alterase">sdlk_alterase</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_ALTERASE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ampersand"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ampersand">sdlk_ampersand</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AMPERSAND&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_application"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_application">sdlk_application</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_APPLICATION&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_asterisk"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_asterisk">sdlk_asterisk</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_ASTERISK&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_at"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_at">sdlk_at</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_audiomute"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_audiomute">sdlk_audiomute</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AUDIOMUTE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_audionext"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_audionext">sdlk_audionext</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AUDIONEXT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_audioplay"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_audioplay">sdlk_audioplay</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AUDIOPLAY&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_audioprev"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_audioprev">sdlk_audioprev</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AUDIOPREV&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_audiostop"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_audiostop">sdlk_audiostop</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_AUDIOSTOP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_b"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_b">sdlk_b</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_b&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_backquote"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_backquote">sdlk_backquote</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_BACKQUOTE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_backslash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_backslash">sdlk_backslash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_BACKSLASH&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_backspace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_backspace">sdlk_backspace</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_BACKSPACE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_brightnessdown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_brightnessdown">sdlk_brightnessdown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_BRIGHTNESSDOWN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_brightnessup"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_brightnessup">sdlk_brightnessup</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_BRIGHTNESSUP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_c"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_c">sdlk_c</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_c&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_calculator"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_calculator">sdlk_calculator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CALCULATOR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_cancel"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_cancel">sdlk_cancel</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CANCEL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_capslock"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_capslock">sdlk_capslock</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CAPSLOCK&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_caret"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_caret">sdlk_caret</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CARET&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_clear"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_clear">sdlk_clear</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CLEAR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_clearagain"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_clearagain">sdlk_clearagain</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CLEARAGAIN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_colon"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_colon">sdlk_colon</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_COLON&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_comma"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_comma">sdlk_comma</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_COMMA&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_computer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_computer">sdlk_computer</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_COMPUTER&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_copy">sdlk_copy</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_COPY&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_crsel"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_crsel">sdlk_crsel</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CRSEL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_currencysubunit"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_currencysubunit">sdlk_currencysubunit</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CURRENCYSUBUNIT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_currencyunit"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_currencyunit">sdlk_currencyunit</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CURRENCYUNIT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_cut"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_cut">sdlk_cut</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_CUT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_d">sdlk_d</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_d&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_decimalseparator"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_decimalseparator">sdlk_decimalseparator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_DECIMALSEPARATOR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_delete"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_delete">sdlk_delete</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_DELETE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_displayswitch"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_displayswitch">sdlk_displayswitch</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_DISPLAYSWITCH&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_dollar"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_dollar">sdlk_dollar</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_DOLLAR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_down"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_down">sdlk_down</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_DOWN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_e"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_e">sdlk_e</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_e&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_eject"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_eject">sdlk_eject</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_EJECT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_end"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_end">sdlk_end</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_END&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_equals"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_equals">sdlk_equals</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_EQUALS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_escape"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_escape">sdlk_escape</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_ESCAPE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_exclaim"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_exclaim">sdlk_exclaim</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_EXCLAIM&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_execute"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_execute">sdlk_execute</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_EXECUTE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_exsel"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_exsel">sdlk_exsel</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_EXSEL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f">sdlk_f</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_f&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f1">sdlk_f1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F1&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f10"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f10">sdlk_f10</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F10&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f11"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f11">sdlk_f11</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F11&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f12"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f12">sdlk_f12</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F12&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f13"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f13">sdlk_f13</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F13&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f14"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f14">sdlk_f14</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F14&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f15"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f15">sdlk_f15</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F15&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f16"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f16">sdlk_f16</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F16&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f17"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f17">sdlk_f17</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F17&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f18"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f18">sdlk_f18</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F18&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f19"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f19">sdlk_f19</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F19&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f2">sdlk_f2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F2&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f20"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f20">sdlk_f20</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F20&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f21"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f21">sdlk_f21</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F21&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f22"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f22">sdlk_f22</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F22&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f23"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f23">sdlk_f23</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F23&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f24"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f24">sdlk_f24</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F24&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f3"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f3">sdlk_f3</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F3&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f4"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f4">sdlk_f4</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F4&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f5"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f5">sdlk_f5</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F5&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f6">sdlk_f6</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F6&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f7"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f7">sdlk_f7</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F7&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f8">sdlk_f8</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F8&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_f9"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_f9">sdlk_f9</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_F9&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_find"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_find">sdlk_find</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_FIND&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_g"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_g">sdlk_g</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_g&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_greater"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_greater">sdlk_greater</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_GREATER&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_h"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_h">sdlk_h</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_h&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_hash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_hash">sdlk_hash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_HASH&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_help"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_help">sdlk_help</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_HELP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_home"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_home">sdlk_home</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_HOME&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_i"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_i">sdlk_i</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_i&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_insert"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_insert">sdlk_insert</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_INSERT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_j"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_j">sdlk_j</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_j&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_k"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_k">sdlk_k</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_k&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kbdillumdown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kbdillumdown">sdlk_kbdillumdown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KBDILLUMDOWN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kbdillumtoggle"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kbdillumtoggle">sdlk_kbdillumtoggle</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KBDILLUMTOGGLE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kbdillumup"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kbdillumup">sdlk_kbdillumup</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KBDILLUMUP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_0"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_0">sdlk_kp_0</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_0&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_00"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_00">sdlk_kp_00</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_00&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_000"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_000">sdlk_kp_000</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_000&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_1"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_1">sdlk_kp_1</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_1&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_2">sdlk_kp_2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_2&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_3"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_3">sdlk_kp_3</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_3&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_4"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_4">sdlk_kp_4</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_4&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_5"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_5">sdlk_kp_5</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_5&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_6">sdlk_kp_6</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_6&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_7"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_7">sdlk_kp_7</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_7&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_8"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_8">sdlk_kp_8</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_8&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_9"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_9">sdlk_kp_9</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_9&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_a"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_a">sdlk_kp_a</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_A&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_ampersand"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_ampersand">sdlk_kp_ampersand</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_AMPERSAND&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_at"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_at">sdlk_kp_at</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_AT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_b"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_b">sdlk_kp_b</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_B&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_backspace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_backspace">sdlk_kp_backspace</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_BACKSPACE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_binary"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_binary">sdlk_kp_binary</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_BINARY&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_c"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_c">sdlk_kp_c</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_C&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_clear"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_clear">sdlk_kp_clear</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_CLEAR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_clearentry"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_clearentry">sdlk_kp_clearentry</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_CLEARENTRY&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_colon"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_colon">sdlk_kp_colon</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_COLON&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_comma"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_comma">sdlk_kp_comma</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_COMMA&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_d">sdlk_kp_d</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_D&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_dblampersand"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_dblampersand">sdlk_kp_dblampersand</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_DBLAMPERSAND&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_dblverticalbar"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_dblverticalbar">sdlk_kp_dblverticalbar</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_DBLVERTICALBAR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_decimal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_decimal">sdlk_kp_decimal</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_DECIMAL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_divide"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_divide">sdlk_kp_divide</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_DIVIDE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_e"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_e">sdlk_kp_e</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_E&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_enter"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_enter">sdlk_kp_enter</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_ENTER&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_equals"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_equals">sdlk_kp_equals</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_EQUALS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_equalsas400"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_equalsas400">sdlk_kp_equalsas400</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_EQUALSAS400&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_exclam"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_exclam">sdlk_kp_exclam</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_EXCLAM&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_f"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_f">sdlk_kp_f</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_F&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_greater"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_greater">sdlk_kp_greater</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_GREATER&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_hash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_hash">sdlk_kp_hash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_HASH&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_hexadecimal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_hexadecimal">sdlk_kp_hexadecimal</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_HEXADECIMAL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_leftbrace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_leftbrace">sdlk_kp_leftbrace</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_LEFTBRACE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_leftparen"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_leftparen">sdlk_kp_leftparen</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_LEFTPAREN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_less"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_less">sdlk_kp_less</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_LESS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_memadd"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_memadd">sdlk_kp_memadd</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MEMADD&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_memclear"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_memclear">sdlk_kp_memclear</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MEMCLEAR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_memdivide"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_memdivide">sdlk_kp_memdivide</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MEMDIVIDE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_memmultiply"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_memmultiply">sdlk_kp_memmultiply</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MEMMULTIPLY&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_memrecall"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_memrecall">sdlk_kp_memrecall</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MEMRECALL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_memstore"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_memstore">sdlk_kp_memstore</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MEMSTORE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_memsubtract"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_memsubtract">sdlk_kp_memsubtract</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MEMSUBTRACT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_minus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_minus">sdlk_kp_minus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MINUS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_multiply"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_multiply">sdlk_kp_multiply</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_MULTIPLY&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_octal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_octal">sdlk_kp_octal</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_OCTAL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_percent"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_percent">sdlk_kp_percent</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_PERCENT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_period"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_period">sdlk_kp_period</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_PERIOD&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_plus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_plus">sdlk_kp_plus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_PLUS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_plusminus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_plusminus">sdlk_kp_plusminus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_PLUSMINUS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_power"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_power">sdlk_kp_power</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_POWER&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_rightbrace"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_rightbrace">sdlk_kp_rightbrace</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_RIGHTBRACE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_rightparen"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_rightparen">sdlk_kp_rightparen</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_RIGHTPAREN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_space"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_space">sdlk_kp_space</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_SPACE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_tab"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_tab">sdlk_kp_tab</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_TAB&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_verticalbar"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_verticalbar">sdlk_kp_verticalbar</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_VERTICALBAR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_kp_xor"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_kp_xor">sdlk_kp_xor</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_KP_XOR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_l"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_l">sdlk_l</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_l&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_lalt"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_lalt">sdlk_lalt</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_LALT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_lctrl"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_lctrl">sdlk_lctrl</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_LCTRL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_left"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_left">sdlk_left</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_LEFT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_leftbracket"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_leftbracket">sdlk_leftbracket</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_LEFTBRACKET&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_leftparen"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_leftparen">sdlk_leftparen</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_LEFTPAREN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_less"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_less">sdlk_less</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_LESS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_lgui"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_lgui">sdlk_lgui</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_LGUI&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_lshift"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_lshift">sdlk_lshift</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_LSHIFT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_m"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_m">sdlk_m</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_m&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_mail"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_mail">sdlk_mail</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_MAIL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_mediaselect"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_mediaselect">sdlk_mediaselect</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_MEDIASELECT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_menu"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_menu">sdlk_menu</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_MENU&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_minus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_minus">sdlk_minus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_MINUS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_mode"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_mode">sdlk_mode</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_MODE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_mute"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_mute">sdlk_mute</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_MUTE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_n"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_n">sdlk_n</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_n&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_numlockclear"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_numlockclear">sdlk_numlockclear</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_NUMLOCKCLEAR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_o"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_o">sdlk_o</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_o&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_oper"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_oper">sdlk_oper</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_OPER&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_out">sdlk_out</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_OUT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_p"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_p">sdlk_p</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_p&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_pagedown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_pagedown">sdlk_pagedown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PAGEDOWN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_pageup"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_pageup">sdlk_pageup</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PAGEUP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_paste"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_paste">sdlk_paste</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PASTE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_pause"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_pause">sdlk_pause</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PAUSE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_percent"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_percent">sdlk_percent</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PERCENT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_period"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_period">sdlk_period</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PERIOD&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_plus"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_plus">sdlk_plus</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PLUS&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_power"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_power">sdlk_power</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_POWER&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_printscreen"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_printscreen">sdlk_printscreen</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PRINTSCREEN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_prior"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_prior">sdlk_prior</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_PRIOR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_q"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_q">sdlk_q</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_q&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_question"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_question">sdlk_question</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_QUESTION&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_quote"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_quote">sdlk_quote</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_QUOTE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_quotedbl"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_quotedbl">sdlk_quotedbl</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_QUOTEDBL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_r"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_r">sdlk_r</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_r&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_ralt"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_ralt">sdlk_ralt</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RALT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_rctrl"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_rctrl">sdlk_rctrl</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RCTRL&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_return"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_return">sdlk_return</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RETURN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_return2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_return2">sdlk_return2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RETURN2&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_rgui"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_rgui">sdlk_rgui</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RGUI&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_right"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_right">sdlk_right</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RIGHT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_rightbracket"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_rightbracket">sdlk_rightbracket</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RIGHTBRACKET&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_rightparen"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_rightparen">sdlk_rightparen</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RIGHTPAREN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_rshift"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_rshift">sdlk_rshift</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_RSHIFT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_s"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_s">sdlk_s</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_s&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_scrolllock"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_scrolllock">sdlk_scrolllock</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_SCROLLLOCK&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_select"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_select">sdlk_select</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_SELECT&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_semicolon"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_semicolon">sdlk_semicolon</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_SEMICOLON&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_separator"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_separator">sdlk_separator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_SEPARATOR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_slash"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_slash">sdlk_slash</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_SLASH&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_sleep"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_sleep">sdlk_sleep</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_SLEEP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_space"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_space">sdlk_space</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_SPACE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_stop"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_stop">sdlk_stop</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_STOP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_sysreq"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_sysreq">sdlk_sysreq</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_SYSREQ&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_t"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_t">sdlk_t</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_t&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_tab"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_tab">sdlk_tab</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_TAB&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_thousandsseparator"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_thousandsseparator">sdlk_thousandsseparator</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_THOUSANDSSEPARATOR&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_u"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_u">sdlk_u</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_u&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_underscore"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_underscore">sdlk_underscore</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_UNDERSCORE&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_undo"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_undo">sdlk_undo</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_UNDO&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_unknown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_unknown">sdlk_unknown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_UNKNOWN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_up"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_up">sdlk_up</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_UP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_v"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_v">sdlk_v</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_v&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_volumedown"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_volumedown">sdlk_volumedown</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_VOLUMEDOWN&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_volumeup"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_volumeup">sdlk_volumeup</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_VOLUMEUP&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_w"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_w">sdlk_w</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_w&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_www"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_www">sdlk_www</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_WWW&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_x"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_x">sdlk_x</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_x&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_y"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_y">sdlk_y</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_y&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_sdlk_z"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../game_core/implementation/game_sdl_virtual_key_flat.html#f_sdlk_z">sdlk_z</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_flat.html">NATURAL_32</a>
+		<span class="ekeyword">external</span>
+			&quot;C [macro &lt;SDL.h&gt;] : SDL_Keycode&quot;
+		<span class="ekeyword">alias</span>
+			&quot;SDLK_z&quot;
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../../elks/any_flat.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/implementation/game_sdl_virtual_key_flat.html">GAME_SDL_VIRTUAL_KEY</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_sdl_virtual_key_chart.html">Chart</a>
+<a class="nav class" href="game_sdl_virtual_key_links.html">Relations</a>
+<a class="nav class" href="game_sdl_virtual_key.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="game_sdl_virtual_key_short.html">Contracts</a>
+<a class="nav class" href="game_sdl_virtual_key_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_sdl_virtual_key"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

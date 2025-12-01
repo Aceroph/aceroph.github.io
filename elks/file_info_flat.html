@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Internal file information"/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2019, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>file_info Flat</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="file_info_chart.html">Chart</a>
+<a class="nav class" href="file_info_links.html">Relations</a>
+<a class="nav class" href="file_info.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="file_info_short.html">Contracts</a>
+<a class="nav class" href="file_info_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="file_info"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Internal file information&quot;</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;Free implementation of ELKS library&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2019-01-31 11:17:45 +0000 (Thu, 31 Jan 2019) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102745 $&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../elks/file_info_flat.html#f_make">make</a>
+
+<span class="ekeyword">convert</span>
+	<a class="efeature" href="../elks/file_info_flat.html#f_to_unix_file_info">to_unix_file_info</a><span class="esymbol">:</span> <span class="esymbol">{</span><a class="eclass" href="../elks/unix_file_info_flat.html">UNIX_FILE_INFO</a><span class="esymbol">}</span>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_default_create"></a><a class="efeature" href="../elks/any_flat.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process instances of classes with no creation clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make"></a><a class="efeature" href="../elks/file_info_flat.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Creation procedure</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/to_special_flat.html#f_make_filled_area">make_filled_area</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">0</span><span class="esymbol">,</span> <a class="efeature" href="../elks/file_info_flat.html#f_stat_size">stat_size</a><span class="esymbol">)</span>
+			<a class="efeature" href="../elks/file_info_flat.html#f_is_following_symlinks">is_following_symlinks</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">not_exists</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+			<span class="etag">is_following_symlinks_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_is_following_symlinks">is_following_symlinks</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_empty_area"></a><a class="efeature" href="../elks/to_special_flat.html#f_make_empty_area">make_buffered_file_info</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Creates a special object for </span><span class="equoted">n</span><span class="ecomment"> entries.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">non_negative_argument</span><span class="esymbol">:</span> <span class="elocal">n</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_make_empty">make_empty</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">area_allocated</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">capacity_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_capacity">capacity</a> <span class="esymbol">=</span> <span class="elocal">n</span>
+			<span class="etag">count_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_filled_area"></a><a class="efeature" href="../elks/to_special_flat.html#f_make_filled_area">make_filled_area</a> <span class="esymbol">(</span><span class="elocal">a_default_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8_flat.html">NATURAL_8</a><span class="esymbol">;</span> <span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Creates a special object for </span><span class="equoted">n</span><span class="ecomment"> entries.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">non_negative_argument</span><span class="esymbol">:</span> <span class="elocal">n</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_make_filled">make_filled</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_default_value</span><span class="esymbol">,</span> <span class="elocal">n</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">area_allocated</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">capacity_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_capacity">capacity</a> <span class="esymbol">=</span> <span class="elocal">n</span>
+			<span class="etag">count_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_count">count</a> <span class="esymbol">=</span> <span class="elocal">n</span>
+			<span class="etag">area_filled</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_filled_with">filled_with</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_default_value</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="elocal">n</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_access_date"></a><a class="efeature" href="../elks/file_info_flat.html#f_access_date">access_date</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Date of last access</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">8</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_area"></a><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="esymbol">:</span> <a class="eclass" href="../elks/special_flat.html">SPECIAL</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_8_flat.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Special data zone.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment">)</span>
+
+	<a name="f_at"></a><a class="efeature" href="../elks/to_special_flat.html#f_at">at</a> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><a class="esymbol" href="../elks/to_special_flat.html#f_at">@</a><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8_flat.html">NATURAL_8</a> <span class="ekeyword">assign</span> <a class="efeature" href="../elks/to_special_flat.html#f_put">put</a>
+			<span class="ecomment">--</span><span class="ecomment"> Entry at index </span><span class="equoted">i</span><span class="ecomment">, if in index interval.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/to_special_flat.html#f_item">item</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">valid_index</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_valid_index">valid_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_change_date"></a><a class="efeature" href="../elks/file_info_flat.html#f_change_date">change_date</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Date of last status change</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">9</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_date"></a><a class="efeature" href="../elks/file_info_flat.html#f_date">date</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last modification date</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">7</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_device"></a><a class="efeature" href="../elks/file_info_flat.html#f_device">device</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Device number on which inode resides</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">2</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_device_type"></a><a class="efeature" href="../elks/file_info_flat.html#f_device_type">device_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Device type on which inode resides</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">3</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_entry"></a><a class="efeature" href="../elks/file_info_flat.html#f_file_entry">file_entry</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/path_flat.html">PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> Associated entry for Current.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a> <span class="ekeyword">as</span> l_ptr <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/path_flat.html#f_make_from_pointer">make_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_item">item</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_name"></a><a class="efeature" href="../elks/file_info_flat.html#f_file_name">file_name</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+		<span class="ekeyword">obsolete</span> &quot;Use `file_entry' to ensure that filenames are not truncated. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> File name as a STRING_8 instance. The value might be truncated</span>
+			<span class="ecomment">--</span><span class="ecomment"> from the original name used to create the current FILE instance.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="ekeyword">as</span> l_name <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_as_string_8">as_string_8</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flat.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flat.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flat.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flat.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_group_id"></a><a class="efeature" href="../elks/file_info_flat.html#f_group_id">group_id</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> GID of the file</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">5</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_group_name"></a><a class="efeature" href="../elks/file_info_flat.html#f_group_name">group_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of the file group, if available from /etc/group.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Otherwise, the GID</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_group">file_group</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/file_info_flat.html#f_group_id">group_id</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_inode"></a><a class="efeature" href="../elks/file_info_flat.html#f_inode">inode</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Inode number</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_item"></a><a class="efeature" href="../elks/to_special_flat.html#f_item">item</a> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><a class="esymbol" href="../elks/to_special_flat.html#f_item">[]</a><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8_flat.html">NATURAL_8</a> <span class="ekeyword">assign</span> <a class="efeature" href="../elks/to_special_flat.html#f_put">put</a>
+			<span class="ecomment">--</span><span class="ecomment"> Entry at index </span><span class="equoted">i</span><span class="ecomment">, if in index interval.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Was declared in </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment"> as synonym of </span><a class="efeature" href="../elks/to_special_flat.html#f_at">at</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">valid_index</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_valid_index">valid_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_links"></a><a class="efeature" href="../elks/file_info_flat.html#f_links">links</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of links</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">10</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_owner_name"></a><a class="efeature" href="../elks/file_info_flat.html#f_owner_name">owner_name</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of the file owner, if available from /etc/passwd.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Otherwise, the UID</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_owner">file_owner</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/file_info_flat.html#f_user_id">user_id</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_protection"></a><a class="efeature" href="../elks/file_info_flat.html#f_protection">protection</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Protection mode of file (12 lower bits)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_size"></a><a class="efeature" href="../elks/file_info_flat.html#f_size">size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> File size, in bytes</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">6</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_type"></a><a class="efeature" href="../elks/file_info_flat.html#f_type">type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> File type (4 bits, 12 lowest bits zeroed)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">11</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_user_id"></a><a class="efeature" href="../elks/file_info_flat.html#f_user_id">user_id</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> UID of the file owner</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">4</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../elks/native_string_handler_flat.html">NATIVE_STRING_HANDLER</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_file_name_to_pointer"></a><a class="efeature" href="../elks/file_info_flat.html#f_file_name_to_pointer">file_name_to_pointer</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_ptr</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/managed_pointer_flat.html">MANAGED_POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/managed_pointer_flat.html">MANAGED_POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> File system specific encoding of </span><span class="equoted">a_name</span><span class="ecomment"> that will be stored in </span><span class="equoted">a_ptr</span><span class="ecomment"> if provided</span>
+			<span class="ecomment">--</span><span class="ecomment"> otherwise a new instance is created.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Typically a UTF-16 sequence on Windows, a UTF-8 sequence on Unix.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_name_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">u</span><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter_flat.html">UTF_CONVERTER</a>
+			<span class="elocal">l_c_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string_flat.html">C_STRING</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">a_ptr</span>
+			<span class="ekeyword">if</span> <span class="esymbol">{</span><a class="eclass" href="../elks/platform_flat.html">PLATFORM</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/platform_flat.html#f_is_windows">is_windows</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../elks/readable_string_32_flat.html">READABLE_STRING_32</a><span class="esymbol">}</span> <span class="elocal">a_name</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="ekeyword">Result</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_resize">resize</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_product">*</a> <span class="enumber">2</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_product">*</a> <span class="enumber">2</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+					<span class="elocal">u</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_escaped_utf_32_substring_into_utf_16_0_pointer">escaped_utf_32_substring_into_utf_16_0_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">,</span> <span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_count">count</a><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="ekeyword">Void</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">create</span> <span class="elocal">l_c_string</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">)</span>
+					<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="ekeyword">Result</span> <span class="ekeyword">then</span>
+						<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_resize">resize</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/file_info_flat.html#f_multi_byte_to_utf_16">multi_byte_to_utf_16</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_c_string</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_item">item</a><span class="esymbol">,</span> <a class="efeature" href="../elks/any_flat.html#f_default_pointer">default_pointer</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span><span class="esymbol">)</span>
+					<span class="ekeyword">else</span>
+						<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/file_info_flat.html#f_multi_byte_to_utf_16">multi_byte_to_utf_16</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_c_string</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_item">item</a><span class="esymbol">,</span> <a class="efeature" href="../elks/any_flat.html#f_default_pointer">default_pointer</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span><span class="esymbol">)</span>
+					<span class="ekeyword">end</span>
+					<a class="efeature" href="../elks/file_info_flat.html#f_multi_byte_to_utf_16">multi_byte_to_utf_16</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_c_string</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_count">count</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_do_nothing">do_nothing</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="ekeyword">Result</span> <span class="ekeyword">then</span>
+					<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_resize">resize</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_count">count</a> <a class="esymbol" href="../elks/integer_32_flat.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../elks/readable_string_32_flat.html">READABLE_STRING_32</a><span class="esymbol">}</span> <span class="elocal">a_name</span> <span class="ekeyword">then</span>
+					<span class="elocal">u</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_escaped_utf_32_substring_into_utf_8_0_pointer">escaped_utf_32_substring_into_utf_8_0_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">,</span> <span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_count">count</a><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="ekeyword">Void</span><span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/c_string_flat.html">C_STRING</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_make_shared_from_pointer_and_count">make_shared_from_pointer_and_count</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_count">count</a><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_set_string">set_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_pointer_to_file_name_32"></a><a class="efeature" href="../elks/file_info_flat.html#f_pointer_to_file_name_32">pointer_to_file_name_32</a> <span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_32_flat.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Given a file system name represented by </span><span class="equoted">a_ptr</span><span class="ecomment"> provides a STRING_32 instance which</span>
+			<span class="ecomment">--</span><span class="ecomment"> could be escaped when underlying encoding is not valid.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">u</span><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter_flat.html">UTF_CONVERTER</a>
+			<span class="elocal">l_managed</span><span class="esymbol">:</span> <a class="eclass" href="../elks/managed_pointer_flat.html">MANAGED_POINTER</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_managed</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_share_from_pointer">share_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">,</span> <a class="efeature" href="../elks/native_string_handler_flat.html#f_pointer_length_in_bytes">pointer_length_in_bytes</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="esymbol">{</span><a class="eclass" href="../elks/platform_flat.html">PLATFORM</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/platform_flat.html#f_is_windows">is_windows</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">u</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_utf_16_0_pointer_to_escaped_string_32">utf_16_0_pointer_to_escaped_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_managed</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">u</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_utf_8_0_pointer_to_escaped_string_32">utf_8_0_pointer_to_escaped_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_managed</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_pointer_to_file_name_8"></a><a class="efeature" href="../elks/file_info_flat.html#f_pointer_to_file_name_8">pointer_to_file_name_8</a> <span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Given a file system name represented by </span><span class="equoted">a_ptr</span><span class="ecomment"> provides a STRING_8 instance.</span>
+			<span class="ecomment">--</span><span class="ecomment"> This is used for backward compatibility for APIs using STRING_8.</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_cstring</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string_flat.html">C_STRING</a>
+			<span class="elocal">l_count</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="esymbol">{</span><a class="eclass" href="../elks/platform_flat.html">PLATFORM</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/platform_flat.html#f_is_windows">is_windows</a> <span class="ekeyword">then</span>
+				<span class="elocal">l_count</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_utf_16_to_multi_byte">utf_16_to_multi_byte</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">,</span> <a class="efeature" href="../elks/any_flat.html#f_default_pointer">default_pointer</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_cstring</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_make_empty">make_empty</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_count</span><span class="esymbol">)</span>
+				<span class="elocal">l_count</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_utf_16_to_multi_byte">utf_16_to_multi_byte</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">,</span> <span class="elocal">l_cstring</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">l_count</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_cstring</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_substring">substring</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="enumber">1</span><span class="esymbol">,</span> <span class="elocal">l_count</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_cstring</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_make_shared_from_pointer">make_shared_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_cstring</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_string">string</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_internal_file_name"></a><a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> Store the name of the file as it was given to us by the user</span>
+
+	<a name="f_internal_name_pointer"></a><a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/managed_pointer_flat.html">MANAGED_POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> File system specific encoding of </span><a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Typically a UTF-16 sequence on Windows, a UTF-8 sequence on Unix.</span>
+			<span class="ecomment">--</span><span class="ecomment"> to avoid conversion on storing as it is not necessary.</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../elks/native_string_handler_flat.html">NATIVE_STRING_HANDLER</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_pointer_length_in_bytes"></a><a class="efeature" href="../elks/native_string_handler_flat.html#f_pointer_length_in_bytes">pointer_length_in_bytes</a> <span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Length in bytes of a platform specific file name pointer, not</span>
+			<span class="ecomment">--</span><span class="ecomment"> including the null-terminating character. If size is too large</span>
+			<span class="ecomment">--</span><span class="ecomment"> to fit into an </span><span class="ecomment">{</span><span class="ecomment">INTEGER</span><span class="ecomment">}</span><span class="ecomment"> instance, the size is truncated to</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">{INTEGER_32}.max_value</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/native_string_handler_flat.html">NATIVE_STRING_HANDLER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/native_string_handler_flat.html">NATIVE_STRING_HANDLER</a>
+			<span class="etag">a_ptr_not_null</span><span class="esymbol">:</span> <span class="elocal">a_ptr</span> <span class="esymbol">/=</span> <a class="efeature" href="../elks/any_flat.html#f_default_pointer">default_pointer</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_length</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_64_flat.html">NATURAL_64</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_length</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/native_string_handler_flat.html#f_c_pointer_length_in_bytes">c_pointer_length_in_bytes</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_length</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <span class="esymbol">{</span><a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_max_value">max_value</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_to_natural_64">to_natural_64</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_length</span><span class="edot">.</span><a class="efeature" href="../elks/natural_64_ref_flat.html#f_to_integer_32">to_integer_32</a>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_max_value">max_value</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">=</span> <span class="ekeyword">Current</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">elseif</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="ekeyword">as</span> l_file_name <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="ekeyword">attached</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="ekeyword">as</span> l_other_file_name <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_file_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_same_string">same_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_other_file_name</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <a class="efeature" href="../elks/file_info_flat.html#f_is_following_symlinks">is_following_symlinks</a> <span class="esymbol">=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/file_info_flat.html#f_is_following_symlinks">is_following_symlinks</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_exists"></a><a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does current file exists?</span>
+
+	<a name="f_is_access_executable"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_access_executable">is_access_executable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file executable by real UID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_ready</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_is_ready">is_ready</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a> <span class="ekeyword">as</span> l_ptr <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_access">file_access</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_access_owner"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_access_owner">is_access_owner</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file owned by real UID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">7</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_access_readable"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_access_readable">is_access_readable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file readable by real UID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_ready</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_is_ready">is_ready</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a> <span class="ekeyword">as</span> l_ptr <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_access">file_access</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="enumber">3</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_access_writable"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_access_writable">is_access_writable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file writable by real UID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_ready</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_is_ready">is_ready</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a> <span class="ekeyword">as</span> l_ptr <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_access">file_access</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="enumber">2</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_block"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_block">is_block</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file a device block special file?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">16</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_character"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_character">is_character</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file a character block special file?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">15</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_device"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_device">is_device</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file a device?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">14</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_directory"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_directory">is_directory</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file a directory?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">12</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_executable"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_executable">is_executable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file executable by effective UID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">2</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_fifo"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_fifo">is_fifo</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file a named pipe?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">17</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_following_symlinks"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_following_symlinks">is_following_symlinks</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does current follow symbolic links when retrieving properties?</span>
+
+	<a name="f_is_owner"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_owner">is_owner</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file owned by effective UID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">6</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_plain"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_plain">is_plain</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file a plain file?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">13</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_readable"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_readable">is_readable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file readable by effective UID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_ready"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_ready">is_ready</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is current ready to perform a query?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_setgid"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_setgid">is_setgid</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file setgid?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">4</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_setuid"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_setuid">is_setuid</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file setuid?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">3</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_socket"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_socket">is_socket</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file a named socket?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">19</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_sticky"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_sticky">is_sticky</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file sticky?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">5</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_symlink"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_symlink">is_symlink</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file a symbolic link?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">18</span><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_writable"></a><a class="efeature" href="../elks/file_info_flat.html#f_is_writable">is_writable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is file writable by effective UID?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">exists</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_valid_index"></a><a class="efeature" href="../elks/to_special_flat.html#f_valid_index">valid_index</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">i</span><span class="ecomment"> within the bounds of Current?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_valid_index">valid_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_put"></a><a class="efeature" href="../elks/to_special_flat.html#f_put">put</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_8_flat.html">NATURAL_8</a><span class="esymbol">;</span> <span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Replace </span><span class="equoted">i</span><span class="ecomment">-th entry, if in index interval, by </span><span class="equoted">v</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">valid_index</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_valid_index">valid_index</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/special_flat.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">,</span> <span class="elocal">i</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">inserted</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="elocal">v</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_is_following_symlinks"></a><a class="efeature" href="../elks/file_info_flat.html#f_set_is_following_symlinks">set_is_following_symlinks</a> <span class="esymbol">(</span><span class="elocal">v</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Should </span><a class="efeature" href="../elks/file_info_flat.html#f_update">update</a><span class="ecomment"> follow symlinks or not?</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/file_info_flat.html#f_is_following_symlinks">is_following_symlinks</a> <span class="esymbol">:=</span> <span class="elocal">v</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_following_symlinks_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_is_following_symlinks">is_following_symlinks</a> <span class="esymbol">=</span> <span class="elocal">v</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_update"></a><a class="efeature" href="../elks/file_info_flat.html#f_update">update</a> <span class="esymbol">(</span><span class="elocal">f_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update information buffer: fill it in with information</span>
+			<span class="ecomment">--</span><span class="ecomment"> from the inode of </span><span class="equoted">f_name</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">f_name_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="elocal">f_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/file_info_flat.html#f_fast_update">fast_update</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">f_name</span><span class="esymbol">,</span> <a class="efeature" href="../elks/file_info_flat.html#f_file_name_to_pointer">file_name_to_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">f_name</span><span class="esymbol">,</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../elks/file_flat.html">FILE</a><span class="esymbol">,</span> <a class="eclass" href="../elks/directory_flat.html">DIRECTORY</a><span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_fast_update"></a><a class="efeature" href="../elks/file_info_flat.html#f_fast_update">fast_update</a> <span class="esymbol">(</span><span class="elocal">f_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/managed_pointer_flat.html">MANAGED_POINTER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update information buffer: fill it in with information</span>
+			<span class="ecomment">--</span><span class="ecomment"> from the inode of </span><span class="equoted">f_name</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">f_name_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="elocal">f_name</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_is_empty">is_empty</a>
+			<span class="etag">a_ptr_not_empty</span><span class="esymbol">:</span> <span class="elocal">a_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_count">count</a> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="esymbol">:=</span> <span class="elocal">f_name</span>
+			<a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a> <span class="esymbol">:=</span> <span class="elocal">a_ptr</span>
+			<a class="efeature" href="../elks/file_info_flat.html#f_exists">exists</a> <span class="esymbol">:=</span> <a class="efeature" href="../elks/file_info_flat.html#f_eif_file_stat">eif_file_stat</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="edot">.</span><a class="efeature" href="../elks/managed_pointer_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">$</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_item">to_pointer</a><span class="esymbol">,</span> <a class="efeature" href="../elks/file_info_flat.html#f_is_following_symlinks">is_following_symlinks</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">file_name_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="esymbol">=</span> <span class="elocal">f_name</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_set_area"></a><a class="efeature" href="../elks/to_special_flat.html#f_set_area">set_area</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Make </span><span class="equoted">other</span><span class="ecomment"> the new </span><span class="equoted">area</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a> <span class="esymbol">:=</span> <span class="elocal">other</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/to_special_flat.html">TO_SPECIAL</a>
+			<span class="etag">area_set</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a> <span class="esymbol">=</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Conversion</span>
+
+	<a name="f_to_unix_file_info"></a><a class="efeature" href="../elks/file_info_flat.html#f_to_unix_file_info">to_unix_file_info</a><span class="esymbol">:</span> <a class="eclass" href="../elks/unix_file_info_flat.html">UNIX_FILE_INFO</a>
+		<span class="ekeyword">obsolete</span> &quot;Use `FILE_INFO' as type instead of `UNIX_FILE_INFO'. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Convert current to old format UNIX_FILE_INFO for backward compatibility.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/file_info_flat.html#f_make">make</a>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="ekeyword">as</span> l_name <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/file_info_flat.html#f_update">update</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_name</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_clone">clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> For non-void </span><span class="equoted">other</span><span class="ecomment">, </span><a class="efeature" href="../elks/any_flat.html#f_clone">clone</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/file_info_flat.html#f_copy">copy</a><span class="ecomment">;</span>
+			<span class="ecomment">--</span><span class="ecomment"> to change copying/cloning semantics, redefine </span><a class="efeature" href="../elks/file_info_flat.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/file_info_flat.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Current</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/any_flat.html#f_standard_copy">standard_copy</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+				<a class="efeature" href="../elks/to_special_flat.html#f_set_area">set_area</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a><span class="esymbol">)</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a> <span class="ekeyword">as</span> l_pointer <span class="ekeyword">then</span>
+					<a class="efeature" href="../elks/file_info_flat.html#f_internal_name_pointer">internal_name_pointer</a> <span class="esymbol">:=</span> <span class="elocal">l_pointer</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="ekeyword">as</span> l_file_name <span class="ekeyword">then</span>
+					<a class="efeature" href="../elks/file_info_flat.html#f_internal_file_name">internal_file_name</a> <span class="esymbol">:=</span> <span class="elocal">l_file_name</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">ensure then</span>
+			<span class="etag">not_shared_if_different</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Current</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a> <span class="esymbol">/=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a>
+			<span class="etag">equal_buffered_file_infos</span><span class="esymbol">:</span> <a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a> <span class="esymbol">~</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/to_special_flat.html#f_area">buffered_file_info</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_clone">deep_clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `deep_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void: otherwise, new object structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> recursively duplicated from the one attached to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/file_info_flat.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/file_info_flat.html#f_copy">copy</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_clone">standard_clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `standard_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_twin">standard_twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/file_info_flat.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/file_info_flat.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_as_attached"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_as_attached">as_attached</a><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a>
+		<span class="ekeyword">obsolete</span> &quot;Remove calls to this feature. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Attached version of Current.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Can be used during transitional period to convert</span>
+			<span class="ecomment">--</span><span class="ecomment"> non-void-safe classes to void-safe ones.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flat.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flat.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_c_pointer_length_in_bytes"></a><a class="efeature" href="../elks/native_string_handler_flat.html#f_c_pointer_length_in_bytes">c_pointer_length_in_bytes</a> <span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_64_flat.html">NATURAL_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> Length in bytes of a platform specific file name pointer, not</span>
+			<span class="ecomment">--</span><span class="ecomment"> including the null-terminating character.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/native_string_handler_flat.html">NATIVE_STRING_HANDLER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/native_string_handler_flat.html">NATIVE_STRING_HANDLER</a>
+			<span class="etag">a_ptr_not_null</span><span class="esymbol">:</span> <span class="elocal">a_ptr</span> <span class="esymbol">/=</span> <a class="efeature" href="../elks/any_flat.html#f_default_pointer">default_pointer</a>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_eiffel.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;{
+			#ifdef EIF_WINDOWS
+				return (EIF_NATURAL_64) wcslen($a_ptr) * sizeof(wchar_t);
+			#else
+				return (EIF_NATURAL_64) strlen($a_ptr) * sizeof(char);
+			#endif
+			}<span class="estring">&quot;</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_eif_file_stat"></a><a class="efeature" href="../elks/file_info_flat.html#f_eif_file_stat">eif_file_stat</a> <span class="esymbol">(</span><span class="elocal">fname</span><span class="esymbol">,</span> <span class="elocal">stat_buf</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">follow_symlinks</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get information from file </span><span class="equoted">name</span><span class="ecomment"> into </span><span class="equoted">stat_buf</span>
+		<span class="ekeyword">external</span>
+			&quot;C signature (EIF_FILENAME, rt_stat_buf *, int): EIF_INTEGER use %&quot;eif_file.h%&quot;&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_access"></a><a class="efeature" href="../elks/file_info_flat.html#f_file_access">file_access</a> <span class="esymbol">(</span><span class="elocal">fname</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">which</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Perform access test </span><span class="equoted">which</span><span class="ecomment"> on </span><span class="equoted">f_name</span><span class="ecomment"> using real ID.</span>
+		<span class="ekeyword">external</span>
+			&quot;C signature (EIF_FILENAME, EIF_INTEGER): EIF_BOOLEAN use %&quot;eif_file.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;eif_file_access&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_eaccess"></a><a class="efeature" href="../elks/file_info_flat.html#f_file_eaccess">file_eaccess</a> <span class="esymbol">(</span><span class="elocal">stat_buf</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">which</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Perform access tests using effective ID.</span>
+		<span class="ekeyword">external</span>
+			&quot;C signature (rt_stat_buf *, int): EIF_BOOLEAN use %&quot;eif_file.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;eif_file_eaccess&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_group"></a><a class="efeature" href="../elks/file_info_flat.html#f_file_group">file_group</a> <span class="esymbol">(</span><span class="elocal">gid</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Convert GID to group name if possible</span>
+		<span class="ekeyword">external</span>
+			&quot;C signature (int): EIF_REFERENCE use %&quot;eif_file.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;eif_file_group&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_info"></a><a class="efeature" href="../elks/file_info_flat.html#f_file_info">file_info</a> <span class="esymbol">(</span><span class="elocal">stat_buf</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">which</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Extract information </span><span class="equoted">which</span><span class="ecomment"> from information buffer</span>
+		<span class="ekeyword">external</span>
+			&quot;C signature (rt_stat_buf *, int): EIF_INTEGER use %&quot;eif_file.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;eif_file_info&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_file_owner"></a><a class="efeature" href="../elks/file_info_flat.html#f_file_owner">file_owner</a> <span class="esymbol">(</span><span class="elocal">uid</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Convert UID to login name if possible</span>
+		<span class="ekeyword">external</span>
+			&quot;C signature (int): EIF_REFERENCE use %&quot;eif_file.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;eif_file_owner&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_multi_byte_to_utf_16"></a><a class="efeature" href="../elks/file_info_flat.html#f_multi_byte_to_utf_16">multi_byte_to_utf_16</a> <span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">,</span> <span class="elocal">a_output</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_output_length</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Given a 8-bit string </span><span class="equoted">a_ptr</span><span class="ecomment">, fill </span><span class="equoted">a_output</span><span class="ecomment"> of length </span><span class="equoted">a_output_length</span><span class="ecomment"> with the UTF-16</span>
+			<span class="ecomment">--</span><span class="ecomment"> encoding of </span><span class="equoted">a_ptr</span><span class="ecomment"> but only if </span><span class="equoted">a_output</span><span class="ecomment"> is not the default_pointer, otherwise it returns</span>
+			<span class="ecomment">--</span><span class="ecomment"> the number of expected bytes to fill </span><span class="equoted">a_output</span><span class="ecomment"> including the null-terminating character.</span>
+		<span class="ekeyword">require</span>
+				<span class="esymbol">{</span><a class="eclass" href="../elks/platform_flat.html">PLATFORM</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/platform_flat.html#f_is_windows">is_windows</a>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_eiffel.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;{
+			#ifdef EIF_WINDOWS
+				return (EIF_INTEGER) MultiByteToWideChar(CP_ACP, 0, (LPSTR) $a_ptr, -1, (LPWSTR) $a_output, (int) $a_output_length) * sizeof(wchar_t);
+			#else
+				return $a_output_length;
+			#endif
+			}<span class="estring">&quot;</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_stat_size"></a><a class="efeature" href="../elks/file_info_flat.html#f_stat_size">stat_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get size of 'rt_stat_buf' (in bytes)</span>
+		<span class="ekeyword">external</span>
+			&quot;C use %&quot;eif_file.h%&quot;&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_utf_16_to_multi_byte"></a><a class="efeature" href="../elks/file_info_flat.html#f_utf_16_to_multi_byte">utf_16_to_multi_byte</a> <span class="esymbol">(</span><span class="elocal">a_ptr</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_output</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_output_length</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Given a 16-bit string </span><span class="equoted">a_ptr</span><span class="ecomment"> encoded in UTF-16, fill </span><span class="equoted">a_output</span><span class="ecomment"> of length </span><span class="equoted">a_output_length</span><span class="ecomment"> with the</span>
+			<span class="ecomment">--</span><span class="ecomment"> 8-bit encoding of </span><span class="equoted">a_ptr</span><span class="ecomment"> but only if </span><span class="equoted">a_output</span><span class="ecomment"> is not the default_pointer, otherwise it returns</span>
+			<span class="ecomment">--</span><span class="ecomment"> the number of expected bytes to fill </span><span class="equoted">a_output</span><span class="ecomment"> including the null-terminated character.</span>
+		<span class="ekeyword">require</span>
+				<span class="esymbol">{</span><a class="eclass" href="../elks/platform_flat.html">PLATFORM</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/platform_flat.html#f_is_windows">is_windows</a>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_eiffel.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;{
+			#ifdef EIF_WINDOWS
+				return (EIF_INTEGER) WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) $a_ptr, -1, (LPSTR) $a_output, (int) $a_output_length, NULL, NULL);
+			#else
+				return $a_output_length;
+			#endif
+			}<span class="estring">&quot;</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flat.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_set_output_default">set_output_default</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flat.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/any_flat.html#f_tagged_out">tagged_out</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flat.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">o</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">o</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_out">out</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flat.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flat.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Retrieval</span>
+
+	<a name="f_internal_correct_mismatch"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_internal_correct_mismatch">internal_correct_mismatch</a>
+			<span class="ecomment">--</span><span class="ecomment"> Called from runtime to perform a proper dynamic dispatch on </span><span class="equoted">correct_mismatch</span>
+			<span class="ecomment">--</span><span class="ecomment"> from MISMATCH_CORRECTOR.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_msg</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="elocal">l_exc</span><span class="esymbol">:</span> <a class="eclass" href="../elks/exceptions_flat.html">EXCEPTIONS</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../elks/mismatch_corrector_flat.html">MISMATCH_CORRECTOR</a><span class="esymbol">}</span> <span class="ekeyword">Current</span> <span class="ekeyword">as</span> l_corrector <span class="ekeyword">then</span>
+				<span class="elocal">l_corrector</span><span class="edot">.</span><a class="efeature" href="../elks/mismatch_corrector_flat.html#f_correct_mismatch">correct_mismatch</a>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Mismatch: &quot;<span class="esymbol">)</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_exc</span>
+				<span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/any_flat.html#f_generating_type">generating_type</a><span class="edot">.</span><a class="efeature" href="../elks/type_flat.html#f_name">name</a><span class="esymbol">)</span>
+				<span class="elocal">l_exc</span><span class="edot">.</span><a class="efeature" href="../elks/exceptions_flat.html#f_raise_retrieval_exception">raise_retrieval_exception</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_msg</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2019, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../elks/file_info_flat.html">FILE_INFO</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="file_info_chart.html">Chart</a>
+<a class="nav class" href="file_info_links.html">Relations</a>
+<a class="nav class" href="file_info.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="file_info_short.html">Contracts</a>
+<a class="nav class" href="file_info_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="file_info"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A window. You need a renderer (see: {GAME_WINDOW_RENDERED}) or a window surface (see: {GAME_WINDOW_SURFACED}) to put thing on the window."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="todo" content="HighDPI"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_window Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_chart.html">Chart</a>
+<a class="nav class" href="game_window_links.html">Relations</a>
+<a class="nav class" href="game_window.html">Text</a>
+<a class="nav class" href="game_window_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_window_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_window"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">A window.</span>
+		<span class="estring">You need a renderer (see: </span><a class="eclass" href="../game_core/graphic/game_window_rendered_short.html">GAME_WINDOW_RENDERED</a><span class="estring">)</span>
+		<span class="estring">or a window surface (see: </span><span class="neclass">GAME_WINDOW_SURFACED</span><span class="estring">)</span>
+		<span class="estring">to put thing on the window.</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Fri, 27 Feb 2015 14:42:17 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;1.0&quot;</span>
+	<span class="eitag">todo</span><span class="esymbol">:</span> <span class="estring">&quot;HighDPI&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../game_core/graphic/game_window_short.html">GAME_WINDOW</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_update"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_update">update</a>
+			<span class="ecomment">--</span><span class="ecomment"> Print the visual buffer modification to the screen</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_has_clipboard_text"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_has_clipboard_text">has_clipboard_text</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if the system clipboard has some text</span>
+
+	<a name="f_clipboard_text"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_clipboard_text">clipboard_text</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_short.html">READABLE_STRING_GENERAL</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_clipboard_text">set_clipboard_text</a>
+			<span class="ecomment">--</span><span class="ecomment"> The text contained by the system clipboard</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">has_text</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_has_clipboard_text">has_clipboard_text</a>
+
+	<a name="f_set_clipboard_text"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_clipboard_text">set_clipboard_text</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">a_text</span><span class="ecomment"> into the system clipboard</span>
+
+	<a name="f_brightness"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_brightness">brightness</a><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_brightness">set_brightness</a>
+			<span class="ecomment">--</span><span class="ecomment"> The Gamma correction where 0.0 is completely dark and 1.0 is normal.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">window_brightness_not_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_brightness">brightness</a> <span class="esymbol">=</span> <span class="ekeyword">old</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_brightness">brightness</a>
+
+	<a name="f_set_brightness"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_brightness">set_brightness</a> <span class="esymbol">(</span><span class="elocal">a_brightness</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set the </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_brightness">brightness</a><span class="ecomment"> (gamma correction) to </span><span class="equoted">a_brightness</span><span class="ecomment"> for </span><span class="equoted">Current</span><span class="ecomment"> where 0.0 is completely dark and 1.0 is normal.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set has_error when an error occured.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+			<span class="etag">window_set_brightness_valid</span><span class="esymbol">:</span> <span class="elocal">a_brightness</span> <a class="esymbol" href="../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0.0</span> <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_brightness</span> <a class="esymbol" href="../elks/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="enumber">1</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_short.html#f_to_real">to_real</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">window_set_brightness_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_brightness">brightness</a> <span class="esymbol">=</span> <span class="elocal">a_brightness</span>
+
+	<a name="f_display_index"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_display_index">display_index</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Index of the display containing the center of the window.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">window_display_index_valid</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_short.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_short.html#f_implication">implies</a> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_display"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_display">display</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_short.html">GAME_DISPLAY</a>
+			<span class="ecomment">--</span><span class="ecomment"> display containing the center of the window.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_close"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_close">close</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close </span><span class="equoted">Current</span><span class="ecomment"> (you cannot open it again).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_exists"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has been </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_close">close</a><span class="ecomment">d</span>
+
+	<a name="f_pixel_format"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_pixel_format">pixel_format</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_pixel_format_readable_short.html">GAME_PIXEL_FORMAT_READABLE</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal format of the pixel representation in memory.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_window_manager"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_window_manager">window_manager</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_window_manager_short.html">GAME_WINDOW_MANAGER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The window manager managing </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_id"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_id">id</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_short.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal identifier of the Window (For logging purpose)</span>
+		<span class="ekeyword">require else</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_hide"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_hide">hide</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove the visibility of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_show"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_show">show</a>
+			<span class="ecomment">--</span><span class="ecomment"> Active the visibility of </span><span class="equoted">Current</span><span class="ecomment"> (previously removed by </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_hide">hide</a><span class="ecomment">)</span>
+
+	<a name="f_maximize"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_maximize">maximize</a>
+			<span class="ecomment">--</span><span class="ecomment"> Change the dimension of </span><span class="equoted">Current</span><span class="ecomment"> to fill the screen</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_minimize"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_minimize">minimize</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">Current</span><span class="ecomment"> in an iconic representation</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_restore"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_restore">restore</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the original dimension of </span><span class="equoted">Current</span><span class="ecomment"> (previously change with </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_maximize">maximize</a><span class="ecomment"> or </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_minimize">minimize</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_raise"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_raise">raise</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">Current</span><span class="ecomment"> to the front</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_put_border"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_put_border">put_border</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put border decoration to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_remove_border"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_remove_border">remove_border</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove border decoration to </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_display_mode"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_display_mode">display_mode</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_mode_short.html">GAME_DISPLAY_MODE</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_display_mode">set_display_mode</a>
+			<span class="ecomment">--</span><span class="ecomment"> The display mode of </span><span class="equoted">Current</span><span class="ecomment"> in fullscreen mode</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_display_mode"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_display_mode">set_display_mode</a> <span class="esymbol">(</span><span class="elocal">a_display_mode</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_mode_short.html">GAME_DISPLAY_MODE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_display_mode">display_mode</a><span class="ecomment"> with the value of </span><span class="equoted">a_display_mode</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_fullscreen">set_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Activate the &quot;true&quot; fullscreen mode (changing resolution if necessary)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_fake_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_fake_fullscreen">set_fake_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Activate the &quot;fake&quot; fullscreen mode (setting a not bordered maximized window)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_windowed"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_windowed">set_windowed</a>
+			<span class="ecomment">--</span><span class="ecomment"> Desactivate any fullscreen mode</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_is_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_fullscreen">is_fullscreen</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_fullscreen">set_is_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> in fullscreen mode</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_is_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_fullscreen">set_is_fullscreen</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_fullscreen">is_fullscreen</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_fullscreen">is_fullscreen</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_is_fake_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_fake_fullscreen">is_fake_fullscreen</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_fake_fullscreen">set_is_fake_fullscreen</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> in fullscreen mode</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_is_fake_fullscreen"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_fake_fullscreen">set_is_fake_fullscreen</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_fake_fullscreen">is_fake_fullscreen</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_fake_fullscreen">is_fake_fullscreen</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_is_opengl_compatible"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_opengl_compatible">is_opengl_compatible</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> can be used in an OpenGL context</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_is_visible"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_visible">is_visible</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> in can be seen in the screen (not hidden)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_is_hidden"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_hidden">is_hidden</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_hidden">set_is_hidden</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> in invisible</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_is_hidden"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_hidden">set_is_hidden</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_hidden">is_hidden</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_hidden">is_hidden</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_has_border"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_has_border">has_border</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has border decoration</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_is_resizable"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_resizable">is_resizable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can </span><span class="equoted">Current</span><span class="ecomment"> be resized by the user</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_is_minimized"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_minimized">is_minimized</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_minimized">set_is_minimized</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> in iconized representation</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_is_minimized"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_minimized">set_is_minimized</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_minimized">is_minimized</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_minimized">is_minimized</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_is_maximized"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_maximized">is_maximized</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_maximized">set_is_maximized</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> in maximized mode (to fill the screen)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_is_maximized"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_maximized">set_is_maximized</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_maximized">is_maximized</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_maximized">is_maximized</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_has_input_focus"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_has_input_focus">has_input_focus</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> having the focus for keyboard input</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_has_mouse_focus"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_has_mouse_focus">has_mouse_focus</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> having the focus of the mouse</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_is_foreign"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_foreign">is_foreign</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> not created by the present library</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_gamma_correction"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_gamma_correction">gamma_correction</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">red</span><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_16_short.html">NATURAL_16</a><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">green</span><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_16_short.html">NATURAL_16</a><span class="esymbol">]</span><span class="esymbol">;</span> <span class="elocal">blue</span><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_16_short.html">NATURAL_16</a><span class="esymbol">]</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The gamma encoding of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_gamma_correction"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_gamma_correction">set_gamma_correction</a> <span class="esymbol">(</span><span class="elocal">a_red</span><span class="esymbol">,</span> <span class="elocal">a_green</span><span class="esymbol">,</span> <span class="elocal">a_blue</span><span class="esymbol">:</span> <a class="eclass" href="../elks/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_16_short.html">NATURAL_16</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign the </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_gamma_correction">gamma_correction</a><span class="ecomment"> values using </span><span class="equoted">a_red</span><span class="ecomment">, </span><span class="equoted">a_green</span><span class="ecomment">, </span><span class="equoted">a_blue</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+			<span class="etag">red_arrays_count_valid</span><span class="esymbol">:</span> <span class="elocal">a_red</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">256</span>
+			<span class="etag">green_arrays_count_valid</span><span class="esymbol">:</span> <span class="elocal">a_green</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">256</span>
+			<span class="etag">blue_arrays_count_valid</span><span class="esymbol">:</span> <span class="elocal">a_blue</span><span class="edot">.</span><a class="efeature" href="../elks/arrayed_list_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">256</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_gamma_correction">gamma_correction</a> <span class="ekeyword">as</span> la_gamma_correction <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="elocal">la_gamma_correction</span><span class="edot">.</span><span class="elocal">red</span> <span class="esymbol">~</span> <span class="elocal">a_red</span> <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted">and</a> <span class="elocal">la_gamma_correction</span><span class="edot">.</span><span class="elocal">green</span> <span class="esymbol">~</span> <span class="elocal">a_green</span> <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted">and</a> <span class="elocal">la_gamma_correction</span><span class="edot">.</span><span class="elocal">blue</span> <span class="esymbol">~</span> <span class="elocal">a_blue</span><span class="esymbol">)</span>
+
+	<a name="f_is_input_grabbed"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_input_grabbed">is_input_grabbed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_input_grabbed">set_is_input_grabbed</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> grabbing all input</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_is_input_grabbed"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_is_input_grabbed">set_is_input_grabbed</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_input_grabbed">is_input_grabbed</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_input_grabbed">is_input_grabbed</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_grab_input"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_grab_input">grab_input</a>
+			<span class="ecomment">--</span><span class="ecomment"> Force every input in </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_grabbed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_input_grabbed">is_input_grabbed</a>
+
+	<a name="f_release_input"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_release_input">release_input</a>
+			<span class="ecomment">--</span><span class="ecomment"> Release the input previously forced into </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_not_grabbed</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_is_input_grabbed">is_input_grabbed</a>
+
+	<a name="f_maximum_size"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_maximum_size">maximum_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum dimension that </span><span class="equoted">Current</span><span class="ecomment"> can take</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_maximum_size"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_maximum_size">set_maximum_size</a> <span class="esymbol">(</span><span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign the values of </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_maximum_size">maximum_size</a><span class="ecomment"> with the values </span><span class="equoted">a_width</span><span class="ecomment">, </span><span class="equoted">a_height</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_minimum_size"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_minimum_size">minimum_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The minimum dimension that </span><span class="equoted">Current</span><span class="ecomment"> can take</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_minimum_size"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_minimum_size">set_minimum_size</a> <span class="esymbol">(</span><span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign the values of </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_minimum_size">minimum_size</a><span class="ecomment"> with the values </span><span class="equoted">a_width</span><span class="ecomment">, </span><span class="equoted">a_height</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_size"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_size">size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The present dimension of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_size"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_size">set_size</a> <span class="esymbol">(</span><span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign the values of </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_size">size</a><span class="ecomment"> with the values </span><span class="equoted">a_width</span><span class="ecomment">, </span><span class="equoted">a_height</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_size">size</a> <span class="ekeyword">as</span> la_size <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="elocal">la_size</span><span class="edot">.</span><span class="elocal">width</span> <span class="esymbol">~</span> <span class="elocal">a_width</span> <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted">and</a> <span class="elocal">la_size</span><span class="edot">.</span><span class="elocal">height</span> <span class="esymbol">~</span> <span class="elocal">a_height</span><span class="esymbol">)</span>
+
+	<a name="f_height"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_height">height</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_height">set_height</a>
+			<span class="ecomment">--</span><span class="ecomment"> The vertical length of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_height"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_height">set_height</a> <span class="esymbol">(</span><span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_height">height</a><span class="ecomment"> with the value of </span><span class="equoted">a_height</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_height">height</a> <span class="esymbol">=</span> <span class="elocal">a_height</span>
+			<span class="etag">width_not_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_width">width</a> <span class="esymbol">=</span> <span class="ekeyword">old</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_width">width</a>
+
+	<a name="f_width"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_width">width</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_width">set_width</a>
+			<span class="ecomment">--</span><span class="ecomment"> The horizontal length of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_width"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_width">set_width</a> <span class="esymbol">(</span><span class="elocal">a_width</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_width">width</a><span class="ecomment"> with the value of </span><span class="equoted">a_width</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_width">width</a> <span class="esymbol">=</span> <span class="elocal">a_width</span>
+			<span class="etag">height_not_changed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_height">height</a> <span class="esymbol">=</span> <span class="ekeyword">old</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_height">height</a>
+
+	<a name="f_position"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_position">position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> The coordinate (</span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_x">x</a><span class="ecomment">,</span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_y">y</a><span class="ecomment">) of the position of </span><span class="equoted">Current</span><span class="ecomment"> in the screen.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_position"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_position">set_position</a> <span class="esymbol">(</span><span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_position">position</a><span class="ecomment"> with the values </span><span class="equoted">a_x</span><span class="ecomment"> and </span><span class="equoted">a_y</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_x"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_x">x</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_x">set_x</a>
+			<span class="ecomment">--</span><span class="ecomment"> The horizontal coordinate of the position of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_x"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_x">set_x</a> <span class="esymbol">(</span><span class="elocal">a_x</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> assign </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_x">x</a><span class="ecomment"> with the value of </span><span class="equoted">a_x</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_x">x</a> <span class="esymbol">=</span> <span class="elocal">a_x</span>
+
+	<a name="f_center_horizontally"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_horizontally">center_horizontally</a>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_x">x</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered in the screen</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_center_horizontally_on_display_index"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_horizontally_on_display_index">center_horizontally_on_display_index</a> <span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_x">x</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered in the screen number </span><span class="equoted">a_index</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+			<span class="etag">index_valid</span><span class="esymbol">:</span> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/integer_32_short.html#f_is_less">&lt;</a> <a class="efeature" href="../game_core/game_library_shared_short.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller_short.html#f_displays_count">displays_count</a>
+
+	<a name="f_center_horizontally_on_display"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_horizontally_on_display">center_horizontally_on_display</a> <span class="esymbol">(</span><span class="elocal">a_display</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_short.html">GAME_DISPLAY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_x">x</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered in the screen </span><span class="equoted">a_display</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_y"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_y">y</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_y">set_y</a>
+			<span class="ecomment">--</span><span class="ecomment"> The vertical coordinate of the position of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_y"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_y">set_y</a> <span class="esymbol">(</span><span class="elocal">a_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> assign </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_y">y</a><span class="ecomment"> with the value of </span><span class="equoted">a_y</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_y">y</a> <span class="esymbol">=</span> <span class="elocal">a_y</span>
+
+	<a name="f_center_vertically"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_vertically">center_vertically</a>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_y">y</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered in the screen</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_center_vertically_on_display_index"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_vertically_on_display_index">center_vertically_on_display_index</a> <span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_y">y</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered in the screen number </span><span class="equoted">a_index</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+			<span class="etag">index_valid</span><span class="esymbol">:</span> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/integer_32_short.html#f_is_less">&lt;</a> <a class="efeature" href="../game_core/game_library_shared_short.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller_short.html#f_displays_count">displays_count</a>
+
+	<a name="f_center_vertically_on_display"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_vertically_on_display">center_vertically_on_display</a> <span class="esymbol">(</span><span class="elocal">a_display</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_short.html">GAME_DISPLAY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_y">y</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered in the screen </span><span class="equoted">a_display</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_center_position"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_position">center_position</a>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_position">position</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered on the screen</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_center_on_display_index"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_on_display_index">center_on_display_index</a> <span class="esymbol">(</span><span class="elocal">a_index</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_position">position</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered in the screen number </span><span class="equoted">a_index</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+			<span class="etag">index_valid</span><span class="esymbol">:</span> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_index</span> <a class="esymbol" href="../elks/integer_32_short.html#f_is_less">&lt;</a> <a class="efeature" href="../game_core/game_library_shared_short.html#f_game_library">Game_library</a><span class="edot">.</span><a class="efeature" href="../game_core/game_library_controller_short.html#f_displays_count">displays_count</a>
+
+	<a name="f_center_on_display"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_center_on_display">center_on_display</a> <span class="esymbol">(</span><span class="elocal">a_display</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_display_short.html">GAME_DISPLAY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Change </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_position">position</a><span class="ecomment"> so that </span><span class="equoted">Current</span><span class="ecomment"> became centered in the screen </span><span class="equoted">a_display</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_title"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_title">title</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_short.html">READABLE_STRING_GENERAL</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_title">set_title</a>
+			<span class="ecomment">--</span><span class="ecomment"> The text to write in the title bar of </span><span class="equoted">Current</span><span class="ecomment"> (part of the decoration)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_title"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_title">set_title</a> <span class="esymbol">(</span><span class="elocal">a_title</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_title">title</a><span class="ecomment"> using the value of </span><span class="equoted">a_title</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">window_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_move_mouse_to_position"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_move_mouse_to_position">move_mouse_to_position</a> <span class="esymbol">(</span><span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Place the mouse at position (</span><span class="equoted">a_x</span><span class="ecomment">,</span><span class="equoted">a_y</span><span class="ecomment">) into </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">windows_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_set_icon"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_set_icon">set_icon</a> <span class="esymbol">(</span><span class="elocal">a_surface</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_surface_short.html">GAME_SURFACE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Place the icon represented by </span><span class="equoted">a_surface</span><span class="ecomment"> as </span><span class="equoted">Current</span><span class="ecomment"> icon (in the decoration)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">windows_not_closed</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+			<span class="etag">surface_exists</span><span class="esymbol">:</span> <span class="elocal">a_surface</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_surface_short.html#f_is_open">is_open</a>
+
+	<a name="f_start_text_input"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_start_text_input">start_text_input</a>
+			<span class="ecomment">--</span><span class="ecomment"> Begin to read text in </span><span class="equoted">Current</span>
+
+	<a name="f_start_text_input_in_rectangle"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_start_text_input_in_rectangle">start_text_input_in_rectangle</a> <span class="esymbol">(</span><span class="elocal">a_x</span><span class="esymbol">,</span> <span class="elocal">a_y</span><span class="esymbol">,</span> <span class="elocal">a_width</span><span class="esymbol">,</span> <span class="elocal">a_height</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Begin to read text in </span><span class="equoted">Current</span><span class="ecomment"> displaying updated in the</span>
+			<span class="ecomment">--</span><span class="ecomment"> rectangle starting at position (a_x, a_y) of dimention a_width X a_height.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: The library will not automatically draw the text in the rectangle.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The coordinate and dimention will be use to show the OS candidate list (if there is one).</span>
+			<span class="ecomment">--</span><span class="ecomment"> See: </span><a class="ecomment" href="http://wiki.libsdl.org/Tutorials/TextInput#CandidateList">http://wiki.libsdl.org/Tutorials/TextInput#CandidateList</a>
+
+	<a name="f_stop_text_input"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_stop_text_input">stop_text_input</a>
+			<span class="ecomment">--</span><span class="ecomment"> Finish the reading of text in </span><span class="equoted">Current</span>
+
+	<a name="f_has_text_input"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_has_text_input">has_text_input</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> in text input mode (see: </span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_start_text_input">start_text_input</a><span class="ecomment">)</span>
+
+	<a name="f_events_controller"></a><a class="efeature" href="../game_core/graphic/game_window_short.html#f_events_controller">events_controller</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/event/game_events_controller_short.html">GAME_EVENTS_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The main event manager</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/graphic/game_window_short.html">GAME_WINDOW</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_chart.html">Chart</a>
+<a class="nav class" href="game_window_links.html">Relations</a>
+<a class="nav class" href="game_window.html">Text</a>
+<a class="nav class" href="game_window_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_window_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_window"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

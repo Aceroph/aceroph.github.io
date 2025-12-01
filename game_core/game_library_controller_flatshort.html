@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Controller of the game library."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_library_controller Flat contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_library_controller_chart.html">Chart</a>
+<a class="nav class" href="game_library_controller_links.html">Relations</a>
+<a class="nav class" href="game_library_controller.html">Text</a>
+<a class="nav class" href="game_library_controller_flat.html">Flat</a>
+<a class="nav class" href="game_library_controller_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="game_library_controller"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Controller of the game library.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sat, 28 Mar 2015 03:42:16 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.1&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a>
+
+<span class="ekeyword">create</span> 
+	<a name="f_default_create"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_default_create">default_create</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Clean up library on segfault</span>
+
+	<a name="f_make_no_parachute"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_make_no_parachute">make_no_parachute</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't clean up library on segfault</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_append_all_dollar_gesture_template"></a><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_append_all_dollar_gesture_template">append_all_dollar_gesture_template</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save every dollar gesture templates loaded in the library</span>
+			<span class="ecomment">--</span><span class="ecomment"> inside the file located at </span><span class="equoted">a_filename</span><span class="ecomment">. If it exists, the data will</span>
+			<span class="ecomment">--</span><span class="ecomment"> be added to the end. If it does not, it will be created.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: The templates hashes are not saved in the file. You have to save</span>
+			<span class="ecomment">--</span><span class="ecomment"> them yourself for future utilisation</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a>
+			<span class="etag">is_file_valid</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file_flatshort.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">)</span><span class="esymbol">)</span> <span class="ekeyword">as</span> la_file <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_is_access_writable">is_access_writable</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_is_creatable">is_creatable</a><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_append_dollar_gesture_template"></a><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_append_dollar_gesture_template">append_dollar_gesture_template</a> <span class="esymbol">(</span><span class="elocal">a_hash</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flatshort.html">INTEGER_64</a><span class="esymbol">;</span> <span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save the dollar gesture templates identified by </span><span class="equoted">a_hash</span>
+			<span class="ecomment">--</span><span class="ecomment"> inside the file located at </span><span class="equoted">a_filename</span><span class="ecomment">. If it exists, the data will</span>
+			<span class="ecomment">--</span><span class="ecomment"> be added to the end. If it does not, it will be created.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: The </span><span class="equoted">a_hash</span><span class="ecomment"> is not saved in the file. You have to save it</span>
+			<span class="ecomment">--</span><span class="ecomment"> yourself for future utilisation</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a>
+			<span class="etag">is_file_valid</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file_flatshort.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">)</span><span class="esymbol">)</span> <span class="ekeyword">as</span> la_file <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_is_access_writable">is_access_writable</a><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_is_creatable">is_creatable</a><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_clear"></a><a class="efeature" href="../game_core/event/game_common_events_flatshort.html#f_clear">clear_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Remove common library event.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: does not clear other events like window events, joystick events, etc. To clear every events</span>
+			<span class="ecomment">--</span><span class="ecomment"> in the system, used </span><a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="ecomment">.</span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_clear_all_events">clear_all_events</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_events_flatshort.html">GAME_EVENTS</a>
+			<span class="etag">running_unchanged</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/event/game_events_flatshort.html#f_is_running">is_events_running</a> <span class="esymbol">=</span> <span class="ekeyword">old</span> <a class="efeature" href="../game_core/event/game_events_flatshort.html#f_is_running">is_events_running</a>
+
+	<a name="f_file_dropped_actions"></a><a class="efeature" href="../game_core/event/game_common_events_flatshort.html#f_file_dropped_actions">file_dropped_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence_flatshort.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called when the file (or any other string) </span><span class="equoted">filename</span><span class="ecomment"> is drag and drop on a </span><a class="eclass" href="../game_core/graphic/game_window_flatshort.html">GAME_WINDOW</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The event is not enabled by default. Use </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_events_controller">events_controller</a><span class="ecomment">.</span><span class="equoted">enable_file_dropped_event</span><span class="ecomment"> to enable it.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a>
+			<span class="etag">joystick_found_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller_flatshort.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flatshort.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flatshort.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_has_error"></a><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the library has generate an error</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+
+	<a name="f_is_running"></a><a class="efeature" href="../game_core/event/game_events_flatshort.html#f_is_running">is_events_running</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/event/game_events_flatshort.html#f_set_is_running">set_is_running</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> active</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_events_flatshort.html">GAME_EVENTS</a><span class="ecomment">)</span>
+
+	<a name="f_iteration_actions"></a><a class="efeature" href="../game_core/event/game_common_events_flatshort.html#f_iteration_actions">iteration_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence_flatshort.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called at each game loop</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a><span class="ecomment">)</span>
+
+	<a name="f_joystick_found_actions"></a><a class="efeature" href="../game_core/event/game_common_events_flatshort.html#f_joystick_found_actions">joystick_found_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence_flatshort.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../game_core/input/game_joystick_flatshort.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called when a new </span><span class="equoted">joystick</span><span class="ecomment"> has been founded</span>
+			<span class="ecomment">--</span><span class="ecomment"> Automatically added to </span><a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="ecomment">.</span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_joysticks">joysticks</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a>
+			<span class="etag">joystick_found_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller_flatshort.html#f_is_joy_device_founded_event_enable">is_joy_device_founded_event_enable</a>
+
+	<a name="f_joystick_remove_actions"></a><a class="efeature" href="../game_core/event/game_common_events_flatshort.html#f_joystick_remove_actions">joystick_remove_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence_flatshort.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">,</span> <a class="eclass" href="../game_core/input/game_joystick_flatshort.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called when a new joystick has been removed</span>
+			<span class="ecomment">--</span><span class="ecomment"> The joystick will be removed from </span><a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="ecomment">.</span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_joysticks">joysticks</a><span class="ecomment"> after the</span>
+			<span class="ecomment">--</span><span class="ecomment"> calls of this feature.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a>
+			<span class="etag">joystick_remove_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller_flatshort.html#f_is_joy_device_removed_event_enable">is_joy_device_removed_event_enable</a>
+
+	<a name="f_last_error"></a><a class="efeature" href="../game_core/implementation/game_sdl_any_flatshort.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The last error generate by the library</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/implementation/game_sdl_any_flatshort.html">GAME_SDL_ANY</a><span class="ecomment">)</span>
+
+	<a name="f_last_loaded_dollar_gesture_template"></a><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_last_loaded_dollar_gesture_template">last_loaded_dollar_gesture_template</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> How many dollar gesture template has been load on the last</span>
+			<span class="ecomment">--</span><span class="ecomment"> call of the </span><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_load_dollar_gesture_template">load_dollar_gesture_template</a><span class="ecomment"> feature</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a><span class="ecomment">)</span>
+
+	<a name="f_last_saved_dollar_gesture_template"></a><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_last_saved_dollar_gesture_template">last_saved_dollar_gesture_template</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> How many dollar gesture template has been save on the last</span>
+			<span class="ecomment">--</span><span class="ecomment"> call of the </span><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_save_dollar_gesture_template">save_dollar_gesture_template</a><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_save_all_dollar_gesture_template">save_all_dollar_gesture_template</a><span class="ecomment">, </span><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_append_dollar_gesture_template">append_dollar_gesture_template</a>
+			<span class="ecomment">--</span><span class="ecomment"> or </span><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_append_all_dollar_gesture_template">append_all_dollar_gesture_template</a><span class="ecomment"> feature</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a><span class="ecomment">)</span>
+
+	<a name="f_load_dollar_gesture_template"></a><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_load_dollar_gesture_template">load_dollar_gesture_template</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Load in </span><span class="equoted">Current</span><span class="ecomment"> every dollar gesture templates</span>
+			<span class="ecomment">--</span><span class="ecomment"> inside the file located at </span><span class="equoted">a_filename</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: The unique hash returned by the </span><span class="equoted">record_dollar_gesture</span>
+			<span class="ecomment">--</span><span class="ecomment"> feature has to be saved on the client side.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a>
+			<span class="etag">file_is_readable</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file_flatshort.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">)</span><span class="esymbol">)</span> <span class="ekeyword">as</span> la_file <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_is_access_readable">is_access_readable</a><span class="esymbol">)</span>
+
+	<a name="f_quit_signal_actions"></a><a class="efeature" href="../game_core/event/game_common_events_flatshort.html#f_quit_signal_actions">quit_signal_actions</a><span class="esymbol">:</span> <a class="eclass" href="../ise/action_sequence_flatshort.html">ACTION_SEQUENCE</a> <span class="esymbol">[</span><a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> When the application receive a quit signal.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a>
+			<span class="etag">quit_event_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_events_controller">events_controller</a><span class="edot">.</span><a class="efeature" href="../game_core/event/game_events_controller_flatshort.html#f_is_quit_signal_event_enable">is_quit_signal_event_enable</a>
+
+	<a name="f_run"></a><a class="efeature" href="../game_core/event/game_common_events_flatshort.html#f_run">run_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">Current</span><span class="ecomment"> active.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_events_flatshort.html">GAME_EVENTS</a>
+			<span class="etag">run_not_already_running</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/event/game_events_flatshort.html#f_is_running">is_events_running</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_events_flatshort.html">GAME_EVENTS</a>
+			<span class="etag">is_running</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/event/game_events_flatshort.html#f_is_running">is_events_running</a>
+
+	<a name="f_save_all_dollar_gesture_template"></a><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_save_all_dollar_gesture_template">save_all_dollar_gesture_template</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save every dollar gesture templates loaded in the library</span>
+			<span class="ecomment">--</span><span class="ecomment"> inside the file located at </span><span class="equoted">a_filename</span><span class="ecomment">. If it exists, the file will be</span>
+			<span class="ecomment">--</span><span class="ecomment"> overwrited.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: The templates hashes are not saved in the file. You have to save</span>
+			<span class="ecomment">--</span><span class="ecomment"> them yourself for future utilisation</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a>
+			<span class="etag">is_file_creatable</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file_flatshort.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_is_creatable">is_creatable</a>
+
+	<a name="f_save_dollar_gesture_template"></a><a class="efeature" href="../game_core/input/game_dollar_gesture_manager_flatshort.html#f_save_dollar_gesture_template">save_dollar_gesture_template</a> <span class="esymbol">(</span><span class="elocal">a_hash</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flatshort.html">INTEGER_64</a><span class="esymbol">;</span> <span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Save the dollar gesture templates identified by </span><span class="equoted">a_hash</span>
+			<span class="ecomment">--</span><span class="ecomment"> inside the file located at </span><span class="equoted">a_filename</span><span class="ecomment">. If it exists, the file will be</span>
+			<span class="ecomment">--</span><span class="ecomment"> overwrited.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: The </span><span class="equoted">a_hash</span><span class="ecomment"> is not saved in the file. You have to save it</span>
+			<span class="ecomment">--</span><span class="ecomment"> yourself for future utilisation</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/input/game_dollar_gesture_manager_flatshort.html">GAME_DOLLAR_GESTURE_MANAGER</a>
+			<span class="etag">is_file_creatable</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file_flatshort.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">)</span><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_is_creatable">is_creatable</a>
+
+	<a name="f_set_is_running"></a><a class="efeature" href="../game_core/event/game_events_flatshort.html#f_set_is_running">set_is_running</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><span class="equoted">is_running</span><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_events_flatshort.html">GAME_EVENTS</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_events_flatshort.html">GAME_EVENTS</a>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/event/game_events_flatshort.html#f_is_running">is_events_running</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_stop"></a><a class="efeature" href="../game_core/event/game_common_events_flatshort.html#f_stop">stop_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put </span><span class="equoted">Current</span><span class="ecomment"> innactive.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../game_core/event/game_common_events_flatshort.html">GAME_COMMON_EVENTS</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_events_flatshort.html">GAME_EVENTS</a>
+			<span class="etag">stop_is_running</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/event/game_events_flatshort.html#f_is_running">is_events_running</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../game_core/event/game_events_flatshort.html">GAME_EVENTS</a>
+			<span class="etag">is_stopped</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/event/game_events_flatshort.html#f_is_running">is_events_running</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flatshort.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_disable_print_on_error"></a><span class="nefeature">disable_print_on_error</span>
+			<span class="ecomment">--</span><span class="ecomment"> Desactive the </span><span class="nefeature">print_on_error</span><span class="ecomment"> functionnality.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+
+	<a name="f_enable_print_on_error"></a><span class="nefeature">enable_print_on_error</span>
+			<span class="ecomment">--</span><span class="ecomment"> Active the </span><span class="nefeature">print_on_error</span><span class="ecomment"> functionnality.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+
+	<a name="f_print_on_error"></a><span class="nefeature">print_on_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> When an error occured, the library will print</span>
+			<span class="ecomment">--</span><span class="ecomment"> informations about the error on the error console</span>
+			<span class="ecomment">--</span><span class="ecomment"> output (default is True).</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+
+	<a name="f_set_print_on_error"></a><span class="nefeature">set_print_on_error</span> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><span class="nefeature">print_on_error</span><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">GAME_ERROR_MANAGER</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <span class="nefeature">print_on_error</span> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Haptic methods</span>
+
+	<a name="f_haptic_maximum_gain"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_haptic_maximum_gain">haptic_maximum_gain</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_haptic_maximum_gain">set_haptic_maximum_gain</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum gain used by haptics in the system.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../game_core/haptic/game_haptic_flatshort.html">GAME_HAPTIC</a><span class="ecomment">.</span><span class="equoted">set_gain</span><span class="ecomment"> always take 0-100</span>
+			<span class="ecomment">--</span><span class="ecomment"> gain value, but the real value is scaled</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_valid</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <span class="enumber">100</span>
+
+	<a name="f_haptics"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_haptics">haptics</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/haptic/game_haptic_device_flatshort.html">GAME_HAPTIC_DEVICE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every haptic devices on the system</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">haptic_is_haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a>
+
+	<a name="f_refresh_haptics"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_refresh_haptics">refresh_haptics</a>
+			<span class="ecomment">--</span><span class="ecomment"> Update the haptics list (if haptics as been add or remove)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Warning: This will close all opened haptics</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">controller_update_haptics_haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a>
+
+	<a name="f_set_haptic_maximum_gain"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_haptic_maximum_gain">set_haptic_maximum_gain</a> <span class="esymbol">(</span><span class="elocal">a_gain</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_haptic_maximum_gain">haptic_maximum_gain</a><span class="ecomment"> with the value of </span><span class="equoted">a_gain</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a>
+			<span class="etag">gain_is_valid</span><span class="esymbol">:</span> <span class="elocal">a_gain</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">a_gain</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_less_equal">&lt;=</a> <span class="enumber">100</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_haptic_maximum_gain">haptic_maximum_gain</a> <span class="esymbol">=</span> <span class="elocal">a_gain</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Joystick methods</span>
+
+	<a name="f_joysticks"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_joysticks">joysticks</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/input/game_joystick_flatshort.html">GAME_JOYSTICK</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every </span><a class="eclass" href="../game_core/input/game_joystick_flatshort.html">GAME_JOYSTICK</a><span class="ecomment"> detected by </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">joysticks_is_joystick_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_joystick_enable">is_joystick_enable</a>
+
+	<a name="f_update_joysticks_state"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_update_joysticks_state">update_joysticks_state</a>
+			<span class="ecomment">--</span><span class="ecomment"> Update the state of all opened joystick. This procedure is</span>
+			<span class="ecomment">--</span><span class="ecomment"> Called at each game loop instead you disable every joystick event</span>
+			<span class="ecomment">--</span><span class="ecomment"> with </span><a class="eclass" href="../game_core/event/game_events_controller_flatshort.html">GAME_EVENTS_CONTROLLER</a><span class="ecomment">.</span><span class="equoted">disable_joy_*_event</span><span class="ecomment"> or with</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="eclass" href="../game_core/event/game_events_controller_flatshort.html">GAME_EVENTS_CONTROLLER</a><span class="ecomment">.</span><span class="equoted">disable_every_joy_events</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Mouse		</span>
+
+	<a name="f_cursor"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_cursor">cursor</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_cursor_flatshort.html">GAME_CURSOR</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../game_core/graphic/game_cursor_flatshort.html">GAME_CURSOR</a><span class="ecomment"> presently used in </span><span class="equoted">Current</span>
+
+	<a name="f_default_cursor"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_default_cursor">default_cursor</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_cursor_flatshort.html">GAME_CURSOR</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../game_core/graphic/game_cursor_flatshort.html">GAME_CURSOR</a><span class="ecomment"> used in the creation of </span><span class="equoted">Current</span>
+
+	<a name="f_disable_relative_mouse"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_disable_relative_mouse">disable_relative_mouse</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unset the </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a><span class="ecomment"> mode</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a>
+
+	<a name="f_enable_relative_mouse"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_enable_relative_mouse">enable_relative_mouse</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a><span class="ecomment"> mode</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a>
+
+	<a name="f_hide_mouse_cursor"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_hide_mouse_cursor">hide_mouse_cursor</a>
+			<span class="ecomment">--</span><span class="ecomment"> Don't show the mouse cursor when the mouse is on a window created by the library.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">hide_mouse_cursor_valid</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_cursor_visible">is_cursor_visible</a>
+
+	<a name="f_is_cursor_visible"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_cursor_visible">is_cursor_visible</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_cursor_visible">set_is_cursor_visible</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the library is set to show the mous cursor when the mouse is on a window created by the library.</span>
+
+	<a name="f_is_relative_mouse_enabled"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_relative_mouse_enabled">set_is_relative_mouse_enabled</a>
+			<span class="ecomment">--</span><span class="ecomment"> While Enabled, the cursor is hidden, and only relative motion events (delta_x and delta_y)</span>
+			<span class="ecomment">--</span><span class="ecomment"> will be delivered to the current window the mouse position will not change.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: This function will flush any pending mouse motion.</span>
+
+	<a name="f_redraw_cursor"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_redraw_cursor">redraw_cursor</a>
+			<span class="ecomment">--</span><span class="ecomment"> Redraw the </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_cursor">cursor</a>
+
+	<a name="f_set_cursor"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_cursor">set_cursor</a> <span class="esymbol">(</span><span class="elocal">a_cursor</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_cursor_flatshort.html">GAME_CURSOR</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_cursor">cursor</a><span class="ecomment"> with the value of </span><span class="equoted">a_cursor</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">cursor_valid</span><span class="esymbol">:</span> <span class="elocal">a_cursor</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_cursor_flatshort.html#f_exists">exists</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_cursor">cursor</a> <span class="esymbol">~</span> <span class="elocal">a_cursor</span>
+
+	<a name="f_set_default_cursor"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_default_cursor">set_default_cursor</a>
+			<span class="ecomment">--</span><span class="ecomment"> Put back the default </span><a class="eclass" href="../game_core/graphic/game_cursor_flatshort.html">GAME_CURSOR</a>
+
+	<a name="f_set_is_cursor_visible"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_cursor_visible">set_is_cursor_visible</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_cursor_visible">is_cursor_visible</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_cursor_visible">is_cursor_visible</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_relative_mouse_enabled"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_relative_mouse_enabled">set_is_relative_mouse_enabled</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a><span class="ecomment"> with the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_relative_mouse_enabled">is_relative_mouse_enabled</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_show_mouse_cursor"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_show_mouse_cursor">show_mouse_cursor</a>
+			<span class="ecomment">--</span><span class="ecomment"> Show the mouse cursor when the mouse is on a window created by the library.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">show_mouse_cursor_valid</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_cursor_visible">is_cursor_visible</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> OpenGL</span>
+
+	<a name="f_disable_gl"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_disable_gl">disable_gl</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unload the OpenGL library</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_gl_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_gl_enabled">is_gl_enabled</a>
+
+	<a name="f_enable_gl"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_enable_gl">enable_gl</a>
+			<span class="ecomment">--</span><span class="ecomment"> Load the OpenGL library</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_gl_enabled">is_gl_enabled</a>
+			<span class="etag">video_must_be_loaded</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+
+	<a name="f_enable_gl_from_file"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_enable_gl_from_file">enable_gl_from_file</a> <span class="esymbol">(</span><span class="elocal">a_file_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Load the OpenGL library contained in file at </span><span class="equoted">a_file_name</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_gl_enabled">is_gl_enabled</a>
+			<span class="etag">video_must_be_loaded</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+			<span class="etag">file_valid</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <span class="esymbol">(</span><span class="ekeyword">create</span><span class="esymbol"> </span><span class="esymbol">{</span><a class="eclass" href="../elks/raw_file_flatshort.html">RAW_FILE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_file_name</span><span class="esymbol">)</span><span class="esymbol">)</span> <span class="ekeyword">as</span> la_file <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">la_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flatshort.html#f_is_access_readable">is_access_readable</a><span class="esymbol">)</span>
+
+	<a name="f_is_gl_enabled"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_gl_enabled">is_gl_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The OpenGL library has been loaded</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Other methods</span>
+
+	<a name="f_base_path"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_base_path">base_path</a><span class="esymbol">:</span> <a class="eclass" href="../elks/path_flatshort.html">PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../elks/path_flatshort.html">PATH</a><span class="ecomment"> of the executable. This </span><a class="eclass" href="../elks/path_flatshort.html">PATH</a><span class="ecomment"> is not safe for writing file.</span>
+
+	<a name="f_clear_all_events"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_clear_all_events">clear_all_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Clear every events set in the system</span>
+
+	<a name="f_delay"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_delay">delay</a> <span class="esymbol">(</span><span class="elocal">a_millisecond</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Pause the execution for given time in </span><span class="equoted">millisecond</span><span class="ecomment">.</span>
+
+	<a name="f_events_controller"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_events_controller">events_controller</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/event/game_events_controller_flatshort.html">GAME_EVENTS_CONTROLLER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Manage every internal events</span>
+
+	<a name="f_get_preference_path"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_get_preference_path">get_preference_path</a> <span class="esymbol">(</span><span class="elocal">a_organisation</span><span class="esymbol">,</span> <span class="elocal">a_application_name</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Retreive the </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_preference_path">preference_path</a><span class="ecomment">. Create the directory if it does not already exist.</span>
+
+	<a name="f_is_preference_path_retreived"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_preference_path_retreived">is_preference_path_retreived</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_preference_path">preference_path</a><span class="ecomment"> has been correctly retreived by </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_get_preference_path">get_preference_path</a>
+
+	<a name="f_iteration_per_second"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_iteration_per_second">iteration_per_second</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_iteration_per_second">set_iteration_per_second</a>
+			<span class="ecomment">--</span><span class="ecomment"> An approximation of the number of event loop iteration per second.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Not used by </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_launch_no_delay">launch_no_delay</a>
+
+	<a name="f_launch"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_launch">launch</a>
+			<span class="ecomment">--</span><span class="ecomment"> Start the main loop. Used to get a Event-driven programming only.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't forget to execute the method </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_stop">stop</a><span class="ecomment"> in an event handeler.</span>
+
+	<a name="f_launch_no_delay"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_launch_no_delay">launch_no_delay</a>
+			<span class="ecomment">--</span><span class="ecomment"> Start the main loop without any loop delay. Use it if you have</span>
+			<span class="ecomment">--</span><span class="ecomment"> a synchronisation system (like vsync) included inside the event handler</span>
+			<span class="ecomment">--</span><span class="ecomment"> Used to get a Event-driven programming only.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't forget to execute the method </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_stop">stop</a><span class="ecomment"> in an event handler.</span>
+
+	<a name="f_launch_with_iteration_per_second"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_launch_with_iteration_per_second">launch_with_iteration_per_second</a> <span class="esymbol">(</span><span class="elocal">a_iteration_per_second</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Start the main loop. Used to get a Event-driven programming only.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Don't forget to execute the method </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_stop">stop</a><span class="ecomment"> in an event handeler.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_iteration_per_second">iteration_per_second</a><span class="ecomment"> to </span><span class="equoted">a_iteration_per_second</span><span class="ecomment"> before launching.</span>
+
+	<a name="f_library_variable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_library_variable">library_variable</a> <span class="esymbol">(</span><span class="elocal">a_variable</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_library_variable">set_library_variable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Retreive the internal variable </span><span class="equoted">a_variable</span><span class="ecomment"> or an empty text if it does not exist.</span>
+
+	<a name="f_mouse_haptic"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_mouse_haptic">mouse_haptic</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/haptic/game_haptic_mouse_flatshort.html">GAME_HAPTIC_MOUSE</a>
+			<span class="ecomment">--</span><span class="ecomment"> The haptic device inside the mouse</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">mouse_has_haptic</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_mouse_has_haptic">mouse_has_haptic</a>
+
+	<a name="f_mouse_has_haptic"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_mouse_has_haptic">mouse_has_haptic</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has the mouse have an internal haptic device</span>
+
+	<a name="f_preference_path"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_preference_path">preference_path</a><span class="esymbol">:</span> <a class="eclass" href="../elks/path_flatshort.html">PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> The </span><a class="eclass" href="../elks/path_flatshort.html">PATH</a><span class="ecomment"> to save preference files. Is retreived (or created) by </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_get_preference_path">get_preference_path</a>
+			<span class="ecomment">--</span><span class="ecomment"> The directory pointed by this </span><a class="eclass" href="../elks/path_flatshort.html">PATH</a><span class="ecomment"> should be writable</span>
+			<span class="ecomment">--</span><span class="ecomment"> Do not use the </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_base_path">base_path</a><span class="ecomment"> to write files</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_retreived</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_preference_path_retreived">is_preference_path_retreived</a>
+
+	<a name="f_quit_library"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_quit_library">quit_library</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close the library. Must be used before the end of the application</span>
+
+	<a name="f_set_iteration_per_second"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_iteration_per_second">set_iteration_per_second</a> <span class="esymbol">(</span><span class="elocal">a_iteration_per_second</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_iteration_per_second">iteration_per_second</a><span class="ecomment"> to </span><span class="equoted">a_iteration_per_second</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note that this is an aproximation.</span>
+
+	<a name="f_set_library_variable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_library_variable">set_library_variable</a> <span class="esymbol">(</span><span class="elocal">a_variable</span><span class="esymbol">,</span> <span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign the internal variable </span><span class="equoted">a_variable</span><span class="ecomment"> with the value </span><span class="equoted">a_value</span><span class="ecomment">.</span>
+
+	<a name="f_stop"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_stop">stop</a>
+			<span class="ecomment">--</span><span class="ecomment"> Stop the main loop</span>
+
+	<a name="f_time_since_create"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_time_since_create">time_since_create</a><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_32_flatshort.html">NATURAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of millisecond since the initialisation of the library.</span>
+
+	<a name="f_update_events"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_update_events">update_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute the event polling and throw the event handeler execution for each event.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flatshort.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flatshort.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flatshort.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flatshort.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flatshort.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flatshort.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Subs Systems</span>
+
+	<a name="f_disable_events"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_disable_events">disable_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the events fonctionality</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_disable_events_not_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_events_enable">is_events_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_disable_events_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_events_enable">is_events_enable</a>
+
+	<a name="f_disable_haptic"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_disable_haptic">disable_haptic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the haptic (force feedback) fonctionality</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_disable_haptic_not_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_disable_haptic_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a>
+
+	<a name="f_disable_joystick"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_disable_joystick">disable_joystick</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the joystick fonctionality</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_disable_joystick_not_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_disable_joystick_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_joystick_enable">is_joystick_enable</a>
+
+	<a name="f_disable_video"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_disable_video">disable_video</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable the video functionalities</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_disable_video_not_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_disable_video_disabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+
+	<a name="f_enable_events"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_enable_events">enable_events</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unable the events functionality.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_enable_events_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_events_enable">is_events_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_enable_events_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_events_enable">is_events_enable</a>
+
+	<a name="f_enable_haptic"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_enable_haptic">enable_haptic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unable the haptic (force feedback) functionality.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Often use for Controller rumble.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_enable_haptic_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_enable_haptic_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a>
+
+	<a name="f_enable_joystick"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_enable_joystick">enable_joystick</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unable the joystick functionality</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_enable_joystick_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_joystick_enable">is_joystick_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_enable_joystick_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_joystick_enable">is_joystick_enable</a>
+
+	<a name="f_enable_video"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_enable_video">enable_video</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unable the video functionalities</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">sdl_controller_enable_video_already_enabled</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">sdl_controller_enable_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+
+	<a name="f_is_events_enable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_events_enable">is_events_enable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_events_enable">set_is_events_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the events functionnality is enabled.</span>
+
+	<a name="f_is_haptic_enable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_haptic_enable">set_is_haptic_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the haptic (force feedback) functionnality is enabled.</span>
+
+	<a name="f_is_joystick_enable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_joystick_enable">is_joystick_enable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_joystick_enable">set_is_joystick_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the joystick functionnality is enabled.</span>
+
+	<a name="f_is_video_enable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="ekeyword">assign</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_video_enable">set_is_video_enable</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the text surface functionnality is enabled.</span>
+
+	<a name="f_set_is_events_enable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_events_enable">set_is_events_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_events_enable">is_events_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_events_enable">is_events_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_haptic_enable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_haptic_enable">set_is_haptic_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_haptic_enable">is_haptic_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_joystick_enable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_joystick_enable">set_is_joystick_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_joystick_enable">is_joystick_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_joystick_enable">is_joystick_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+
+	<a name="f_set_is_video_enable"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_set_is_video_enable">set_is_video_enable</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Touch devices</span>
+
+	<a name="f_refresh_touch_devices"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_refresh_touch_devices">refresh_touch_devices</a>
+			<span class="ecomment">--</span><span class="ecomment"> Update the </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_touch_devices">touch_devices</a><span class="ecomment"> list. Note that</span>
+			<span class="ecomment">--</span><span class="ecomment"> all touch events will have to be reset</span>
+
+	<a name="f_touch_device_count"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_touch_device_count">touch_device_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of touch device detected on the system.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: Not necessary the same as </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_touch_devices">touch_devices</a><span class="ecomment">.</span><span class="equoted">count</span>
+			<span class="ecomment">--</span><span class="ecomment"> because a touch device can have been added or remove</span>
+			<span class="ecomment">--</span><span class="ecomment"> since the creation of the </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_touch_devices">touch_devices</a><span class="ecomment"> list.</span>
+			<span class="ecomment">--</span><span class="ecomment"> In that case, used </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_refresh_touch_devices">refresh_touch_devices</a><span class="ecomment"> to update</span>
+			<span class="ecomment">--</span><span class="ecomment"> the </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_touch_devices">touch_devices</a><span class="ecomment"> (all touch events will have to be</span>
+			<span class="ecomment">--</span><span class="ecomment"> reset)</span>
+
+	<a name="f_touch_devices"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_touch_devices">touch_devices</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/input/game_touch_device_flatshort.html">GAME_TOUCH_DEVICE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every finger touch device detected in he system.</span>
+			<span class="ecomment">--</span><span class="ecomment"> This list does not update itself, you have to call</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_refresh_touch_devices">refresh_touch_devices</a><span class="ecomment"> to update it (all touch</span>
+			<span class="ecomment">--</span><span class="ecomment"> events will have to be reset)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Video methods</span>
+
+	<a name="f_displays"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_displays">displays</a><span class="esymbol">:</span> <a class="eclass" href="../elks/list_flatshort.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_display_flatshort.html">GAME_DISPLAY</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> All displays of the system. 0 display on error.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+
+	<a name="f_displays_count"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_displays_count">displays_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return the number of display. 0 if error.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_count_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+
+	<a name="f_renderer_drivers"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_renderer_drivers">renderer_drivers</a><span class="esymbol">:</span> <a class="eclass" href="../elks/list_flatshort.html">LIST</a> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_renderer_driver_flatshort.html">GAME_RENDERER_DRIVER</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> All renderer driver of the system. 0 driver on error.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">displays_is_video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+
+	<a name="f_renderer_drivers_count"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_renderer_drivers_count">renderer_drivers_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return the number of renderer driver. 0 if error.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">video_enabled</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_is_video_enable">is_video_enable</a>
+
+	<a name="f_windows"></a><a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_windows">windows</a><span class="esymbol">:</span> <span class="neclass">CHAIN_INDEXABLE_ITERATOR</span> <span class="esymbol">[</span><a class="eclass" href="../game_core/graphic/game_window_flatshort.html">GAME_WINDOW</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Every </span><a class="eclass" href="../game_core/graphic/game_window_flatshort.html">GAME_WINDOW</a><span class="ecomment"> in the system.</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">is_singleton</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/game_library_controller_flatshort.html#f_instance_count">Instance_count</a><span class="edot">.</span><a class="efeature" href="../elks/cell_flatshort.html#f_item">item</a> <span class="esymbol">=</span> <span class="enumber">1</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/game_library_controller_flatshort.html">GAME_LIBRARY_CONTROLLER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_library_controller_chart.html">Chart</a>
+<a class="nav class" href="game_library_controller_links.html">Relations</a>
+<a class="nav class" href="game_library_controller.html">Text</a>
+<a class="nav class" href="game_library_controller_flat.html">Flat</a>
+<a class="nav class" href="game_library_controller_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="game_library_controller"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

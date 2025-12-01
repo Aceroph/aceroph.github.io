@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Fast Portable Noise Library"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>fast_noise_lite_external Contracts</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="fast_noise_lite_external_chart.html">Chart</a>
+<a class="nav class" href="fast_noise_lite_external_links.html">Relations</a>
+<a class="nav class" href="fast_noise_lite_external.html">Text</a>
+<a class="nav class" href="fast_noise_lite_external_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="fast_noise_lite_external_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="fast_noise_lite_external"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Fast Portable Noise Library&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html">FAST_NOISE_LITE_EXTERNAL</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../elks/any_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Struct fields</span>
+
+	<a name="f_get_fnl_state_seed"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_seed">get_fnl_state_seed</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_set_fnl_state_seed"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_seed">set_fnl_state_seed</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">seed</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_frequency"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_frequency">get_fnl_state_frequency</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_set_fnl_state_frequency"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_frequency">set_fnl_state_frequency</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">frequency</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_noise_type"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_noise_type">get_fnl_state_noise_type</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_set_fnl_state_noise_type"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_noise_type">set_fnl_state_noise_type</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">noise_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_rotation_type_3d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_rotation_type_3d">get_fnl_state_rotation_type_3d</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_set_fnl_state_rotation_type_3d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_rotation_type_3d">set_fnl_state_rotation_type_3d</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">rotation_type_3d</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_fractal_type"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_fractal_type">get_fnl_state_fractal_type</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_set_fnl_state_fractal_type"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_fractal_type">set_fnl_state_fractal_type</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">fractal_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_octaves"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_octaves">get_fnl_state_octaves</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_set_fnl_state_octaves"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_octaves">set_fnl_state_octaves</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">octaves</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_lacunarity"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_lacunarity">get_fnl_state_lacunarity</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_set_fnl_state_lacunarity"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_lacunarity">set_fnl_state_lacunarity</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">lacunarity</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_gain"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_gain">get_fnl_state_gain</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_set_fnl_state_gain"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_gain">set_fnl_state_gain</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">gain</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_weighted_strength"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_weighted_strength">get_fnl_state_weighted_strength</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_set_fnl_state_weighted_strength"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_weighted_strength">set_fnl_state_weighted_strength</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">weighted_strength</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_ping_pong_strength"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_ping_pong_strength">get_fnl_state_ping_pong_strength</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_set_fnl_state_ping_pong_strength"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_ping_pong_strength">set_fnl_state_ping_pong_strength</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">ping_pong_strength</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_cellular_distance_func"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_cellular_distance_func">get_fnl_state_cellular_distance_func</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_set_fnl_state_cellular_distance_func"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_cellular_distance_func">set_fnl_state_cellular_distance_func</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">cellular_distance_func</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_cellular_return_type"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_cellular_return_type">get_fnl_state_cellular_return_type</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_set_fnl_state_cellular_return_type"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_cellular_return_type">set_fnl_state_cellular_return_type</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">cellular_return_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_cellular_jitter_mod"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_cellular_jitter_mod">get_fnl_state_cellular_jitter_mod</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_set_fnl_state_cellular_jitter_mod"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_cellular_jitter_mod">set_fnl_state_cellular_jitter_mod</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">cellular_jitter_mod</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_domain_warp_type"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_domain_warp_type">get_fnl_state_domain_warp_type</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_set_fnl_state_domain_warp_type"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_domain_warp_type">set_fnl_state_domain_warp_type</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">domain_warp_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">)</span>
+
+	<a name="f_get_fnl_state_domain_warp_amp"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_get_fnl_state_domain_warp_amp">get_fnl_state_domain_warp_amp</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_set_fnl_state_domain_warp_amp"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_set_fnl_state_domain_warp_amp">set_fnl_state_domain_warp_amp</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">domain_warp_amp</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Functions</span>
+
+	<a name="f_fnl_create_state"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_create_state">fnl_create_state</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a>
+
+	<a name="f_fnl_free_state"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_free_state">fnl_free_state</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">)</span>
+
+	<a name="f_fnl_get_noise_2d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_get_noise_2d">fnl_get_noise_2d</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">x</span><span class="esymbol">,</span> <span class="elocal">y</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_fnl_get_noise_3d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_get_noise_3d">fnl_get_noise_3d</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">x</span><span class="esymbol">,</span> <span class="elocal">y</span><span class="esymbol">,</span> <span class="elocal">z</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_short.html">REAL_32</a>
+
+	<a name="f_fnl_domain_warp_2d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_domain_warp_2d">fnl_domain_warp_2d</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">x</span><span class="esymbol">,</span> <span class="elocal">y</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_ref_short.html">REAL_32_REF</a><span class="esymbol">)</span>
+
+	<a name="f_fnl_domain_warp_3d"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_domain_warp_3d">fnl_domain_warp_3d</a> <span class="esymbol">(</span><span class="elocal">fnl_state</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">x</span><span class="esymbol">,</span> <span class="elocal">y</span><span class="esymbol">,</span> <span class="elocal">z</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32_ref_short.html">REAL_32_REF</a><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Noise types</span>
+
+	<a name="f_fnl_noise_opensimplex2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_noise_opensimplex2">fnl_noise_opensimplex2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_noise_opensimplex2s"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_noise_opensimplex2s">fnl_noise_opensimplex2s</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_noise_cellular"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_noise_cellular">fnl_noise_cellular</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_noise_perlin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_noise_perlin">fnl_noise_perlin</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_noise_value_cubic"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_noise_value_cubic">fnl_noise_value_cubic</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_noise_value"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_noise_value">fnl_noise_value</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Rotation types 3D</span>
+
+	<a name="f_fnl_rotation_none"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_rotation_none">fnl_rotation_none</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_rotation_improve_xy_planes"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_rotation_improve_xy_planes">fnl_rotation_improve_xy_planes</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_rotation_improve_xz_planes"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_rotation_improve_xz_planes">fnl_rotation_improve_xz_planes</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Fractal type</span>
+
+	<a name="f_fnl_fractal_none"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_fractal_none">fnl_fractal_none</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_fractal_fbm"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_fractal_fbm">fnl_fractal_fbm</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_fractal_ridged"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_fractal_ridged">fnl_fractal_ridged</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_fractal_pingpong"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_fractal_pingpong">fnl_fractal_pingpong</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_fractal_domain_warp_progressive"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_fractal_domain_warp_progressive">fnl_fractal_domain_warp_progressive</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_fractal_domain_warp_independent"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_fractal_domain_warp_independent">fnl_fractal_domain_warp_independent</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Cellular distance functions</span>
+
+	<a name="f_fnl_cellular_distance_euclidean"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_distance_euclidean">fnl_cellular_distance_euclidean</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_distance_euclideansq"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_distance_euclideansq">fnl_cellular_distance_euclideansq</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_distance_manhattan"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_distance_manhattan">fnl_cellular_distance_manhattan</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_distance_hybrid"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_distance_hybrid">fnl_cellular_distance_hybrid</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Cellular return types</span>
+
+	<a name="f_fnl_cellular_return_type_cellvalue"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_return_type_cellvalue">fnl_cellular_return_type_cellvalue</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_return_type_distance"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_return_type_distance">fnl_cellular_return_type_distance</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_return_type_distance2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_return_type_distance2">fnl_cellular_return_type_distance2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_return_type_distance2add"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_return_type_distance2add">fnl_cellular_return_type_distance2add</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_return_type_distance2sub"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_return_type_distance2sub">fnl_cellular_return_type_distance2sub</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_return_type_distance2mul"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_return_type_distance2mul">fnl_cellular_return_type_distance2mul</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_cellular_return_type_distance2div"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_cellular_return_type_distance2div">fnl_cellular_return_type_distance2div</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Domain warp type</span>
+
+	<a name="f_fnl_domain_warp_opensimplex2"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_domain_warp_opensimplex2">fnl_domain_warp_opensimplex2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_domain_warp_opensimplex2_reduced"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_domain_warp_opensimplex2_reduced">fnl_domain_warp_opensimplex2_reduced</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+
+	<a name="f_fnl_domain_warp_basicgrid"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html#f_fnl_domain_warp_basicgrid">fnl_domain_warp_basicgrid</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external_short.html">FAST_NOISE_LITE_EXTERNAL</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="fast_noise_lite_external_chart.html">Chart</a>
+<a class="nav class" href="fast_noise_lite_external_links.html">Relations</a>
+<a class="nav class" href="fast_noise_lite_external.html">Text</a>
+<a class="nav class" href="fast_noise_lite_external_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="fast_noise_lite_external_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="fast_noise_lite_external"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

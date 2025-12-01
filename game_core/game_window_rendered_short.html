@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A {GAME_WINDOW} that is rendered by a {GAME_RENDERER_DRIVER}."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_window_rendered Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_rendered_chart.html">Chart</a>
+<a class="nav class" href="game_window_rendered_links.html">Relations</a>
+<a class="nav class" href="game_window_rendered.html">Text</a>
+<a class="nav class" href="game_window_rendered_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_window_rendered_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_window_rendered"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A </span><a class="eclass" href="../game_core/graphic/game_window_short.html">GAME_WINDOW</a><span class="estring"> that is rendered by a </span><span class="esymbol">{</span><a class="eclass" href="../game_core/graphic/game_renderer_driver_short.html">GAME_RENDERER_DRIVER</a><span class="esymbol">}</span><span class="estring">.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 26 Mar 2015 19:48:35 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../game_core/graphic/game_window_rendered_short.html">GAME_WINDOW_RENDERED</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_core/graphic/game_window_short.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_make_from_constraint">make_from_constraint</a><span class="esymbol">,</span>
+	<a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_make_from_driver">make_from_driver</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_renderer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_renderer">renderer</a><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer_short.html">GAME_RENDERER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The rendering context of </span><span class="equoted">Current</span>
+		<span class="ekeyword">require</span>
+				<a class="efeature" href="../game_core/graphic/game_window_short.html#f_exists">exists</a>
+
+	<a name="f_create_default_renderer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_create_default_renderer">create_default_renderer</a>
+			<span class="ecomment">--</span><span class="ecomment"> Assign </span><a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_renderer">renderer</a><span class="ecomment"> with the first found </span><a class="eclass" href="../game_core/graphic/game_renderer_driver_short.html">GAME_RENDERER_DRIVER</a>
+
+	<a name="f_create_renderer"></a><a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_create_renderer">create_renderer</a> <span class="esymbol">(</span><span class="elocal">a_must_support_target_texture</span><span class="esymbol">,</span> <span class="elocal">a_must_sync_update</span><span class="esymbol">,</span> <span class="elocal">a_must_be_software_rendering</span><span class="esymbol">,</span> <span class="elocal">a_must_be_hardware_accelerated</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a new rendering context for </span><span class="equoted">Current</span><span class="ecomment">. If </span><span class="equoted">a_must_support_target_texture</span><span class="ecomment"> is True,</span>
+			<span class="ecomment">--</span><span class="ecomment"> the rendering context must permit to target to a texture instead of </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_must_sync_update</span><span class="ecomment"> is True, the </span><a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_update">update</a><span class="ecomment"> will wait for vsync before finishing.</span>
+			<span class="ecomment">--</span><span class="ecomment"> If </span><span class="equoted">a_must_be_software_rendering</span><span class="ecomment"> is True, the renderer will always</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">software_not_hardware</span><span class="esymbol">:</span> <span class="elocal">a_must_be_software_rendering</span> <a class="ekeyword" href="../elks/boolean_short.html#f_implication">implies</a> <a class="ekeyword" href="../elks/boolean_short.html#f_negated">not</a> <span class="elocal">a_must_be_hardware_accelerated</span>
+
+	<a name="f_create_renderer_from_driver"></a><a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_create_renderer_from_driver">create_renderer_from_driver</a> <span class="esymbol">(</span><span class="elocal">a_driver</span><span class="esymbol">:</span> <a class="eclass" href="../game_core/graphic/game_renderer_driver_short.html">GAME_RENDERER_DRIVER</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a new rendering context using </span><span class="equoted">a_driver</span><span class="ecomment"> as renderer driver.</span>
+
+	<a name="f_update"></a><a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_update">update</a>
+			<span class="ecomment">--</span><span class="ecomment"> Print the visual buffer modification to the screen</span>
+		<span class="ekeyword">require else</span>
+			<span class="etag">renderer_exists</span><span class="esymbol">:</span> <a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_renderer">renderer</a><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer_short.html#f_exists">exists</a>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">renderer_valid</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../game_core/graphic/game_window_rendered_short.html#f_internal_renderer">internal_renderer</a> <span class="ekeyword">as</span> la_renderer <a class="ekeyword" href="../elks/boolean_short.html#f_implication">implies</a> <span class="elocal">la_renderer</span><span class="edot">.</span><a class="efeature" href="../game_core/graphic/game_renderer_short.html#f_item">item</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../game_core/implementation/game_sdl_external_short.html">GAME_SDL_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../game_core/implementation/game_sdl_external_short.html#f_sdl_getrenderer">sdl_getrenderer</a> <span class="esymbol">(</span><a class="efeature" href="../game_core/graphic/game_window_short.html#f_item">item</a><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_core/graphic/game_window_rendered_short.html">GAME_WINDOW_RENDERED</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_window_rendered_chart.html">Chart</a>
+<a class="nav class" href="game_window_rendered_links.html">Relations</a>
+<a class="nav class" href="game_window_rendered.html">Text</a>
+<a class="nav class" href="game_window_rendered_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_window_rendered_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_window_rendered"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

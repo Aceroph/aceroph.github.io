@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="An object that can use alpha blending"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_blendable Contracts</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_blendable_chart.html">Chart</a>
+<a class="nav class" href="game_blendable_links.html">Relations</a>
+<a class="nav class" href="game_blendable.html">Text</a>
+<a class="nav class" href="game_blendable_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_blendable_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_blendable"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;An object that can use alpha blending&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 26 Mar 2015 20:59:26 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../../game_core/graphic/game_blendable_short.html">GAME_BLENDABLE</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_is_valid"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is item a valid pointer to be used as blenderable</span>
+
+	<a name="f_disable_blending"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_disable_blending">disable_blending</a>
+			<span class="ecomment">--</span><span class="ecomment"> Disable every blending mode to use for drawing operations.</span>
+			<span class="ecomment">--</span><span class="ecomment"> No blending mode:	dstRGBA = srcRGBA</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">blendable_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_is_blending_disabled"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_blending_disabled">is_blending_disabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if no blending mode is used for drawing operations.</span>
+			<span class="ecomment">--</span><span class="ecomment"> No blending mode:	dstRGBA = srcRGBA</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">blendable_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_enable_alpha_blending"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_enable_alpha_blending">enable_alpha_blending</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the alpha blending mode to use for drawing operations.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Alpha blending:	dstRGB = (srcRGB * srcA) + (dstRGB * (1-srcA))</span>
+			<span class="ecomment">--</span><span class="ecomment">					dstA = srcA + (dstA * (1-srcA))</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">blendable_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_is_alpha_blending_enabled"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_alpha_blending_enabled">is_alpha_blending_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if the blending mode for drawing operation is alpha blending.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Alpha blending:	dstRGB = (srcRGB * srcA) + (dstRGB * (1-srcA))</span>
+			<span class="ecomment">--</span><span class="ecomment">					dstA = srcA + (dstA * (1-srcA))</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">blendable_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_enable_additive_blending"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_enable_additive_blending">enable_additive_blending</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the additive blending mode to use for drawing operations.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Additive blending:	dstRGB = (srcRGB * srcA) + dstRGB</span>
+			<span class="ecomment">--</span><span class="ecomment">						dstA = dstA</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">blendable_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_is_additive_blending_enabled"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_additive_blending_enabled">is_additive_blending_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if the blending mode for drawing operation is additive blending.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Additive blending:	dstRGB = (srcRGB * srcA) + dstRGB</span>
+			<span class="ecomment">--</span><span class="ecomment">						dstA = dstA</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">blendable_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_enable_modulate_blending"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_enable_modulate_blending">enable_modulate_blending</a>
+			<span class="ecomment">--</span><span class="ecomment"> Set the color modulate blending mode to use for drawing operations.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Color modulate:	dstRGB = srcRGB * dstRGB</span>
+			<span class="ecomment">--</span><span class="ecomment">					dstA = dstA</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">blendable_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_is_modulate_blending_enabled"></a><a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_modulate_blending_enabled">is_modulate_blending_enabled</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> True if the blending mode for drawing operation is color modulate blending.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Color modulate:	dstRGB = srcRGB * dstRGB</span>
+			<span class="ecomment">--</span><span class="ecomment">					dstA = dstA</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">blendable_is_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_blendable_short.html#f_is_valid">is_valid</a>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/graphic/game_blendable_short.html">GAME_BLENDABLE</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_blendable_chart.html">Chart</a>
+<a class="nav class" href="game_blendable_links.html">Relations</a>
+<a class="nav class" href="game_blendable.html">Text</a>
+<a class="nav class" href="game_blendable_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_blendable_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_blendable"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

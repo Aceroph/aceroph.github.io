@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="            An JSON_OBJECT represent an object in JSON.             An object is an unordered set of name/value pairs  TTTExamples: TTTTobject TTTT{} TTTT{key: value} TTTT{key: value}"/>
+<meta name="author" content="$Author: jfiat $"/>
+<meta name="license" content="MIT (see http://www.opensource.org/licenses/mit-license.php)"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="2010-2018, Javier Velilla, Jocelyn Fiat, Eiffel Software and others https://github.com/eiffelhub/json."/>
+<meta name="license" content="https://github.com/eiffelhub/json/blob/master/License.txt"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>json_object Flat contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="json_object_chart.html">Chart</a>
+<a class="nav class" href="json_object_links.html">Relations</a>
+<a class="nav class" href="json_object.html">Text</a>
+<a class="nav class" href="json_object_flat.html">Flat</a>
+<a class="nav class" href="json_object_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="json_object"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An JSON_OBJECT represent an object in JSON.</span>
+		<span class="estring"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An object is an unordered set of name/value pairs</span>
+		
+		<span class="estring">			Examples:</span>
+		<span class="estring">				object</span>
+		<span class="estring">				{}</span>
+		<span class="estring">				{&quot;key&quot;: value}</span>
+		<span class="estring">				{&quot;key&quot;: &quot;value&quot;}</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;$Author: jfiat $&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2018-11-14 11:33:00 +0000 (Wed, 14 Nov 2018) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 102453 $&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;MIT (see </span><a class="estring" href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a><span class="estring">)&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a>
+
+<span class="ekeyword">create</span> 
+	<a name="f_make_empty"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_make_empty">make_empty</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize as empty object.</span>
+
+	<a name="f_make_with_capacity"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_make_with_capacity">make_with_capacity</a> <span class="esymbol">(</span><span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize with a capacity of </span><span class="equoted">nb</span><span class="ecomment"> items.</span>
+
+	<a name="f_make"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Initialize with default capacity.</span>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_array_item"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_array_item">array_item</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_array_flatshort.html">JSON_ARRAY</a>
+
+	<a name="f_boolean_item"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_boolean_item">boolean_item</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_boolean_flatshort.html">JSON_BOOLEAN</a>
+
+	<a name="f_chained_item"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_chained_item">chained_item</a> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><a class="esymbol" href="../json/json_kernel/json_object_flatshort.html#f_chained_item">@</a><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a>
+			<span class="ecomment">--</span><span class="ecomment"> &lt;Precursor&gt;.</span>
+
+	<a name="f_current_keys"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_current_keys">current_keys</a><span class="esymbol">:</span> <a class="eclass" href="../elks/array_flatshort.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Array containing actually used keys.</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flatshort.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flatshort.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flatshort.html#f_is_empty">is_empty</a>
+
+	<a name="f_item"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_item">item</a> <span class="ekeyword">alias</span> <span class="esymbol">&quot;</span><a class="esymbol" href="../json/json_kernel/json_object_flatshort.html#f_item">[]</a><span class="esymbol">&quot;</span> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a>
+			<span class="ecomment">--</span><span class="ecomment"> the json_value associated with a key </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+
+	<a name="f_new_cursor"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_new_cursor">new_cursor</a><span class="esymbol">:</span> <a class="eclass" href="../elks/table_iteration_cursor_flatshort.html">TABLE_ITERATION_CURSOR</a> <span class="esymbol">[</span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="esymbol">,</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Fresh cursor associated with current structure</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span> <a class="eclass" href="../elks/iterable_flatshort.html">ITERABLE</a>
+			<span class="ekeyword">True</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/iterable_flatshort.html">ITERABLE</a>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_number_item"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_number_item">number_item</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_number_flatshort.html">JSON_NUMBER</a>
+
+	<a name="f_object_item"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_object_item">object_item</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a>
+
+	<a name="f_representation"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_representation">representation</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> UTF-8 encoded Unicode string representation of Current</span>
+
+	<a name="f_string_item"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_string_item">string_item</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/any_flatshort.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_debug_output"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_debug_output">debug_output</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> String that should be displayed in debugger to represent </span><span class="equoted">Current</span><span class="ecomment">.</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/debug_output_flatshort.html">DEBUG_OUTPUT</a>
+			<span class="etag">result_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_has_item"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_has_item">has_item</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> has the JSON_OBJECT contain a specfic item </span><span class="equoted">a_value</span>
+
+	<a name="f_has_key"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_has_key">has_key</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> has the JSON_OBJECT contains a specific key </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+
+	<a name="f_is_array"></a><a class="efeature" href="../json/json_kernel/json_value_flatshort.html#f_is_array">is_array</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current an array value?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="ecomment">)</span>
+
+	<a name="f_is_empty"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_is_empty">is_empty</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is empty object?</span>
+
+	<a name="f_is_hashable"></a><a class="efeature" href="../elks/hashable_flatshort.html#f_is_hashable">is_hashable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> May current object be hashed?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (True by default.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/hashable_flatshort.html">HASHABLE</a><span class="ecomment">)</span>
+
+	<a name="f_is_null"></a><a class="efeature" href="../json/json_kernel/json_value_flatshort.html#f_is_null">is_null</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current a null value?	</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="ecomment">)</span>
+
+	<a name="f_is_number"></a><a class="efeature" href="../json/json_kernel/json_value_flatshort.html#f_is_number">is_number</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current a number value?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="ecomment">)</span>
+
+	<a name="f_is_string"></a><a class="efeature" href="../json/json_kernel/json_value_flatshort.html#f_is_string">is_string</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current a string value?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="ecomment">)</span>
+
+	<a name="f_same_caseless_string"></a><a class="efeature" href="../json/json_kernel/json_value_flatshort.html#f_same_caseless_string">same_caseless_string</a> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Current value is a string value, and same caseless content as </span><span class="equoted">a_string</span><span class="ecomment">?	</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="ecomment">)</span>
+
+	<a name="f_same_string"></a><a class="efeature" href="../json/json_kernel/json_value_flatshort.html#f_same_string">same_string</a> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Current value is a string value, and same content as </span><span class="equoted">a_string</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="ecomment">)</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Conversion</span>
+
+	<a name="f_map_representation"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_map_representation">map_representation</a><span class="esymbol">:</span> <a class="eclass" href="../elks/hash_table_flatshort.html">HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="esymbol">,</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> A representation that maps keys to values</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flatshort.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flatshort.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flatshort.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flatshort.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flatshort.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Change Element</span>
+
+	<a name="f_put"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_put">put</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_key_not_present</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_has_key">has_key</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">)</span>
+
+	<a name="f_put_boolean"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_put_boolean">put_boolean</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">key_not_present</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_has_key">has_key</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">)</span>
+
+	<a name="f_put_integer"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_put_integer">put_integer</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flatshort.html">INTEGER_64</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">key_not_present</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_has_key">has_key</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">)</span>
+
+	<a name="f_put_natural"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_put_natural">put_natural</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_64_flatshort.html">NATURAL_64</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">key_not_present</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_has_key">has_key</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">)</span>
+
+	<a name="f_put_real"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_put_real">put_real</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_64_flatshort.html">REAL_64</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">key_not_present</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_has_key">has_key</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">)</span>
+
+	<a name="f_put_string"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_put_string">put_string</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">key_not_present</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flatshort.html#f_negated">not</a> <a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_has_key">has_key</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">)</span>
+
+	<a name="f_remove"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_remove">remove</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove item indexed by </span><span class="equoted">a_key</span><span class="ecomment"> if any.</span>
+
+	<a name="f_replace"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_replace">replace</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+
+	<a name="f_replace_with_boolean"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_replace_with_boolean">replace_with_boolean</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+
+	<a name="f_replace_with_integer"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_replace_with_integer">replace_with_integer</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flatshort.html">INTEGER_64</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+
+	<a name="f_replace_with_real"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_replace_with_real">replace_with_real</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/real_64_flatshort.html">REAL_64</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+
+	<a name="f_replace_with_string"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_replace_with_string">replace_with_string</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flatshort.html">READABLE_STRING_GENERAL</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+
+	<a name="f_replace_with_with_natural"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_replace_with_with_natural">replace_with_with_natural</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/natural_64_flatshort.html">NATURAL_64</a><span class="esymbol">;</span> <span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_kernel/json_string_flatshort.html">JSON_STRING</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assuming there is no item of key </span><span class="equoted">a_key</span><span class="ecomment">,</span>
+			<span class="ecomment">--</span><span class="ecomment"> insert </span><span class="equoted">a_value</span><span class="ecomment"> with </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+
+	<a name="f_wipe_out"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_wipe_out">wipe_out</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reset all items to default values; reset status.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Mesurement</span>
+
+	<a name="f_count"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_count">count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of field.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flatshort.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flatshort.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flatshort.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flatshort.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flatshort.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flatshort.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flatshort.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flatshort.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Report</span>
+
+	<a name="f_hash_code"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_hash_code">hash_code</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flatshort.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Hash code value</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/hashable_flatshort.html">HASHABLE</a>
+			<span class="etag">good_hash_value</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../elks/comparable_flatshort.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report			</span>
+
+	<a name="f_is_object"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_is_object">Is_object</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flatshort.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Is Current an object value?	</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Visitor pattern</span>
+
+	<a name="f_accept"></a><a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_accept">accept</a> <span class="esymbol">(</span><span class="elocal">a_visitor</span><span class="esymbol">:</span> <a class="eclass" href="../json/json_utility/json_visitor_flatshort.html">JSON_VISITOR</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Accept </span><span class="equoted">a_visitor</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Call </span><span class="equoted">visit_json_object</span><span class="ecomment"> procedure on </span><span class="equoted">a_visitor</span><span class="ecomment">.)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../json/json_kernel/json_value_flatshort.html">JSON_VALUE</a>
+			<span class="etag">a_visitor_not_void</span><span class="esymbol">:</span> <span class="elocal">a_visitor</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">items_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../json/json_kernel/json_object_flatshort.html#f_items">items</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flatshort.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flatshort.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;2010-2018, Javier Velilla, Jocelyn Fiat, Eiffel Software and others </span><a class="estring" href="https://github.com/eiffelhub/json.">https://github.com/eiffelhub/json.</a><span class="estring">&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;</span><a class="estring" href="https://github.com/eiffelhub/json/blob/master/License.txt">https://github.com/eiffelhub/json/blob/master/License.txt</a><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../json/json_kernel/json_object_flatshort.html">JSON_OBJECT</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="json_object_chart.html">Chart</a>
+<a class="nav class" href="json_object_links.html">Relations</a>
+<a class="nav class" href="json_object.html">Text</a>
+<a class="nav class" href="json_object_flat.html">Flat</a>
+<a class="nav class" href="json_object_short.html">Contracts</a>
+<span class="nav class selected">Flat contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="json_object"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

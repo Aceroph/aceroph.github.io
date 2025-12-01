@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="An internal array of pixels."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>game_pixel_buffer Contracts</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_pixel_buffer_chart.html">Chart</a>
+<a class="nav class" href="game_pixel_buffer_links.html">Relations</a>
+<a class="nav class" href="game_pixel_buffer.html">Text</a>
+<a class="nav class" href="game_pixel_buffer_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_pixel_buffer_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_pixel_buffer"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;An internal array of pixels.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Sat, 02 Jan 2016 21:31:37 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.1&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../../game_core/graphic/game_pixel_buffer_short.html">GAME_PIXEL_BUFFER</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_item"></a><a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_item">item</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer_short.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Memory pointer to the pixels array</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pointer_valid</span><span class="esymbol">:</span> <a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_is_valid">is_valid</a>
+
+	<a name="f_width"></a><a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_width">width</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Dimensions of the pixel array</span>
+
+	<a name="f_height"></a><a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_height">height</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Dimensions of the pixel array</span>
+
+	<a name="f_pitch"></a><a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_pitch">pitch</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Length of a row of pixels in bytes</span>
+
+	<a name="f_pixel_format"></a><a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_pixel_format">pixel_format</a><span class="esymbol">:</span> <a class="eclass" href="../../game_core/graphic/game_pixel_format_readable_short.html">GAME_PIXEL_FORMAT_READABLE</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_is_valid"></a><a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_is_valid">is_valid</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_item">item</a><span class="ecomment"> can be accessed</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">exists</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <span class="nefeature">has_error</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_implication">implies</a> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../game_core/graphic/game_pixel_buffer_short.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../../elks/pointer_short.html#f_is_default_pointer">is_default_pointer</a>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../game_core/graphic/game_pixel_buffer_short.html">GAME_PIXEL_BUFFER</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="game_pixel_buffer_chart.html">Chart</a>
+<a class="nav class" href="game_pixel_buffer_links.html">Relations</a>
+<a class="nav class" href="game_pixel_buffer.html">Text</a>
+<a class="nav class" href="game_pixel_buffer_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="game_pixel_buffer_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="game_pixel_buffer"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

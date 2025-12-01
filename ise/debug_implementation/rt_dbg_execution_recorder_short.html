@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Execution recorder"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="library" content="EiffelBase: Library of reusable components for Eiffel."/>
+<meta name="copyright" content="Copyright (c) 1984-2017, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>rt_dbg_execution_recorder Contracts</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_dbg_execution_recorder_chart.html">Chart</a>
+<a class="nav class" href="rt_dbg_execution_recorder_links.html">Relations</a>
+<a class="nav class" href="rt_dbg_execution_recorder.html">Text</a>
+<a class="nav class" href="rt_dbg_execution_recorder_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="rt_dbg_execution_recorder_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="rt_dbg_execution_recorder"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Execution recorder&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date: 2017-04-12 13:15:47 +0000 (Wed, 12 Apr 2017) $&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision: 100150 $&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html">RT_DBG_EXECUTION_RECORDER</a>
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../../ise/debug_implementation/rt_extension_short.html">RT_EXTENSION</a><span class="esymbol">}</span>
+	<a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Optimization properties</span>
+
+	<a name="f_record_count"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_record_count">record_count</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of field records.</span>
+
+	<a name="f_maximum_record_count"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_maximum_record_count">maximum_record_count</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Maximum number of records.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">0</span><span class="ecomment"> stands for no limit.</span>
+
+	<a name="f_flatten_when_closing"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_flatten_when_closing">flatten_when_closing</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Option: flatten record when closing</span>
+
+	<a name="f_keep_calls_records"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_keep_calls_records">keep_calls_records</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Option: keep calls record even when flattening calls</span>
+
+	<a name="f_recording_values"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_recording_values">recording_values</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Option: record values ?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Properties</span>
+
+	<a name="f_top_callstack_record"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_top_callstack_record">top_callstack_record</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_callstack_record">callstack_record</a>
+			<span class="ecomment">--</span><span class="ecomment"> Current top callstack record.</span>
+
+	<a name="f_bottom_callstack_record"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_bottom_callstack_record">bottom_callstack_record</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_callstack_record">callstack_record</a>
+			<span class="ecomment">--</span><span class="ecomment"> Bottom (or root) callstack record.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_callstack_record"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_callstack_record">callstack_record</a> <span class="esymbol">(</span><span class="elocal">dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_call_record_short.html">RT_DBG_CALL_RECORD</a>
+			<span class="ecomment">--</span><span class="ecomment"> Call stack record with depth </span><span class="equoted">dep</span>
+
+	<a name="f_callstack_record_by_id"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_callstack_record_by_id">callstack_record_by_id</a> <span class="esymbol">(</span><span class="elocal">a_id</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_callstack_record">callstack_record</a>
+			<span class="ecomment">--</span><span class="ecomment"> Call record for </span><span class="equoted">a_id</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_id_attached</span><span class="esymbol">:</span> <span class="elocal">a_id</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Constants from eif_debug.h</span>
+
+	<a name="f_direction_back"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_direction_back">Direction_back</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1</span>
+			<span class="ecomment">--</span><span class="ecomment"> previous call</span>
+
+	<a name="f_direction_forth"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_direction_forth">Direction_forth</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">2</span>
+			<span class="ecomment">--</span><span class="ecomment"> next call</span>
+
+	<a name="f_direction_left"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_direction_left">Direction_left</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">3</span>
+			<span class="ecomment">--</span><span class="ecomment"> previous instruction</span>
+
+	<a name="f_direction_right"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_direction_right">Direction_right</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">4</span>
+			<span class="ecomment">--</span><span class="ecomment"> next intruction</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Event</span>
+
+	<a name="f_enter_feature"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_enter_feature">enter_feature</a> <span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any_short.html">ANY</a><span class="esymbol">;</span> <span class="elocal">cid</span><span class="esymbol">,</span> <span class="elocal">fid</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enter feature </span><span class="equoted">{cid}.fid</span><span class="ecomment"> on object </span><span class="equoted">ref</span><span class="ecomment">, depth is </span><span class="equoted">dep</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">ref_attached</span><span class="esymbol">:</span> <span class="elocal">ref</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_not_replaying</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+			<span class="etag">cid_positive</span><span class="esymbol">:</span> <span class="elocal">cid</span> <a class="esymbol" href="../../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_enter_rescue"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_enter_rescue">enter_rescue</a> <span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any_short.html">ANY</a><span class="esymbol">;</span> <span class="elocal">cid</span><span class="esymbol">,</span> <span class="elocal">fid</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Enter rescue on object </span><span class="equoted">ref</span><span class="ecomment">, depth is </span><span class="equoted">dep</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">ref_attached</span><span class="esymbol">:</span> <span class="elocal">ref</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_not_replaying</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+
+	<a name="f_leave_feature"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_leave_feature">leave_feature</a> <span class="esymbol">(</span><span class="elocal">ref</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any_short.html">ANY</a><span class="esymbol">;</span> <span class="elocal">cid</span><span class="esymbol">,</span> <span class="elocal">fid</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Leave feature </span><span class="equoted">{cid}.fid</span><span class="ecomment"> on object </span><span class="equoted">ref</span><span class="ecomment">, depth is </span><span class="equoted">dep</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">ref_attached</span><span class="esymbol">:</span> <span class="elocal">ref</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_not_replaying</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+
+	<a name="f_notify_rt_hook"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_notify_rt_hook">notify_rt_hook</a> <span class="esymbol">(</span><span class="elocal">dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">bp_i</span><span class="esymbol">,</span> <span class="elocal">bp_ni</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Notify RT_HOOK (bp_i) or RTNHOOK (bp_i, bp_ni)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_not_replaying</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+
+	<a name="f_notify_rt_assign_attribute"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_notify_rt_assign_attribute">notify_rt_assign_attribute</a> <span class="esymbol">(</span><span class="elocal">a_dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">ref</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/any_short.html">ANY</a><span class="esymbol">;</span> <span class="elocal">a_offset</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_xpm</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Notify variable assignment</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_xpm</span><span class="ecomment"> contains information about expanded, precompiled, melted</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">ref_attached</span><span class="esymbol">:</span> <span class="elocal">ref</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_not_replaying</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+			<span class="etag">top_call_stack_record_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_top_callstack_record">top_callstack_record</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">valid_xpm_value</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_valid_xpm_value">valid_xpm_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_xpm</span><span class="esymbol">)</span>
+
+	<a name="f_notify_rt_assign_local"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_notify_rt_assign_local">notify_rt_assign_local</a> <span class="esymbol">(</span><span class="elocal">a_dep</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_position</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32_short.html">NATURAL_32</a><span class="esymbol">;</span> <span class="elocal">a_xpm</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Notify variable assignment</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_xpm</span><span class="ecomment"> contains information about expanded, precompiled, melted</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_not_replaying</span><span class="esymbol">:</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_negated">not</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+			<span class="etag">top_call_stack_record_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_top_callstack_record">top_callstack_record</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">valid_xpm_value</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_valid_xpm_value">valid_xpm_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_xpm</span><span class="esymbol">)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Helpers</span>
+
+	<a name="f_valid_xpm_value"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_valid_xpm_value">valid_xpm_value</a> <span class="esymbol">(</span><span class="elocal">a_xpm</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_xpm</span><span class="ecomment"> a valid xpm value ?</span>
+
+	<a name="f_xpm_to_is_expanded"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_xpm_to_is_expanded">xpm_to_is_expanded</a> <span class="esymbol">(</span><span class="elocal">a_xpm</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_xpm</span><span class="ecomment"> say is expanded ?</span>
+
+	<a name="f_xpm_to_is_precompiled"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_xpm_to_is_precompiled">xpm_to_is_precompiled</a> <span class="esymbol">(</span><span class="elocal">a_xpm</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_xpm</span><span class="ecomment"> say is precompiled ?</span>
+
+	<a name="f_xpm_to_is_melted"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_xpm_to_is_melted">xpm_to_is_melted</a> <span class="esymbol">(</span><span class="elocal">a_xpm</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_xpm</span><span class="ecomment"> say is melted ?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Replay</span>
+
+	<a name="f_activate_replay"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_activate_replay">activate_replay</a> <span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Activate or deactive replay mode according to </span><span class="equoted">b</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">b_set</span><span class="esymbol">:</span> <span class="elocal">b</span> <a class="ekeyword" href="../../elks/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+
+	<a name="f_replay"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay">replay</a> <span class="esymbol">(</span><span class="elocal">dir</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Replay execution </span><span class="equoted">nb</span><span class="ecomment"> steps in direction </span><span class="equoted">dir</span>
+
+	<a name="f_replay_to_point"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_to_point">replay_to_point</a> <span class="esymbol">(</span><span class="elocal">a_id</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replay execution to point identified by </span><span class="equoted">a_id</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_id_attached</span><span class="esymbol">:</span> <span class="elocal">a_id</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_replay_query"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_query">replay_query</a> <span class="esymbol">(</span><span class="elocal">dir</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replay execution </span><span class="equoted">nb</span><span class="ecomment"> steps in direction </span><span class="equoted">dir</span>
+
+	<a name="f_replayed_call_details"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call_details">replayed_call_details</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Details for </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_replaying</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+
+	<a name="f_callstack_record_details"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_callstack_record_details">callstack_record_details</a> <span class="esymbol">(</span><span class="elocal">a_id</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">nb</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Details for callstack identified by </span><span class="equoted">a_id</span>
+			<span class="ecomment">--</span><span class="ecomment"> get information for </span><span class="equoted">nb</span><span class="ecomment"> levels.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">a_id_attached</span><span class="esymbol">:</span> <span class="elocal">a_id</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_replaying</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Monitoring</span>
+
+	<a name="f_monitor_record_count"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_monitor_record_count">monitor_record_count</a>
+			<span class="ecomment">--</span><span class="ecomment"> Monitor if record_count is not over </span><span class="equoted">max_record_count</span>
+			<span class="ecomment">--</span><span class="ecomment"> if </span><span class="equoted">max_record_count</span><span class="ecomment"> is 0, then no limit</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Replay operation</span>
+
+	<a name="f_is_replaying"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is replaying</span>
+
+	<a name="f_last_replay_operation_failed"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_last_replay_operation_failed">last_replay_operation_failed</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does last replay operation failed ?</span>
+
+	<a name="f_replayed_call"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_call_record_short.html">RT_DBG_CALL_RECORD</a>
+			<span class="ecomment">--</span><span class="ecomment"> Current replayed call stack record</span>
+
+	<a name="f_replay_stack_not_empty"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_stack_not_empty">replay_stack_not_empty</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_stack">replay_stack</a><span class="ecomment"> non empty?</span>
+
+	<a name="f_replay_stack"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_stack">replay_stack</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/linked_list_short.html">LINKED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">call_record</span><span class="esymbol">:</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_call_record_short.html">RT_DBG_CALL_RECORD</a><span class="esymbol">;</span> <span class="elocal">chgs</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../../elks/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../../elks/tuple_short.html">TUPLE</a> <span class="esymbol">[</span><span class="elocal">record</span><span class="esymbol">:</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record_short.html">RT_DBG_VALUE_RECORD</a><span class="esymbol">;</span> <span class="elocal">backup</span><span class="esymbol">:</span> <a class="eclass" href="../../ise/debug_implementation/rt_dbg_value_record_short.html">RT_DBG_VALUE_RECORD</a><span class="esymbol">]</span><span class="esymbol">]</span><span class="esymbol">]</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Replay operation stacks.</span>
+			<span class="ecomment">--</span><span class="ecomment"> useful to &quot;revert&quot; the replay steps.</span>
+
+	<a name="f_replay_back"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_back">replay_back</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replay execution back</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_replaying</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+			<span class="etag">replayed_call_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">replayed_call_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_replay_left"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_left">replay_left</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replay left (up in the current call stack element)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_replaying</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+			<span class="etag">replayed_call_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">replayed_call_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_replay_left_to_first"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_left_to_first">replay_left_to_first</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replay execution left as many times as needed to be at the entry of the feature</span>
+
+	<a name="f_replay_forth"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_forth">replay_forth</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replay execution forth</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_replaying</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+			<span class="etag">replayed_call_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">replay_stack_not_empty</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_stack_not_empty">replay_stack_not_empty</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">replayed_call_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_replay_right"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_right">replay_right</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replay right (down in the current call stack element)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_replaying</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+			<span class="etag">replayed_call_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">replay_stack_not_empty</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replay_stack_not_empty">replay_stack_not_empty</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">replayed_call_attached</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_revert_replay_stack"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_revert_replay_stack">revert_replay_stack</a>
+			<span class="ecomment">--</span><span class="ecomment"> Revert remaining replay stack</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_replaying</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_replaying">is_replaying</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Change</span>
+
+	<a name="f_increment_records_count"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_increment_records_count">increment_records_count</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Incremente </span><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_record_count">record_count</a><span class="ecomment"> by </span><span class="equoted">n</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">record_count_positive</span><span class="esymbol">:</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_record_count">record_count</a> <a class="esymbol" href="../../elks/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Measurement</span>
+
+	<a name="f_is_call_at_depth"></a><a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_is_call_at_depth">is_call_at_depth</a> <span class="esymbol">(</span><span class="elocal">a_call</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <a class="efeature" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html#f_replayed_call">replayed_call</a><span class="esymbol">;</span> <span class="elocal">d</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Call </span><span class="equoted">a_call</span><span class="ecomment"> has depth </span><span class="equoted">d</span><span class="ecomment"> ?</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">library</span><span class="esymbol">:</span> <span class="estring">&quot;EiffelBase: Library of reusable components for Eiffel.&quot;</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2017, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../ise/debug_implementation/rt_dbg_execution_recorder_short.html">RT_DBG_EXECUTION_RECORDER</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="rt_dbg_execution_recorder_chart.html">Chart</a>
+<a class="nav class" href="rt_dbg_execution_recorder_links.html">Relations</a>
+<a class="nav class" href="rt_dbg_execution_recorder.html">Text</a>
+<a class="nav class" href="rt_dbg_execution_recorder_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="rt_dbg_execution_recorder_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="rt_dbg_execution_recorder"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

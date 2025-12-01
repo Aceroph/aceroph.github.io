@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="An image from an image file"/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>img_image_file Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="img_image_file_chart.html">Chart</a>
+<a class="nav class" href="img_image_file_links.html">Relations</a>
+<a class="nav class" href="img_image_file.html">Text</a>
+<a class="nav class" href="img_image_file_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="img_image_file_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="img_image_file"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;An image from an image file&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Thu, 02 Apr 2015 03:46:04 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../game_image_file/img_image_file_short.html">IMG_IMAGE_FILE</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../game_image_file/img_image_file_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_is_cur"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_cur">is_cur</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support BMP format and the file is a valid CUR file.</span>
+
+	<a name="f_is_ico"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_ico">is_ico</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support BMP format and the file is a valid ICO file.</span>
+
+	<a name="f_is_bmp"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_bmp">is_bmp</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support BMP format and the file is a valid BMP file.</span>
+
+	<a name="f_is_pnm"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_pnm">is_pnm</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support PNM format and the file is a valid PNM file.</span>
+
+	<a name="f_is_xpm"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_xpm">is_xpm</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support XPM format and the file is a valid XPM file.</span>
+
+	<a name="f_is_xcf"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_xcf">is_xcf</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support XCF format and the file is a valid XCF file.</span>
+
+	<a name="f_is_pcx"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_pcx">is_pcx</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support PCX format and the file is a valid PCX file.</span>
+
+	<a name="f_is_gif"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_gif">is_gif</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support GIF format and the file is a valid GIF file.</span>
+
+	<a name="f_is_jpg"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_jpg">is_jpg</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support JPG format and the file is a valid JPG file.</span>
+
+	<a name="f_is_tif"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_tif">is_tif</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support TIF format and the file is a valid TIF file.</span>
+
+	<a name="f_is_png"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_png">is_png</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support PNG format and the file is a valid PNG file.</span>
+
+	<a name="f_is_lbm"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_lbm">is_lbm</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support LBM format and the file is a valid LBM file.</span>
+
+	<a name="f_is_xv"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_xv">is_xv</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The internal library support XV format and the file is a valid XV file.</span>
+
+	<a name="f_is_openable"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_is_openable">is_openable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can </span><span class="equoted">Current</span><span class="ecomment"> be </span><a class="efeature" href="../game_image_file/img_image_file_short.html#f_open">open</a>
+
+	<a name="f_open"></a><a class="efeature" href="../game_image_file/img_image_file_short.html#f_open">open</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open </span><span class="equoted">Current</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../game_image_file/img_image_file_short.html">IMG_IMAGE_FILE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="img_image_file_chart.html">Chart</a>
+<a class="nav class" href="img_image_file_links.html">Relations</a>
+<a class="nav class" href="img_image_file.html">Text</a>
+<a class="nav class" href="img_image_file_flat.html">Flat</a>
+<span class="nav class selected">Contracts</span>
+<a class="nav class" href="img_image_file_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="img_image_file"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

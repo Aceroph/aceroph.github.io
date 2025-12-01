@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="A {GAME_SOUND} loaded from a sound file."/>
+<meta name="author" content="Louis Marchand"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>audio_sound_file Flat</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_sound_file_chart.html">Chart</a>
+<a class="nav class" href="audio_sound_file_links.html">Relations</a>
+<a class="nav class" href="audio_sound_file.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="audio_sound_file_short.html">Contracts</a>
+<a class="nav class" href="audio_sound_file_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="audio_sound_file"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A </span><span class="estring">{</span><span class="estring">GAME_SOUND</span><span class="estring">}</span><span class="estring"> loaded from a sound file.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Louis Marchand&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;Wed, 08 Apr 2015 01:04:08 +0000&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;2.0&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_make">make</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization for </span><span class="equoted">Current</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Will use 16 bits signed frames in the buffer.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">default_create</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_bits_per_sample_internal">bits_per_sample_internal</a> <span class="esymbol">:=</span> <span class="enumber">16</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_signed_internal">is_signed_internal</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_filename">filename</a> <span class="esymbol">:=</span> <span class="elocal">a_filename</span>
+			<a class="efeature" href="../audio_3d/audio_sound_flat.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_generating_type"></a><a class="efeature" href="../elks/any_flat.html#f_generating_type">generating_type</a><span class="esymbol">:</span> <a class="eclass" href="../elks/type_flat.html">TYPE</a> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Type of current object</span>
+			<span class="ecomment">--</span><span class="ecomment"> (type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">generating_type_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_generator"></a><a class="efeature" href="../elks/any_flat.html#f_generator">generator</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of current object's generating class</span>
+			<span class="ecomment">--</span><span class="ecomment"> (base class of the type of which it is a direct instance)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">generator_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">generator_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/finite_flat.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_has_error"></a><span class="nefeature">has_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the library has generate an error</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+
+	<a name="f_has_error"></a><span class="nefeature">has_ressource_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has an error occured while opening </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_RESSOURCE</span><span class="ecomment">)</span>
+
+	<a name="f_is_open"></a><span class="nefeature">is_open</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">Current</span><span class="ecomment"> has been properly opened</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_RESSOURCE</span><span class="ecomment">)</span>
+
+	<a name="f_last_error"></a><span class="nefeature">last_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The last error generate by the library</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="nefeature">message</span> <span class="ekeyword">as</span> la_message <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_message</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> &quot;&quot;
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment">Access</span>
+
+	<a name="f_album"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_album">album</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The media that </span><span class="equoted">Current</span><span class="ecomment"> is from</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'album' available in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_str_album">sf_str_album</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_artist"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_artist">artist</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the creator of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'artist' available in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_str_artist">sf_str_artist</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_bits_per_sample"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_bits_per_sample">bits_per_sample</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the bit resolution of one frame of the sound.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_bits_per_sample_internal">bits_per_sample_internal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_channel_count"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_channel_count">channel_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the channel number of the sound (1=mono, 2=stereo, etc.).</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_get_sf_info_struct_channels">get_sf_info_struct_channels</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_close"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_close">close</a>
+			<span class="ecomment">--</span><span class="ecomment"> Stop the management of the stream</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_memory_free">memory_free</a>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_close">sf_close</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a>
+			<span class="ekeyword">create</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a>
+			<span class="nefeature">is_open</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_closed</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="nefeature">is_open</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_comment"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_comment">comment</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> Anything that can be add to the definition of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'comment' available in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_str_comment">sf_str_comment</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_date"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_date">date</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The creation's date of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'date' available in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_str_date">sf_str_date</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_frequency"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_frequency">frequency</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the frequency (sample rate) of the sound.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_get_sf_info_struct_samplerate">get_sf_info_struct_samplerate</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_genre"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_genre">genre</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The conventional category of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'genre' available in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_str_genre">sf_str_genre</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_finished"></a><a class="efeature" href="../audio_3d/audio_sound_flat.html#f_is_finished">is_finished</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> has finished it's playback</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a><span class="ecomment">)</span>
+
+	<a name="f_is_openable"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_openable">is_openable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can </span><span class="equoted">Current</span><span class="ecomment"> be </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_open">open</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_file</span><span class="esymbol">:</span> <a class="eclass" href="../elks/raw_file_flat.html">RAW_FILE</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flat.html#f_make_with_name">make_with_name</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_filename">filename</a><span class="esymbol">)</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flat.html#f_exists">exists</a> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">l_file</span><span class="edot">.</span><a class="efeature" href="../elks/file_flat.html#f_is_readable">is_readable</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_seekable"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_seekable">is_seekable</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the sound support the seek functionnality.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_get_sf_info_struct_seekable">get_sf_info_struct_seekable</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a><span class="esymbol">)</span> <span class="esymbol">/=</span> <span class="enumber">0</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_signed"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_signed">is_signed</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Return true if the frames in the buffer are signed.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_signed_internal">is_signed_internal</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_open"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_open">open</a>
+			<span class="ecomment">--</span><span class="ecomment"> Open </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">GAME_RESSOURCE</span>
+			<span class="etag">ressource_is_openable</span><span class="esymbol">:</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_openable">is_openable</a>
+			<span class="etag">ressource_is_not_open</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="nefeature">is_open</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="nefeature">has_ressource_error</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_flat.html#f_open_from_file">open_from_file</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_filename">filename</a><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_sound_flat.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="nefeature">is_open</span> <span class="esymbol">:=</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="nefeature">has_error</span>
+			<span class="nefeature">has_ressource_error</span> <span class="esymbol">:=</span> <span class="nefeature">has_error</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">GAME_RESSOURCE</span>
+			<span class="etag">ressource_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted">or</a> <span class="nefeature">has_ressource_error</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_restart"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_restart">restart</a>
+			<span class="ecomment">--</span><span class="ecomment"> Restart the sound to the beginning.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flat.html">INTEGER_64</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_seekable">is_seekable</a> <span class="ekeyword">then</span>
+				<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_seek">sf_seek</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_seek_set">seek_set</a><span class="esymbol">)</span>
+				<a class="efeature" href="../audio_3d/audio_sound_flat.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+				<span class="ekeyword">if</span> <span class="elocal">l_error</span> <span class="esymbol">=</span> <span class="enumber">-1</span> <span class="ekeyword">then</span>
+					<span class="nefeature">put_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Cannot seek in the audio file.&quot;<span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32_flat.html">STRING_32</a><span class="esymbol">}</span>&quot;The system tried to seek at the beginning of file &quot; <a class="esymbol" href="../elks/string_32_flat.html#f_plus">+</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_filename">filename</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32_flat.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32_flat.html">STRING_32</a><span class="esymbol">}</span>&quot;but it failed.&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">else</span>
+				<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_dispose">dispose</a>
+				<a class="efeature" href="../audio_sound_file/audio_sound_file_flat.html#f_open_from_file">open_from_file</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_filename">filename</a><span class="esymbol">)</span>
+				<a class="efeature" href="../audio_3d/audio_sound_flat.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sample_count"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sample_count">sample_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flat.html">INTEGER_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> The total number of frames in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+			<span class="etag">is_seekable</span><span class="esymbol">:</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_seekable">is_seekable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_get_sf_info_struct_frames">get_sf_info_struct_frames</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sample_position"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sample_position">sample_position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flat.html">INTEGER_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of frames since the beginning of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+			<span class="etag">is_seekable</span><span class="esymbol">:</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_seekable">is_seekable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_seek">sf_seek</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="enumber">0</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_seek_cur">seek_cur</a><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_64_flat.html#f_plus">+</a> <span class="enumber">1</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sample_seek"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sample_seek">sample_seek</a> <span class="esymbol">(</span><span class="elocal">a_frame_number</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flat.html">INTEGER_64</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Seek at the frame </span><span class="equoted">a_frame_number</span><span class="ecomment"> from the beginning of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+			<span class="etag">is_seekable</span><span class="esymbol">:</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_seekable">is_seekable</a>
+			<span class="etag">is_seek_inside</span><span class="esymbol">:</span> <span class="elocal">a_frame_number</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">a_frame_number</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sample_count">sample_count</a>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flat.html">INTEGER_64</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_error</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_seek">sf_seek</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="elocal">a_frame_number</span> <a class="esymbol" href="../elks/integer_64_flat.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_seek_set">seek_set</a><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_3d/audio_sound_flat.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="ekeyword">if</span> <span class="elocal">l_error</span> <span class="esymbol">=</span> <span class="enumber">-1</span> <span class="ekeyword">then</span>
+				<span class="nefeature">put_error</span><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Cannot seek in the audio file.&quot;<span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32_flat.html">STRING_32</a><span class="esymbol">}</span>&quot;The system tried to seek at the frame &quot; <a class="esymbol" href="../elks/string_32_flat.html#f_plus">+</a> <span class="elocal">a_frame_number</span><span class="edot">.</span><a class="efeature" href="../elks/integer_64_ref_flat.html#f_out">out</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32_flat.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32_flat.html">STRING_32</a><span class="esymbol">}</span>&quot; of file &quot; <a class="esymbol" href="../elks/string_32_flat.html#f_plus">+</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_filename">filename</a><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_string_32">to_string_32</a> <a class="esymbol" href="../elks/string_32_flat.html#f_plus">+</a> <span class="esymbol">{</span><a class="eclass" href="../elks/string_32_flat.html">STRING_32</a><span class="esymbol">}</span>&quot;but it failed.&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_time_count"></a><a class="efeature" href="../audio_3d/audio_sound_flat.html#f_time_count">time_count</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flat.html">INTEGER_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> The total number of milliseconds in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+			<span class="etag">is_seekable</span><span class="esymbol">:</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_seekable">is_seekable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sample_count">sample_count</a> <a class="esymbol" href="../elks/integer_64_flat.html#f_product">*</a> <span class="enumber">1000</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_64_flat.html#f_integer_quotient">//</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_frequency">frequency</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_to_integer_64">to_integer_64</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_time_position"></a><a class="efeature" href="../audio_3d/audio_sound_flat.html#f_time_position">time_position</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flat.html">INTEGER_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of milliseconds since the beginning of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+			<span class="etag">is_seekable</span><span class="esymbol">:</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_seekable">is_seekable</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">(</span><span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sample_position">sample_position</a> <a class="esymbol" href="../elks/integer_64_flat.html#f_minus">-</a> <span class="enumber">1</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_64_flat.html#f_product">*</a> <span class="enumber">1000</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_64_flat.html#f_integer_quotient">//</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_frequency">frequency</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_to_integer_64">to_integer_64</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_time_seek"></a><a class="efeature" href="../audio_3d/audio_sound_flat.html#f_time_seek">time_seek</a> <span class="esymbol">(</span><span class="elocal">a_milliseconds</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_64_flat.html">INTEGER_64</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Seek at </span><span class="equoted">a_milliseconds</span><span class="ecomment"> from the beginning of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+			<span class="etag">is_seekable</span><span class="esymbol">:</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_seekable">is_seekable</a>
+			<span class="etag">is_seek_inside</span><span class="esymbol">:</span> <span class="elocal">a_milliseconds</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">a_milliseconds</span> <a class="esymbol" href="../elks/comparable_flat.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../audio_3d/audio_sound_flat.html#f_time_count">time_count</a>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sample_seek">sample_seek</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a_milliseconds</span> <a class="esymbol" href="../elks/integer_64_flat.html#f_product">*</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_frequency">frequency</a><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_to_integer_64">to_integer_64</a><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_64_flat.html#f_integer_quotient">//</a> <span class="enumber">1000</span><span class="esymbol">)</span> <a class="esymbol" href="../elks/integer_64_flat.html#f_plus">+</a> <span class="enumber">1</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_title"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_title">title</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The readable identifier of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> Void if no 'title' available in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_str_title">sf_str_title</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_track_number"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_track_number">track_number</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of </span><span class="equoted">Current</span><span class="ecomment"> in the </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_album">album</a>
+			<span class="ecomment">--</span><span class="ecomment"> 0 if no 'track_number' available in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_get_metadata_value">get_metadata_value</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_str_tracknumber">sf_str_tracknumber</a><span class="esymbol">)</span> <span class="ekeyword">as</span> la_string <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">la_string</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_is_integer_32">is_integer_32</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">la_string</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_integer_32">to_integer_32</a>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">0</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Comparison</span>
+
+	<a name="f_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void</span>
+			<span class="ecomment">--</span><span class="ecomment"> or attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">,</span> <span class="elocal">b</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">both_or_none_void</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="esymbol">(</span><span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="esymbol">(</span><span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="esymbol">(</span><span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">,</span> <span class="elocal">a</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_equal">equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to objects considered equal?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_equal">is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_deep_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">Current</span><span class="ecomment"> and </span><span class="equoted">other</span><span class="ecomment"> attached to isomorphic object structures?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">shallow_implies_deep</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_is_deep_equal">is_deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_equal"></a><a class="efeature" href="../elks/any_flat.html#f_is_equal">is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object considered</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to current object?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+			<span class="etag">consistent</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="ekeyword">Result</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a> <span class="esymbol">(</span><span class="elocal">a</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">;</span> <span class="elocal">b</span><span class="esymbol">:</span> <span class="ekeyword">like</span> arg #<span class="enumber">1</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are </span><span class="equoted">a</span><span class="ecomment"> and </span><span class="equoted">b</span><span class="ecomment"> either both void or attached to</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical objects of the same type?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default object comparison criterion.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_disjuncted_semistrict">or else</a> <span class="esymbol">(</span><span class="esymbol">(</span><span class="elocal">a</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">b</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted_semistrict">and then</a> <span class="elocal">a</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">b</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_is_equal"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">other</span><span class="ecomment"> attached to an object of the same type</span>
+			<span class="ecomment">--</span><span class="ecomment"> as current object, and field-by-field identical to it?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">same_type</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+			<span class="etag">symmetric</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_implication">implies</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_conforms_to"></a><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does type of current object conform to type</span>
+			<span class="ecomment">--</span><span class="ecomment"> of </span><span class="equoted">other</span><span class="ecomment"> (as per Eiffel: The Language, chapter 13)?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">end</span>
+
+	<a name="f_same_type"></a><a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is type of current object identical to type of </span><span class="equoted">other</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">definition</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_conjuncted">and</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_is_in_final_collect"></a><a class="efeature" href="../elks/disposable_flat.html#f_is_in_final_collect">is_in_final_collect</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is GC currently performing final collection</span>
+			<span class="ecomment">--</span><span class="ecomment"> after execution of current program?</span>
+			<span class="ecomment">--</span><span class="ecomment"> Safe to use in </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_dispose">dispose</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/disposable_flat.html">DISPOSABLE</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;C inline use %&quot;eif_memory.h%&quot;&quot;
+		<span class="ekeyword">alias</span>
+			&quot;return eif_is_in_final_collect;&quot;
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Duplication</span>
+
+	<a name="f_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_clone">clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> equal to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span>
+			<span class="ecomment">--</span><span class="ecomment"> For non-void </span><span class="equoted">other</span><span class="ecomment">, </span><a class="efeature" href="../elks/any_flat.html#f_clone">clone</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment">;</span>
+			<span class="ecomment">--</span><span class="ecomment"> to change copying/cloning semantics, redefine </span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_copy"></a><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Update current object using fields of object attached</span>
+			<span class="ecomment">--</span><span class="ecomment"> to </span><span class="equoted">other</span><span class="ecomment">, so as to yield equal objects.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Current</span> <span class="esymbol">~</span> <span class="elocal">other</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_clone">deep_clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `deep_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void: otherwise, new object structure</span>
+			<span class="ecomment">--</span><span class="ecomment"> recursively duplicated from the one attached to </span><span class="equoted">other</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_copy">deep_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect equivalent to that of:</span>
+			<span class="ecomment">--</span><span class="ecomment">		</span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment"> (</span><span class="equoted">other</span><span class="ecomment"> . </span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="ecomment">)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="esymbol">)</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_deep_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_deep_twin">deep_twin</a><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object structure recursively duplicated from Current.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">deep_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">deep_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_deep_equal">deep_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">,</span> <span class="ekeyword">Result</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_clone"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_clone">standard_clone</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">like</span> <span class="elocal">other</span>
+		<span class="ekeyword">obsolete</span> &quot;Use `standard_twin' instead. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Void if </span><span class="equoted">other</span><span class="ecomment"> is void; otherwise new object</span>
+			<span class="ecomment">--</span><span class="ecomment"> field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_standard_twin">standard_twin</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_copy"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_copy">standard_copy</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Copy every field of </span><span class="equoted">other</span><span class="ecomment"> onto corresponding field</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">other_not_void</span><span class="esymbol">:</span> <span class="elocal">other</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">type_identity</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_same_type">same_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">is_standard_equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_standard_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_standard_twin">standard_twin</a><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object field-by-field identical to </span><span class="equoted">other</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Always uses default copying semantics.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">standard_twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">equal</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_equal">standard_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Result</span><span class="esymbol">,</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_twin"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_twin">twin</a><span class="esymbol">:</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a>
+			<span class="ecomment">--</span><span class="ecomment"> New object equal to </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../elks/any_flat.html#f_twin">twin</a><span class="ecomment"> calls </span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment">; to change copying/twinning semantics, redefine </span><a class="efeature" href="../elks/any_flat.html#f_copy">copy</a><span class="ecomment">.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">twin_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">is_equal</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">~</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_as_attached"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_as_attached">as_attached</a><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a>
+		<span class="ekeyword">obsolete</span> &quot;Remove calls to this feature. [2017-05-31]&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Attached version of Current.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Can be used during transitional period to convert</span>
+			<span class="ecomment">--</span><span class="ecomment"> non-void-safe classes to void-safe ones.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="ekeyword">Current</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_default">default</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of object's type</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_pointer"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_default_pointer">default_pointer</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default value of type </span><span class="equoted">POINTER</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Avoid the need to write </span><span class="equoted">p</span><span class="ecomment">.</span><a class="efeature" href="../elks/any_flat.html#f_default">default</a><span class="ecomment"> for</span>
+			<span class="ecomment">--</span><span class="ecomment"> some </span><span class="equoted">p</span><span class="ecomment"> of type </span><span class="equoted">POINTER</span><span class="ecomment">.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_default_rescue"></a><a class="efeature" href="../elks/any_flat.html#f_default_rescue">default_rescue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Process exception for routines with no Rescue clause.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Default: do nothing.)</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_do_nothing"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_do_nothing">do_nothing</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute a null action.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_clear_error"></a><span class="nefeature">clear_error</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove error pending in </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">GAME_ERROR_MANAGER</span>
+			<span class="etag">no_error</span><span class="esymbol">:</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="nefeature">has_error</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_disable_print_on_error"></a><span class="nefeature">disable_print_on_error</span>
+			<span class="ecomment">--</span><span class="ecomment"> Desactive the </span><span class="nefeature">print_on_error</span><span class="ecomment"> functionnality.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">Print_on_error_internal</span><span class="edot">.</span><a class="efeature" href="../elks/cell_flat.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">False</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_enable_print_on_error"></a><span class="nefeature">enable_print_on_error</span>
+			<span class="ecomment">--</span><span class="ecomment"> Active the </span><span class="nefeature">print_on_error</span><span class="ecomment"> functionnality.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">Print_on_error_internal</span><span class="edot">.</span><a class="efeature" href="../elks/cell_flat.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">True</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_message"></a><span class="nefeature">message</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The specific message for the last error</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+
+	<a name="f_print_on_error"></a><span class="nefeature">print_on_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> When an error occured, the library will print</span>
+			<span class="ecomment">--</span><span class="ecomment"> informations about the error on the error console</span>
+			<span class="ecomment">--</span><span class="ecomment"> output (default is True).</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="nefeature">Print_on_error_internal</span><span class="edot">.</span><a class="efeature" href="../elks/cell_flat.html#f_item">item</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_print_on_error_internal"></a><span class="nefeature">Print_on_error_internal</span><span class="esymbol">:</span> <a class="eclass" href="../elks/cell_flat.html">CELL</a> <span class="esymbol">[</span><a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> True when an error occured,</span>
+			<span class="ecomment">--</span><span class="ecomment"> The library will print it right away.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">once</span> <span class="esymbol">(</span>&quot;PROCESS&quot;<span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/cell_flat.html#f_put">put</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">True</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_put_error"></a><span class="nefeature">put_error</span> <span class="esymbol">(</span><span class="elocal">a_general_message</span><span class="esymbol">,</span> <span class="elocal">a_specific_error</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create an error using </span><span class="equoted">a_general_error</span><span class="ecomment"> for the debug information</span>
+			<span class="ecomment">--</span><span class="ecomment"> and </span><span class="equoted">a_specific_error</span><span class="ecomment"> for the lasting information</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_converter</span><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter_flat.html">UTF_CONVERTER</a>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">message</span> <span class="esymbol">:=</span> <span class="elocal">a_specific_error</span>
+			<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">if</span> <span class="nefeature">Print_on_error_internal</span><span class="edot">.</span><a class="efeature" href="../elks/cell_flat.html#f_item">item</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">if</span> <span class="elocal">a_general_message</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_is_valid_as_string_8">is_valid_as_string_8</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_general_message</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8_flat.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">create</span> <span class="elocal">l_converter</span>
+					<a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_string_32_to_utf_8_string_8">string_32_to_utf_8_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_general_message</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_string_32">to_string_32</a><span class="esymbol">)</span> <a class="esymbol" href="../elks/string_8_flat.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+				<span class="ekeyword">if</span> <span class="elocal">a_specific_error</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_is_valid_as_string_8">is_valid_as_string_8</a> <span class="ekeyword">then</span>
+					<a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_specific_error</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_string_8">to_string_8</a> <a class="esymbol" href="../elks/string_8_flat.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">else</span>
+					<span class="ekeyword">create</span> <span class="elocal">l_converter</span>
+					<a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_string_32_to_utf_8_string_8">string_32_to_utf_8_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_specific_error</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_string_32">to_string_32</a><span class="esymbol">)</span> <a class="esymbol" href="../elks/string_8_flat.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<span class="ekeyword">end</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">GAME_ERROR_MANAGER</span>
+				<span class="nefeature">has_error</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_print_on_error"></a><span class="nefeature">set_print_on_error</span> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Assign to </span><span class="nefeature">print_on_error</span><span class="ecomment"> the value of </span><span class="equoted">a_value</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_ERROR_MANAGER</span><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">a_value</span> <span class="ekeyword">then</span>
+				<span class="nefeature">enable_print_on_error</span>
+			<span class="ekeyword">else</span>
+				<span class="nefeature">disable_print_on_error</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><span class="neclass">GAME_ERROR_MANAGER</span>
+			<span class="etag">is_assign</span><span class="esymbol">:</span> <span class="nefeature">print_on_error</span> <span class="esymbol">~</span> <span class="elocal">a_value</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_source_flat.html">AUDIO_SOURCE</a><span class="esymbol">}</span> 
+
+	<a name="f_byte_per_buffer_sample"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_byte_per_buffer_sample">byte_per_buffer_sample</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="enumber">2</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fill_buffer"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_fill_buffer">fill_buffer</a> <span class="esymbol">(</span><span class="elocal">a_buffer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a><span class="esymbol">;</span> <span class="elocal">a_max_length</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Fill the next data samples in </span><span class="equoted">a_buffer</span><span class="ecomment"> (no more than </span><span class="equoted">a_max_length</span><span class="ecomment"> byte)</span>
+			<span class="ecomment">--</span><span class="ecomment"> The actual number of byte placed in </span><span class="equoted">a_buffer</span><span class="ecomment"> will be available in </span><a class="efeature" href="../audio_3d/audio_sound_flat.html#f_last_buffer_size">last_buffer_size</a>
+			<span class="ecomment">--</span><span class="ecomment"> Warning: side effect on </span><span class="equoted">a_buffer</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a>
+			<span class="etag">sound_is_open</span><span class="esymbol">:</span> <span class="nefeature">is_open</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_items</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">from</span>
+				<span class="elocal">l_items</span> <span class="esymbol">:=</span> <span class="elocal">a_max_length</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_integer_quotient">//</a> <span class="enumber">2</span>
+			<span class="ekeyword">until</span>
+				<span class="esymbol">(</span><span class="elocal">l_items</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_integer_remainder">\\</a> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_byte_per_buffer_sample">byte_per_buffer_sample</a><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+			<span class="ekeyword">loop</span>
+				<span class="elocal">l_items</span> <span class="esymbol">:=</span> <span class="elocal">l_items</span> <a class="esymbol" href="../elks/integer_32_flat.html#f_minus">-</a> <span class="enumber">1</span>
+			<span class="ekeyword">end</span>
+			<a class="efeature" href="../audio_3d/audio_sound_flat.html#f_last_buffer_size">last_buffer_size</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_read_short">sf_read_short</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="elocal">a_buffer</span><span class="esymbol">,</span> <span class="elocal">l_items</span><span class="edot">.</span><a class="efeature" href="../elks/integer_32_ref_flat.html#f_to_integer_64">to_integer_64</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../elks/integer_64_ref_flat.html#f_to_integer">to_integer</a> <a class="esymbol" href="../elks/integer_32_flat.html#f_product">*</a> <span class="enumber">2</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_3d/audio_sound_flat.html#f_last_buffer_size">last_buffer_size</a> <span class="esymbol">=</span> <span class="enumber">0</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../audio_3d/audio_sound_flat.html#f_is_finished">is_finished</a> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span><a class="eclass" href="../audio_3d/audio_source_flat.html">AUDIO_SOURCE</a><span class="esymbol">}</span> 
+
+	<a name="f_last_buffer_size"></a><a class="efeature" href="../audio_3d/audio_sound_flat.html#f_last_buffer_size">last_buffer_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The size of the last buffer filled by </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_fill_buffer">fill_buffer</a>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_3d/audio_sound_flat.html">AUDIO_SOUND</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation - Methodes</span>
+
+	<a name="f_dispose"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_dispose">dispose</a>
+			<span class="ecomment">--</span><span class="ecomment"> Action to be executed just before garbage collection</span>
+			<span class="ecomment">--</span><span class="ecomment"> reclaims an object.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect it in descendants to perform specific dispose</span>
+			<span class="ecomment">--</span><span class="ecomment"> actions. Those actions should only take care of freeing</span>
+			<span class="ecomment">--</span><span class="ecomment"> external resources; they should not perform remote calls</span>
+			<span class="ecomment">--</span><span class="ecomment"> on other objects since these may also be dead and reclaimed.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="nefeature">is_open</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_close">close</a>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_get_metadata_value"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_get_metadata_value">get_metadata_value</a> <span class="esymbol">(</span><span class="elocal">a_flag</span><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get the text of a Metadata in </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_flag</span><span class="ecomment"> to know which metadata to retrieve.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_pointer</span><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a>
+			<span class="elocal">l_c_string</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string_flat.html">C_STRING</a>
+			<span class="elocal">l_utf_converter</span><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter_flat.html">UTF_CONVERTER</a>
+		<span class="ekeyword">do</span>
+			<span class="elocal">l_pointer</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_get_string">sf_get_string</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">,</span> <span class="elocal">a_flag</span><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <a class="ekeyword" href="../elks/boolean_flat.html#f_negated">not</a> <span class="elocal">l_pointer</span><span class="edot">.</span><a class="efeature" href="../elks/pointer_flat.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_c_string</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_make_shared_from_pointer">make_shared_from_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_pointer</span><span class="esymbol">)</span>
+				<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="elocal">l_utf_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_utf_8_string_8_to_string_32">utf_8_string_8_to_string_32</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_c_string</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_string">string</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_open_from_file"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_flat.html#f_open_from_file">open_from_file</a> <span class="esymbol">(</span><span class="elocal">a_filename</span><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_open">open</a><span class="ecomment"> </span><span class="equoted">Current</span><span class="ecomment"> using </span><span class="equoted">a_filename</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_converter</span><span class="esymbol">:</span> <a class="eclass" href="../elks/utf_converter_flat.html">UTF_CONVERTER</a>
+			<span class="elocal">l_filename_c</span><span class="esymbol">,</span> <span class="elocal">l_error_c</span><span class="esymbol">:</span> <a class="eclass" href="../elks/c_string_flat.html">C_STRING</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_converter</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a> <span class="esymbol">:=</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_ref_flat.html#f_memory_alloc">memory_alloc</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sf_info_size">Sf_info_size</a><span class="esymbol">)</span>
+			<span class="ekeyword">create</span> <span class="elocal">l_filename_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_make">make</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_converter</span><span class="edot">.</span><a class="efeature" href="../elks/utf_converter_flat.html#f_string_32_to_utf_8_string_8">string_32_to_utf_8_string_8</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_filename</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_general_flat.html#f_to_string_32">to_string_32</a><span class="esymbol">)</span><span class="esymbol">)</span>
+			<a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_open">sf_open</a> <span class="esymbol">(</span><span class="elocal">l_filename_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_item">item</a><span class="esymbol">,</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sfm_read">sfm_read</a><span class="esymbol">,</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a><span class="esymbol">)</span>
+			<span class="ekeyword">if</span> <a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="edot">.</span><a class="efeature" href="../elks/pointer_flat.html#f_is_default_pointer">is_default_pointer</a> <span class="ekeyword">then</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_error_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_make_by_pointer">make_by_pointer</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_sf_strerror">sf_strerror</a> <span class="esymbol">(</span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">)</span><span class="esymbol">)</span>
+				<a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_error">Error</a><span class="edot">.</span><a class="efeature" href="../elks/file_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_error_c</span><span class="edot">.</span><a class="efeature" href="../elks/c_string_flat.html#f_string">string</a> <a class="esymbol" href="../elks/string_8_flat.html#f_plus">+</a> &quot;%N&quot;<span class="esymbol">)</span>
+				<span class="nefeature">has_error</span> <span class="esymbol">:=</span> <span class="ekeyword">True</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_sf_info_size"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_sf_info_size">Sf_info_size</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The number of byte of a C sf_info structure</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../audio_sound_file/audio_snd_files_external_flat.html">AUDIO_SND_FILES_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../audio_sound_file/audio_snd_files_external_imp_flat.html#f_c_sizeof_sf_info">c_sizeof_sf_info</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation - Variables</span>
+
+	<a name="f_bits_per_sample_internal"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_bits_per_sample_internal">bits_per_sample_internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/integer_32_flat.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The value of the </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_bits_per_sample">bits_per_sample</a><span class="ecomment"> attributes</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+
+	<a name="f_file_info"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_file_info">file_info</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> C pointer to the sound file information</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+
+	<a name="f_filename"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_filename">filename</a><span class="esymbol">:</span> <a class="eclass" href="../elks/readable_string_general_flat.html">READABLE_STRING_GENERAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> The name of the file containing the audio data</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+
+	<a name="f_is_signed_internal"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_signed_internal">is_signed_internal</a><span class="esymbol">:</span> <a class="eclass" href="../elks/boolean_flat.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> The value of the </span><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_is_signed">is_signed</a><span class="ecomment"> attributes</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+
+	<a name="f_snd_file_ptr"></a><a class="efeature" href="../audio_sound_file/audio_sound_file_imp_flat.html#f_snd_file_ptr">snd_file_ptr</a><span class="esymbol">:</span> <a class="eclass" href="../elks/pointer_flat.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> C pointer to the sound file handle</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../audio_sound_file/audio_sound_file_imp_flat.html">AUDIO_SOUND_FILE_IMP</a><span class="ecomment">)</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Initialisation</span>
+
+	<a name="f_default_create"></a><span class="nefeature">default_create</span>
+			<span class="ecomment">--</span><span class="ecomment"> Initialization of </span><span class="equoted">Current</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><span class="neclass">GAME_RESSOURCE</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span> <span class="ecomment">--</span> <span class="ecomment">from </span> <a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="ekeyword">True</span>
+		<span class="ekeyword">do</span>
+			<span class="nefeature">is_open</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+			<span class="nefeature">has_ressource_error</span> <span class="esymbol">:=</span> <span class="ekeyword">False</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Output</span>
+
+	<a name="f_io"></a><a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="esymbol">:</span> <a class="eclass" href="../elks/std_files_flat.html">STD_FILES</a>
+			<span class="ecomment">--</span><span class="ecomment"> Handle to standard file setup</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+			<span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_set_output_default">set_output_default</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">io_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_out"></a><a class="efeature" href="../elks/any_flat.html#f_out">out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../elks/any_flat.html#f_tagged_out">tagged_out</a>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_print"></a><a class="efeature" href="../elks/any_flat.html#f_print">print</a> <span class="esymbol">(</span><span class="elocal">o</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../elks/any_flat.html">ANY</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Write terse external representation of </span><span class="equoted">o</span>
+			<span class="ecomment">--</span><span class="ecomment"> on standard output.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="elocal">o</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <span class="ekeyword">then</span>
+				<a class="efeature" href="../elks/any_flat.html#f_io">Io</a><span class="edot">.</span><a class="efeature" href="../elks/std_files_flat.html#f_put_string">put_string</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">o</span><span class="edot">.</span><a class="efeature" href="../elks/any_flat.html#f_out">out</a><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_tagged_out"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_tagged_out">tagged_out</a><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> New string containing terse printable representation</span>
+			<span class="ecomment">--</span><span class="ecomment"> of current object</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">external</span>
+			&quot;built_in&quot;
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">tagged_out_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Platform</span>
+
+	<a name="f_operating_environment"></a><a class="efeature" href="../elks/any_flat.html#f_operating_environment">Operating_environment</a><span class="esymbol">:</span> <a class="eclass" href="../elks/operating_environment_flat.html">OPERATING_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects available from the operating system</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">once</span>
+			<span class="ekeyword">create</span> <span class="ekeyword">Result</span>
+		<span class="ekeyword">ensure</span> <span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+			<span class="etag">instance_free</span><span class="esymbol">:</span> <span class="ekeyword">class</span>
+			<span class="etag">operating_environment_not_void</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Retrieval</span>
+
+	<a name="f_internal_correct_mismatch"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../elks/any_flat.html#f_internal_correct_mismatch">internal_correct_mismatch</a>
+			<span class="ecomment">--</span><span class="ecomment"> Called from runtime to perform a proper dynamic dispatch on </span><span class="equoted">correct_mismatch</span>
+			<span class="ecomment">--</span><span class="ecomment"> from MISMATCH_CORRECTOR.</span>
+			<span class="ecomment">--</span> <span class="ecomment">(from </span><a class="eclass" href="../elks/any_flat.html">ANY</a><span class="ecomment">)</span>
+		<span class="ekeyword">local</span>
+			<span class="elocal">l_msg</span><span class="esymbol">:</span> <a class="eclass" href="../elks/string_8_flat.html">STRING_8</a>
+			<span class="elocal">l_exc</span><span class="esymbol">:</span> <a class="eclass" href="../elks/exceptions_flat.html">EXCEPTIONS</a>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">if</span> <span class="ekeyword">attached</span> <span class="esymbol">{</span><a class="eclass" href="../elks/mismatch_corrector_flat.html">MISMATCH_CORRECTOR</a><span class="esymbol">}</span> <span class="ekeyword">Current</span> <span class="ekeyword">as</span> l_corrector <span class="ekeyword">then</span>
+				<span class="elocal">l_corrector</span><span class="edot">.</span><a class="efeature" href="../elks/mismatch_corrector_flat.html#f_correct_mismatch">correct_mismatch</a>
+			<span class="ekeyword">else</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../elks/readable_string_8_flat.html#f_make_from_string">make_from_string</a><span class="esymbol"> </span><span class="esymbol">(</span>&quot;Mismatch: &quot;<span class="esymbol">)</span>
+				<span class="ekeyword">create</span> <span class="elocal">l_exc</span>
+				<span class="elocal">l_msg</span><span class="edot">.</span><a class="efeature" href="../elks/string_8_flat.html#f_append">append</a><span class="esymbol"> </span><span class="esymbol">(</span><a class="efeature" href="../elks/any_flat.html#f_generating_type">generating_type</a><span class="edot">.</span><a class="efeature" href="../elks/type_flat.html#f_name">name</a><span class="esymbol">)</span>
+				<span class="elocal">l_exc</span><span class="edot">.</span><a class="efeature" href="../elks/exceptions_flat.html#f_raise_retrieval_exception">raise_retrieval_exception</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">l_msg</span><span class="esymbol">)</span>
+			<span class="ekeyword">end</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">invariant</span>
+		<span class="ecomment">--</span> <span class="ecomment">from </span><a class="eclass" href="../elks/any_flat.html">ANY</a>
+	<span class="etag">reflexive_equality</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_standard_is_equal">standard_is_equal</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+	<span class="etag">reflexive_conformance</span><span class="esymbol">:</span> <a class="efeature" href="../elks/any_flat.html#f_conforms_to">conforms_to</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="ekeyword">Current</span><span class="esymbol">)</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../audio_sound_file/audio_sound_file_flat.html">AUDIO_SOUND_FILE</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="audio_sound_file_chart.html">Chart</a>
+<a class="nav class" href="audio_sound_file_links.html">Relations</a>
+<a class="nav class" href="audio_sound_file.html">Text</a>
+<span class="nav class selected">Flat</span>
+<a class="nav class" href="audio_sound_file_short.html">Contracts</a>
+<a class="nav class" href="audio_sound_file_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="audio_sound_file"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

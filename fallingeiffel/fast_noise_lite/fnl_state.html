@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 19.05.10.3187 GPL Edition - linux-x86-64">
+<meta name="description" content="Structure containing entire noise system state."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>fnl_state Text</title>
+<link rel="stylesheet" href="../../default.css" type="text/css">
+<script type="text/javascript" src="../../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="fnl_state_chart.html">Chart</a>
+<a class="nav class" href="fnl_state_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="fnl_state_flat.html">Flat</a>
+<a class="nav class" href="fnl_state_short.html">Contracts</a>
+<a class="nav class" href="fnl_state_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="fnl_state"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Structure containing entire noise system state.&quot;</span>
+
+<span class="ekeyword">class</span> 
+	<a class="eclass" href="../../fallingeiffel/fast_noise_lite/fnl_state.html">FNL_STATE</a>
+
+<span class="ekeyword">inherit</span>
+	<a class="eclass" href="../../elks/disposable.html">DISPOSABLE</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_make_with_seed">make_with_seed</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Creates a noise state with default values.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_create_state">fnl_create_state</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_make_with_seed"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_make_with_seed">make_with_seed</a> <span class="esymbol">(</span><span class="elocal">a_seed</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Creates a noise state with default values using the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_seed">seed</a><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_make">make</a>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_seed">set_seed</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_seed</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Implementation</span>
+
+	<a name="f_item"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/pointer.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Internal pointer of </span><span class="equoted">Current</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_seed"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_seed">seed</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_seed">set_seed</a>
+			<span class="ecomment">--</span><span class="ecomment"> Seed used for all noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_seed">get_fnl_state_seed</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_frequency"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_frequency">frequency</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_frequency">set_frequency</a>
+			<span class="ecomment">--</span><span class="ecomment"> The frequency for all noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_frequency">get_fnl_state_frequency</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_noise_type"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type">set_noise_type</a>
+			<span class="ecomment">--</span><span class="ecomment"> The noise algorithm to be used by </span><span class="equoted">get_noise</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_noise_type">get_fnl_state_noise_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_rotation_type_3d"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_rotation_type_3d">set_rotation_type_3d</a>
+			<span class="ecomment">--</span><span class="ecomment"> The noise rotation type for 3D.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_rotation_type_3d">get_fnl_state_rotation_type_3d</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_fractal_type"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type">set_fractal_type</a>
+			<span class="ecomment">--</span><span class="ecomment"> The method used for combining octaves for all fractal noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_fractal_type">get_fnl_state_fractal_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_octaves"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_octaves">octaves</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_octaves">set_octaves</a>
+			<span class="ecomment">--</span><span class="ecomment"> The octave count for all fractal noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_octaves">get_fnl_state_octaves</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_lacunarity"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_lacunarity">lacunarity</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_lacunarity">set_lacunarity</a>
+			<span class="ecomment">--</span><span class="ecomment"> The octave lacunarity for all fractal noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_lacunarity">get_fnl_state_lacunarity</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_gain"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_gain">gain</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_gain">set_gain</a>
+			<span class="ecomment">--</span><span class="ecomment"> The octave gain for all fractal noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_gain">get_fnl_state_gain</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_weighted_strength"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_weighted_strength">weighted_strength</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_weighted_strength">set_weighted_strength</a>
+			<span class="ecomment">--</span><span class="ecomment"> The octave weighting for all none Domaain Warp fractal types.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_weighted_strength">get_fnl_state_weighted_strength</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_ping_pong_strength"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_ping_pong_strength">ping_pong_strength</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_ping_pong_strength">set_ping_pong_strength</a>
+			<span class="ecomment">--</span><span class="ecomment"> The strength of the fractal ping pong effect.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_ping_pong_strength">get_fnl_state_ping_pong_strength</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_cellular_distance_func"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_func">set_cellular_distance_func</a>
+			<span class="ecomment">--</span><span class="ecomment"> The distance function used in cellular noise calculations.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_cellular_distance_func">get_fnl_state_cellular_distance_func</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_cellular_return_type"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a>
+			<span class="ecomment">--</span><span class="ecomment"> The cellular return type from cellular noise calculations.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_cellular_return_type">get_fnl_state_cellular_return_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_cellular_jitter_mod"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_jitter_mod">cellular_jitter_mod</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_jitter_mod">set_cellular_jitter_mod</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum distance a cellular point can move from it's grid position.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Setting this higher than 1 will cause artifacts.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_cellular_jitter_mod">get_fnl_state_cellular_jitter_mod</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_domain_warp_type"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_type">set_domain_warp_type</a>
+			<span class="ecomment">--</span><span class="ecomment"> The warp algorithm when using fnlDomainWarp...</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_domain_warp_type">get_fnl_state_domain_warp_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_domain_warp_amp"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_amp">domain_warp_amp</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a> <span class="ekeyword">assign</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_amp">set_domain_warp_amp</a>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum warp distance from original position when using </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="ecomment">...</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_get_fnl_state_fractal_type">get_fnl_state_fractal_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span><span class="edot">.</span><a class="efeature" href="../../elks/natural_32.html#f_to_real_32">to_real_32</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_seed"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_seed">set_seed</a> <span class="esymbol">(</span><span class="elocal">a_seed</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the seed used for all noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_seed">set_fnl_state_seed</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_seed</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_frequency"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_frequency">set_frequency</a> <span class="esymbol">(</span><span class="elocal">a_frequency</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the frequency for all noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_frequency">set_fnl_state_frequency</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_frequency</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_noise_type"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type">set_noise_type</a> <span class="esymbol">(</span><span class="elocal">a_noise_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the noise algorithm to be used by </span><span class="equoted">get_noise</span><span class="ecomment">.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_noise_type">set_fnl_state_noise_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_noise_type</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_rotation_type_3d"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_rotation_type_3d">set_rotation_type_3d</a> <span class="esymbol">(</span><span class="elocal">a_rotation_type_3d</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the noise rotation type for 3D.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_rotation_type_3d">set_fnl_state_rotation_type_3d</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_rotation_type_3d</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_fractal_type"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type">set_fractal_type</a> <span class="esymbol">(</span><span class="elocal">a_fractal_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the method used for combining octaves for all fractal noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_fractal_type">set_fnl_state_fractal_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_fractal_type</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_octaves"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_octaves">set_octaves</a> <span class="esymbol">(</span><span class="elocal">a_octaves</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/integer_32.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the octave count for all fractal noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_octaves">set_fnl_state_octaves</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_octaves</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_lacunarity"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_lacunarity">set_lacunarity</a> <span class="esymbol">(</span><span class="elocal">a_lacunarity</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the octave lacunarity for all fractal noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_lacunarity">set_fnl_state_lacunarity</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_lacunarity</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_gain"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_gain">set_gain</a> <span class="esymbol">(</span><span class="elocal">a_gain</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the octave gain for all fractal noise types.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_gain">set_fnl_state_gain</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_gain</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_weighted_strength"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_weighted_strength">set_weighted_strength</a> <span class="esymbol">(</span><span class="elocal">a_weighted_strength</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the octave weighting for all none Domaain Warp fractal types.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_weighted_strength">set_fnl_state_weighted_strength</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_weighted_strength</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_ping_pong_strength"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_ping_pong_strength">set_ping_pong_strength</a> <span class="esymbol">(</span><span class="elocal">a_ping_pong_strength</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the strength of the fractal ping pong effect.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_ping_pong_strength">set_fnl_state_ping_pong_strength</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_ping_pong_strength</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_distance_func"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_func">set_cellular_distance_func</a> <span class="esymbol">(</span><span class="elocal">a_cellular_distance_func</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the distance function used in cellular noise calculations.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_cellular_distance_func">set_fnl_state_cellular_distance_func</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_cellular_distance_func</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_return_type"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a> <span class="esymbol">(</span><span class="elocal">a_cellular_return_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> The cellular return type from cellular noise calculations.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_cellular_return_type">set_fnl_state_cellular_return_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_cellular_return_type</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_jitter_mod"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_jitter_mod">set_cellular_jitter_mod</a> <span class="esymbol">(</span><span class="elocal">a_cellular_jitter_mod</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the maximum distance a cellular point can move from it's grid position.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Setting this higher than 1 will cause artifacts.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_cellular_jitter_mod">set_fnl_state_cellular_jitter_mod</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_cellular_jitter_mod</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_domain_warp_type"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_type">set_domain_warp_type</a> <span class="esymbol">(</span><span class="elocal">a_domain_warp_type</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/natural_32.html">NATURAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the warp algorithm when using fnlDomainWarp...</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_domain_warp_type">set_fnl_state_domain_warp_type</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_domain_warp_type</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_domain_warp_amp"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_amp">set_domain_warp_amp</a> <span class="esymbol">(</span><span class="elocal">a_domain_warp_amp</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> The maximum warp distance from original position when using </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="ecomment">...</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_set_fnl_state_domain_warp_amp">set_fnl_state_domain_warp_amp</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">a_domain_warp_amp</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Noise type getters and setters</span>
+
+	<a name="f_set_noise_type_opensimplex2"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type_opensimplex2">set_noise_type_opensimplex2</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> to OpenSimplex2</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type">set_noise_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_opensimplex2">fnl_noise_opensimplex2</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_noise_type_opensimplex2s"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type_opensimplex2s">set_noise_type_opensimplex2s</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> to OpenSimplex2s</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type">set_noise_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_opensimplex2s">fnl_noise_opensimplex2s</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_noise_type_cellular"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type_cellular">set_noise_type_cellular</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> to Cellular</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type">set_noise_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_cellular">fnl_noise_cellular</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_noise_type_perlin"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type_perlin">set_noise_type_perlin</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> to Perlin</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type">set_noise_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_perlin">fnl_noise_perlin</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_noise_type_value_cubic"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type_value_cubic">set_noise_type_value_cubic</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> to Value cubic</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type">set_noise_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_value_cubic">fnl_noise_value_cubic</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_noise_type_value"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type_value">set_noise_type_value</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> to Cublic</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_noise_type">set_noise_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_value">fnl_noise_value</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_noise_type_opensimplex2"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_noise_type_opensimplex2">is_noise_type_opensimplex2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> OpenSimplex2?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_opensimplex2">fnl_noise_opensimplex2</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_noise_type_opensimplex2s"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_noise_type_opensimplex2s">is_noise_type_opensimplex2s</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> OpenSimplex2s?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_opensimplex2s">fnl_noise_opensimplex2s</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_noise_type_cellular"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_noise_type_cellular">is_noise_type_cellular</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> Cellular?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_cellular">fnl_noise_cellular</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_noise_type_perlin"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_noise_type_perlin">is_noise_type_perlin</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> Perlin?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_perlin">fnl_noise_perlin</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_noise_type_value_cubic"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_noise_type_value_cubic">is_noise_type_value_cubic</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> Value cubic?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_value_cubic">fnl_noise_value_cubic</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_noise_type_value"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_noise_type_value">is_noise_type_value</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a><span class="ecomment"> Cublic?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_noise_type">noise_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_noise_value">fnl_noise_value</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Rotation types 3D getters and setters</span>
+
+	<a name="f_set_rotation_none"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_rotation_none">set_rotation_none</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a><span class="ecomment"> to none</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_rotation_type_3d">set_rotation_type_3d</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_rotation_none">fnl_rotation_none</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_rotation_improve_xy_planes"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_rotation_improve_xy_planes">set_rotation_improve_xy_planes</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a><span class="ecomment"> to Improve XY Planes</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_rotation_type_3d">set_rotation_type_3d</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_rotation_improve_xy_planes">fnl_rotation_improve_xy_planes</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_rotation_improve_xz_planes"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_rotation_improve_xz_planes">set_rotation_improve_xz_planes</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a><span class="ecomment"> to Improve XZ Planes</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_rotation_type_3d">set_rotation_type_3d</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_rotation_improve_xz_planes">fnl_rotation_improve_xz_planes</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_rotation_none"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_rotation_none">is_rotation_none</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a><span class="ecomment"> none?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_rotation_none">fnl_rotation_none</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_rotation_improve_xy_planes"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_rotation_improve_xy_planes">is_rotation_improve_xy_planes</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a><span class="ecomment"> Improve XY Planes?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_rotation_improve_xy_planes">fnl_rotation_improve_xy_planes</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_rotation_improve_xz_planes"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_rotation_improve_xz_planes">is_rotation_improve_xz_planes</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a><span class="ecomment"> Improve XZ Planes?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_rotation_type_3d">rotation_type_3d</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_rotation_improve_xz_planes">fnl_rotation_improve_xz_planes</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Fractal type getters and setters</span>
+
+	<a name="f_set_fractal_type_none"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type_none">set_fractal_type_none</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> to none</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type">set_fractal_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_none">fnl_fractal_none</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_fractal_type_fbm"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type_fbm">set_fractal_type_fbm</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> to FBM</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type">set_fractal_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_fbm">fnl_fractal_fbm</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_fractal_type_ridged"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type_ridged">set_fractal_type_ridged</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> to ridged</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type">set_fractal_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_ridged">fnl_fractal_ridged</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_fractal_type_pingpong"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type_pingpong">set_fractal_type_pingpong</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> to pingpong</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type">set_fractal_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_pingpong">fnl_fractal_pingpong</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_fractal_type_domain_warp_progressive"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type_domain_warp_progressive">set_fractal_type_domain_warp_progressive</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> to domain warp progressive</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type">set_fractal_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_domain_warp_progressive">fnl_fractal_domain_warp_progressive</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_fractal_type_domain_warp_independent"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type_domain_warp_independent">set_fractal_type_domain_warp_independent</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> to domain warp independent</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_fractal_type">set_fractal_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_domain_warp_independent">fnl_fractal_domain_warp_independent</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_fractal_type_none"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_fractal_type_none">is_fractal_type_none</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> none?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_none">fnl_fractal_none</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_fractal_type_fbm"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_fractal_type_fbm">is_fractal_type_fbm</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> FBM?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_fbm">fnl_fractal_fbm</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_fractal_type_ridged"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_fractal_type_ridged">is_fractal_type_ridged</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> ridged?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_ridged">fnl_fractal_ridged</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_fractal_type_pingpong"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_fractal_type_pingpong">is_fractal_type_pingpong</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> pingpong?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_pingpong">fnl_fractal_pingpong</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_fractal_type_domain_warp_progressive"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_fractal_type_domain_warp_progressive">is_fractal_type_domain_warp_progressive</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> domain warp progressive?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_domain_warp_progressive">fnl_fractal_domain_warp_progressive</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_fractal_type_domain_warp_independent"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_fractal_type_domain_warp_independent">is_fractal_type_domain_warp_independent</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a><span class="ecomment"> domain warp independent?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_fractal_type">fractal_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_fractal_domain_warp_independent">fnl_fractal_domain_warp_independent</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Cellular distance function getters and setters</span>
+
+	<a name="f_set_cellular_distance_function_euclidean"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_function_euclidean">set_cellular_distance_function_euclidean</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="ecomment"> to euclidean</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_func">set_cellular_distance_func</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_distance_euclidean">fnl_cellular_distance_euclidean</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_distance_function_euclideansq"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_function_euclideansq">set_cellular_distance_function_euclideansq</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="ecomment"> to euclidean sq</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_func">set_cellular_distance_func</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_distance_euclideansq">fnl_cellular_distance_euclideansq</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_distance_function_manhattan"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_function_manhattan">set_cellular_distance_function_manhattan</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="ecomment"> to manhattan</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_func">set_cellular_distance_func</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_distance_manhattan">fnl_cellular_distance_manhattan</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_distance_function_hybrid"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_function_hybrid">set_cellular_distance_function_hybrid</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="ecomment"> to hybrid</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_distance_func">set_cellular_distance_func</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_distance_hybrid">fnl_cellular_distance_hybrid</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_distance_function_euclidean"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_distance_function_euclidean">is_cellular_distance_function_euclidean</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="ecomment"> euclidean?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_distance_euclidean">fnl_cellular_distance_euclidean</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_distance_function_euclideansq"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_distance_function_euclideansq">is_cellular_distance_function_euclideansq</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="ecomment"> euclidean sq?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_distance_euclideansq">fnl_cellular_distance_euclideansq</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_distance_function_manhattan"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_distance_function_manhattan">is_cellular_distance_function_manhattan</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="ecomment"> manhattan?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_distance_manhattan">fnl_cellular_distance_manhattan</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_distance_function_hybrid"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_distance_function_hybrid">is_cellular_distance_function_hybrid</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a><span class="ecomment"> hybrid?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_distance_func">cellular_distance_func</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_distance_hybrid">fnl_cellular_distance_hybrid</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Cellular return types</span>
+
+	<a name="f_set_cellular_return_type_cellvalue"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type_cellvalue">set_cellular_return_type_cellvalue</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> to cellvalue</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_cellvalue">fnl_cellular_return_type_cellvalue</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_return_type_distance"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type_distance">set_cellular_return_type_distance</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> to distance</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance">fnl_cellular_return_type_distance</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_return_type_distance2"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type_distance2">set_cellular_return_type_distance2</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> to distance2</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2">fnl_cellular_return_type_distance2</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_return_type_distance2add"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type_distance2add">set_cellular_return_type_distance2add</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> to distance2add</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2add">fnl_cellular_return_type_distance2add</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_return_type_distance2sub"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type_distance2sub">set_cellular_return_type_distance2sub</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> to distance2sub</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2sub">fnl_cellular_return_type_distance2sub</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_return_type_distance2mul"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type_distance2mul">set_cellular_return_type_distance2mul</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> to distance2mul</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2mul">fnl_cellular_return_type_distance2mul</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_cellular_return_type_distance2div"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type_distance2div">set_cellular_return_type_distance2div</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> to distance2div</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_cellular_return_type">set_cellular_return_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2div">fnl_cellular_return_type_distance2div</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_return_type_cellvalue"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_return_type_cellvalue">is_cellular_return_type_cellvalue</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> cellvalue?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_cellvalue">fnl_cellular_return_type_cellvalue</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_return_type_distance"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_return_type_distance">is_cellular_return_type_distance</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> distance?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance">fnl_cellular_return_type_distance</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_return_type_distance2"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_return_type_distance2">is_cellular_return_type_distance2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> distance2?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2">fnl_cellular_return_type_distance2</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_return_type_distance2add"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_return_type_distance2add">is_cellular_return_type_distance2add</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> distance2add?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2add">fnl_cellular_return_type_distance2add</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_return_type_distance2sub"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_return_type_distance2sub">is_cellular_return_type_distance2sub</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> distance2sub?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2sub">fnl_cellular_return_type_distance2sub</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_return_type_distance2mul"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_return_type_distance2mul">is_cellular_return_type_distance2mul</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> distance2mul?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2mul">fnl_cellular_return_type_distance2mul</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_cellular_return_type_distance2div"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_cellular_return_type_distance2div">is_cellular_return_type_distance2div</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a><span class="ecomment"> distance2div?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_cellular_return_type">cellular_return_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_cellular_return_type_distance2div">fnl_cellular_return_type_distance2div</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Domain warp type</span>
+
+	<a name="f_set_domain_warp_opensimplex2"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_opensimplex2">set_domain_warp_opensimplex2</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="ecomment"> to opensimplex2</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_type">set_domain_warp_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_domain_warp_opensimplex2">fnl_domain_warp_opensimplex2</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_domain_warp_opensimplex2_reduced"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_opensimplex2_reduced">set_domain_warp_opensimplex2_reduced</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="ecomment"> to opensimplex2 reduced</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_type">set_domain_warp_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_domain_warp_opensimplex2_reduced">fnl_domain_warp_opensimplex2_reduced</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_set_domain_warp_basicgrid"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_basicgrid">set_domain_warp_basicgrid</a>
+			<span class="ecomment">--</span><span class="ecomment"> Sets the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="ecomment"> to basic grid</span>
+		<span class="ekeyword">do</span>
+			<a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_set_domain_warp_type">set_domain_warp_type</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_domain_warp_basicgrid">fnl_domain_warp_basicgrid</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_domain_warp_opensimplex2"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_domain_warp_opensimplex2">is_domain_warp_opensimplex2</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="ecomment"> opensimplex2?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_domain_warp_opensimplex2">fnl_domain_warp_opensimplex2</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_domain_warp_opensimplex2_reduced"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_domain_warp_opensimplex2_reduced">is_domain_warp_opensimplex2_reduced</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="ecomment"> opensimplex2 reduced?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_domain_warp_opensimplex2_reduced">fnl_domain_warp_opensimplex2_reduced</a>
+		<span class="ekeyword">end</span>
+
+	<a name="f_is_domain_warp_basicgrid"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_is_domain_warp_basicgrid">is_domain_warp_basicgrid</a><span class="esymbol">:</span> <a class="eclass" href="../../elks/boolean.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is the </span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a><span class="ecomment"> basic grid?</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_domain_warp_type">domain_warp_type</a> <span class="esymbol">=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_domain_warp_basicgrid">fnl_domain_warp_basicgrid</a>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Noise functions</span>
+
+	<a name="f_get_noise_2d"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_get_noise_2d">get_noise_2d</a> <span class="esymbol">(</span><span class="elocal">x</span><span class="esymbol">,</span> <span class="elocal">y</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> 2D noise at given position using the state settings</span>
+			<span class="ecomment">--</span><span class="ecomment"> Returns a value bounded between -1 and 1.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_get_noise_2d">fnl_get_noise_2d</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">x</span><span class="esymbol">,</span> <span class="elocal">y</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+
+	<a name="f_get_noise_3d"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_get_noise_3d">get_noise_3d</a> <span class="esymbol">(</span><span class="elocal">x</span><span class="esymbol">,</span> <span class="elocal">y</span><span class="esymbol">,</span> <span class="elocal">z</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../../elks/real_32.html">REAL_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> 3D noise at given position using the state settings</span>
+			<span class="ecomment">--</span><span class="ecomment"> Returns a value bounded between -1 and 1.</span>
+		<span class="ekeyword">do</span>
+			<span class="ekeyword">Result</span> <span class="esymbol">:=</span> <span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_get_noise_3d">fnl_get_noise_3d</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">,</span> <span class="elocal">x</span><span class="esymbol">,</span> <span class="elocal">y</span><span class="esymbol">,</span> <span class="elocal">z</span><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">feature</span> <span class="esymbol">{</span>NONE<span class="esymbol">}</span> <span class="ecomment">--</span><span class="ecomment"> Disposable implementation</span>
+
+	<a name="f_dispose"></a><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_dispose">dispose</a>
+			<span class="ecomment">--</span><span class="ecomment"> Action to be executed just before garbage collection</span>
+			<span class="ecomment">--</span><span class="ecomment"> reclaims an object.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Effect it in descendants to perform specific dispose</span>
+			<span class="ecomment">--</span><span class="ecomment"> actions. Those actions should only take care of freeing</span>
+			<span class="ecomment">--</span><span class="ecomment"> external resources; they should not perform remote calls</span>
+			<span class="ecomment">--</span><span class="ecomment"> on other objects since these may also be dead and reclaimed.</span>
+		<span class="ekeyword">do</span>
+			<span class="esymbol">{</span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html">FAST_NOISE_LITE_EXTERNAL</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fast_noise_lite_external.html#f_fnl_free_state">fnl_free_state</a> <span class="esymbol">(</span><a class="efeature" href="../../fallingeiffel/fast_noise_lite/fnl_state.html#f_item">item</a><span class="esymbol">)</span>
+		<span class="ekeyword">end</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../../fallingeiffel/fast_noise_lite/fnl_state.html">FNL_STATE</a></pre><form class="nav" onsubmit="go_to('../../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="fnl_state_chart.html">Chart</a>
+<a class="nav class" href="fnl_state_links.html">Relations</a>
+<span class="nav class selected">Text</span>
+<a class="nav class" href="fnl_state_flat.html">Flat</a>
+<a class="nav class" href="fnl_state_short.html">Contracts</a>
+<a class="nav class" href="fnl_state_flatshort.html">Flat contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="fnl_state"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

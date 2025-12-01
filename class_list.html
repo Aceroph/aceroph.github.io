@@ -807,6 +807,138 @@
 	<a class="eclass" href="elks/empty_iteration_cursor_chart.html">EMPTY_ITERATION_CURSOR</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
 			<span class="ecomment">--</span><span class="ecomment"> External iteration cursor for an ITERABLE without any elements.</span>
 
+	<a class="eclass" href="testing/eqa_assertions_chart.html">EQA_ASSERTIONS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Universal assertion mechanisms.</span>
+
+	<a class="eclass" href="testing/eqa_assertions_chart.html">EQA_ASSERTIONS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Universal assertion mechanisms.</span>
+
+	<a class="eclass" href="testing/eqa_environment_chart.html">EQA_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects that provide settings for executing an </span><a class="eclass" href="testing/eqa_test_set_chart.html">EQA_TEST_SET</a><span class="ecomment">. A settings conists of an</span>
+			<span class="ecomment">--</span><span class="ecomment"> key-value pair of type </span><span class="ecomment">{</span><span class="ecomment">STRING</span><span class="ecomment">}</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The settings are once per thread, meaning that any </span><a class="eclass" href="testing/eqa_environment_chart.html">EQA_ENVIRONMENT</a><span class="ecomment"> instances will have</span>
+			<span class="ecomment">--</span><span class="ecomment"> the same state if they are accessed in the same thread.</span>
+
+	<a class="eclass" href="testing/eqa_environment_chart.html">EQA_ENVIRONMENT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects that provide settings for executing an </span><a class="eclass" href="testing/eqa_test_set_chart.html">EQA_TEST_SET</a><span class="ecomment">. A settings conists of an</span>
+			<span class="ecomment">--</span><span class="ecomment"> key-value pair of type </span><span class="ecomment">{</span><span class="ecomment">STRING</span><span class="ecomment">}</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> The settings are once per thread, meaning that any </span><a class="eclass" href="testing/eqa_environment_chart.html">EQA_ENVIRONMENT</a><span class="ecomment"> instances will have</span>
+			<span class="ecomment">--</span><span class="ecomment"> the same state if they are accessed in the same thread.</span>
+
+	<a class="eclass" href="etf/eqa_evaluator_chart.html">EQA_EVALUATOR</a>
+			<span class="ecomment">--</span><span class="ecomment"> Core implementation for root class of test executor. The test evaluator is used by the</span>
+			<span class="ecomment">--</span><span class="ecomment"> testing tool to run tests and retrieve results. Any descendant of this class should be used as</span>
+			<span class="ecomment">--</span><span class="ecomment"> the root class of an interpreter. Descendants need to provide </span><a class="eclass" href="etf/eqa_evaluator_chart.html">EQA_EVALUATOR</a><span class="ecomment"> information on</span>
+			<span class="ecomment">--</span><span class="ecomment"> what test classes/routines are available and be able to create instances of them.</span>
+
+	<a class="eclass" href="etf/eqa_evaluator_chart.html">EQA_EVALUATOR</a>
+			<span class="ecomment">--</span><span class="ecomment"> Core implementation for root class of test executor. The test evaluator is used by the</span>
+			<span class="ecomment">--</span><span class="ecomment"> testing tool to run tests and retrieve results. Any descendant of this class should be used as</span>
+			<span class="ecomment">--</span><span class="ecomment"> the root class of an interpreter. Descendants need to provide </span><a class="eclass" href="etf/eqa_evaluator_chart.html">EQA_EVALUATOR</a><span class="ecomment"> information on</span>
+			<span class="ecomment">--</span><span class="ecomment"> what test classes/routines are available and be able to create instances of them.</span>
+
+	<a class="eclass" href="etf/eqa_externals_chart.html">EQA_EXTERNALS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects providing byte code support for testing facilities.</span>
+
+	<a class="eclass" href="etf/eqa_externals_chart.html">EQA_EXTERNALS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects providing byte code support for testing facilities.</span>
+
+	<a class="eclass" href="testing/eqa_file_system_chart.html">EQA_FILE_SYSTEM</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects creating directories and files in a system test set environment.</span>
+
+	<a class="eclass" href="testing/eqa_file_system_chart.html">EQA_FILE_SYSTEM</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects creating directories and files in a system test set environment.</span>
+
+	<a class="eclass" href="testing/eqa_partial_result_chart.html">EQA_PARTIAL_RESULT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Test result from an execution where setup was exceptional</span>
+
+	<a class="eclass" href="testing/eqa_partial_result_chart.html">EQA_PARTIAL_RESULT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Test result from an execution where setup was exceptional</span>
+
+	<a class="eclass" href="testing/eqa_result_chart.html">EQA_RESULT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Responce produced from executing an Eiffel test</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span>
+			<span class="ecomment">--</span><span class="ecomment"> TEST_OUTCOME holds information about the tree stages each test execution consists of: setup, test</span>
+			<span class="ecomment">--</span><span class="ecomment"> and teardown. Based on that information it tries to determine whether the implementation passes</span>
+			<span class="ecomment">--</span><span class="ecomment"> or fails the test. If an unexpected error occurred during execution, it will blame the test by</span>
+			<span class="ecomment">--</span><span class="ecomment"> setting </span><span class="equoted">is_maintenance_required</span><span class="ecomment"> to True. Somethimes the error prevents to determine wheter the</span>
+			<span class="ecomment">--</span><span class="ecomment"> implementaion has passed or failed the test. In that case a outcome is said to be unresolved.</span>
+
+	<a class="eclass" href="testing/eqa_result_chart.html">EQA_RESULT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Responce produced from executing an Eiffel test</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span>
+			<span class="ecomment">--</span><span class="ecomment"> TEST_OUTCOME holds information about the tree stages each test execution consists of: setup, test</span>
+			<span class="ecomment">--</span><span class="ecomment"> and teardown. Based on that information it tries to determine whether the implementation passes</span>
+			<span class="ecomment">--</span><span class="ecomment"> or fails the test. If an unexpected error occurred during execution, it will blame the test by</span>
+			<span class="ecomment">--</span><span class="ecomment"> setting </span><span class="equoted">is_maintenance_required</span><span class="ecomment"> to True. Somethimes the error prevents to determine wheter the</span>
+			<span class="ecomment">--</span><span class="ecomment"> implementaion has passed or failed the test. In that case a outcome is said to be unresolved.</span>
+
+	<a class="eclass" href="testing/eqa_system_path_chart.html">EQA_SYSTEM_PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects representing a relative path.</span>
+
+	<a class="eclass" href="testing/eqa_system_path_chart.html">EQA_SYSTEM_PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects representing a relative path.</span>
+
+	<a class="eclass" href="testing/eqa_test_evaluator_chart.html">EQA_TEST_EVALUATOR</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="testing/eqa_test_set_chart.html">EQA_TEST_SET</a> <span class="ekeyword">create</span> <a class="efeature" href="testing/eqa_test_set.html#f_default_create">default_create</a> <span class="ekeyword">end</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Objects that are able to run tests in a protected environment and provide information whether</span>
+			<span class="ecomment">--</span><span class="ecomment"> the test has failed or succeeded.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: Evaluator is not able to recover from all exceptions. Tests causing seg-faults or out-of-</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory exceptions might put evaluator in an unstable state.</span>
+
+	<a class="eclass" href="testing/eqa_test_evaluator_chart.html">EQA_TEST_EVALUATOR</a> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="testing/eqa_test_set_chart.html">EQA_TEST_SET</a> <span class="ekeyword">create</span> <a class="efeature" href="testing/eqa_test_set.html#f_default_create">default_create</a> <span class="ekeyword">end</span><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Objects that are able to run tests in a protected environment and provide information whether</span>
+			<span class="ecomment">--</span><span class="ecomment"> the test has failed or succeeded.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: Evaluator is not able to recover from all exceptions. Tests causing seg-faults or out-of-</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory exceptions might put evaluator in an unstable state.</span>
+
+	<a class="eclass" href="testing/eqa_test_invocation_exception_chart.html">EQA_TEST_INVOCATION_EXCEPTION</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects representing an exception raised while invoking a test class and/or feature.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: </span><a class="eclass" href="testing/eqa_test_invocation_exception_chart.html">EQA_TEST_INVOCATION_EXCEPTION</a><span class="ecomment"> does not only contain the exception information, it also</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;analyses the stack trace to determine whether the implementation or the test code is</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to blame.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span>
+			<span class="ecomment">--</span><span class="ecomment"> TODO: Take stack frames of agent calls into account, meaning that even though </span><span class="esymbol">{</span><a class="eclass" href="elks/procedure_chart.html">PROCEDURE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="elks/procedure.html#f_fast_call">fast_call</a>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;causes a precondition violation, the stack frame calling the agent is to blame.</span>
+
+	<a class="eclass" href="testing/eqa_test_invocation_exception_chart.html">EQA_TEST_INVOCATION_EXCEPTION</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects representing an exception raised while invoking a test class and/or feature.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: </span><a class="eclass" href="testing/eqa_test_invocation_exception_chart.html">EQA_TEST_INVOCATION_EXCEPTION</a><span class="ecomment"> does not only contain the exception information, it also</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;analyses the stack trace to determine whether the implementation or the test code is</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to blame.</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span>
+			<span class="ecomment">--</span><span class="ecomment"> TODO: Take stack frames of agent calls into account, meaning that even though </span><span class="esymbol">{</span><a class="eclass" href="elks/procedure_chart.html">PROCEDURE</a><span class="esymbol">}</span><span class="edot">.</span><a class="efeature" href="elks/procedure.html#f_fast_call">fast_call</a>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;causes a precondition violation, the stack frame calling the agent is to blame.</span>
+
+	<a class="eclass" href="testing/eqa_test_invocation_response_chart.html">EQA_TEST_INVOCATION_RESPONSE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Represents the result from executing one of the stages in an Eiffel test.</span>
+
+	<a class="eclass" href="testing/eqa_test_invocation_response_chart.html">EQA_TEST_INVOCATION_RESPONSE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Represents the result from executing one of the stages in an Eiffel test.</span>
+
+	<a class="eclass" href="testing/eqa_test_output_buffer_chart.html">EQA_TEST_OUTPUT_BUFFER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects that redirect file output into a buffer. If the output exceeds the size of the buffer,</span>
+			<span class="ecomment">--</span><span class="ecomment"> only the first and the last part of the output are kept in the buffer.</span>
+
+	<a class="eclass" href="testing/eqa_test_output_buffer_chart.html">EQA_TEST_OUTPUT_BUFFER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects that redirect file output into a buffer. If the output exceeds the size of the buffer,</span>
+			<span class="ecomment">--</span><span class="ecomment"> only the first and the last part of the output are kept in the buffer.</span>
+
+	<a class="eclass" href="testing/eqa_test_set_chart.html">EQA_TEST_SET</a><span class="echar">*</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets of related testing operations.</span>
+
+	<a class="eclass" href="testing/eqa_test_set_chart.html">EQA_TEST_SET</a><span class="echar">*</span>
+			<span class="ecomment">--</span><span class="ecomment"> Sets of related testing operations.</span>
+
+	<a class="eclass" href="etf/erl_constants_chart.html">ERL_CONSTANTS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Constants for interpreter</span>
+
+	<a class="eclass" href="etf/erl_constants_chart.html">ERL_CONSTANTS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Constants for interpreter</span>
+
 	<a class="eclass" href="elks/exception_chart.html">EXCEPTION</a>
 			<span class="ecomment">--</span><span class="ecomment"> Ancestor of all exception classes.</span>
 
@@ -860,6 +992,9 @@
 	<a class="eclass" href="ise/external_failure_chart.html">EXTERNAL_FAILURE</a>
 			<span class="ecomment">--</span><span class="ecomment"> Exception for operating system error</span>
 			<span class="ecomment">--</span><span class="ecomment"> which does not set the </span><span class="equoted">errno</span><span class="ecomment"> variable (Unix-specific)</span>
+
+	<a class="eclass" href="fallingeiffel/fast_noise_lite/fast_noise_lite_external_chart.html">FAST_NOISE_LITE_EXTERNAL</a>
+			<span class="ecomment">--</span><span class="ecomment"> Fast Portable Noise Library</span>
 
 	<a class="eclass" href="elks/fibonacci_chart.html">FIBONACCI</a>
 			<span class="ecomment">--</span><span class="ecomment"> The Fibonacci number sequence</span>
@@ -936,6 +1071,9 @@
 
 	<a class="eclass" href="elks/floating_point_failure_chart.html">FLOATING_POINT_FAILURE</a>
 			<span class="ecomment">--</span><span class="ecomment"> Floating point failure</span>
+
+	<a class="eclass" href="fallingeiffel/fast_noise_lite/fnl_state_chart.html">FNL_STATE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Structure containing entire noise system state.</span>
 
 	<a class="eclass" href="elks/format_double_chart.html">FORMAT_DOUBLE</a>
 			<span class="ecomment">--</span><span class="ecomment"> Formatter for non-integral numbers</span>
@@ -1686,6 +1824,50 @@
 			<span class="ecomment">--</span><span class="ecomment"> on which they can perform repeated actions and tests according</span>
 			<span class="ecomment">--</span><span class="ecomment"> to a number of predefined control structures such as </span><span class="equoted">if</span><span class="ecomment">,</span>
 			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">until</span><span class="ecomment"> and others.</span>
+
+	<a class="eclass" href="etf/itp_constant_chart.html">ITP_CONSTANT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects representing constants.</span>
+
+	<a class="eclass" href="etf/itp_constant_chart.html">ITP_CONSTANT</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects representing constants.</span>
+
+	<a class="eclass" href="etf/itp_expression_chart.html">ITP_EXPRESSION</a><span class="echar">*</span>
+			<span class="ecomment">--</span><span class="ecomment"> Common ancestor for all Expressions supported by the interpreter.</span>
+
+	<a class="eclass" href="etf/itp_expression_chart.html">ITP_EXPRESSION</a><span class="echar">*</span>
+			<span class="ecomment">--</span><span class="ecomment"> Common ancestor for all Expressions supported by the interpreter.</span>
+
+	<a class="eclass" href="etf/itp_expression_processor_chart.html">ITP_EXPRESSION_PROCESSOR</a><span class="echar">*</span>
+			<span class="ecomment">--</span><span class="ecomment"> Processor for expressions (Visitor Pattern)</span>
+
+	<a class="eclass" href="etf/itp_expression_processor_chart.html">ITP_EXPRESSION_PROCESSOR</a><span class="echar">*</span>
+			<span class="ecomment">--</span><span class="ecomment"> Processor for expressions (Visitor Pattern)</span>
+
+	<a class="eclass" href="etf/itp_interpreter_chart.html">ITP_INTERPRETER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Interpreter for line based Eiffel like interpreter language.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Depends on a generated Erl-G reflection library.</span>
+
+	<a class="eclass" href="etf/itp_interpreter_chart.html">ITP_INTERPRETER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Interpreter for line based Eiffel like interpreter language.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Depends on a generated Erl-G reflection library.</span>
+
+	<a class="eclass" href="etf/itp_shared_constants_chart.html">ITP_SHARED_CONSTANTS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Constants used by interpeter</span>
+
+	<a class="eclass" href="etf/itp_shared_constants_chart.html">ITP_SHARED_CONSTANTS</a>
+			<span class="ecomment">--</span><span class="ecomment"> Constants used by interpeter</span>
+
+	<a class="eclass" href="etf/itp_store_chart.html">ITP_STORE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Object store for interpreter</span>
+
+	<a class="eclass" href="etf/itp_store_chart.html">ITP_STORE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Object store for interpreter</span>
+
+	<a class="eclass" href="etf/itp_variable_chart.html">ITP_VARIABLE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects representing variables.</span>
+
+	<a class="eclass" href="etf/itp_variable_chart.html">ITP_VARIABLE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Objects representing variables.</span>
 
 	<a class="eclass" href="json/json_kernel/json_array_chart.html">JSON_ARRAY</a>
 			<span class="ecomment">--</span><span class="ecomment"> JSON_ARRAY represent an array in JSON.</span>
